@@ -1,4 +1,4 @@
-import { Home } from './js/cmps/Home/home.jsx'
+import { Home } from './js/pages/Home/home.jsx'
 import { WebTemplate1 } from './js/cmps/web-templates/WebTemplate1.jsx'
 import { WebTemplate2 } from './js/cmps/web-templates/WebTemplate2.jsx'
 
