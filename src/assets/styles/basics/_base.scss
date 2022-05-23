@@ -1,58 +1,62 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 :root {
-    // this is the default value below
-    --toastify-color-progress-light: linear-gradient(to right, #007aff, #007aff) !important;
+  // this is the default value below
+  --toastify-color-progress-light: linear-gradient(
+    to right,
+    #007aff,
+    #007aff
+  ) !important;
 }
 html {
-    font-size: 16px;
-    font-family: $main-font;
-    color: black;
-    // We might need to use variable declarations here if we want to have a theme toggler.
-    // $font-main:
-    // $color-main:
-    // $color-secondary:
+  font-size: 16px;
+  font-family: $main-font;
+  color: black;
+  // We might need to use variable declarations here if we want to have a theme toggler.
+  // $font-main:
+  // $color-main:
+  // $color-secondary:
 }
 
 button,
 input {
-    font-family: $main-font;
+  font-family: $main-font;
 }
 
 body {
-    background-color: $color1;
-    margin: 0;
+  // background-color: $color1;
+  margin: 0;
 }
 
 ::-webkit-scrollbar {
-    width: 15px;
-    cursor: default;
+  width: 15px;
+  cursor: default;
 }
 
 ::-webkit-scrollbar-track {
-    background: lightgray;
-    border-radius: 10px;
-    margin-block: 2px;
+  background: lightgray;
+  border-radius: 10px;
+  margin-block: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #b4b4b4;
-    border-radius: 10px;
-    border: 3px solid lightgray;
+  background: #b4b4b4;
+  border-radius: 10px;
+  border: 3px solid lightgray;
 
-    transition: 200ms;
+  transition: 200ms;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #a0a0a0;
+  background: #a0a0a0;
 }
 
 // ::-webkit-scrollbar:double-button {
 // }
 
-main{
-    flex: 1;
+main {
+  flex: 1;
 }
