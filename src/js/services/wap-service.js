@@ -1,4 +1,4 @@
-export const service = {
+export const wapService = {
   getHeaders,
   getCmpById,
 }
