@@ -1,22 +1,8 @@
+import { header1 } from './headers/header1'
+import { footer1 } from './footers/footer1'
+
 export const template1 = {
   _id: 'ahlaid',
   type: 'wap',
-  cmps: [
-    {
-      type: 'header',
-      id: 'h101',
-    },
-    // {
-    //   type: 'hero',
-    //   id: 'h101',
-    // },
-    // {
-    //   type: 'cards',
-    //   id: 'c101',
-    // },
-    {
-      type: 'footer',
-      id: 'f101',
-    },
-  ],
+  cmps: [header1, footer1],
 }
