@@ -1,0 +1,24 @@
+// Setup
+
+@import './setup/variables';
+@import './setup/functions';
+@import './setup/mixins';
+@import './setup/typography';
+
+// Basics
+
+@import './basics/base';
+@import './basics/animations';
+@import './basics/helpers';
+
+// Loader
+
+@import './cmps/loader';
+
+// Components
+
+@import './cmps/app-header';
+
+// Pages
+
+@import './pages/editor/styles';

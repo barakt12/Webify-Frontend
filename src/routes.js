@@ -1,15 +1,23 @@
 import { Home } from './js/pages/Home/home.jsx'
-import { WebTemplate1 } from './js/cmps/web-templates/WebTemplate1.jsx'
-import { WebTemplate2 } from './js/cmps/web-templates/WebTemplate2.jsx'
+import { Editor } from './js/pages/Editor/editor-page.jsx'
+import { Templates } from './js/pages/Templates/templates-page'
 
 export const routes = [
   {
-    path: '/Template1',
-    component: WebTemplate1,
+    path: '/templates',
+    component: Templates,
   },
   {
-    path: '/Template1',
-    component: WebTemplate2,
+    path: '/editor/:wapId',
+    component: Editor,
+  },
+  {
+    path: '/editor',
+    component: Editor,
+  },
+  {
+    path: '/editor',
+    component: Editor,
   },
   {
     path: '/',
