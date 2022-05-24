@@ -1,12 +1,17 @@
+import { template1 } from '../temaplates-example/template1'
+
 export const wapService = {
   getTemplates,
   getCmpById,
+  getFooters,
+  getTemplate,
+  // getCmpByIdAndType,
 }
 
 const templates = [
   {
     name: 'header1',
-    type: 'header',
+    type: 'container',
     id: 'h101',
     //change to cloudinary
     thumbnail: 'https://i.postimg.cc/vmFf4mMv/header1.png',
@@ -72,7 +77,7 @@ const templates = [
   },
   {
     name: 'header2',
-    type: 'header',
+    type: 'container',
     id: 'h102',
     thumbnail: 'https://i.postimg.cc/g0VR8P2b/header2.png',
     style: {
@@ -130,7 +135,7 @@ const templates = [
   },
   {
     name: 'header3',
-    type: 'header',
+    type: 'container',
     id: 'h103',
     thumbnail: 'https://i.postimg.cc/Y9tFxyvG/header3.png',
     style: {
@@ -188,10 +193,80 @@ const templates = [
   },
 ]
 
+const footers = [
+  {
+    name: 'footer1',
+    type: 'container',
+    id: 'f101',
+    thumbnail: null,
+    style: {
+      color: 'white',
+      padding: '1rem',
+      backgroundColor: 'tomato',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    cmps: [
+      {
+        type: 'txt',
+        content: 'Logo',
+        style: {
+          fontSize: '2rem',
+          marginBottom: '0.5rem',
+        },
+        cmps: [],
+      },
+      {
+        type: 'container',
+        style: {
+          display: 'flex',
+          gap: '0.25rem',
+        },
+        cmps: [
+          {
+            type: 'icon',
+            iconName: 'facebook',
+            cmps: [],
+          },
+          {
+            type: 'icon',
+            iconName: 'instagram',
+            cmps: [],
+          },
+          {
+            type: 'icon',
+            iconName: 'linkedin',
+            cmps: [],
+          },
+        ],
+      },
+    ],
+  },
+]
+
 function getTemplates() {
   return templates
+}
+function getFooters() {
+  return footers
 }
 
 function getCmpById(id) {
   return templates.find((header) => header.id === id)
+}
+
+// function getCmpByIdAndType(type, id) {
+//   switch (type) {
+//     case 'header':
+//       return headers.find((header) => header.id === id)
+//     case 'footer':
+//       return footers.find((footer) => footer.id === id)
+//       default:
+//       return
+//   }
+// }
+
+function getTemplate() {
+  return template1
 }

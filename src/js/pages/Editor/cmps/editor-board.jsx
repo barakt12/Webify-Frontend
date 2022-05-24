@@ -1,26 +1,72 @@
-import { Droppable } from 'react-beautiful-dnd'
+import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { DynamicCmp } from '../cmps/dynamic-cmp'
+// import { wapService } from '../../../services/wap-service'
+import { isEmpty } from 'lodash'
 
-export function EditorBoard({ pageContent }) {
+export const EditorBoard = ({
+  pageContent,
+  placeholderProps,
+  getListStyle,
+  getItemStyle,
+}) => {
+  // const getCmpById = (type, id) => {
+  //   return wapService.getCmpByIdAndType(type, id)
+  // }
+
   return (
-    <Droppable droppableId='editor'>
-      {(provided) => {
-        return (
-          <section
-            className='editor'
-            style={{ marginTop: '30px' }}
-            ref={provided.innerRef}
-            {...provided.droppableProps}
-          >
-            {!pageContent?.length ? (
-              <span>Drag and Drop to add components</span>
-            ) : (
-              pageContent.map((cmp) => <DynamicCmp cmp={cmp} key={cmp.id} />)
-            )}
-            {provided.placeholder}
-          </section>
-        )
-      }}
-    </Droppable>
+    <>
+      <Droppable droppableId='editor'>
+        {(provided, snapshot) => {
+          return (
+            <section
+              {...provided.droppableProps}
+              style={getListStyle(snapshot.isDraggingOver)}
+              ref={provided.innerRef}
+              className='editor'
+            >
+              {!pageContent?.cmps?.length && (
+                <span>Drag and Drop to add components</span>
+              )}
+
+              <h2>Editor</h2>
+              {pageContent?.cmps?.length &&
+                pageContent.cmps.map((cmp, index) => (
+                  <Draggable
+                    key={cmp.id}
+                    draggableId={cmp.id + 'board'}
+                    index={index}
+                  >
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={getItemStyle(
+                          snapshot.isDragging,
+                          provided.draggableProps.style
+                        )}
+                      >
+                        <DynamicCmp cmp={cmp} />
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+              {/* {provided.placeholder} */}
+              {!isEmpty(placeholderProps) && snapshot.isDraggingOver && (
+                <div
+                  className='placeholder'
+                  style={{
+                    top: placeholderProps.clientY,
+                    left: placeholderProps.clientX,
+                    height: placeholderProps.clientHeight,
+                    width: placeholderProps.clientWidth,
+                  }}
+                />
+              )}
+            </section>
+          )
+        }}
+      </Droppable>
+    </>
   )
 }
