@@ -1,6 +1,6 @@
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 
-export function ComponentsList({ headers }) {
+export const ComponentsList = ({ headers }) => {
   return (
     <section className='components-list'>
       <h2>Components</h2>
