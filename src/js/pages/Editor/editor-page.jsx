@@ -1,16 +1,16 @@
-import { ComponentsList } from './cmps/components'
-import { EditorDisplay } from './cmps/editor-board'
+import { EditorSidebar } from './cmps/editor-sidebar'
+import { EditorBoard } from './cmps/editor-board'
 import { useEffect, useState } from 'react'
-import { Header1 } from '../../templates-example/headers/header1'
+
 import { DragDropContext } from 'react-beautiful-dnd'
 import { wapService } from '../../services/wap-service'
 
 export function Editor() {
-  const [headers, setHeaders] = useState(null)
+  const [templates, setTemplates] = useState(null)
   const [pageContent, setPageContent] = useState([])
 
   useEffect(() => {
-    setHeaders(wapService.getHeaders())
+    setTemplates(wapService.getTemplates())
   }, [])
 
   function addCmpToPage(dragInfo) {
@@ -20,13 +20,22 @@ export function Editor() {
     setPageContent([...pageContent, cmp])
   }
 
+  const onDragStart = (info) => {
+    console.log(info)
+    if (info.draggableId === 'h101' && info.source?.droppableId === 'hb5') {
+      return
+    }
+  }
+
   return (
     <div className='App'>
-      <Header1 />
       <section className='editor-container'>
-        <DragDropContext onDragEnd={(info) => addCmpToPage(info)}>
-          <ComponentsList headers={headers} />
-          <EditorDisplay pageContent={pageContent} />
+        <DragDropContext
+          onDragEnd={(info) => addCmpToPage(info)}
+          onDragStart={onDragStart}
+        >
+          <EditorSidebar templates={templates} />
+          <EditorBoard pageContent={pageContent} />
         </DragDropContext>
       </section>
     </div>

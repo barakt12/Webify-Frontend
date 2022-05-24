@@ -1,6 +1,6 @@
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 
-export function ComponentsList({ headers }) {
+export function EditorSidebar({ templates }) {
   return (
     <section className='components-list'>
       <h2>Components</h2>
@@ -11,12 +11,12 @@ export function ComponentsList({ headers }) {
             {...provided.droppableProps}
             className='header-list'
           >
-            {headers &&
-              headers.map((header, idx) => {
+            {templates &&
+              templates.map((templates, idx) => {
                 return (
                   <Draggable
-                    key={header.id}
-                    draggableId={header.id}
+                    key={templates.id}
+                    draggableId={templates.id}
                     index={idx}
                   >
                     {(provided) => {
@@ -25,9 +25,9 @@ export function ComponentsList({ headers }) {
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
-                          key={header.id}
+                          key={templates.id}
                           className='mini-cmp'
-                          src={header.thumbnail}
+                          src={templates.thumbnail}
                           alt=''
                         />
                       )

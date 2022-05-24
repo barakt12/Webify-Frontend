@@ -1,9 +1,9 @@
 export const wapService = {
-  getHeaders,
+  getTemplates,
   getCmpById,
 }
 
-const headers = [
+const templates = [
   {
     name: 'header1',
     type: 'header',
@@ -21,6 +21,7 @@ const headers = [
       {
         type: 'txt',
         content: 'Header1',
+        id: 'u38jg',
         style: {
           fontSize: '2rem',
           fontWeight: '700',
@@ -29,6 +30,7 @@ const headers = [
       },
       {
         type: 'nav-bar',
+        id: 'fsrgsdrthge',
         style: {
           display: 'flex',
           gap: '0.5rem',
@@ -37,24 +39,28 @@ const headers = [
           {
             type: 'txt',
             content: 'Home',
+            id: 'u38jgfw4gfw4gwg',
             style: {},
             cmps: [],
           },
           {
             type: 'txt',
             content: 'Page1',
+            id: 'u38j43434ff34f3g',
             style: {},
             cmps: [],
           },
           {
             type: 'txt',
             content: 'Page2',
+            id: 'u34tf34f33845g43jg',
             style: {},
             cmps: [],
           },
           {
             type: 'txt',
             content: 'About',
+            id: 'u3345g34f3434f8jg',
             style: {},
             cmps: [],
           },
@@ -180,10 +186,10 @@ const headers = [
   },
 ]
 
-function getHeaders() {
-  return headers
+function getTemplates() {
+  return templates
 }
 
 function getCmpById(id) {
-  return headers.find((header) => header.id === id)
+  return templates.find((header) => header.id === id)
 }
