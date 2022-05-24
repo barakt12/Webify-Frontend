@@ -8,7 +8,9 @@ const templates = [
     name: 'header1',
     type: 'header',
     id: 'h101',
+    //change to cloudinary
     thumbnail: 'https://i.postimg.cc/vmFf4mMv/header1.png',
+    //each component will have his own css file
     style: {
       display: 'flex',
       justifyContent: 'space-between',
