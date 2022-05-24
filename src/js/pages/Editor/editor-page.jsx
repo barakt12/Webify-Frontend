@@ -5,10 +5,9 @@ import { Header1 } from '../../templates-example/headers/header1'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { wapService } from '../../services/wap-service'
 
-
 export function Editor() {
-  const queryAttr = "data-rbd-drag-handle-draggable-id";
-  const [placeholderProps, setPlaceholderProps] = useState({});
+  const queryAttr = 'data-rbd-drag-handle-draggable-id'
+  const [placeholderProps, setPlaceholderProps] = useState({})
   const [headers, setHeaders] = useState(null)
   const [pageContent, setPageContent] = useState([])
 
@@ -25,41 +24,41 @@ export function Editor() {
 
   const getItemStyle = (isDragging, draggableStyle) => ({
     // some basic styles to make the items look a bit nicer
-    userSelect: "none",
+    userSelect: 'none',
     //if we need margin or padding on that container use that
     // padding: grid * 2,
     // margin: `0 0 ${grid}px 0`,
-  
+
     // change background colour if dragging
-    background: isDragging ? "lightgreen" : "grey",
-  
+    background: isDragging ? 'lightgreen' : 'grey',
+
     // styles we need to apply on draggables
-    ...draggableStyle
-  });
-  
-  const getListStyle = isDraggingOver => ({
-    background: isDraggingOver ? "lightblue" : "lightgrey",
+    ...draggableStyle,
+  })
+
+  const getListStyle = (isDraggingOver) => ({
+    background: isDraggingOver ? 'lightblue' : 'lightgrey',
     padding: '5px',
     width: '80%',
-    position: "relative"
-  });
+    position: 'relative',
+  })
 
-  const handleDragStart = event => {
-    const draggedDOM = getDraggedDom(event.draggableId);
+  const handleDragStart = (event) => {
+    const draggedDOM = getDraggedDom(event.draggableId)
 
     if (!draggedDOM) return
 
-    const { clientHeight, clientWidth } = draggedDOM;
-    const sourceIndex = event.source.index;
+    const { clientHeight, clientWidth } = draggedDOM
+    const sourceIndex = event.source.index
     var clientY =
       parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingTop) +
       [...draggedDOM.parentNode.children]
         .slice(0, sourceIndex)
         .reduce((total, curr) => {
-          const style = curr.currentStyle || window.getComputedStyle(curr);
-          const marginBottom = parseFloat(style.marginBottom);
-          return total + curr.clientHeight + marginBottom;
-        }, 0);
+          const style = curr.currentStyle || window.getComputedStyle(curr)
+          const marginBottom = parseFloat(style.marginBottom)
+          return total + curr.clientHeight + marginBottom
+        }, 0)
 
     setPlaceholderProps({
       clientHeight,
@@ -67,57 +66,58 @@ export function Editor() {
       clientY,
       clientX: parseFloat(
         window.getComputedStyle(draggedDOM.parentNode).paddingLeft
-      )
+      ),
     })
   }
 
-  function addCmpToPage(result) {
+  const addCmpToPage = (result) => {
     // if (result.destination.droppableId !== 'editor') return
     const cmp = wapService.getCmpById(result.draggableId)
     setPageContent([...pageContent, cmp])
   }
 
   const handleDragEnd = (result) => {
-    setPlaceholderProps({});
+    setPlaceholderProps({})
     // dropped outside the list
     if (!result.destination) return
-    else if (result.destination.droppableId === 'editor' &&
-             result.source.droppableId !== 'editor'){
-              addCmpToPage(result)
-              return
-             } 
+    else if (
+      result.destination.droppableId === 'editor' &&
+      result.source.droppableId !== 'editor'
+    ) {
+      addCmpToPage(result)
+      return
+    }
 
     const content = reorder(
       pageContent,
       result.source.index,
       result.destination.index
     )
-    console.log(content)
+
     setPageContent(content)
-    // setHeaders(items);
   }
 
-  const handleDragUpdate = event => {
+  const handleDragUpdate = (event) => {
     if (!event.destination) return
-    console.log('hello',event.draggableId)
+    console.log('hello', event.draggableId)
 
-    const draggedDOM = getDraggedDom(event.draggableId);
+    const draggedDOM = getDraggedDom(event.draggableId)
 
     if (!draggedDOM) return
 
-    const { clientHeight, clientWidth } = draggedDOM;
-    const destinationIndex = event.destination.index;
-    const sourceIndex = event.source.index;
+    const { clientHeight, clientWidth } = draggedDOM
+    const destinationIndex = event.destination.index
+    const sourceIndex = event.source.index
 
-    const childrenArray = [...draggedDOM.parentNode.children];
-    const movedItem = childrenArray[sourceIndex];
-    childrenArray.splice(sourceIndex, 1);
+    const childrenArray = [...draggedDOM.parentNode.children]
+    const movedItem = childrenArray[sourceIndex]
+    childrenArray.splice(sourceIndex, 1)
 
     const updatedArray = [
       ...childrenArray.slice(0, destinationIndex),
       movedItem,
-      ...childrenArray.slice(destinationIndex + 1)
-    ];
+      ...childrenArray.slice(destinationIndex + 1),
+    ]
 
     var clientY =
       parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingTop) +
@@ -133,7 +133,7 @@ export function Editor() {
       clientY,
       clientX: parseFloat(
         window.getComputedStyle(draggedDOM.parentNode).paddingLeft
-      )
+      ),
     })
   }
 
@@ -143,14 +143,22 @@ export function Editor() {
     return draggedDOM
   }
 
-
   return (
-    <div className='App'>
+    <div className="App">
       <Header1 />
-      <section className='editor-container'>
-        <DragDropContext onDragStart={handleDragStart} onDragUpdate={handleDragUpdate} onDragEnd={handleDragEnd}>
+      <section className="editor-container">
+        <DragDropContext
+          onDragStart={handleDragStart}
+          onDragUpdate={handleDragUpdate}
+          onDragEnd={handleDragEnd}
+        >
           <ComponentsList headers={headers} />
-          <EditorDisplay pageContent={pageContent} placeholderProps={placeholderProps} getListStyle={getListStyle} getItemStyle={getItemStyle}/>
+          <EditorDisplay
+            pageContent={pageContent}
+            placeholderProps={placeholderProps}
+            getListStyle={getListStyle}
+            getItemStyle={getItemStyle}
+          />
         </DragDropContext>
       </section>
     </div>
