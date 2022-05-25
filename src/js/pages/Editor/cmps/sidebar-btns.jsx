@@ -23,7 +23,16 @@ export function SidebarBtns() {
           <Typography>Hero</Typography>
         </AccordionDetails>
         <AccordionDetails className='add-btn-details'>
-          <Typography>Cards</Typography>
+          <Typography>Card</Typography>
+        </AccordionDetails>
+        <AccordionDetails className='add-btn-details'>
+          <Typography>Text</Typography>
+        </AccordionDetails>
+        <AccordionDetails className='add-btn-details'>
+          <Typography>Gallery</Typography>
+        </AccordionDetails>
+        <AccordionDetails className='add-btn-details'>
+          <Typography>Footer</Typography>
         </AccordionDetails>
       </Accordion>
     </div>
