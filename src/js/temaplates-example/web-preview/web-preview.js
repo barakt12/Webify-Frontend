@@ -1,4 +1,4 @@
-export const templatePreviews = [
+export const webPreviews = [
   {
     id: 'ahlaid',
     info: {
@@ -8,7 +8,7 @@ export const templatePreviews = [
     },
   },
   {
-    id: 'ahlaid2',
+    id: 'web-template2',
     info: {
       name: 'Momentum',
       img: require('../../../assets/img/web-templates-preview/web-template-preview2.jpg'),
