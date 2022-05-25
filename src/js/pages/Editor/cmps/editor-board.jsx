@@ -2,6 +2,7 @@ import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { DynamicCmp } from '../cmps/dynamic-cmp'
 import { isEmpty } from 'lodash'
 
+
 export const EditorBoard = ({ pageContent, placeholderProps, getListStyle, getItemStyle }) => {
   return (
     <>
