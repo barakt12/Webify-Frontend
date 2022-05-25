@@ -1,11 +1,15 @@
 import { SidebarBtns } from './sidebar-btns'
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { useState } from 'react'
+import { templateService } from '../../../services/templates.service'
 
 export function EditorSidebar({ elements }) {
   const [isSidebarShown, toggleSidebarShown] = useState(true)
   const [cmpList, setCmpList] = useState('header')
   const [activeBtn, setActiveBtn] = useState('add')
+
+  const footers = templateService.getCmpsByCategory('footer')
+  console.log(footers)
 
   return (
     <section className='editor-sidebar'>

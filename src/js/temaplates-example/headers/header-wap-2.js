@@ -1,10 +1,8 @@
-import { v4 as uuidv4 } from 'uuid'
-
-export const headerWap1 = {
-  name: 'wap-header-1',
+export const headerWap2 = {
+  name: 'wap-header-2',
   type: 'container',
-  category: 'header',
-  id: 'h101',
+  id: 'h102',
+  type: 'container',
   //change to cloudinary
   imgUrl: 'https://i.postimg.cc/vmFf4mMv/header1.png',
   //each component will have his own css file
@@ -12,9 +10,8 @@ export const headerWap1 = {
   cmps: [
     {
       type: 'txt',
-      id: uuidv4(),
       info: {
-        txt: 'Header1',
+        txt: 'Header2',
       },
       style: {
         fontSize: '2rem',
@@ -24,44 +21,54 @@ export const headerWap1 = {
     {
       type: 'container',
       name: 'nav-bar',
-      id: uuidv4(),
       style: {},
       cmps: [
         {
           type: 'txt',
-          id: uuidv4(),
-          info: {
-            txt: 'Home',
-          },
-          style: {},
-          cmps: [],
-        },
-        {
-          type: 'txt',
-          id: uuidv4(),
-          info: {
-            txt: 'Page1',
-          },
-          style: {},
-          cmps: [],
-        },
-        {
-          type: 'txt',
-          id: uuidv4(),
-          info: {
-            txt: 'Page2',
-          },
-          style: {},
-          cmps: [],
-        },
-        {
-          type: 'txt',
-          id: uuidv4(),
           info: {
             txt: 'About',
           },
           style: {},
           cmps: [],
+        },
+        {
+          type: 'txt',
+          info: {
+            txt: 'Features',
+          },
+          style: {},
+          cmps: [],
+        },
+        {
+          type: 'txt',
+          info: {
+            txt: 'How to Use',
+          },
+          style: {},
+          cmps: [],
+        },
+        {
+          type: 'txt',
+          info: {
+            txt: 'Download',
+          },
+          style: {},
+          cmps: [],
+        },
+      ],
+    },
+    {
+      type: 'container',
+      name: 'hamburger-nav-bar',
+      style: {},
+      cmps: [
+        {
+          type: 'img',
+          info: {
+            imgUrl:
+              'https://icon-library.com/images/white-hamburger-menu-icon/white-hamburger-menu-icon-24.jpg',
+          },
+          style: {},
         },
       ],
     },

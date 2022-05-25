@@ -2,15 +2,19 @@ import { IconCmp } from './icon-cmp'
 import { TxtCmp } from './txt-cmp'
 import { ImgCmp } from './img-cmp'
 import { FAQCmp } from './faq-cmp'
+import { BtnCmp } from './btn-cmp'
+
+
 
 export const DynamicCmp = ({ cmp }) => {
   let insertedCmp = ''
 
   switch (cmp.type) {
     case 'container':
-      insertedCmp = cmp?.cmps?.map((innerCmp) => (
-        <DynamicCmp key={innerCmp.id} cmp={innerCmp} />
-      ))
+      insertedCmp = cmp?.cmps?.map((innerCmp) => {
+        console.log(innerCmp.id)
+        return <DynamicCmp key={innerCmp.id} cmp={innerCmp} />
+      })
       break
     case 'txt':
       insertedCmp = <TxtCmp {...cmp.info} />
@@ -23,6 +27,9 @@ export const DynamicCmp = ({ cmp }) => {
       break
     case 'faq':
       insertedCmp = <FAQCmp {...cmp.info} />
+      break
+    case 'btn':
+      insertedCmp = <BtnCmp {...cmp.info} />
       break
     default:
       return
