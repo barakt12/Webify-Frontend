@@ -2,8 +2,9 @@ export const headerWap1 = {
   name: 'wap-header-1',
   type: 'container',
   id: 'h101',
+  type: 'container',
   //change to cloudinary
-  thumbnail: 'https://i.postimg.cc/vmFf4mMv/header1.png',
+  imgUrl: 'https://i.postimg.cc/vmFf4mMv/header1.png',
   //each component will have his own css file
   style: {},
   cmps: [
@@ -16,14 +17,11 @@ export const headerWap1 = {
         fontSize: '2rem',
         fontWeight: '700',
       },
-      cmps: [],
     },
     {
       type: 'container',
-      style: {
-        display: 'flex',
-        gap: '0.5rem',
-      },
+      name: 'nav-bar',
+      style: {},
       cmps: [
         {
           type: 'txt',

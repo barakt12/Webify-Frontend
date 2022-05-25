@@ -8,7 +8,7 @@ import { wapService } from '../../services/wap-service'
 export function Editor() {
   const queryAttr = 'data-rbd-drag-handle-draggable-id'
   const [placeholderProps, setPlaceholderProps] = useState({})
-  const [headers, setHeaders] = useState(null)
+  const [elements, setElements] = useState(null)
   const [pageContent, setPageContent] = useState({
     _id: 'newId',
     type: 'wap',
@@ -16,7 +16,7 @@ export function Editor() {
   })
 
   useEffect(() => {
-    setHeaders(wapService.getTemplates())
+    setElements(wapService.getTemplates())
     setPageContent(wapService.getTemplate())
   }, [])
 
@@ -28,32 +28,32 @@ export function Editor() {
     return result
   }
 
-// Moves an item from one list to another list.
- 
-const copy = (source, destination, droppableSource, droppableDestination) => {
-    console.log('==> dest', destination);
+  // Moves an item from one list to another list.
 
-    const sourceClone = Array.from(source);
-    const destClone = Array.from(destination);
-    const item = sourceClone[droppableSource.index];
+  const copy = (source, destination, droppableSource, droppableDestination) => {
+    console.log('==> dest', destination)
 
-    destClone.splice(droppableDestination.index, 0, { ...item, id: 'test123' });
-    return destClone;
-}
+    const sourceClone = Array.from(source)
+    const destClone = Array.from(destination)
+    const item = sourceClone[droppableSource.index]
 
-const move = (source, destination, droppableSource, droppableDestination) => {
-    const sourceClone = Array.from(source);
-    const destClone = Array.from(destination);
-    const [removed] = sourceClone.splice(droppableSource.index, 1);
+    destClone.splice(droppableDestination.index, 0, { ...item, id: 'test123' })
+    return destClone
+  }
 
-    destClone.splice(droppableDestination.index, 0, removed);
+  const move = (source, destination, droppableSource, droppableDestination) => {
+    const sourceClone = Array.from(source)
+    const destClone = Array.from(destination)
+    const [removed] = sourceClone.splice(droppableSource.index, 1)
 
-    const result = {};
-    result[droppableSource.droppableId] = sourceClone;
-    result[droppableDestination.droppableId] = destClone;
+    destClone.splice(droppableDestination.index, 0, removed)
 
-    return result;
-}
+    const result = {}
+    result[droppableSource.droppableId] = sourceClone
+    result[droppableDestination.droppableId] = destClone
+
+    return result
+  }
 
   const getItemStyle = (isDragging, draggableStyle) => ({
     // some basic styles to make the items look a bit nicer
@@ -187,8 +187,8 @@ const move = (source, destination, droppableSource, droppableDestination) => {
   return (
     <div className='App'>
       <section className='editor-container'>
-        <DragDropContext onDragEnd={handleDragEnd} >
-          <EditorSidebar headers={headers} />
+        <DragDropContext onDragEnd={handleDragEnd}>
+          <EditorSidebar elements={elements} />
           <EditorBoard
             pageContent={pageContent}
             placeholderProps={placeholderProps}

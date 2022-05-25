@@ -5,6 +5,11 @@
     padding: 0.5rem 1rem;
     align-items: center;
     color: white;
+
+    .nav-bar {
+        display: flex;
+        gap: 1rem;
+    }
 }
 
 .wap-hero-1 {
