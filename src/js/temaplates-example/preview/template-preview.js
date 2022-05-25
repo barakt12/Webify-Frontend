@@ -8,27 +8,11 @@ export const templatePreviews = [
     },
   },
   {
-    id: 'web-template2',
+    id: 'ahlaid2',
     info: {
       name: 'Momentum',
       img: require('../../../assets/img/web-templates-preview/web-template-preview2.jpg'),
       category: 'Sport',
     },
-  },
-  {
-    id: 'web-template2',
-    info: {
-      name: 'web template 2',
-      img: require('../../../assets/img/web-templates-preview/web-template-preview2.jpg'),
-      category: 'Sport',
-    },
-  },
-  {
-    id: 'web-template2',
-    info: {
-      name: 'web template 2',
-      img: require('../../../assets/img/web-templates-preview/web-template-preview2.jpg'),
-      category: 'Sport',
-    },
-  },
+  }
 ]
