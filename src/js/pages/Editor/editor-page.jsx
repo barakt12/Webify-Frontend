@@ -9,14 +9,16 @@ export function Editor() {
   const queryAttr = 'data-rbd-drag-handle-draggable-id'
   const [placeholderProps, setPlaceholderProps] = useState({})
   const [elements, setElements] = useState(null)
-  const [pageContent, setPageContent] = useState()
+  const [pageContent, setPageContent] = useState({})
+
   const wap = useSelector((storeState) => storeState.wapModule.wap)
 
   useEffect(() => {
     setElements(wapService.getTemplates())
-    // setPageContent(wap)
     setPageContent(wapService.getTemplate())
   }, [])
+  //   setPageContent(wap)
+  // }, [wap])
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list)
@@ -101,14 +103,22 @@ export function Editor() {
     setPlaceholderProps({})
     // dropped outside the list
     if (!result.destination) return
-    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
+    else if (
+      result.destination.droppableId === 'editor' &&
+      result.source.droppableId !== 'editor'
+    ) {
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(pageContent.cmps, result.source.index, result.destination.index)
+    const content = reorder(
+      pageContent.cmps,
+      result.source.index,
+      result.destination.index
+    )
     console.log(content)
-    if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
+    if (content)
+      setPageContent((prevState) => ({ ...prevState, cmps: content }))
     // setHeaders(items);
   }
 
@@ -158,18 +168,16 @@ export function Editor() {
   }
 
   return (
-    <div className="App">
-      <section className="editor-container">
-        <DragDropContext onDragEnd={handleDragEnd}>
-          <EditorSidebar elements={elements} />
-          <EditorBoard
-            pageContent={pageContent}
-            placeholderProps={placeholderProps}
-            // getListStyle={getListStyle}
-            getItemStyle={getItemStyle}
-          />
-        </DragDropContext>
-      </section>
-    </div>
+    <section className='editor-container'>
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <EditorSidebar elements={elements} />
+        <EditorBoard
+          pageContent={pageContent}
+          placeholderProps={placeholderProps}
+          // getListStyle={getListStyle}
+          getItemStyle={getItemStyle}
+        />
+      </DragDropContext>
+    </section>
   )
 }

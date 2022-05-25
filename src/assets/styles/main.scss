@@ -25,6 +25,7 @@
 
 // Pages
 
-@import './pages/editor/styles';
-@import './pages/template/template';
+@import './pages/editor/editor';
+@import './pages/template-page/template';
 @import './pages/editor/editor-sidebar';
+@import './pages/preview/preview';
