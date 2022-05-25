@@ -8,7 +8,7 @@ export const wapService = {
   getTemplateById,
   getTemplate,
 }
-const wapTemplates = [wapTemplate1, wapTemplate2]
+const wapTemplates = [wapTemplate1,wapTemplate2]
 
 const templates = [
   {
