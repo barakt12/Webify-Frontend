@@ -257,11 +257,6 @@ function getCmpById(id) {
   return templates.find((header) => header.id === id)
 }
 
-<<<<<<< HEAD
-function getTemplate() {
-  return wapTemplate2
-=======
 function getTemplateById(id) {
   return wapTemplates.find((template) => template._id === id)
->>>>>>> dc41fdc395a51703144d0a6250f5c8cc2742a84a
 }
