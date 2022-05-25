@@ -61,18 +61,10 @@ a {
   transition: transform 0.3s;
 }
 
+.copy-dnd ~ img{
+  transform: none !important;
+}
+
 .mini-cmp:hover {
   transform: scale(1.03);
 }
-
-/* GRAPESJS */
-
-/* #gjs {
-    border: 3px solid black;
-}
-
-.gjs-cv-canvas {
-    top:50px;
-    width: 100%;
-    height: 100%;
-} */

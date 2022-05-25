@@ -1,58 +1,55 @@
 export const header1 = {
-  name: 'header1',
-  type: 'container',
+  //not mongodb id
   id: 'h101',
+  type: 'container',
   //change to cloudinary
-  thumbnail: 'https://i.postimg.cc/vmFf4mMv/header1.png',
+  imgUrl: 'https://i.postimg.cc/vmFf4mMv/header1.png',
   //each component will have his own css file
   style: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '0.5rem 1rem',
-    alignItems: 'center',
-    backgroundColor: 'tomato',
-    color: 'white',
+    // display: 'flex',
+    // justifyContent: 'space-between',
+    // padding: '0.5rem 1rem',
+    // alignItems: 'center',
+    // backgroundColor: 'tomato',
+    // color: 'white',
   },
   cmps: [
     {
       type: 'txt',
-      content: 'Header1',
-      style: {
-        fontSize: '2rem',
-        fontWeight: '700',
+      info: {
+        txt: 'Header1'
       },
-      cmps: [],
+      style: {
+        // fontSize: '2rem',
+        // fontWeight: '700',
+      },
     },
     {
       type: 'container',
       style: {
-        display: 'flex',
-        gap: '0.5rem',
+        // display: 'flex',
+        // gap: '0.5rem',
       },
       cmps: [
         {
           type: 'txt',
           content: 'Home',
-          style: {},
-          cmps: [],
+          style: {}
         },
         {
           type: 'txt',
           content: 'Page1',
-          style: {},
-          cmps: [],
+          style: {}
         },
         {
           type: 'txt',
           content: 'Page2',
-          style: {},
-          cmps: [],
+          style: {}
         },
         {
           type: 'txt',
           content: 'About',
-          style: {},
-          cmps: [],
+          style: {}
         },
       ],
     },

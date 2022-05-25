@@ -19,8 +19,9 @@ export function EditorSidebar({ headers }) {
                     draggableId={headers.id}
                     index={idx}
                   >
-                    {(provided) => {
+                    {(provided,snapshot) => {
                       return (
+                        <>                        
                         <img
                           ref={provided.innerRef}
                           {...provided.draggableProps}
@@ -30,6 +31,13 @@ export function EditorSidebar({ headers }) {
                           src={headers.thumbnail}
                           alt=''
                         />
+                        {snapshot.draggingOver ? <img
+                          key={headers.id}
+                          className ='mini-cmp copy-dnd'
+                          src={headers.thumbnail}
+                          alt='' />
+                          : null }
+                        </>
                       )
                     }}
                   </Draggable>

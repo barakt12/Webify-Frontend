@@ -29,15 +29,29 @@ export function Editor() {
 // Moves an item from one list to another list.
  
 const copy = (source, destination, droppableSource, droppableDestination) => {
-    console.log('==> dest', destination);
+  console.log('==> dest', destination);
 
-    const sourceClone = Array.from(source);
-    const destClone = Array.from(destination);
-    const item = sourceClone[droppableSource.index];
+  const sourceClone = Array.from(source);
+  const destClone = Array.from(destination);
+  const item = sourceClone[droppableSource.index];
 
-    destClone.splice(droppableDestination.index, 0, { ...item, id: 'test123' });
-    return destClone;
-}
+  destClone.splice(droppableDestination.index, 0, { ...item, id: 'newTestingId' });
+  return destClone;
+};
+
+const move = (source, destination, droppableSource, droppableDestination) => {
+  const sourceClone = Array.from(source);
+  const destClone = Array.from(destination);
+  const [removed] = sourceClone.splice(droppableSource.index, 1);
+
+  destClone.splice(droppableDestination.index, 0, removed);
+
+  const result = {};
+  result[droppableSource.droppableId] = sourceClone;
+  result[droppableDestination.droppableId] = destClone;
+
+  return result;
+};
 
   const getItemStyle = (isDragging, draggableStyle) => ({
     // some basic styles to make the items look a bit nicer
@@ -62,54 +76,51 @@ const copy = (source, destination, droppableSource, droppableDestination) => {
   })
 
 
-  const addCmpToPage = (result) => {
-    // if (result.destination.droppableId !== 'editor') return
-    const cmp = wapService.getCmpById(result.draggableId)
-    setPageContent((prevState) => {
-      //super-copy the prevState array with his sub arrays.
-      const newState = JSON.parse(JSON.stringify(prevState))
-      //adds to cmp to the destination index
-      newState.cmps.splice(result.destination.index, 0, cmp)
-      return newState
-    })
-  }
 
-  const handleDragEnd = (result) => {
-    const { source, destination } = result;
+   const onDragEnd = (result) => {
+        const { source, destination } = result;
 
-    console.log('==> result', result);
+        console.log('==> result', result);
 
-    // dropped outside the list
-    if (!destination) return
+        // dropped outside the list
+        if (!destination) {
+            return;
+        }
 
-    switch (source.droppableId) {
-      //if user is sorting inside the editor - just reorder
-        case destination.droppableId:
-          setPageContent({
-            'newId': reorder(
-                    source.droppableId,
-                    source.index,
-                    destination.index
-                )
-            });
-            break;
-        case 'hb5':
-          //if user dragged header and did not place it anywhere.
-           setHeaders(
-            copy(
-                    headers,
-                    destination.droppableId,
-                    source,
-                    destination
-                )
-            );
-            break;
-        default:
-          //move dragged item to editor
-          addCmpToPage(result)
-            break;
-    }
-};
+        switch (source.droppableId) {
+            case destination.droppableId:
+                this.setState({
+                    [destination.droppableId]: reorder(
+                        this.state[source.droppableId],
+                        source.index,
+                        destination.index
+                    )
+                });
+                break;
+            case 'hb5':
+                this.setState({
+                    [destination.droppableId]: copy(
+                        ITEMS,
+                        this.state[destination.droppableId],
+                        source,
+                        destination
+                    )
+                });
+                break;
+            default:
+                this.setState(
+                    move(
+                        this.state[source.droppableId],
+                        this.state[destination.droppableId],
+                        source,
+                        destination
+                    )
+                );
+                break;
+        }
+    };
+
+    
   return (
     <div className='App'>
       <section className='editor-container'>
