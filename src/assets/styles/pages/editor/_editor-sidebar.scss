@@ -1,5 +1,6 @@
 .editor-sidebar {
   width: 400px;
+  position: relative;
   display: flex;
   .cmps-list {
     background-color: #3c3d3e;
@@ -54,6 +55,19 @@
 .editor-sidebar .editor-edit-add-btns .add-btn {
   border-radius: 0;
   box-shadow: unset;
+}
+
+.sidebar-close-btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(98%, -50%);
+  z-index: 500;
+  cursor: pointer;
+
+  .sidebar-close-svg {
+    fill: #303030;
+  }
 }
 
 // .add-btn:hover + .edit-btn {

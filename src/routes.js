@@ -3,8 +3,13 @@ import { Editor } from './js/pages/Editor/editor-page.jsx'
 import { Profile } from './js/pages/Profile/profile.jsx'
 import { Templates } from './js/pages/Templates/templates-page'
 import { Publish } from './js/pages/Publish/publish.jsx'
+import { Preview } from './js/pages/Preview/preview.jsx'
 
 export const routes = [
+  {
+    path: '/preview',
+    component: Preview,
+  },
   {
     path: '/publish/:wapId',
     component: Publish,

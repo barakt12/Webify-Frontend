@@ -12,7 +12,7 @@ export const wapText1 = {
       style: {
         fontSize: '3rem',
         fontWeight: '700',
-        marginBottom: '1rem',
+        paddingBottom: '1rem',
       },
     },
     {
@@ -24,7 +24,7 @@ export const wapText1 = {
         fontSize: '1.5rem',
         fontWeight: '700',
         color: 'rgba(249,245,242,0.5)',
-        marginBottom: '2rem',
+        paddingBottom: '2rem',
       },
     },
     {
@@ -37,7 +37,8 @@ export const wapText1 = {
             {
               type: 'img',
               info: {
-                imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c77246be61543f9fc27_crown%20(3)%201.svg',
+                imgUrl:
+                  'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c77246be61543f9fc27_crown%20(3)%201.svg',
               },
             },
             {
@@ -54,7 +55,8 @@ export const wapText1 = {
             {
               type: 'img',
               info: {
-                imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c78d5a24b4d37d29e8c_open-24-hours%201.svg',
+                imgUrl:
+                  'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c78d5a24b4d37d29e8c_open-24-hours%201.svg',
               },
             },
             {
@@ -71,7 +73,8 @@ export const wapText1 = {
             {
               type: 'img',
               info: {
-                imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c787cc6d3185c383aae_folder%201.svg',
+                imgUrl:
+                  'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c787cc6d3185c383aae_folder%201.svg',
               },
             },
             {
@@ -88,7 +91,8 @@ export const wapText1 = {
             {
               type: 'img',
               info: {
-                imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c7896d2bf26cd23df19_barcode%201.svg',
+                imgUrl:
+                  'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c7896d2bf26cd23df19_barcode%201.svg',
               },
             },
             {
