@@ -2,33 +2,33 @@ export const templatePreviews = [
   {
     id: 'ahlaid',
     info: {
-      name: 'web template 1',
+      name: 'Techflow',
       img: 'https://i.postimg.cc/bvPkVHxJ/template1.png',
-      category: 'Buisness',
+      category: 'Business',
     },
   },
   {
-    id: 'web-template2',
+    id: 'ahlaid2',
     info: {
-      name: 'web template 2',
+      name: 'Momentum',
       img: require('../../../assets/img/web-templates-preview/web-template-preview2.jpg'),
       category: 'Sport',
     },
   },
-  {
-    id: 'web-template2',
-    info: {
-      name: 'web template 2',
-      img: require('../../../assets/img/web-templates-preview/web-template-preview2.jpg'),
-      category: 'Sport',
-    },
-  },
-  {
-    id: 'web-template2',
-    info: {
-      name: 'web template 2',
-      img: require('../../../assets/img/web-templates-preview/web-template-preview2.jpg'),
-      category: 'Sport',
-    },
-  },
+  // {
+  //   id: 'web-template2',
+  //   info: {
+  //     name: 'web template 2',
+  //     img: require('../../../assets/img/web-templates-preview/web-template-preview2.jpg'),
+  //     category: 'Sport',
+  //   },
+  // },
+  // {
+  //   id: 'web-template2',
+  //   info: {
+  //     name: 'web template 2',
+  //     img: require('../../../assets/img/web-templates-preview/web-template-preview2.jpg'),
+  //     category: 'Sport',
+  //   },
+  // },
 ]

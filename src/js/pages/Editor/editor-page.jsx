@@ -9,13 +9,15 @@ export function Editor() {
   const queryAttr = 'data-rbd-drag-handle-draggable-id'
   const [placeholderProps, setPlaceholderProps] = useState({})
   const [elements, setElements] = useState(null)
-  const [pageContent, setPageContent] = useState()
+  const [pageContent, setPageContent] = useState({})
+
   const wap = useSelector((storeState) => storeState.wapModule.wap)
 
   useEffect(() => {
     setElements(wapService.getTemplates())
+    // setPageContent(wapService.getTemplate())
     setPageContent(wap)
-  }, [])
+  }, [wap])
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list)
@@ -157,18 +159,16 @@ export function Editor() {
   }
 
   return (
-    <div className="App">
-      <section className="editor-container">
-        <DragDropContext onDragEnd={handleDragEnd}>
-          <EditorSidebar elements={elements} />
-          <EditorBoard
-            pageContent={pageContent}
-            placeholderProps={placeholderProps}
-            // getListStyle={getListStyle}
-            getItemStyle={getItemStyle}
-          />
-        </DragDropContext>
-      </section>
-    </div>
+    <section className="editor-container">
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <EditorSidebar elements={elements} />
+        <EditorBoard
+          pageContent={pageContent}
+          placeholderProps={placeholderProps}
+          // getListStyle={getListStyle}
+          getItemStyle={getItemStyle}
+        />
+      </DragDropContext>
+    </section>
   )
 }

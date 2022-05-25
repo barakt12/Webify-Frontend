@@ -4,14 +4,13 @@ export const loadCmps = () => {
   const cmpsList = {}
   const cmps = wapService.getCmps()
   cmps.forEach((cmp) => {
-    return cmpsList[cmp.category]
-      ? cmpsList[cmp.category].push(cmp)
-      : (cmpsList[cmp.category] = [cmp])
+    return cmpsList[cmp.category] ? cmpsList[cmp.category].push(cmp) : (cmpsList[cmp.category] = [cmp])
   })
 }
 
 export function loadTemplate(id) {
   return async (dispach) => {
+    console.log(id)
     try {
       const wap = wapService.getTemplateById(id)
       dispach({ type: 'SET_WAP', wap })

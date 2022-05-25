@@ -32,17 +32,8 @@ export const DynamicCmp = ({ cmp }) => {
       return
   }
 
-  const onHoverElement = (ev) => {
-    ev.stopPropagation()
-    ev.target.classList.toggle('hover')
-  }
-  const onLeaveElement = (ev) => {
-    // ev.stopPropagation()
-    ev.target.classList.toggle('hover')
-  }
-
   return (
-    <div className={`cmp ${cmp.name ? cmp.name : ''}`} onMouseLeave={onLeaveElement} onMouseHover={onHoverElement} style={cmp.style}>
+    <div className={`cmp ${cmp.name ? cmp.name : ''}`} onMouseOut={(ev) => ev.target.classList.remove('hover')} onMouseOver={(ev) => ev.target.classList.add('hover')} style={cmp.style}>
       {insertedCmp}
     </div>
   )

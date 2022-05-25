@@ -1,4 +1,4 @@
-import { wapService } from '../../services/wap-service'
+// import { wapService } from '../../services/wap-service'
 
 const initial_state = {
   wap: {
