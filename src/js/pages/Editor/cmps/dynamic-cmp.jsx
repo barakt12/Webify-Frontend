@@ -1,18 +1,12 @@
-import { Icon } from './icon'
+import { IconCmp } from './icon-cmp'
+import { TxtCmp } from './txt-cmp'
 
 export const DynamicCmp = ({ cmp }) => {
-  // console.log(cmp)
   return (
-    <div className='cmp' style={cmp.style}>
-      {cmp.type === 'container' &&
-        cmp.cmps &&
-        cmp.cmps.map((innerCmp) => <DynamicCmp cmp={innerCmp} />)}
-      {cmp.type === 'nav-bar' &&
-        cmp.cmps &&
-        cmp.cmps.map((innerCmp) => <DynamicCmp cmp={innerCmp} />)}
-      {/* change txt to paragraph (p) */}
-      {cmp.type === 'txt' && <span>{cmp.content}</span>}
-      {cmp.type === 'icon' && <Icon iconName={cmp.iconName} />}
+    <div className="cmp" style={cmp.style}>
+      {cmp.type === 'container' && cmp?.cmps?.map((innerCmp) => <DynamicCmp key={innerCmp.id} cmp={innerCmp} />)}
+      {cmp.type === 'txt' && <TxtCmp content={cmp.content} />}
+      {cmp.type === 'icon' && <IconCmp iconName={cmp.iconName} />}
     </div>
   )
 }

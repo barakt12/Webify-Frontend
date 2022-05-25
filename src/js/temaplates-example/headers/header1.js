@@ -24,7 +24,7 @@ export const header1 = {
       cmps: [],
     },
     {
-      type: 'nav-bar',
+      type: 'container',
       style: {
         display: 'flex',
         gap: '0.5rem',
