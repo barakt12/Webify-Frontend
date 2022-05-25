@@ -14,7 +14,8 @@ export function Editor() {
 
   useEffect(() => {
     setElements(wapService.getTemplates())
-    setPageContent(wap)
+    // setPageContent(wap)
+    setPageContent(wapService.getTemplate())
   }, [])
 
   const reorder = (list, startIndex, endIndex) => {
