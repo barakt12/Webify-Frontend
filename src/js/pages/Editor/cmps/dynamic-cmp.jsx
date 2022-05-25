@@ -9,7 +9,6 @@ export const DynamicCmp = ({ cmp }) => {
   switch (cmp.type) {
     case 'container':
       insertedCmp = cmp?.cmps?.map((innerCmp) => {
-        console.log(innerCmp.id)
         return <DynamicCmp key={innerCmp.id} cmp={innerCmp} />
       })
       break
@@ -29,8 +28,17 @@ export const DynamicCmp = ({ cmp }) => {
       return
   }
 
+  const onHoverElement = (ev) => {
+    ev.stopPropagation()
+    ev.target.classList.toggle('hover')
+  }
+  const onLeaveElement = (ev) => {
+    ev.stopPropagation()
+    ev.target.classList.toggle('hover')
+  }
+
   return (
-    <div className={`cmp ${cmp.name ? cmp.name : ''}`} style={cmp.style}>
+    <div className={`cmp ${cmp.name ? cmp.name : ''}`} onMouseLeave={onLeaveElement} onMouseHover={onHoverElement} style={cmp.style}>
       {insertedCmp}
     </div>
   )

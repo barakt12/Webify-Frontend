@@ -9,7 +9,6 @@ export function EditorSidebar({ elements }) {
   const [activeBtn, setActiveBtn] = useState('add')
 
   const footers = templateService.getCmpsByCategory('footer')
-  console.log(footers)
 
   return (
     <section className="editor-sidebar">
