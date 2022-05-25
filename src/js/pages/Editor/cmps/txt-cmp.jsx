@@ -1,3 +1,3 @@
-export function TxtCmp({ content }) {
-  return <p>{content}</p>
+export function TxtCmp({ txt }) {
+  return <p>{txt}</p>
 }

@@ -1,20 +1,15 @@
-export const footer1 = {
-  name: 'footer1',
+export const wapFooter1 = {
+  name: 'wap-footer-1',
   type: 'container',
-  id: 'f101',
+  id: 'wf101',
   thumbnail: null,
-  style: {
-    color: 'white',
-    padding: '1rem',
-    backgroundColor: 'tomato',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
+  style: {},
   cmps: [
     {
       type: 'txt',
-      content: 'Logo',
+      info: {
+        txt: 'Logo',
+      },
       style: {
         fontSize: '2rem',
         marginBottom: '0.5rem',
@@ -30,17 +25,23 @@ export const footer1 = {
       cmps: [
         {
           type: 'icon',
-          iconName: 'facebook',
+          info: {
+            iconName: 'facebook',
+          },
           cmps: [],
         },
         {
           type: 'icon',
-          iconName: 'instagram',
+          info: {
+            iconName: 'instagram',
+          },
           cmps: [],
         },
         {
           type: 'icon',
-          iconName: 'linkedin',
+          info: {
+            iconName: 'linkedin',
+          },
           cmps: [],
         },
       ],

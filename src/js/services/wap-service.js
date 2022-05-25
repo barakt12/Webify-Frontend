@@ -1,4 +1,4 @@
-import { template1 } from '../temaplates-example/template1'
+import { wapTemplate1 } from '../temaplates-example/wap-template-1'
 
 export const wapService = {
   getTemplates,
@@ -256,17 +256,6 @@ function getCmpById(id) {
   return templates.find((header) => header.id === id)
 }
 
-// function getCmpByIdAndType(type, id) {
-//   switch (type) {
-//     case 'header':
-//       return headers.find((header) => header.id === id)
-//     case 'footer':
-//       return footers.find((footer) => footer.id === id)
-//       default:
-//       return
-//   }
-// }
-
 function getTemplate() {
-  return template1
+  return wapTemplate1
 }

@@ -1,22 +1,17 @@
-export const header1 = {
-  name: 'header1',
+export const headerWap1 = {
+  name: 'wap-header-1',
   type: 'container',
   id: 'h101',
   //change to cloudinary
   thumbnail: 'https://i.postimg.cc/vmFf4mMv/header1.png',
   //each component will have his own css file
-  style: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '0.5rem 1rem',
-    alignItems: 'center',
-    backgroundColor: 'tomato',
-    color: 'white',
-  },
+  style: {},
   cmps: [
     {
       type: 'txt',
-      content: 'Header1',
+      info: {
+        txt: 'Header1',
+      },
       style: {
         fontSize: '2rem',
         fontWeight: '700',
@@ -32,25 +27,33 @@ export const header1 = {
       cmps: [
         {
           type: 'txt',
-          content: 'Home',
+          info: {
+            txt: 'Home',
+          },
           style: {},
           cmps: [],
         },
         {
           type: 'txt',
-          content: 'Page1',
+          info: {
+            txt: 'Page1',
+          },
           style: {},
           cmps: [],
         },
         {
           type: 'txt',
-          content: 'Page2',
+          info: {
+            txt: 'Page2',
+          },
           style: {},
           cmps: [],
         },
         {
           type: 'txt',
-          content: 'About',
+          info: {
+            txt: 'About',
+          },
           style: {},
           cmps: [],
         },
