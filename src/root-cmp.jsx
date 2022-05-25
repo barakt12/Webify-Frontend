@@ -4,7 +4,7 @@ import { routes } from './routes.js'
 
 export function App() {
   return (
-    <div className='app'>
+    <div className="app">
       <AppHeader />
       <Routes>
         {routes.map((route, idx) => (
