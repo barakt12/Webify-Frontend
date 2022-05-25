@@ -4,7 +4,7 @@ export function EditorSidebar({ headers }) {
   return (
     <section className='components-list'>
       <h2>Components</h2>
-      <Droppable droppableId='hb5'>
+      <Droppable droppableId='hb5' isDropDisabled={true}>
         {(provided) => (
           <div
             ref={provided.innerRef}
