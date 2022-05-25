@@ -2,7 +2,7 @@ export const wapHero1 = {
   name: 'wap-hero-1',
   id: 'he101',
   type: 'container',
-  style: {},
+  thumbnail: 'https://i.postimg.cc/CxmShs2R/wap-hero-1.png',
   cmps: [
     {
       type: 'container',

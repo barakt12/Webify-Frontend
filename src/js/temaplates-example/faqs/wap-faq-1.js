@@ -2,7 +2,7 @@ export const wapFAQ1 = {
   type: 'container',
   name: 'wap-faq-1',
   id: 'wfaq1',
-  thumbnail: null,
+  thumbnail: 'https://i.postimg.cc/wT59Ppcc/wap-faq-1.png',
   cmps: [
     {
       type: 'txt',

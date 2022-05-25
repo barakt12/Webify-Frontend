@@ -2,6 +2,7 @@ export const wapText1 = {
   type: 'container',
   name: 'wap-text-1',
   id: 'wt101',
+  thumbnail: 'https://i.postimg.cc/4NRJBdtx/wap-text-1.png',
   cmps: [
     {
       type: 'txt',
