@@ -1,5 +1,5 @@
 import React from 'react'
-import { webPreviews } from '../../temaplates-example/web-preview/web-preview'
+import { templatePreviews } from '../../temaplates-example/preview/template-preview'
 import { useDispatch } from 'react-redux'
 import { loadTemplate } from '../../store/wap/wap.action'
 import { Link } from 'react-router-dom'
@@ -18,8 +18,8 @@ export const Templates = () => {
   return (
     <>
       <h2>Select a Template</h2>
-      <section className='main-template-container'>
-        {webPreviews.map((preview) => (
+      <section className="main-template-container">
+        {templatePreviews.map((preview) => (
           <div key={preview.id} className={preview.id}>
             <div className='template-hover-info-container'>
               <p>
