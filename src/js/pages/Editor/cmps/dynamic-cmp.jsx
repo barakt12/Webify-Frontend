@@ -2,6 +2,9 @@ import { IconCmp } from './icon-cmp'
 import { TxtCmp } from './txt-cmp'
 import { ImgCmp } from './img-cmp'
 import { FAQCmp } from './faq-cmp'
+import { BtnCmp } from './btn-cmp'
+
+
 
 export const DynamicCmp = ({ cmp }) => {
   return (
@@ -11,6 +14,7 @@ export const DynamicCmp = ({ cmp }) => {
       {cmp.type === 'icon' && <IconCmp {...cmp.info} />}
       {cmp.type === 'img' && <ImgCmp {...cmp.info} />}
       {cmp.type === 'faq' && <FAQCmp {...cmp.info} />}
+      {cmp.type === 'btn' && <BtnCmp {...cmp.info} />}
     </div>
   )
 }

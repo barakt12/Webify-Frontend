@@ -1,4 +1,5 @@
 import { wapTemplate1 } from '../temaplates-example/wap-template-1'
+import { wapTemplate2 } from '../temaplates-example/wap-template-2'
 
 export const wapService = {
   getTemplates,
@@ -257,5 +258,5 @@ function getCmpById(id) {
 }
 
 function getTemplate() {
-  return wapTemplate1
+  return wapTemplate2
 }

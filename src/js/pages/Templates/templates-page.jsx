@@ -1,11 +1,11 @@
 import React from 'react'
-import { webPreviews } from '../../temaplates-example/web-preview/web-preview'
+import { templatePreviews } from '../../temaplates-example/preview/template-preview'
 
 export const Templates = () => {
-  console.log(webPreviews)
+  console.log(templatePreviews)
   return (
     <section className="main-template-container">
-      {webPreviews.map((preview) => (
+      {templatePreviews.map((preview) => (
         <div key={preview.id} className={preview.id}>
           <div className="template-hover-info-container">
             <p>A simple and bold layout that makes it easy for you to showcase your product

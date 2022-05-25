@@ -1,4 +1,4 @@
-export const webPreviews = [
+export const templatePreviews = [
   {
     id: 'web-template1',
     info: {

@@ -63,7 +63,7 @@ export function Editor() {
     // margin: `0 0 ${grid}px 0`,
 
     // change background colour if dragging
-    background: isDragging ? 'lightgreen' : 'grey',
+    // background: isDragging ? 'lightgreen' : 'grey',
 
     // styles we need to apply on draggables
     ...draggableStyle,
