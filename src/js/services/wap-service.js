@@ -6,7 +6,6 @@ export const wapService = {
   getFooters,
   getTemplateById,
 }
-
 const wapTemplates = [wapTemplate1]
 
 const templates = [
