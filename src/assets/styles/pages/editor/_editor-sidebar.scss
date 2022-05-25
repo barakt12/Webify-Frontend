@@ -11,10 +11,7 @@
   flex-direction: column;
   background-color: #262729;
   .add-btn {
-    // width: 4rem;
-    // font-size: 11px;
     width: 72px;
-    // display: flex;
     align-items: center;
     flex-direction: column;
     border-radius: 0px;
@@ -59,14 +56,14 @@
   box-shadow: unset;
 }
 
-.add-btn:hover + .edit-btn {
-  background-color: red;
-}
+// .add-btn:hover + .edit-btn {
+//   background-color: red;
+// }
 
-.edit-btn {
-  order: -1;
-}
+// .edit-btn {
+//   order: -1;
+// }
 
-.editor-edit-add-btns:hover > :not(:hover) {
-  background-color: red;
-}
+// .editor-edit-add-btns:hover > :not(:hover) {
+//   background-color: red;
+// }

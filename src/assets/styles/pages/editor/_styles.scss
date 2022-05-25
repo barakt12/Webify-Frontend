@@ -8,6 +8,7 @@
 .editor-container {
   display: flex;
   width: 100%;
+  height: calc(100vh - 50px);
 }
 
 .components-list {
@@ -16,7 +17,8 @@
 
 .editor {
   width: 100%;
-  height: 95vh;
+  height: 100%;
+  //   max-height: 99vh;
   overflow: auto;
 }
 
@@ -61,10 +63,36 @@ a {
   transition: transform 0.3s;
 }
 
-.copy-dnd ~ img{
+.copy-dnd ~ img {
   transform: none !important;
 }
 
 .mini-cmp:hover {
   transform: scale(1.03);
 }
+
+.editor::-webkit-scrollbar {
+  width: 12px;
+  background-color: #cccccc;
+}
+.editor::-webkit-scrollbar:horizontal {
+  height: 12px;
+}
+.editor::-webkit-scrollbar-track {
+  border: 1px #787878 solid;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 6px #c8c8c8 inset;
+}
+.editor::-webkit-scrollbar-thumb {
+  background-color: #3d496e;
+  border: 1px solid #000000;
+  border-radius: 16px;
+}
+// .editor::-webkit-scrollbar-thumb:hover {
+//   background-color: #3d496e;
+//   border: 1px solid #333333;
+// }
+// .editor::-webkit-scrollbar-thumb:active {
+//   background-color: #3d496e;
+//   border: 1px solid #333333;
+// }

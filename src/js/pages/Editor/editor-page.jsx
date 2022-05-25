@@ -56,25 +56,8 @@ export function Editor() {
   }
 
   const getItemStyle = (isDragging, draggableStyle) => ({
-    // some basic styles to make the items look a bit nicer
     userSelect: 'none',
-    //if we need margin or padding on that container use that
-    // padding: grid * 2,
-    // margin: `0 0 ${grid}px 0`,
-
-    // change background colour if dragging
-    background: isDragging ? 'lightgreen' : 'grey',
-
-    // styles we need to apply on draggables
     ...draggableStyle,
-  })
-
-  const getListStyle = (isDraggingOver) => ({
-    // background: isDraggingOver ? 'lightblue' : 'lightgrey',
-    padding: '5px',
-    // marginRight: '10px',
-    width: '100%',
-    position: 'relative',
   })
 
   // const handleDragStart = (event) => {
@@ -192,7 +175,7 @@ export function Editor() {
           <EditorBoard
             pageContent={pageContent}
             placeholderProps={placeholderProps}
-            getListStyle={getListStyle}
+            // getListStyle={getListStyle}
             getItemStyle={getItemStyle}
           />
         </DragDropContext>

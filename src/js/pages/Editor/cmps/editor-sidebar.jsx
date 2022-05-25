@@ -1,12 +1,5 @@
+import { SidebarBtns } from './sidebar-btns'
 import { Draggable, Droppable } from 'react-beautiful-dnd'
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Button,
-  Typography,
-} from '@mui/material'
-import { ExpandMore } from '@mui/icons-material'
 import { useState } from 'react'
 
 export function EditorSidebar({ elements }) {
@@ -16,18 +9,7 @@ export function EditorSidebar({ elements }) {
 
   return (
     <section className='editor-sidebar'>
-      <div className='editor-edit-add-btns'>
-        <Accordion className='add-btn'>
-          <AccordionSummary className='add-btn-summary'>
-            <Typography>Add</Typography>
-          </AccordionSummary>
-          <AccordionDetails className='add-btn-details'>
-            <Typography>Headers</Typography>
-          </AccordionDetails>
-        </Accordion>
-        <button className='edit-btn'>Edit</button>
-      </div>
-
+      <SidebarBtns />
       <Droppable droppableId='hb5' isDropDisabled={true}>
         {(provided) => (
           <div
