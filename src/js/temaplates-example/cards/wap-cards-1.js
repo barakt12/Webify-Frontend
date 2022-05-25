@@ -1,7 +1,7 @@
 export const wapCards1 = {
   type: 'container',
   name: 'wap-cards-1',
-  thumbnail: null,
+  thumbnail: 'https://i.postimg.cc/7h0qq8v4/wap-cards-1.png',
   style: {},
   cmps: [
     {

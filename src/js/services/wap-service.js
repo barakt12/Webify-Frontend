@@ -4,9 +4,10 @@ export const wapService = {
   getTemplates,
   getCmpById,
   getFooters,
-  getTemplate,
-  // getCmpByIdAndType,
+  getTemplateById,
 }
+
+const wapTemplates = [wapTemplate1]
 
 const templates = [
   {
@@ -256,6 +257,6 @@ function getCmpById(id) {
   return templates.find((header) => header.id === id)
 }
 
-function getTemplate() {
-  return wapTemplate1
+function getTemplateById(id) {
+  return wapTemplates.find((template) => template._id === id)
 }

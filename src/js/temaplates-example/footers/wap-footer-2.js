@@ -2,7 +2,7 @@ export const wapFooter2 = {
   type: 'container',
   name: 'wap-footer-2',
   id: 'wf102',
-  thumbnail: null,
+  thumbnail: 'https://i.postimg.cc/ryrV1WDH/wap-footer-1.png',
   cmps: [
     {
       type: 'txt',
