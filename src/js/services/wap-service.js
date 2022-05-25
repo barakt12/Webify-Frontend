@@ -6,7 +6,7 @@ export const wapService = {
   getCmpById,
   getFooters,
   getTemplateById,
-  getTemplate
+  getTemplate,
 }
 const wapTemplates = [wapTemplate1,wapTemplate2]
 

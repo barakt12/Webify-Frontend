@@ -4,15 +4,12 @@ import { ImgCmp } from './img-cmp'
 import { FAQCmp } from './faq-cmp'
 import { BtnCmp } from './btn-cmp'
 
-
-
 export const DynamicCmp = ({ cmp }) => {
   let insertedCmp = ''
 
   switch (cmp.type) {
     case 'container':
       insertedCmp = cmp?.cmps?.map((innerCmp) => {
-        console.log(innerCmp.id)
         return <DynamicCmp key={innerCmp.id} cmp={innerCmp} />
       })
       break
@@ -36,7 +33,7 @@ export const DynamicCmp = ({ cmp }) => {
   }
 
   return (
-    <div className={`cmp ${cmp.name ? cmp.name : ''}`} style={cmp.style}>
+    <div className={`cmp ${cmp.name ? cmp.name : ''}`} onMouseOut={(ev) => ev.target.classList.remove('hover')} onMouseOver={(ev) => ev.target.classList.add('hover')} style={cmp.style}>
       {insertedCmp}
     </div>
   )

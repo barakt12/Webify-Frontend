@@ -15,10 +15,9 @@ export function Editor() {
 
   useEffect(() => {
     setElements(wapService.getTemplates())
-    setPageContent(wapService.getTemplate())
-  }, [])
-  //   setPageContent(wap)
-  // }, [wap])
+    // setPageContent(wapService.getTemplate())
+    setPageContent(wap)
+  }, [wap])
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list)
@@ -103,22 +102,14 @@ export function Editor() {
     setPlaceholderProps({})
     // dropped outside the list
     if (!result.destination) return
-    else if (
-      result.destination.droppableId === 'editor' &&
-      result.source.droppableId !== 'editor'
-    ) {
+    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(
-      pageContent.cmps,
-      result.source.index,
-      result.destination.index
-    )
+    const content = reorder(pageContent.cmps, result.source.index, result.destination.index)
     console.log(content)
-    if (content)
-      setPageContent((prevState) => ({ ...prevState, cmps: content }))
+    if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
     // setHeaders(items);
   }
 
@@ -168,7 +159,7 @@ export function Editor() {
   }
 
   return (
-    <section className='editor-container'>
+    <section className="editor-container">
       <DragDropContext onDragEnd={handleDragEnd}>
         <EditorSidebar elements={elements} />
         <EditorBoard
