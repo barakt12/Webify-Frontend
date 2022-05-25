@@ -1,7 +1,14 @@
+import { wapService } from '../../services/wap-service'
+
 const initial_state = {
   wap: {
     _id: 'newId',
     cmps: [],
+  },
+  cmpsList: {
+    header: [],
+    hero: [],
+    text: [],
   },
 }
 
