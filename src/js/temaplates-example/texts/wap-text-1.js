@@ -1,11 +1,15 @@
+import { v4 as uuidv4 } from 'uuid'
+
 export const wapText1 = {
   type: 'container',
   name: 'wap-text-1',
+  category: 'text',
   id: 'wt101',
   thumbnail: 'https://i.postimg.cc/4NRJBdtx/wap-text-1.png',
   cmps: [
     {
       type: 'txt',
+      id: uuidv4(),
       info: {
         txt: 'Plenty reasons to join',
       },
@@ -17,6 +21,7 @@ export const wapText1 = {
     },
     {
       type: 'txt',
+      id: uuidv4(),
       info: {
         txt: 'Unlimited design subscription tasks to scale your business.',
       },
@@ -29,19 +34,23 @@ export const wapText1 = {
     },
     {
       type: 'container',
+      id: uuidv4(),
       name: 'reasons-to-join',
       cmps: [
         {
           type: 'container',
+          id: uuidv4(),
           cmps: [
             {
               type: 'img',
+              id: uuidv4(),
               info: {
                 imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c77246be61543f9fc27_crown%20(3)%201.svg',
               },
             },
             {
               type: 'txt',
+              id: uuidv4(),
               info: {
                 txt: 'Lead by a Webflow Expert',
               },
@@ -50,15 +59,18 @@ export const wapText1 = {
         },
         {
           type: 'container',
+          id: uuidv4(),
           cmps: [
             {
               type: 'img',
+              id: uuidv4(),
               info: {
                 imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c78d5a24b4d37d29e8c_open-24-hours%201.svg',
               },
             },
             {
               type: 'txt',
+              id: uuidv4(),
               info: {
                 txt: 'Unlimited design  requests',
               },
@@ -67,15 +79,18 @@ export const wapText1 = {
         },
         {
           type: 'container',
+          id: uuidv4(),
           cmps: [
             {
               type: 'img',
+              id: uuidv4(),
               info: {
                 imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c787cc6d3185c383aae_folder%201.svg',
               },
             },
             {
               type: 'txt',
+              id: uuidv4(),
               info: {
                 txt: 'Designs & code are kept safe',
               },
@@ -84,6 +99,7 @@ export const wapText1 = {
         },
         {
           type: 'container',
+          id: uuidv4(),
           cmps: [
             {
               type: 'img',
@@ -93,6 +109,7 @@ export const wapText1 = {
             },
             {
               type: 'txt',
+              id: uuidv4(),
               info: {
                 txt: 'Scale at any time to meet demand',
               },

@@ -1,8 +1,10 @@
+import { v4 as uuidv4 } from 'uuid'
+
 export const headerWap1 = {
   name: 'wap-header-1',
   type: 'container',
+  category: 'header',
   id: 'h101',
-  type: 'container',
   //change to cloudinary
   imgUrl: 'https://i.postimg.cc/vmFf4mMv/header1.png',
   //each component will have his own css file
@@ -10,6 +12,7 @@ export const headerWap1 = {
   cmps: [
     {
       type: 'txt',
+      id: uuidv4(),
       info: {
         txt: 'Header1',
       },
@@ -21,10 +24,12 @@ export const headerWap1 = {
     {
       type: 'container',
       name: 'nav-bar',
+      id: uuidv4(),
       style: {},
       cmps: [
         {
           type: 'txt',
+          id: uuidv4(),
           info: {
             txt: 'Home',
           },
@@ -33,6 +38,7 @@ export const headerWap1 = {
         },
         {
           type: 'txt',
+          id: uuidv4(),
           info: {
             txt: 'Page1',
           },
@@ -41,6 +47,7 @@ export const headerWap1 = {
         },
         {
           type: 'txt',
+          id: uuidv4(),
           info: {
             txt: 'Page2',
           },
@@ -49,6 +56,7 @@ export const headerWap1 = {
         },
         {
           type: 'txt',
+          id: uuidv4(),
           info: {
             txt: 'About',
           },

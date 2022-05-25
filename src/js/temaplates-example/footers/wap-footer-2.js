@@ -1,11 +1,15 @@
+import { v4 as uuidv4 } from 'uuid'
+
 export const wapFooter2 = {
   type: 'container',
   name: 'wap-footer-2',
+  category: 'footer',
   id: 'wf102',
   thumbnail: 'https://i.postimg.cc/ryrV1WDH/wap-footer-1.png',
   cmps: [
     {
       type: 'txt',
+      id: uuidv4(),
       info: {
         txt: 'Logo',
       },
@@ -16,6 +20,7 @@ export const wapFooter2 = {
     },
     {
       type: 'txt',
+      id: uuidv4(),
       info: {
         txt: '©2022. Webify Ltd – All Rights Reserved',
       },

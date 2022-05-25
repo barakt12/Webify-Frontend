@@ -8,9 +8,10 @@ export const DynamicCmp = ({ cmp }) => {
 
   switch (cmp.type) {
     case 'container':
-      insertedCmp = cmp?.cmps?.map((innerCmp) => (
-        <DynamicCmp key={innerCmp.id} cmp={innerCmp} />
-      ))
+      insertedCmp = cmp?.cmps?.map((innerCmp) => {
+        console.log(innerCmp.id)
+        return <DynamicCmp key={innerCmp.id} cmp={innerCmp} />
+      })
       break
     case 'txt':
       insertedCmp = <TxtCmp {...cmp.info} />
