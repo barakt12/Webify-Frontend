@@ -4,8 +4,6 @@ import { ImgCmp } from './img-cmp'
 import { FAQCmp } from './faq-cmp'
 import { BtnCmp } from './btn-cmp'
 
-
-
 export const DynamicCmp = ({ cmp }) => {
   let insertedCmp = ''
 
@@ -39,7 +37,7 @@ export const DynamicCmp = ({ cmp }) => {
     ev.target.classList.toggle('hover')
   }
   const onLeaveElement = (ev) => {
-    ev.stopPropagation()
+    // ev.stopPropagation()
     ev.target.classList.toggle('hover')
   }
 
