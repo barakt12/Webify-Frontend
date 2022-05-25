@@ -1,11 +1,15 @@
+import { v4 as uuidv4 } from 'uuid'
+
 export const wapFAQ1 = {
   type: 'container',
   name: 'wap-faq-1',
+  category: 'faq',
   id: 'wfaq1',
-  thumbnail: null,
+  thumbnail: 'https://i.postimg.cc/wT59Ppcc/wap-faq-1.png',
   cmps: [
     {
       type: 'txt',
+      id: uuidv4(),
       info: {
         txt: 'Frequently Asked Questions',
       },
@@ -18,6 +22,7 @@ export const wapFAQ1 = {
     },
     {
       type: 'txt',
+      id: uuidv4(),
       info: {
         txt: 'Need to know more?',
       },
@@ -30,6 +35,7 @@ export const wapFAQ1 = {
     },
     {
       type: 'faq',
+      id: uuidv4(),
       info: {
         questions: [
           { question: 'Is it really unlimited requests?', answer: "Yes! Once subscribed, you're able to add as many design requests to your queue as you'd like, and they will delivered one by one." },

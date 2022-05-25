@@ -2,17 +2,15 @@ import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { DynamicCmp } from '../cmps/dynamic-cmp'
 import { isEmpty } from 'lodash'
 
-
-export const EditorBoard = ({ pageContent, placeholderProps, getListStyle, getItemStyle }) => {
+export const EditorBoard = ({ pageContent, placeholderProps, getItemStyle }) => {
   return (
     <>
       <Droppable droppableId="editor">
         {(provided, snapshot) => {
           return (
-            <section {...provided.droppableProps} style={getListStyle(snapshot.isDraggingOver)} ref={provided.innerRef} className="editor">
+            <section {...provided.droppableProps} ref={provided.innerRef} className="editor">
               {!pageContent?.cmps?.length && <span>Drag and Drop to add components</span>}
 
-              <h2>Editor</h2>
               {pageContent?.cmps?.length &&
                 pageContent.cmps.map((cmp, index) => (
                   <Draggable key={cmp.id} draggableId={cmp.id + 'board'} index={index}>
@@ -23,7 +21,6 @@ export const EditorBoard = ({ pageContent, placeholderProps, getListStyle, getIt
                     )}
                   </Draggable>
                 ))}
-              {/* {provided.placeholder} */}
               {!isEmpty(placeholderProps) && snapshot.isDraggingOver && (
                 <div
                   className="placeholder"

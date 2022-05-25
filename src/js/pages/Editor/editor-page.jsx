@@ -1,7 +1,7 @@
 import { EditorSidebar } from './cmps/editor-sidebar'
 import { EditorBoard } from './cmps/editor-board'
 import { useEffect, useState } from 'react'
-
+import { useSelector } from 'react-redux'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { wapService } from '../../services/wap-service'
 
@@ -9,15 +9,12 @@ export function Editor() {
   const queryAttr = 'data-rbd-drag-handle-draggable-id'
   const [placeholderProps, setPlaceholderProps] = useState({})
   const [elements, setElements] = useState(null)
-  const [pageContent, setPageContent] = useState({
-    _id: 'newId',
-    type: 'wap',
-    cmps: [],
-  })
+  const [pageContent, setPageContent] = useState()
+  const wap = useSelector((storeState) => storeState.wapModule.wap)
 
   useEffect(() => {
     setElements(wapService.getTemplates())
-    setPageContent(wapService.getTemplate())
+    setPageContent(wap)
   }, [])
 
   const reorder = (list, startIndex, endIndex) => {
@@ -56,25 +53,8 @@ export function Editor() {
   }
 
   const getItemStyle = (isDragging, draggableStyle) => ({
-    // some basic styles to make the items look a bit nicer
     userSelect: 'none',
-    //if we need margin or padding on that container use that
-    // padding: grid * 2,
-    // margin: `0 0 ${grid}px 0`,
-
-    // change background colour if dragging
-    // background: isDragging ? 'lightgreen' : 'grey',
-
-    // styles we need to apply on draggables
     ...draggableStyle,
-  })
-
-  const getListStyle = (isDraggingOver) => ({
-    // background: isDraggingOver ? 'lightblue' : 'lightgrey',
-    padding: '5px',
-    // marginRight: '10px',
-    width: '100%',
-    position: 'relative',
   })
 
   // const handleDragStart = (event) => {
@@ -120,22 +100,14 @@ export function Editor() {
     setPlaceholderProps({})
     // dropped outside the list
     if (!result.destination) return
-    else if (
-      result.destination.droppableId === 'editor' &&
-      result.source.droppableId !== 'editor'
-    ) {
+    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(
-      pageContent.cmps,
-      result.source.index,
-      result.destination.index
-    )
+    const content = reorder(pageContent.cmps, result.source.index, result.destination.index)
     console.log(content)
-    if (content)
-      setPageContent((prevState) => ({ ...prevState, cmps: content }))
+    if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
     // setHeaders(items);
   }
 
@@ -185,14 +157,14 @@ export function Editor() {
   }
 
   return (
-    <div className='App'>
-      <section className='editor-container'>
+    <div className="App">
+      <section className="editor-container">
         <DragDropContext onDragEnd={handleDragEnd}>
           <EditorSidebar elements={elements} />
           <EditorBoard
             pageContent={pageContent}
             placeholderProps={placeholderProps}
-            getListStyle={getListStyle}
+            // getListStyle={getListStyle}
             getItemStyle={getItemStyle}
           />
         </DragDropContext>
