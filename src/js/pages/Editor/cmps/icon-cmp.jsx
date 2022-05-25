@@ -19,5 +19,7 @@ export function IconCmp({ iconName }) {
       return <BatteryChargingFullIcon />
     case 'car':
       return <DirectionsCarIcon />
+    default:
+      return
   }
 }
