@@ -12,7 +12,7 @@ export const wapFooter2 = {
       type: 'txt',
       id: uuidv4(),
       info: {
-        txt: 'Logo',
+        txt: 'Techflow',
       },
       style: {
         fontSize: '2.5rem',
