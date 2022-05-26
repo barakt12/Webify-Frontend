@@ -3,7 +3,7 @@ import { DynamicCmp } from '../cmps/dynamic-cmp'
 import { isEmpty } from 'lodash'
 import { v4 as uuidv4 } from 'uuid'
 
-export const EditorBoard = ({ pageContent, placeholderProps, getItemStyle }) => {
+export const EditorBoard = ({ pageContent, getItemStyle }) => {
   return (
     <>
       <Droppable droppableId="editor">
@@ -22,7 +22,7 @@ export const EditorBoard = ({ pageContent, placeholderProps, getItemStyle }) => 
                     )}
                   </Draggable>
                 ))}
-              {!isEmpty(placeholderProps) && snapshot.isDraggingOver && (
+              {/* {!isEmpty(placeholderProps) && snapshot.isDraggingOver && (
                 <div
                   className="placeholder"
                   style={{
@@ -32,7 +32,7 @@ export const EditorBoard = ({ pageContent, placeholderProps, getItemStyle }) => 
                     width: placeholderProps.clientWidth,
                   }}
                 />
-              )}
+              )} */}
             </section>
           )
         }}

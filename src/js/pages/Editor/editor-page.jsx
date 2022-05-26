@@ -39,8 +39,8 @@ export function Editor() {
   }
 
   const handleDragEnd = (result) => {
-    setPlaceholderProps({})
-
+    // setPlaceholderProps({})
+    // dropped outside the list
     if (!result.destination) return
     else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
       addCmpToPage(result)
@@ -57,7 +57,6 @@ export function Editor() {
         <EditorSidebar />
         <EditorBoard
           pageContent={pageContent}
-          placeholderProps={placeholderProps}
           // getListStyle={getListStyle}
           getItemStyle={getItemStyle}
         />
