@@ -1,34 +1,42 @@
 import { SidebarBtns } from './sidebar-btns'
 import { Draggable, Droppable } from 'react-beautiful-dnd'
-import { useState } from 'react'
-// import { templateService } from '../../../services/templates.service'
+import { useEffect, useState } from 'react'
+import { templateService } from '../../../services/templates.service'
 
 export function EditorSidebar({ elements }) {
   const [isSidebarShown, toggleSidebarShown] = useState(true)
-  // const [cmpList, setCmpList] = useState('header')
-  // const [activeBtn, setActiveBtn] = useState('add')
+  const [cmpList, setCmpList] = useState(null)
+  const [activeBtn, setActiveBtn] = useState('add')
 
-  // const footers = templateService.getCmpsByCategory('footer')
+  useEffect(() => {
+    const cmps = templateService.getCmpsByCategory('header')
+    setCmpList(cmps)
+  }, [])
+
+  const onChooseCmps = (category) => {
+    const cmps = templateService.getCmpsByCategory(category)
+    setCmpList(cmps)
+  }
+
+  const onShowThemes = () => {
+    setCmpList(null)
+  }
 
   return (
     <section className='editor-sidebar'>
-      <SidebarBtns />
+      <SidebarBtns onChooseCmps={onChooseCmps} onShowThemes={onShowThemes} />
       <Droppable droppableId='hb5' isDropDisabled={true}>
         {(provided) => (
           <div
-            style={isSidebarShown ? { width: '270px' } : { width: 0 }}
             ref={provided.innerRef}
             {...provided.droppableProps}
             className='cmps-list'
+            style={{ width: isSidebarShown ? '270px' : '0px' }}
           >
-            {elements &&
-              elements.map((elements, idx) => {
+            {cmpList &&
+              cmpList.map((cmp, idx) => {
                 return (
-                  <Draggable
-                    key={elements.id}
-                    draggableId={elements.id}
-                    index={idx}
-                  >
+                  <Draggable key={cmp.id} draggableId={cmp.id} index={idx}>
                     {(provided, snapshot) => {
                       return (
                         <>
@@ -36,19 +44,12 @@ export function EditorSidebar({ elements }) {
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            key={elements.id}
+                            key={cmp.id}
                             className='mini-cmp'
-                            src={elements.thumbnail}
+                            src={cmp.thumbnail}
                             alt=''
                           />
-                          {snapshot.draggingOver ? (
-                            <img
-                              key={elements.id}
-                              className='mini-cmp copy-dnd'
-                              src={elements.thumbnail}
-                              alt=''
-                            />
-                          ) : null}
+                          {/* {snapshot.draggingOver ? <img key={cmp.id} className="mini-cmp copy-dnd" src={cmp.thumbnail} alt="" /> : null} */}
                         </>
                       )
                     }}
@@ -104,5 +105,3 @@ export function EditorSidebar({ elements }) {
     </section>
   )
 }
-
-// transform: scaleX(-1) translate(50%, -50%);

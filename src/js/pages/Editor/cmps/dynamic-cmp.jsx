@@ -3,6 +3,7 @@ import { TxtCmp } from './txt-cmp'
 import { ImgCmp } from './img-cmp'
 import { FAQCmp } from './faq-cmp'
 import { BtnCmp } from './btn-cmp'
+import { CarosuelCmp } from './carousel-cmp'
 
 export const DynamicCmp = ({ cmp }) => {
   let insertedCmp = ''
@@ -27,6 +28,9 @@ export const DynamicCmp = ({ cmp }) => {
       break
     case 'btn':
       insertedCmp = <BtnCmp {...cmp.info} />
+      break
+    case 'carosuel':
+      insertedCmp = <CarosuelCmp {...cmp.info} />
       break
     default:
       return
