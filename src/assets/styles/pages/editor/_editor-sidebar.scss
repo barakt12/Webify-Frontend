@@ -1,9 +1,11 @@
 .editor-sidebar {
-  width: 400px;
   position: relative;
   display: flex;
   .cmps-list {
     background-color: #3c3d3e;
+    width: 270px;
+    overflow: hidden;
+    transition: 0.3s;
   }
 }
 
@@ -61,7 +63,7 @@
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translate(98%, -50%);
+  transform: translate(96%, -50%);
   z-index: 500;
   cursor: pointer;
 

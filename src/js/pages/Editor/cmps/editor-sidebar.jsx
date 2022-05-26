@@ -1,14 +1,14 @@
 import { SidebarBtns } from './sidebar-btns'
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { useState } from 'react'
-import { templateService } from '../../../services/templates.service'
+// import { templateService } from '../../../services/templates.service'
 
 export function EditorSidebar({ elements }) {
   const [isSidebarShown, toggleSidebarShown] = useState(true)
-  const [cmpList, setCmpList] = useState('header')
-  const [activeBtn, setActiveBtn] = useState('add')
+  // const [cmpList, setCmpList] = useState('header')
+  // const [activeBtn, setActiveBtn] = useState('add')
 
-  const footers = templateService.getCmpsByCategory('footer')
+  // const footers = templateService.getCmpsByCategory('footer')
 
   return (
     <section className='editor-sidebar'>
@@ -16,6 +16,7 @@ export function EditorSidebar({ elements }) {
       <Droppable droppableId='hb5' isDropDisabled={true}>
         {(provided) => (
           <div
+            style={isSidebarShown ? { width: '270px' } : { width: 0 }}
             ref={provided.innerRef}
             {...provided.droppableProps}
             className='cmps-list'
@@ -57,7 +58,10 @@ export function EditorSidebar({ elements }) {
           </div>
         )}
       </Droppable>
-      <div className='sidebar-close-btn'>
+      <div
+        className='sidebar-close-btn'
+        onClick={() => toggleSidebarShown(!isSidebarShown)}
+      >
         <svg
           width={'15'}
           height='96'
@@ -73,7 +77,32 @@ export function EditorSidebar({ elements }) {
             className='mcI_jw'
           ></path>
         </svg>
+        <svg
+          style={{
+            position: 'absolute',
+            left: '50%',
+            bottom: '40%',
+            stroke: 'white',
+            transform: isSidebarShown
+              ? 'translate(-50%, -50%)'
+              : 'translate(-50%, -50%) scaleX(-1)',
+            transition: '0.3s',
+          }}
+          xmlns='http://www.w3.org/2000/svg'
+          width='12'
+          height='12'
+          viewBox='0 0 12 12'
+        >
+          <path
+            stroke='white'
+            strokeLinecap='round'
+            strokeWidth='1.25'
+            d='M7 3.17 4.88 5.3a1 1 0 0 0 0 1.42L7 8.83'
+          ></path>
+        </svg>
       </div>
     </section>
   )
 }
+
+// transform: scaleX(-1) translate(50%, -50%);
