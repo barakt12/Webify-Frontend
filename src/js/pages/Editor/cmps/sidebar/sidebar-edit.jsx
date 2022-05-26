@@ -2,7 +2,7 @@ import React from 'react'
 import {
   setSelectedElement,
   deleteElement,
-} from '../../../store/wap/wap.action'
+} from '../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
 
 export const SidebarEdit = () => {
@@ -12,7 +12,7 @@ export const SidebarEdit = () => {
     (storeState) => storeState.wapModule.selectedElement
   )
   const onDeleteElement = () => {
-    dispatch(deleteElement(selectedElement))
+    if (selectedElement) dispatch(deleteElement(selectedElement))
   }
 
   return <button onClick={onDeleteElement}>Delete</button>

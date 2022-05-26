@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux'
+import { setSelectedElement } from '../../../../store/wap/wap.action'
 
 export function ImgCmp({ cmp, selectedElement, setSelectedElement }) {
   const dispatch = useDispatch()

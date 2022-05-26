@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { DynamicCmp } from '../Editor/cmps/dynamic-cmp'
+import { DynamicCmp } from '../Editor/cmps/dynamic-cmp/dynamic-cmp'
 
 export const Preview = () => {
   const [pageContent, setPageContent] = useState({})
