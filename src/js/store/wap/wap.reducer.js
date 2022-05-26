@@ -21,6 +21,7 @@ export function wapReducer(state = initial_state, action) {
       return { ...state, wap: { ...action.wap } }
 
     case 'SET_ELEMENT':
+      console.log('set element')
       return { ...state, selectedElement: { ...action.cmp } }
     default:
       return state

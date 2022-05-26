@@ -6,13 +6,13 @@ import { BtnCmp } from './btn-cmp'
 import { CarosuelCmp } from './carousel-cmp'
 import { useLocation } from 'react-router'
 import { setSelectedElement } from '../../../store/wap/wap.action'
-
 import { useSelector, useDispatch } from 'react-redux'
 
 export const DynamicCmp = ({ cmp }) => {
   const dispatch = useDispatch()
   let insertedCmp = ''
   const location = useLocation()
+  const selectedElement = useSelector((storeState) => storeState.wapModule.selectedElement)
 
   switch (cmp.type) {
     case 'container':
@@ -21,16 +21,16 @@ export const DynamicCmp = ({ cmp }) => {
       })
       break
     case 'txt':
-      insertedCmp = <TxtCmp {...cmp.info} />
+      insertedCmp = <TxtCmp cmp={cmp} selectedElement={selectedElement} setSelectedElement={setSelectedElement} />
       break
     case 'icon':
       insertedCmp = <IconCmp {...cmp.info} />
       break
     case 'img':
-      insertedCmp = <ImgCmp cmp={cmp} />
+      insertedCmp = <ImgCmp cmp={cmp} selectedElement={selectedElement} setSelectedElement={setSelectedElement} />
       break
     case 'faq':
-      insertedCmp = <FAQCmp {...cmp.info} />
+      insertedCmp = <FAQCmp cmp={cmp} selectedElement={selectedElement} setSelectedElement={setSelectedElement} />
       break
     case 'btn':
       insertedCmp = <BtnCmp {...cmp.info} />
@@ -49,12 +49,7 @@ export const DynamicCmp = ({ cmp }) => {
   }
 
   return (
-    <div
-      className={`cmp ${cmp.name ? cmp.name : ''}`}
-      onMouseOut={(ev) => ev.target.classList.remove('hover')}
-      onMouseOver={(ev) => onHoverElement(ev)}
-      style={cmp.style}
-    >
+    <div className={`cmp ${cmp.name ? cmp.name : ''}`} onMouseOut={(ev) => ev.target.classList.remove('hover')} onMouseOver={(ev) => onHoverElement(ev)} style={cmp.style}>
       {insertedCmp}
     </div>
   )

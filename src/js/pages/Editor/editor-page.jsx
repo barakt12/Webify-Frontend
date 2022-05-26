@@ -21,7 +21,7 @@ export function Editor() {
     return () => {
       // dispatch(updateWap(null))
     }
-  }, [])
+  }, [wap])
 
   const onSelectTheme = (theme) => {
     console.log('on select theme')
@@ -31,7 +31,7 @@ export function Editor() {
   const setTheme = (wap, themeColors) => {
     console.log('wap to change theme', wap)
     wap.cmps.forEach((cmp) => {
-      console.log('cmp to set style',cmp)
+      console.log('cmp to set style', cmp)
       cmp.style = { ...cmp.style, ...themeColors[cmp.themePalette] }
     })
     dispatch(updateWap(wap))
@@ -64,21 +64,13 @@ export function Editor() {
     // setPlaceholderProps({})
     // dropped outside the list
     if (!result.destination) return
-    else if (
-      result.destination.droppableId === 'editor' &&
-      result.source.droppableId !== 'editor'
-    ) {
+    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(
-      pageContent.cmps,
-      result.source.index,
-      result.destination.index
-    )
-    if (content)
-      setPageContent((prevState) => ({ ...prevState, cmps: content }))
+    const content = reorder(pageContent.cmps, result.source.index, result.destination.index)
+    if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
   }
 
   return (
