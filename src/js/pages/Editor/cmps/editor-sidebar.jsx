@@ -1,11 +1,14 @@
 import { SidebarBtns } from './sidebar-btns'
+import { ThemeCmp } from './theme-cmp'
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { useEffect, useState } from 'react'
 import { templateService } from '../../../services/templates.service'
+import { themeService } from '../../../services/theme.service'
 
-export function EditorSidebar({ elements }) {
+export function EditorSidebar({ elements,onSelectTheme }) {
   const [isSidebarShown, toggleSidebarShown] = useState(true)
   const [cmpList, setCmpList] = useState(null)
+  const [themeList, setTheme] = useState(null)
   const [activeBtn, setActiveBtn] = useState('add')
 
   useEffect(() => {
@@ -14,12 +17,15 @@ export function EditorSidebar({ elements }) {
   }, [])
 
   const onChooseCmps = (category) => {
+    setTheme(null)
     const cmps = templateService.getCmpsByCategory(category)
     setCmpList(cmps)
   }
 
   const onShowThemes = () => {
     setCmpList(null)
+    const themes = themeService.getThemes()
+    setTheme(themes)
   }
 
   return (
@@ -27,7 +33,12 @@ export function EditorSidebar({ elements }) {
       <SidebarBtns onChooseCmps={onChooseCmps} onShowThemes={onShowThemes} />
       <Droppable droppableId="hb5" isDropDisabled={true}>
         {(provided) => (
-          <div ref={provided.innerRef} {...provided.droppableProps} className="cmps-list" style={{ width: isSidebarShown ? '270px' : '0px' }}>
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            className="cmps-list"
+            style={{ width: isSidebarShown ? '270px' : '0px' }}
+          >
             {cmpList &&
               cmpList.map((cmp, idx) => {
                 return (
@@ -35,7 +46,15 @@ export function EditorSidebar({ elements }) {
                     {(provided, snapshot) => {
                       return (
                         <>
-                          <img ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} key={cmp.id} className="mini-cmp" src={cmp.thumbnail} alt="" />
+                          <img
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            key={cmp.id}
+                            className="mini-cmp"
+                            src={cmp.thumbnail}
+                            alt=""
+                          />
                           {/* {snapshot.draggingOver ? <img key={cmp.id} className="mini-cmp copy-dnd" src={cmp.thumbnail} alt="" /> : null} */}
                         </>
                       )
@@ -43,11 +62,24 @@ export function EditorSidebar({ elements }) {
                   </Draggable>
                 )
               })}
+              {themeList &&
+              themeList.map((theme) => {
+                // return <h1 key={theme.id}>Theme: {Object.keys(theme)}</h1>
+                return <ThemeCmp key={theme.id} theme={theme} onSelectTheme={onSelectTheme}/>
+              })}
           </div>
         )}
       </Droppable>
-      <div className="sidebar-close-btn" onClick={() => toggleSidebarShown(!isSidebarShown)}>
-        <svg width={'15'} height="96" viewBox="0 0 15 96" className="sidebar-close-svg">
+      <div
+        className="sidebar-close-btn"
+        onClick={() => toggleSidebarShown(!isSidebarShown)}
+      >
+        <svg
+          width={'15'}
+          height="96"
+          viewBox="0 0 15 96"
+          className="sidebar-close-svg"
+        >
           <path
             d="M0 0H3V1.00588C3.0011 4.42584 3.9102 9.97716 7.27295 13.2873C7.45088 13.4625 7.62629 13.6347 7.79957 13.8048L7.85959 13.8637C9.89318 15.8599 11.6678 17.602 12.9234 19.7206C14.0939 21.6956 14.792 23.9527 14.9602 27H15V68C15 71.7381 14.3125 74.3685 13.0144 76.6235C11.7533 78.8142 9.94312 80.5911 7.86152 82.6344L7.79905 82.6957C7.62594 82.8656 7.4507 83.0377 7.27295 83.2127C3.9102 86.5228 3.0011 92.0739 3 95.4938V96H0V0Z"
             className="vu-d0A"
@@ -63,7 +95,9 @@ export function EditorSidebar({ elements }) {
             left: '50%',
             bottom: '40%',
             stroke: 'white',
-            transform: isSidebarShown ? 'translate(-50%, -50%)' : 'translate(-50%, -50%) scaleX(-1)',
+            transform: isSidebarShown
+              ? 'translate(-50%, -50%)'
+              : 'translate(-50%, -50%) scaleX(-1)',
             transition: '0.3s',
           }}
           xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +105,12 @@ export function EditorSidebar({ elements }) {
           height="12"
           viewBox="0 0 12 12"
         >
-          <path stroke="white" strokeLinecap="round" strokeWidth="1.25" d="M7 3.17 4.88 5.3a1 1 0 0 0 0 1.42L7 8.83"></path>
+          <path
+            stroke="white"
+            strokeLinecap="round"
+            strokeWidth="1.25"
+            d="M7 3.17 4.88 5.3a1 1 0 0 0 0 1.42L7 8.83"
+          ></path>
         </svg>
       </div>
     </section>

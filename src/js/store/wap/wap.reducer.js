@@ -1,8 +1,9 @@
 // import { wapService } from '../../services/wap-service'
+import { v4 as uuidv4 } from 'uuid'
 
 const initial_state = {
   wap: {
-    _id: 'newId',
+    _id: uuidv4(),
     cmps: [],
   },
   cmpsList: {
@@ -15,7 +16,8 @@ const initial_state = {
 export function wapReducer(state = initial_state, action) {
   switch (action.type) {
     case 'SET_WAP':
-      return { ...state, wap: action.wap }
+      console.log('set wap')
+      return { ...state, wap: {...action.wap}}
     default:
       return state
   }

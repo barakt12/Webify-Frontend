@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 export const wapFAQ1 = {
   type: 'container',
   name: 'wap-faq-1',
+  themePalette: 'secondary', 
   category: 'faq',
   id: 'wfaq1',
   thumbnail: 'https://i.postimg.cc/wT59Ppcc/wap-faq-1.png',
@@ -55,6 +56,7 @@ export const wapFAQ1 = {
               'Yes we do - We calculate our prices based on the project scope, timeline, and deliverables. We will give you a detailed proposal after learning as much as we can about your project.',
           },
         ],
+        themePalette: 'secondary'
       },
     },
   ],
