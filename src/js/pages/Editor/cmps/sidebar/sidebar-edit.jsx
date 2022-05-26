@@ -2,7 +2,7 @@ import React from 'react'
 import {
   setSelectedElement,
   deleteElement,
-} from '../../../store/wap/wap.action'
+} from '../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
 
 export const SidebarEdit = () => {

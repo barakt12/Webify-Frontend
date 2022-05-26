@@ -1,5 +1,5 @@
 import { Draggable, Droppable } from 'react-beautiful-dnd'
-import { DynamicCmp } from '../cmps/dynamic-cmp'
+import { DynamicCmp } from './dynamic-cmp/dynamic-cmp'
 // import { setSelectedElement } from '../../../store/wap/wap.action'
 // import { useSelector, useDispatch } from 'react-redux'
 

@@ -1,4 +1,4 @@
-import { EditorSidebar } from './cmps/editor-sidebar'
+import { EditorSidebar } from './cmps/sidebar/editor-sidebar'
 import { EditorBoard } from './cmps/editor-board'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -7,35 +7,16 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { templateService } from '../../services/templates.service'
 import { themes } from '../../temaplates-example/themes/themes'
 import { useDispatch } from 'react-redux'
-import { updateWap } from '../../store/wap/wap.action'
+import { setWap } from '../../store/wap/wap.action'
 
 export function Editor() {
-  const [placeholderProps, setPlaceholderProps] = useState({})
   const [pageContent, setPageContent] = useState({})
-
   const wap = useSelector((storeState) => storeState.wapModule.wap)
   const dispatch = useDispatch()
 
   useEffect(() => {
     setPageContent(wap)
-    return () => {
-      // dispatch(updateWap(null))
-    }
-  }, [])
-
-  const onSelectTheme = (theme) => {
-    console.log('on select theme')
-    setTheme(wap, theme)
-  }
-
-  const setTheme = (wap, themeColors) => {
-    console.log('wap to change theme', wap)
-    wap.cmps.forEach((cmp) => {
-      console.log('cmp to set style',cmp)
-      cmp.style = { ...cmp.style, ...themeColors[cmp.themePalette] }
-    })
-    dispatch(updateWap(wap))
-  }
+  }, [wap])
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list)
@@ -55,13 +36,12 @@ export function Editor() {
     setPageContent((prevState) => {
       const newState = JSON.parse(JSON.stringify(prevState))
       newState.cmps.splice(result.destination.index, 0, cmp)
-      dispatch(updateWap(newState))
+      dispatch(setWap(newState))
       return newState
     })
   }
 
   const handleDragEnd = (result) => {
-    // setPlaceholderProps({})
     // dropped outside the list
     if (!result.destination) return
     else if (
@@ -82,14 +62,10 @@ export function Editor() {
   }
 
   return (
-    <section className="editor-container">
+    <section className='editor-container'>
       <DragDropContext onDragEnd={handleDragEnd}>
-        <EditorSidebar onSelectTheme={onSelectTheme} />
-        <EditorBoard
-          pageContent={pageContent}
-          // getListStyle={getListStyle}
-          getItemStyle={getItemStyle}
-        />
+        <EditorSidebar />
+        <EditorBoard pageContent={pageContent} getItemStyle={getItemStyle} />
       </DragDropContext>
     </section>
   )
