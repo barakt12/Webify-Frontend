@@ -42,7 +42,13 @@ const mapCmpByCategory = {
 }
 
 function getCmpsByCategory(category) {
-  return mapCmpByCategory[category].map((cmp) => ({ id: cmp.id, thumbnail: cmp.thumbnail, category }))
+  if (mapCmpByCategory[category]) {
+    return mapCmpByCategory[category].map((cmp) => ({
+      id: cmp.id,
+      thumbnail: cmp.thumbnail,
+      category,
+    }))
+  }
 }
 
 function getCmpById(id) {

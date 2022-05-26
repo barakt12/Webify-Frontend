@@ -1,0 +1,27 @@
+.theme-container{
+  background-color: white;
+  margin: 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 2px 1px lightgrey;
+  cursor: pointer;
+  &:hover{
+    background-color: whitesmoke;
+  }
+  .theme-header-info{
+    padding: 16px 18px;
+
+    .theme-header{
+      font-weight: 500;
+      font-size: 1.4rem;
+  }
+    .theme-description{
+      color: #858585;
+      font-size: 0.8rem;
+    }
+  }
+
+  .theme-colors-container{
+    display: flex;
+  }
+}

@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 export const wapCards1 = {
   type: 'container',
   name: 'wap-cards-1',
+  themePalette: 'primary',
   category: 'cards',
   id: uuidv4(),
   thumbnail: 'https://i.postimg.cc/7h0qq8v4/wap-cards-1.png',

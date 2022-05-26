@@ -5,16 +5,38 @@ import { useSelector } from 'react-redux'
 import { DragDropContext } from 'react-beautiful-dnd'
 // import { wapService } from '../../services/wap-service'
 import { templateService } from '../../services/templates.service'
+import { themes } from '../../temaplates-example/themes/themes'
+import { useDispatch } from 'react-redux'
+import { updateWap } from '../../store/wap/wap.action'
 
 export function Editor() {
   const [placeholderProps, setPlaceholderProps] = useState({})
   const [pageContent, setPageContent] = useState({})
 
   const wap = useSelector((storeState) => storeState.wapModule.wap)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     setPageContent(wap)
-  }, [wap])
+    // setTheme(wap)
+    return () => {
+      dispatch(updateWap(null))
+    }
+  }, [])
+
+  const onSelectTheme = (theme) => {
+    setTheme(wap, theme)
+  }
+
+  const setTheme = (wap, themeColors) => {
+    console.log('selected theme colors', themeColors)
+    wap.cmps.forEach((cmp) => {
+      console.log('cmp', cmp)
+      // cmp.style = {...cmp.style , ...themes.buisnessTheme[cmp.themePalette]}
+      cmp.style = { ...cmp.style, ...themeColors[cmp.themePalette] }
+    })
+    dispatch(updateWap(wap))
+  }
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list)
@@ -42,19 +64,27 @@ export function Editor() {
     // setPlaceholderProps({})
     // dropped outside the list
     if (!result.destination) return
-    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
+    else if (
+      result.destination.droppableId === 'editor' &&
+      result.source.droppableId !== 'editor'
+    ) {
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(pageContent.cmps, result.source.index, result.destination.index)
-    if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
+    const content = reorder(
+      pageContent.cmps,
+      result.source.index,
+      result.destination.index
+    )
+    if (content)
+      setPageContent((prevState) => ({ ...prevState, cmps: content }))
   }
 
   return (
     <section className="editor-container">
       <DragDropContext onDragEnd={handleDragEnd}>
-        <EditorSidebar />
+        <EditorSidebar onSelectTheme={onSelectTheme} />
         <EditorBoard
           pageContent={pageContent}
           // getListStyle={getListStyle}

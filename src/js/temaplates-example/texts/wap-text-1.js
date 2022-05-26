@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 export const wapText1 = {
   type: 'container',
   name: 'wap-text-1',
+  themePalette: 'primary',
   category: 'text',
   id: 'wt101',
   thumbnail: 'https://i.postimg.cc/4NRJBdtx/wap-text-1.png',
