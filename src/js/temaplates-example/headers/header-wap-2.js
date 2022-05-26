@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid'
+
 export const headerWap2 = {
   name: 'wap-header-2',
   type: 'container',
@@ -10,6 +12,7 @@ export const headerWap2 = {
   cmps: [
     {
       type: 'txt',
+      id: uuidv4(),
       info: {
         txt: 'Header2',
       },
@@ -20,11 +23,13 @@ export const headerWap2 = {
     },
     {
       type: 'container',
+      id: uuidv4(),
       name: 'nav-bar',
       style: {},
       cmps: [
         {
           type: 'txt',
+          id: uuidv4(),
           info: {
             txt: 'About',
           },
@@ -33,6 +38,7 @@ export const headerWap2 = {
         },
         {
           type: 'txt',
+          id: uuidv4(),
           info: {
             txt: 'Features',
           },
@@ -41,6 +47,7 @@ export const headerWap2 = {
         },
         {
           type: 'txt',
+          id: uuidv4(),
           info: {
             txt: 'How to Use',
           },
@@ -49,6 +56,7 @@ export const headerWap2 = {
         },
         {
           type: 'txt',
+          id: uuidv4(),
           info: {
             txt: 'Download',
           },
@@ -59,11 +67,13 @@ export const headerWap2 = {
     },
     {
       type: 'container',
+      id: uuidv4(),
       name: 'hamburger-nav-bar',
       style: {},
       cmps: [
         {
           type: 'img',
+          id: uuidv4(),
           info: {
             imgUrl:
               'https://icon-library.com/images/white-hamburger-menu-icon/white-hamburger-menu-icon-24.jpg',

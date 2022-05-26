@@ -7,7 +7,7 @@ import { wapService } from '../../services/wap-service'
 
 export function Editor() {
   const queryAttr = 'data-rbd-drag-handle-draggable-id'
-  const [placeholderProps, setPlaceholderProps] = useState({})
+  // const [placeholderProps, setPlaceholderProps] = useState({})
   const [elements, setElements] = useState(null)
   const [pageContent, setPageContent] = useState({})
 
@@ -99,7 +99,7 @@ export function Editor() {
   }
 
   const handleDragEnd = (result) => {
-    setPlaceholderProps({})
+    // setPlaceholderProps({})
     // dropped outside the list
     if (!result.destination) return
     else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
@@ -164,7 +164,6 @@ export function Editor() {
         <EditorSidebar elements={elements} />
         <EditorBoard
           pageContent={pageContent}
-          placeholderProps={placeholderProps}
           // getListStyle={getListStyle}
           getItemStyle={getItemStyle}
         />

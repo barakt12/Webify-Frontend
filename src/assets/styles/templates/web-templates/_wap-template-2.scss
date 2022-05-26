@@ -23,7 +23,7 @@
 
 .wap-hero-2 {
   position: relative;
-  height: 85vh;
+  height: 75vh;
   display: flex;
   background-image: linear-gradient(135deg, #dd1173, #350e47);
 
@@ -32,14 +32,14 @@
     flex-direction: column;
     justify-content: center;
     z-index: 1;
-    margin-left: 6vw;
+    padding-inline-start: 6vw;
+    padding-inline-end: 6vw;
     position: absolute;
     height: 100%;
-    color: white;
     .wap-hero-2-main-hero-header {
       p {
-        margin-top: 20px;
-        margin-bottom: 10px;
+        padding-top: 20px;
+        padding-bottom: 10px;
         font-size: 10vh;
         line-height: 10vh;
         font-weight: 600;
@@ -65,7 +65,7 @@
         font-weight: 600;
         text-align: center;
         border: none;
-        margin-top: 20px;
+        padding-top: 20px;
       }
     }
   }
@@ -73,19 +73,191 @@
     width: 100%;
     display: flex;
     justify-content: end;
-    margin-top: 30px;
+    padding-top: 30px;
     .wap-hero-2-arrow-img {
       position: absolute;
       width: 100%;
       display: flex;
       bottom: 0;
       justify-content: center;
-      margin-bottom: 20px;
+      padding-bottom: 20px;
+      animation: floating;
+      animation-duration: 1.5s;
+      animation-iteration-count: infinite;
       img {
         height: 40px;
       }
     }
   }
+}
+
+.wap-hero-2 {
+  .wap-hero-2-container {
+    .wap-hero-2-main-hero-header {
+      p {
+        font-size: 5vh;
+        line-height: 5vh;
+      }
+    }
+    .wap-hero-2-sec-hero-header {
+      p {
+        font-size: 20px;
+      }
+    }
+    .wap-hero-2-hero-btn {
+      button {
+        padding: 15px 30px;
+      }
+    }
+  }
+  .wap-hero-2-img-container {
+    div {
+      img {
+        width: 450px;
+        padding-inline-end: 2vw;
+      }
+    }
+  }
+}
+
+.wap-cards-2 {
+  background-color: rgb(27, 27, 27);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 120px;
+  position: relative;
+  justify-content: center;
+  height: 100%;
+
+  .wap-cards-2-sub-header {
+    p {
+      display: inline-block;
+      padding-bottom: 5px;
+      border-bottom: 1px none #2e2e2e;
+      color: #a8a8a8;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  }
+  .wap-cards-2-main-header {
+    p {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      color: #fff;
+      font-size: 38px;
+      line-height: 48px;
+      font-weight: 700;
+      padding-inline-start: 35px;
+      padding-inline-end: 35px;
+      text-align: center;
+    }
+  }
+  .wap-cards-2-img-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    img {
+      width: 100%;
+      max-width: 1200px;
+    }
+  }
+}
+
+.wap-cards-2-second {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-color: white;
+  padding-top: 125px;
+  gap: 100px;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  padding-right: 10vw;
+  padding-left: 10vw;
+  img {
+    max-height: 600px;
+  }
+  .wap-cards-2-second-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50vw;
+    max-width: 450px;
+    padding-right: 4vw;
+    padding-left: 4vw;
+    .wap-cards-2-second-main-header {
+      p {
+        display: inline-block;
+        padding-bottom: 5px;
+        border-bottom: 1px none #2e2e2e;
+        color: #a8a8a8;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+    }
+    .wap-cards-2-second-sec-header {
+      p {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: #000;
+        font-size: 38px;
+        line-height: 48px;
+        font-weight: 700;
+      }
+    }
+    .wap-cards-2-second-third-header {
+      p {
+        padding-bottom: 10px;
+        color: #6b6b6b;
+        font-size: 16px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+
+.wap-footer-3 {
+  padding-top: 20px;
+  width: 100%;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1b1b1b;
+  div {
+    img {
+      width: 136px;
+      margin-bottom: 30px;
+    }
+  }
+  .wap-footer-3-links-container {
+    display: flex;
+    gap: 40px;
+    padding-inline-start: 15px;
+    padding-inline-end: 15px;
+    color: #6b6b6b;
+    font-size: 12px;
+    margin-bottom: 40px;
+  }
+}
+
+.wap-carousel-1 {
+  color: black;
+  display: flex;
+  justify-content: center;
+  padding: 15vh;
+  background-color: aliceblue;
+  background-image: url('https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b11c1af7f519f50eaefd140_wavy-bg.svg'),
+    linear-gradient(135deg, #fc0a7e, #602bb6);
+  background-position: 50% 50%, 0px 0px;
+  background-size: cover, auto;
 }
 
 @media (max-width: 1120px) {
@@ -106,31 +278,46 @@
     }
   }
 
+  .wap-cards-2-second {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 850px) {
   .wap-hero-2 {
-    .wap-hero-2-container {
-      .wap-hero-2-main-hero-header {
-        p {
-          font-size: 5vh;
-          line-height: 5vh;
-        }
-      }
-      .wap-hero-2-sec-hero-header {
-        p {
-          font-size: 20px;
-        }
-      }
-      .wap-hero-2-hero-btn {
-        button {
-          padding: 15px 30px;
-        }
-      }
-    }
     .wap-hero-2-img-container {
       div {
         img {
-          width: 500px;
+          padding-inline-end: -4vw;
         }
       }
     }
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(-20px);
+  }
+  15% {
+    transform: translateY(-16px);
+  }
+  30% {
+    transform: translateY(-12px);
+  }
+  45% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+  75% {
+    transform: translateY(-8px);
+  }
+  90% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(-16px);
   }
 }
