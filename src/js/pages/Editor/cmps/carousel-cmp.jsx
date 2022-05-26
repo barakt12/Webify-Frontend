@@ -13,7 +13,6 @@ import { autoPlay } from 'react-swipeable-views-utils'
 export const CarosuelCmp = ({ carosuelContent }) => {
   const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
 
-  console.log(carosuelContent)
   //must get label: and imgPath
   const images = [...carosuelContent]
 

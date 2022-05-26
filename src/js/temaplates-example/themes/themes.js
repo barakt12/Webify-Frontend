@@ -12,7 +12,7 @@ export const themes = [
     },
     secondary: {
       backgroundColor: '#cdaf8c',
-      color: 'black',
+      color: 'white',
     },
   },
 },
