@@ -1,16 +1,11 @@
 import React from 'react'
-import {
-  setSelectedElement,
-  deleteElement,
-} from '../../../../store/wap/wap.action'
+import { setSelectedElement, deleteElement } from '../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
 
 export const SidebarEdit = () => {
   const dispatch = useDispatch()
 
-  const selectedElement = useSelector(
-    (storeState) => storeState.wapModule.selectedElement
-  )
+  const selectedElement = useSelector((storeState) => storeState.wapModule.selectedElement)
   const onDeleteElement = () => {
     if (selectedElement) dispatch(deleteElement(selectedElement))
   }

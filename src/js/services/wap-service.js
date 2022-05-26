@@ -29,12 +29,9 @@ async function remove(wapId) {
 }
 
 function deleteCmp(cmp, cmpId) {
-  // console.log(cmp, cmpId)
   const idx = cmp?.cmps?.findIndex((cmp) => cmp.id === cmpId)
-  console.log(idx)
-  if (idx && idx > -1) {
+  if (idx > -1) {
     cmp.cmps.splice(idx, 1)
-    console.log('made it')
     return
   } else {
     cmp?.cmps?.forEach((cmp) => deleteCmp(cmp, cmpId))

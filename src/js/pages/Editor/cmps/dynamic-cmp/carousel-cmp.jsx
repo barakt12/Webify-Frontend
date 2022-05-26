@@ -9,12 +9,14 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import SwipeableViews from 'react-swipeable-views'
 import { autoPlay } from 'react-swipeable-views-utils'
+import { useDispatch } from 'react-redux'
 
-export const CarosuelCmp = ({ carosuelContent }) => {
+export const CarosuelCmp = ({ cmp, onHoverElement, selectedElement, setSelectedElement }) => {
   const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
+  const dispatch = useDispatch()
 
   //must get label: and imgPath
-  const images = [...carosuelContent]
+  const images = [...cmp.info.carosuelContent]
 
   const theme = useTheme()
   const [activeStep, setActiveStep] = React.useState(0)
@@ -32,8 +34,18 @@ export const CarosuelCmp = ({ carosuelContent }) => {
     setActiveStep(step)
   }
 
+  const onSelectElement = (cmp) => {
+    dispatch(setSelectedElement(cmp))
+  }
+
   return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+    <Box
+      sx={{ maxWidth: 400, flexGrow: 1 }}
+      onMouseOut={(ev) => ev.target.classList.remove('hover')}
+      onMouseOver={(ev) => onHoverElement(ev)}
+      className={selectedElement?.id === cmp.id ? 'selected' : ''}
+      onClick={() => onSelectElement(cmp)}
+    >
       <Paper
         square
         elevation={0}

@@ -33,7 +33,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }))
 
-export function FAQCmp({ cmp, selectedElement, setSelectedElement }) {
+export function FAQCmp({ cmp, onHoverElement, selectedElement, setSelectedElement }) {
   const [expanded, setExpanded] = React.useState('panel1')
   const dispatch = useDispatch()
 
@@ -46,7 +46,12 @@ export function FAQCmp({ cmp, selectedElement, setSelectedElement }) {
   }
   // console.log(themePalette)
   return (
-    <div className={`faq-container ${selectedElement?.id === cmp.id ? 'selected' : ''}`} onClick={() => onSelectElement(cmp)}>
+    <div
+      className={`faq-container ${selectedElement?.id === cmp.id ? 'selected' : ''}`}
+      onClick={() => onSelectElement(cmp)}
+      onMouseOut={(ev) => ev.target.classList.remove('hover')}
+      onMouseOver={(ev) => onHoverElement(ev)}
+    >
       {cmp.info.questions.map((question, idx) => {
         return (
           <Accordion sx={{ backgroundColor: 'transparent' }} key={idx} expanded={expanded === `panel${idx + 1}`} onChange={handleChange(`panel${idx + 1}`)}>

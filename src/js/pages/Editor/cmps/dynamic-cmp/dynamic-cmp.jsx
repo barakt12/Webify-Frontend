@@ -15,6 +15,12 @@ export const DynamicCmp = ({ cmp }) => {
   const location = useLocation()
   const selectedElement = useSelector((storeState) => storeState.wapModule.selectedElement)
 
+  const onHoverElement = (ev) => {
+    if (cmp.type !== 'container' || location.pathname !== '/preview') {
+      ev.target.classList.add('hover')
+    }
+  }
+
   switch (cmp.type) {
     case 'container':
       insertedCmp = cmp?.cmps?.map((innerCmp) => {
@@ -22,35 +28,29 @@ export const DynamicCmp = ({ cmp }) => {
       })
       break
     case 'txt':
-      insertedCmp = <TxtCmp cmp={cmp} selectedElement={selectedElement} setSelectedElement={setSelectedElement} />
+      insertedCmp = <TxtCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} setSelectedElement={setSelectedElement} />
       break
     case 'icon':
       insertedCmp = <IconCmp {...cmp.info} />
       break
     case 'img':
-      insertedCmp = <ImgCmp cmp={cmp} selectedElement={selectedElement} setSelectedElement={setSelectedElement} />
+      insertedCmp = <ImgCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} setSelectedElement={setSelectedElement} />
       break
     case 'faq':
-      insertedCmp = <FAQCmp cmp={cmp} selectedElement={selectedElement} setSelectedElement={setSelectedElement} />
+      insertedCmp = <FAQCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} setSelectedElement={setSelectedElement} />
       break
     case 'btn':
-      insertedCmp = <BtnCmp {...cmp.info} />
+      insertedCmp = <BtnCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} setSelectedElement={setSelectedElement} />
       break
     case 'carosuel':
-      insertedCmp = <CarosuelCmp {...cmp.info} />
+      insertedCmp = <CarosuelCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} setSelectedElement={setSelectedElement} />
       break
     default:
       return
   }
 
-  const onHoverElement = (ev) => {
-    if (cmp.type !== 'container' || location.pathname !== '/preview') {
-      ev.target.classList.add('hover')
-    }
-  }
-
   return (
-    <div className={`cmp ${cmp.name ? cmp.name : ''}`} onMouseOut={(ev) => ev.target.classList.remove('hover')} onMouseOver={(ev) => onHoverElement(ev)} style={cmp.style}>
+    <div className={`cmp ${cmp.name ? cmp.name : ''}`} style={cmp.style}>
       {insertedCmp}
     </div>
   )

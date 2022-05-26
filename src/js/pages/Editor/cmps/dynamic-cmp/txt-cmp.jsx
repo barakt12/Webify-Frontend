@@ -2,25 +2,18 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
-export function TxtCmp({ cmp, selectedElement, setSelectedElement }) {
-  // console.log(selectedElement)
-  const [content, setContent] = useState(cmp.info.txt)
+export function TxtCmp({ cmp, onHoverElement, selectedElement, setSelectedElement }) {
   const [isEditable, setIsEditable] = useState(true)
 
   const dispatch = useDispatch()
-
-  const inputRef = useRef()
-
   const location = useLocation()
+
   useEffect(() => {
     if (location.pathname === '/preview') setIsEditable(false)
-    // inputRef.current.style.width = txt.length + 'ch'
   }, [])
 
   const handleChange = (ev) => {
     console.log(ev.target.innerText)
-    setContent(ev.target.innerText)
-    // inputRef.current.style.width = ev.target.value.length + 'ch'
   }
 
   const onSelectElement = (cmp) => {
@@ -30,13 +23,14 @@ export function TxtCmp({ cmp, selectedElement, setSelectedElement }) {
   return (
     <p
       contentEditable={isEditable}
-      // onBlur={handleChange}
+      onBlur={handleChange}
       suppressContentEditableWarning={true}
       className={`editable-txt ${selectedElement?.id === cmp.id ? 'selected' : ''}`}
-      src={cmp.info.imgUrl}
       onClick={() => onSelectElement(cmp)}
+      onMouseOut={(ev) => ev.target.classList.remove('hover')}
+      onMouseOver={(ev) => onHoverElement(ev)}
     >
-      {content}
+      {cmp.info.txt}
     </p>
   )
 }

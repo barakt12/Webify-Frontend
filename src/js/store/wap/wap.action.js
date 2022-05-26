@@ -2,7 +2,6 @@ import { templateService } from '../../services/templates.service'
 import { wapService } from '../../services/wap-service.js'
 
 export const setSelectedElement = (cmp) => {
-  console.log(cmp)
   return (dispatch) => {
     dispatch({ type: 'SET_ELEMENT', cmp })
   }
