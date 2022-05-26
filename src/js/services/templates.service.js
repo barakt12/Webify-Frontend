@@ -28,7 +28,10 @@ import { wapFooter3 } from '../temaplates-example/footers/wap-footer-3'
 export const templateService = {
   getCmpsByCategory,
   getCmpById,
+  getTemplateById,
 }
+
+const wapTemplates = [wapTemplate1, wapTemplate2]
 
 const mapCmpByCategory = {
   header: [headerWap1, headerWap2],
@@ -56,4 +59,8 @@ function getCmpById(id) {
   })
 
   return cmpsToReturn
+}
+
+function getTemplateById(id) {
+  return wapTemplates.find((template) => template._id === id)
 }

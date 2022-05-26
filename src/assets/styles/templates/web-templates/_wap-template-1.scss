@@ -54,7 +54,7 @@
         filter: brightness(80%);
       }
 
-      p {
+      .editable-txt {
         opacity: 1;
       }
     }
@@ -65,7 +65,7 @@
       transition: filter 0.1s;
     }
 
-    p {
+    .editable-txt {
       position: absolute;
       bottom: 0.5rem;
       left: 0.5rem;
