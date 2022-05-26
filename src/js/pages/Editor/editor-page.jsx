@@ -23,19 +23,7 @@ export function Editor() {
     }
   }, [])
 
-  const onSelectTheme = (theme) => {
-    console.log('on select theme')
-    setTheme(wap, theme)
-  }
 
-  const setTheme = (wap, themeColors) => {
-    console.log('wap to change theme', wap)
-    wap.cmps.forEach((cmp) => {
-      console.log('cmp to set style',cmp)
-      cmp.style = { ...cmp.style, ...themeColors[cmp.themePalette] }
-    })
-    dispatch(updateWap(wap))
-  }
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list)
@@ -84,7 +72,7 @@ export function Editor() {
   return (
     <section className="editor-container">
       <DragDropContext onDragEnd={handleDragEnd}>
-        <EditorSidebar onSelectTheme={onSelectTheme} />
+        <EditorSidebar updateWap={updateWap} wap={wap}/>
         <EditorBoard
           pageContent={pageContent}
           // getListStyle={getListStyle}

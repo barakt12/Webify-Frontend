@@ -1,0 +1,35 @@
+.color-picker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  .background-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+    .colors-container {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      label {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 28px;
+        width: 28px;
+        border-radius: 28px;
+        cursor: pointer;
+        input {
+          visibility: hidden;
+          height: 28px;
+          width: 28px;
+        }
+        svg {
+          position: absolute;
+        }
+      }
+    }
+  }
+}

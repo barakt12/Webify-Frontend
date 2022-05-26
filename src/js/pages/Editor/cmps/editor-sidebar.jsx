@@ -5,8 +5,11 @@ import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { useEffect, useState } from 'react'
 import { templateService } from '../../../services/templates.service'
 import { themeService } from '../../../services/theme.service'
+import { useDispatch } from 'react-redux'
 
-export function EditorSidebar({ onSelectTheme }) {
+
+export const EditorSidebar = ({wap,updateWap}) => {
+  const dispatch = useDispatch()
   const [isSidebarShown, toggleSidebarShown] = useState(true)
   const [cmpList, setCmpList] = useState(null)
   const [themeList, setTheme] = useState(null)
@@ -31,7 +34,19 @@ export function EditorSidebar({ onSelectTheme }) {
     setTheme(themes)
   }
 
-  console.log(activeTab)
+  const onSelectTheme = (theme) => {
+    applyTheme(wap, theme)
+  }
+
+  const applyTheme = (wap, themeColors) => {
+    wap.cmps.forEach((cmp) => {
+      cmp.style = { ...cmp.style, ...themeColors[cmp.themePalette] }
+    })
+    dispatch(updateWap(wap))
+  }
+
+
+  console.log('activetab',activeTab)
 
   return (
     <section className='editor-sidebar'>
