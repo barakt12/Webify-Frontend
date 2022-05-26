@@ -6,6 +6,10 @@ export const setSelectedElement = (element) => {
   }
 }
 
+export const deleteElement = (cmp) => {
+  return (dispatch) => {}
+}
+
 export const updateWap = (wap) => {
   return (dispatch) => {
     try {
