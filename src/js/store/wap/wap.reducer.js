@@ -11,13 +11,16 @@ const initial_state = {
     hero: [],
     text: [],
   },
+  selectedElement: null,
 }
 
 export function wapReducer(state = initial_state, action) {
   switch (action.type) {
     case 'SET_WAP':
       console.log('set wap')
-      return { ...state, wap: {...action.wap}}
+      return { ...state, wap: { ...action.wap } }
+    case 'SET_ELEMENT':
+      return { ...state, selectedElement: { ...action.selectedElement } }
     default:
       return state
   }
