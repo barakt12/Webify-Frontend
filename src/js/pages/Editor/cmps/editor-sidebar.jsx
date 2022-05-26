@@ -5,11 +5,12 @@ import { useEffect, useState } from 'react'
 import { templateService } from '../../../services/templates.service'
 import { themeService } from '../../../services/theme.service'
 
-export function EditorSidebar({ elements,onSelectTheme }) {
+export function EditorSidebar({ onSelectTheme }) {
   const [isSidebarShown, toggleSidebarShown] = useState(true)
   const [cmpList, setCmpList] = useState(null)
   const [themeList, setTheme] = useState(null)
-  const [activeBtn, setActiveBtn] = useState(null)
+  // const [activeBtn, setActiveBtn] = useState(null)
+  const [activeTab, setActiveTab] = useState(null)
 
   useEffect(() => {
     const cmps = templateService.getCmpsByCategory('header')
@@ -41,7 +42,7 @@ export function EditorSidebar({ elements,onSelectTheme }) {
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className="cmps-list"
+            className='cmps-list'
             style={{ width: isSidebarShown ? '270px' : '0px' }}
           >
             {cmpList &&
@@ -56,9 +57,9 @@ export function EditorSidebar({ elements,onSelectTheme }) {
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                             key={cmp.id}
-                            className="mini-cmp"
+                            className='mini-cmp'
                             src={cmp.thumbnail}
-                            alt=""
+                            alt=''
                           />
                           {/* {snapshot.draggingOver ? <img key={cmp.id} className="mini-cmp copy-dnd" src={cmp.thumbnail} alt="" /> : null} */}
                         </>
@@ -67,16 +68,22 @@ export function EditorSidebar({ elements,onSelectTheme }) {
                   </Draggable>
                 )
               })}
-              {themeList &&
+            {themeList &&
               themeList.map((theme) => {
                 // return <h1 key={theme.id}>Theme: {Object.keys(theme)}</h1>
-                return <ThemeCmp key={theme.id} theme={theme} onSelectTheme={onSelectTheme}/>
+                return (
+                  <ThemeCmp
+                    key={theme.id}
+                    theme={theme}
+                    onSelectTheme={onSelectTheme}
+                  />
+                )
               })}
           </div>
         )}
       </Droppable>
       <div
-        className="sidebar-close-btn"
+        className='sidebar-close-btn'
         onClick={() => toggleSidebarShown(!isSidebarShown)}
       >
         <svg
