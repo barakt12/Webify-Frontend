@@ -113,7 +113,7 @@
   .wap-hero-2-img-container {
     div {
       img {
-        width: 450px;
+        width: 600px;
         padding-inline-end: 2vw;
       }
     }
@@ -273,6 +273,15 @@
         width: 60px;
         img {
           height: 100%;
+        }
+      }
+    }
+  }
+  .wap-hero-2{
+    .wap-hero-2-img-container {
+      div {
+        img {
+          width: 450px;
         }
       }
     }
