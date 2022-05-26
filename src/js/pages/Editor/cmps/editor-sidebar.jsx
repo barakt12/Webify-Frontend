@@ -18,9 +18,13 @@ export function EditorSidebar({ elements }) {
     setCmpList(cmps)
   }
 
+  const onShowThemes = () => {
+    setCmpList(null)
+  }
+
   return (
     <section className="editor-sidebar">
-      <SidebarBtns onChooseCmps={onChooseCmps} />
+      <SidebarBtns onChooseCmps={onChooseCmps} onShowThemes={onShowThemes} />
       <Droppable droppableId="hb5" isDropDisabled={true}>
         {(provided) => (
           <div ref={provided.innerRef} {...provided.droppableProps} className="cmps-list">

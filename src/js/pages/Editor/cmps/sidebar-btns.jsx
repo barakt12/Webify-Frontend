@@ -1,9 +1,12 @@
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
 import React from 'react'
-export function SidebarBtns({ onChooseCmps }) {
+export function SidebarBtns({ onChooseCmps, onShowThemes }) {
   return (
     <div className="editor-edit-add-btns">
       <button className="edit-btn">Edit</button>
+      <button className="edit-btn" onClick={() => onShowThemes()}>
+        Themes
+      </button>
       <Accordion className="add-btn">
         <AccordionSummary className="add-btn-summary">
           <Typography>Add</Typography>
