@@ -1,4 +1,4 @@
-import { EditorSidebar } from './cmps/editor-sidebar'
+import { EditorSidebar } from './cmps/sidebar/editor-sidebar'
 import { EditorBoard } from './cmps/editor-board'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -7,23 +7,16 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { templateService } from '../../services/templates.service'
 import { themes } from '../../temaplates-example/themes/themes'
 import { useDispatch } from 'react-redux'
-import { updateWap } from '../../store/wap/wap.action'
+import { setWap } from '../../store/wap/wap.action'
 
 export function Editor() {
-  const [placeholderProps, setPlaceholderProps] = useState({})
   const [pageContent, setPageContent] = useState({})
-
   const wap = useSelector((storeState) => storeState.wapModule.wap)
   const dispatch = useDispatch()
 
   useEffect(() => {
     setPageContent(wap)
-    return () => {
-      // dispatch(updateWap(null))
-    }
-  }, [])
-
-
+  }, [wap])
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list)
@@ -43,30 +36,21 @@ export function Editor() {
     setPageContent((prevState) => {
       const newState = JSON.parse(JSON.stringify(prevState))
       newState.cmps.splice(result.destination.index, 0, cmp)
-      dispatch(updateWap(newState))
+      dispatch(setWap(newState))
       return newState
     })
   }
 
   const handleDragEnd = (result) => {
-    // setPlaceholderProps({})
     // dropped outside the list
     if (!result.destination) return
-    else if (
-      result.destination.droppableId === 'editor' &&
-      result.source.droppableId !== 'editor'
-    ) {
+    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(
-      pageContent.cmps,
-      result.source.index,
-      result.destination.index
-    )
-    if (content)
-      setPageContent((prevState) => ({ ...prevState, cmps: content }))
+    const content = reorder(pageContent.cmps, result.source.index, result.destination.index)
+    if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
   }
 
   return (
@@ -75,7 +59,6 @@ export function Editor() {
         <EditorSidebar updateWap={updateWap} wap={wap}/>
         <EditorBoard
           pageContent={pageContent}
-          // getListStyle={getListStyle}
           getItemStyle={getItemStyle}
         />
       </DragDropContext>

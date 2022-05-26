@@ -2,19 +2,22 @@ import { templateService } from '../../services/templates.service'
 import { wapService } from '../../services/wap-service.js'
 
 export const setSelectedElement = (cmp) => {
-  console.log(cmp)
   return (dispatch) => {
     dispatch({ type: 'SET_ELEMENT', cmp })
   }
 }
 
 export const deleteElement = (cmp) => {
-  return (dispatch) => {
-    dispatch({ type: 'DELETE_ELEMENT', cmp })
+  return (dispatch, getState) => {
+    let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
+    if (wap && cmp) {
+      wapService.deleteCmp(wap, cmp.id)
+      dispatch({ type: 'SET_WAP', wap })
+    }
   }
 }
 
-export const updateWap = (wap) => {
+export const setWap = (wap) => {
   return (dispatch) => {
     try {
       dispatch({ type: 'SET_WAP', wap })
@@ -28,9 +31,7 @@ export const loadCmps = () => {
   const cmpsList = {}
   const cmps = templateService.getCmps()
   cmps.forEach((cmp) => {
-    return cmpsList[cmp.category]
-      ? cmpsList[cmp.category].push(cmp)
-      : (cmpsList[cmp.category] = [cmp])
+    return cmpsList[cmp.category] ? cmpsList[cmp.category].push(cmp) : (cmpsList[cmp.category] = [cmp])
   })
 }
 
@@ -42,5 +43,11 @@ export const loadTemplate = (id) => {
     } catch (err) {
       console.log(err)
     }
+  }
+}
+
+export const setDisplaySize = (displaySize) => {
+  return (dispatch) => {
+    dispatch({ type: 'SET_DISPLAY_SIZE', displaySize })
   }
 }

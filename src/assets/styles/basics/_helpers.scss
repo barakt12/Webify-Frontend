@@ -112,5 +112,11 @@
 // HOVER
 
 .hover {
-    outline: 1px dashed gray;
+    outline: 1px dashed gray !important;
+}
+
+// SELECT
+
+.selected {
+    outline: 2px dashed gray !important;
 }
