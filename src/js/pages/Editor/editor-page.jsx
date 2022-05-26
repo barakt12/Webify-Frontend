@@ -18,21 +18,20 @@ export function Editor() {
 
   useEffect(() => {
     setPageContent(wap)
-    // setTheme(wap)
     return () => {
-      dispatch(updateWap(null))
+      // dispatch(updateWap(null))
     }
   }, [])
 
   const onSelectTheme = (theme) => {
+    console.log('on select theme')
     setTheme(wap, theme)
   }
 
   const setTheme = (wap, themeColors) => {
-    console.log('selected theme colors', themeColors)
+    console.log('wap to change theme', wap)
     wap.cmps.forEach((cmp) => {
-      console.log('cmp', cmp)
-      // cmp.style = {...cmp.style , ...themes.buisnessTheme[cmp.themePalette]}
+      console.log('cmp to set style',cmp)
       cmp.style = { ...cmp.style, ...themeColors[cmp.themePalette] }
     })
     dispatch(updateWap(wap))
@@ -56,6 +55,7 @@ export function Editor() {
     setPageContent((prevState) => {
       const newState = JSON.parse(JSON.stringify(prevState))
       newState.cmps.splice(result.destination.index, 0, cmp)
+      dispatch(updateWap(newState))
       return newState
     })
   }

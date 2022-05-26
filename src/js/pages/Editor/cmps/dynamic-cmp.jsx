@@ -39,7 +39,7 @@ export const DynamicCmp = ({ cmp }) => {
   }
 
   const onHoverElement = (ev) => {
-    if (cmp.type === 'container' || location.pathname === '/preview') return
+    // if (cmp.type === 'container' || location.pathname === '/preview') return
     ev.target.classList.add('hover')
   }
 

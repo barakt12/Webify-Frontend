@@ -5,7 +5,7 @@ export const wapText1 = {
   name: 'wap-text-1',
   themePalette: 'primary',
   category: 'text',
-  id: 'wt101',
+  id: uuidv4(),
   thumbnail: 'https://i.postimg.cc/4NRJBdtx/wap-text-1.png',
   cmps: [
     {
@@ -103,10 +103,12 @@ export const wapText1 = {
         },
         {
           type: 'container',
+          name: 'wap-container-text-1',
           id: uuidv4(),
           cmps: [
             {
               type: 'img',
+              id: uuidv4(),
               info: {
                 imgUrl:
                   'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c7896d2bf26cd23df19_barcode%201.svg',

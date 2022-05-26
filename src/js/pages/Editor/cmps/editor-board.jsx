@@ -28,10 +28,6 @@ export const EditorBoard = ({ pageContent, getItemStyle }) => {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
-                        style={getItemStyle(
-                          snapshot.isDragging,
-                          provided.draggableProps.style
-                        )}
                       >
                         <DynamicCmp cmp={cmp} />
                       </div>

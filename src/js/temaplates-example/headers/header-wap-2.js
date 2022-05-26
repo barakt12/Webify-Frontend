@@ -2,8 +2,8 @@ import { v4 as uuidv4 } from 'uuid'
 
 export const headerWap2 = {
   name: 'wap-header-2',
-  type: 'container',
-  id: 'h102',
+  themePalette: 'primary',
+  id: uuidv4(),
   type: 'container',
   //change to cloudinary
   imgUrl: 'https://i.postimg.cc/vmFf4mMv/header1.png',

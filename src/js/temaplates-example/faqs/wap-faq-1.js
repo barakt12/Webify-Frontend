@@ -5,7 +5,7 @@ export const wapFAQ1 = {
   name: 'wap-faq-1',
   themePalette: 'secondary', 
   category: 'faq',
-  id: 'wfaq1',
+  id: uuidv4(),
   thumbnail: 'https://i.postimg.cc/wT59Ppcc/wap-faq-1.png',
   cmps: [
     {

@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 export const wapHero1 = {
   name: 'wap-hero-1',
-  id: 'he101',
+  id: uuidv4(),
   type: 'container',
   themePalette: 'primary',
   category: 'hero',

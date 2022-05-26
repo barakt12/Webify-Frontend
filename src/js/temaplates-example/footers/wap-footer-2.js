@@ -5,7 +5,7 @@ export const wapFooter2 = {
   name: 'wap-footer-2',
   themePalette: 'primary',
   category: 'footer',
-  id: 'wf102',
+  id: uuidv4(),
   thumbnail: 'https://i.postimg.cc/ryrV1WDH/wap-footer-1.png',
   cmps: [
     {

@@ -4,7 +4,7 @@ export const wapFooter1 = {
   name: 'wap-footer-1',
   type: 'container',
   category: 'footer',
-  id: 'wf101',
+  id: uuidv4(),
   thumbnail: null,
   style: {},
   cmps: [
