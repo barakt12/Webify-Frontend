@@ -107,7 +107,7 @@ export function SidebarBtns({
           className={`add-btn-details ${
             activeAddBtn === 'footer' ? 'active' : ''
           }`}
-          onClick={(ev) => onClickCmpBtn(ev, 'header')}
+          onClick={(ev) => onClickCmpBtn(ev, 'footer')}
         >
           {' '}
           <Typography>Footer</Typography>
