@@ -1,16 +1,31 @@
+import { SidebarEdit } from './sidebar-edit'
 import { SidebarBtns } from './sidebar-btns'
 import { ThemeCmp } from './theme-cmp'
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { useEffect, useState } from 'react'
 import { templateService } from '../../../services/templates.service'
 import { themeService } from '../../../services/theme.service'
+import {
+  setSelectedElement,
+  deleteElement,
+} from '../../../store/wap/wap.action'
+import { useSelector, useDispatch } from 'react-redux'
 
 export function EditorSidebar({ onSelectTheme }) {
   const [isSidebarShown, toggleSidebarShown] = useState(true)
   const [cmpList, setCmpList] = useState(null)
   const [themeList, setTheme] = useState(null)
   // const [activeBtn, setActiveBtn] = useState(null)
-  const [activeTab, setActiveTab] = useState(null)
+  const [activeTab, setActiveTab] = useState('edit')
+
+  const dispatch = useDispatch()
+  const selectedElement = useSelector(
+    (storeState) => storeState.wapModule.selectedElement
+  )
+
+  const onDeleteElement = () => {
+    dispatch(deleteElement(selectedElement))
+  }
 
   useEffect(() => {
     const cmps = templateService.getCmpsByCategory('header')
@@ -61,7 +76,6 @@ export function EditorSidebar({ onSelectTheme }) {
                             src={cmp.thumbnail}
                             alt=''
                           />
-                          {/* {snapshot.draggingOver ? <img key={cmp.id} className="mini-cmp copy-dnd" src={cmp.thumbnail} alt="" /> : null} */}
                         </>
                       )
                     }}
@@ -70,7 +84,6 @@ export function EditorSidebar({ onSelectTheme }) {
               })}
             {themeList &&
               themeList.map((theme) => {
-                // return <h1 key={theme.id}>Theme: {Object.keys(theme)}</h1>
                 return (
                   <ThemeCmp
                     key={theme.id}
@@ -79,6 +92,9 @@ export function EditorSidebar({ onSelectTheme }) {
                   />
                 )
               })}
+            {activeTab === 'edit' && (
+              <SidebarEdit onDeleteElement={onDeleteElement} />
+            )}
           </div>
         )}
       </Droppable>

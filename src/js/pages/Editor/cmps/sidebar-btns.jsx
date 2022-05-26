@@ -17,6 +17,7 @@ export function SidebarBtns({
     await setActiveAddBtn(cmpName)
     if (ev.target.previousSibling)
       ev.target.previousSibling.classList.add('border-radius-previous')
+
     if (ev.target.nextSibling)
       ev.target.nextSibling.classList.add('border-radius-next')
     onChooseCmps(cmpName)

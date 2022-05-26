@@ -12,6 +12,7 @@ export const wapHero1 = {
       type: 'container',
       id: uuidv4(),
       style: {
+        width: '100%',
         color: 'white',
         padding: '20px',
       },
@@ -43,7 +44,8 @@ export const wapHero1 = {
           type: 'img',
           id: uuidv4(),
           info: {
-            imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61d42f234794b55be16be19c_5fdb4052dec20f5608465259_hero-illustration-2%201.svg',
+            imgUrl:
+              'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61d42f234794b55be16be19c_5fdb4052dec20f5608465259_hero-illustration-2%201.svg',
           },
         },
       ],
