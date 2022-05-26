@@ -13,10 +13,12 @@ export const DynamicCmp = ({ cmp }) => {
   const dispatch = useDispatch()
   let insertedCmp = ''
   const location = useLocation()
-  const selectedElement = useSelector((storeState) => storeState.wapModule.selectedElement)
+  const selectedElement = useSelector(
+    (storeState) => storeState.wapModule.selectedElement
+  )
 
   const onHoverElement = (ev) => {
-    if (cmp.type !== 'container' || location.pathname !== '/preview') {
+    if (cmp.type !== 'container' && location.pathname !== '/preview') {
       ev.target.classList.add('hover')
     }
   }
@@ -28,22 +30,57 @@ export const DynamicCmp = ({ cmp }) => {
       })
       break
     case 'txt':
-      insertedCmp = <TxtCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} setSelectedElement={setSelectedElement} />
+      insertedCmp = (
+        <TxtCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          setSelectedElement={setSelectedElement}
+        />
+      )
       break
     case 'icon':
       insertedCmp = <IconCmp {...cmp.info} />
       break
     case 'img':
-      insertedCmp = <ImgCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} setSelectedElement={setSelectedElement} />
+      insertedCmp = (
+        <ImgCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          setSelectedElement={setSelectedElement}
+        />
+      )
       break
     case 'faq':
-      insertedCmp = <FAQCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} setSelectedElement={setSelectedElement} />
+      insertedCmp = (
+        <FAQCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          setSelectedElement={setSelectedElement}
+        />
+      )
       break
     case 'btn':
-      insertedCmp = <BtnCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} setSelectedElement={setSelectedElement} />
+      insertedCmp = (
+        <BtnCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          setSelectedElement={setSelectedElement}
+        />
+      )
       break
     case 'carosuel':
-      insertedCmp = <CarosuelCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} setSelectedElement={setSelectedElement} />
+      insertedCmp = (
+        <CarosuelCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          setSelectedElement={setSelectedElement}
+        />
+      )
       break
     default:
       return
