@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 
-export function TxtCmp({ cmp, onHoverElement, selectedElement, setSelectedElement }) {
+export function TxtCmp({ cmp, onHoverElement, selectedElement, onSelectElement }) {
   const [isEditable, setIsEditable] = useState(true)
-
-  const dispatch = useDispatch()
   const location = useLocation()
 
   useEffect(() => {
@@ -14,10 +11,6 @@ export function TxtCmp({ cmp, onHoverElement, selectedElement, setSelectedElemen
 
   const handleChange = (ev) => {
     console.log(ev.target.innerText)
-  }
-
-  const onSelectElement = (cmp) => {
-    dispatch(setSelectedElement(cmp))
   }
 
   return (

@@ -1,13 +1,4 @@
-import { useDispatch } from 'react-redux'
-import { setSelectedElement } from '../../../../store/wap/wap.action'
-
-export function BtnCmp({ cmp, onHoverElement, selectedElement, setSelectedElement }) {
-  const dispatch = useDispatch()
-
-  const onSelectElement = (cmp) => {
-    dispatch(setSelectedElement(cmp))
-  }
-
+export function BtnCmp({ cmp, onHoverElement, selectedElement, onSelectElement }) {
   return (
     <button
       className={selectedElement?.id === cmp.id ? 'selected' : ''}

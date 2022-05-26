@@ -45,3 +45,9 @@ export const loadTemplate = (id) => {
     }
   }
 }
+
+export const setDisplaySize = (displaySize) => {
+  return (dispatch) => {
+    dispatch({ type: 'SET_DISPLAY_SIZE', displaySize })
+  }
+}

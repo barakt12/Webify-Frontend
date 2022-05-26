@@ -12,6 +12,7 @@ const initial_state = {
     text: [],
   },
   selectedElement: null,
+  displaySize: '100%',
 }
 
 export function wapReducer(state = initial_state, action) {
@@ -21,6 +22,8 @@ export function wapReducer(state = initial_state, action) {
 
     case 'SET_ELEMENT':
       return { ...state, selectedElement: { ...action.cmp } }
+    case 'SET_DISPLAY_SIZE':
+      return { ...state, displaySize: action.displaySize }
     default:
       return state
   }
