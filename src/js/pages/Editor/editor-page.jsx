@@ -3,7 +3,7 @@ import { EditorBoard } from './cmps/editor-board'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { DragDropContext } from 'react-beautiful-dnd'
-import { wapService } from '../../services/wap-service'
+// import { wapService } from '../../services/wap-service'
 import { templateService } from '../../services/templates.service'
 
 export function Editor() {
