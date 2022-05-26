@@ -15,8 +15,10 @@ export function SidebarBtns({
 
   const onClickCmpBtn = async (ev, cmpName) => {
     await setActiveAddBtn(cmpName)
-    ev.target.previousSibling.classList.add('border-radius-previous')
-    ev.target.nextSibling.classList.add('border-radius-next')
+    if (ev.target.previousSibling)
+      ev.target.previousSibling.classList.add('border-radius-previous')
+    if (ev.target.nextSibling)
+      ev.target.nextSibling.classList.add('border-radius-next')
     onChooseCmps(cmpName)
   }
 
@@ -69,7 +71,7 @@ export function SidebarBtns({
           className={`add-btn-details ${
             activeAddBtn === 'hero' ? 'active' : ''
           }`}
-          onClick={() => onClickCmpBtn('hero')}
+          onClick={(ev) => onClickCmpBtn(ev, 'hero')}
         >
           {' '}
           <Typography>Hero</Typography>
@@ -78,7 +80,7 @@ export function SidebarBtns({
           className={`add-btn-details ${
             activeAddBtn === 'card' ? 'active' : ''
           }`}
-          onClick={() => onClickCmpBtn('card')}
+          onClick={(ev) => onClickCmpBtn(ev, 'card')}
         >
           {' '}
           <Typography>Card</Typography>
@@ -87,7 +89,7 @@ export function SidebarBtns({
           className={`add-btn-details ${
             activeAddBtn === 'text' ? 'active' : ''
           }`}
-          onClick={() => onClickCmpBtn('text')}
+          onClick={(ev) => onClickCmpBtn(ev, 'text')}
         >
           {' '}
           <Typography>Text</Typography>
@@ -96,7 +98,7 @@ export function SidebarBtns({
           className={`add-btn-details ${
             activeAddBtn === 'gallery' ? 'active' : ''
           }`}
-          onClick={() => onClickCmpBtn('gallery')}
+          onClick={(ev) => onClickCmpBtn(ev, 'gallery')}
         >
           {' '}
           <Typography>Gallery</Typography>
@@ -105,7 +107,7 @@ export function SidebarBtns({
           className={`add-btn-details ${
             activeAddBtn === 'footer' ? 'active' : ''
           }`}
-          onClick={() => onClickCmpBtn('header')}
+          onClick={(ev) => onClickCmpBtn(ev, 'header')}
         >
           {' '}
           <Typography>Footer</Typography>
