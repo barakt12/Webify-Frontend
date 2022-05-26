@@ -27,7 +27,7 @@ export function EditorSidebar({ elements }) {
       <SidebarBtns onChooseCmps={onChooseCmps} onShowThemes={onShowThemes} />
       <Droppable droppableId="hb5" isDropDisabled={true}>
         {(provided) => (
-          <div ref={provided.innerRef} {...provided.droppableProps} className="cmps-list">
+          <div ref={provided.innerRef} {...provided.droppableProps} className="cmps-list" style={{ width: isSidebarShown ? '270px' : '0px' }}>
             {cmpList &&
               cmpList.map((cmp, idx) => {
                 return (
