@@ -21,6 +21,7 @@ import { wapFooter2 } from '../temaplates-example/footers/wap-footer-2'
 
 export const templateService = {
   getCmpsByCategory,
+  getCmpById,
 }
 
 const mapCmpByCategory = {
@@ -32,5 +33,15 @@ const mapCmpByCategory = {
 }
 
 function getCmpsByCategory(category) {
-  return mapCmpByCategory[category].map((cmp) => ({ id: cmp.id, thumbnail: cmp.thumbnail }))
+  return mapCmpByCategory[category].map((cmp) => ({ id: cmp.id, thumbnail: cmp.thumbnail, category }))
+}
+
+function getCmpById(id) {
+  let cmpsToReturn = null
+  Object.keys(mapCmpByCategory).forEach((category) => {
+    const cmpFound = mapCmpByCategory[category].find((cmp) => cmp.id === id)
+    if (cmpFound) cmpsToReturn = cmpFound
+  })
+
+  return cmpsToReturn
 }

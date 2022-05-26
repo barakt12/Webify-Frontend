@@ -10,7 +10,6 @@ export const loadCmps = () => {
 
 export function loadTemplate(id) {
   return async (dispach) => {
-    console.log(id)
     try {
       const wap = wapService.getTemplateById(id)
       dispach({ type: 'SET_WAP', wap })

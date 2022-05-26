@@ -19,9 +19,7 @@ function query(entityType, delay = 200) {
 }
 
 function get(entityType, entityId) {
-  return query(entityType).then((entities) =>
-    entities.find((entity) => entity._id === entityId)
-  )
+  return query(entityType).then((entities) => entities.find((entity) => entity._id === entityId))
 }
 
 function post(entityType, newEntity) {
@@ -52,14 +50,12 @@ function remove(entityType, entityId) {
 }
 
 function _save(entityType, entities) {
-  // console.log('entityType FROM SAVE!', entityType)
   localStorage.setItem(entityType, JSON.stringify(entities))
 }
 
 function _makeId(length = 5) {
   var text = ''
-  var possible =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
   for (var i = 0; i < length; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length))
   }

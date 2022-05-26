@@ -1,6 +1,7 @@
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { DynamicCmp } from '../cmps/dynamic-cmp'
 import { isEmpty } from 'lodash'
+import { v4 as uuidv4 } from 'uuid'
 
 export const EditorBoard = ({ pageContent, placeholderProps, getItemStyle }) => {
   return (
@@ -13,7 +14,7 @@ export const EditorBoard = ({ pageContent, placeholderProps, getItemStyle }) => 
 
               {pageContent?.cmps?.length &&
                 pageContent.cmps.map((cmp, index) => (
-                  <Draggable key={cmp.id} draggableId={cmp.id + 'board'} index={index}>
+                  <Draggable key={cmp.id} draggableId={cmp.id + index} index={index}>
                     {(provided, snapshot) => (
                       <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
                         <DynamicCmp cmp={cmp} />

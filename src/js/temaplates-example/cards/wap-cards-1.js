@@ -4,7 +4,7 @@ export const wapCards1 = {
   type: 'container',
   name: 'wap-cards-1',
   category: 'cards',
-  id: 'wc101',
+  id: uuidv4(),
   thumbnail: 'https://i.postimg.cc/7h0qq8v4/wap-cards-1.png',
   style: {},
   cmps: [
