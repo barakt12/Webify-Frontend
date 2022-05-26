@@ -1,6 +1,6 @@
 import { storageService } from './async-storage.service.js'
 import { httpService } from './http.service.js'
-import { utilService } from './util.service.js'
+// import { utilService } from './util.service.js'
 
 // import { userService } from './user.service.js'
 
@@ -12,6 +12,7 @@ export const wapService = {
   update,
   remove,
   getWapIdx,
+  deleteCmp,
 }
 
 function query(filterBy, sortBy) {
@@ -25,6 +26,18 @@ function getById(wapId) {
 async function remove(wapId) {
   await storageService.remove(STORAGE_KEY, wapId)
   // await httpService.delete(`wap/${wapId}`)
+}
+
+function deleteCmp(cmp, cmpId) {
+  // console.log(cmp, cmpId)
+  const idx = cmp?.cmps?.findIndex((cmp) => cmp.id === cmpId)
+  console.log(idx)
+  if (idx > -1) {
+    cmp.cmps.splice(idx, 1)
+    return
+  } else {
+    cmp.cmps.forEach((cmp) => deleteCmp(cmp, cmpId))
+  }
 }
 
 async function add(wap) {

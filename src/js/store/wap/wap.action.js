@@ -9,8 +9,12 @@ export const setSelectedElement = (cmp) => {
 }
 
 export const deleteElement = (cmp) => {
-  return (dispatch) => {
-    dispatch({ type: 'DELETE_ELEMENT', cmp })
+  return (dispatch, getState) => {
+    let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
+    if (wap && cmp) {
+      wap = wapService.deleteCmp(wap, cmp.id)
+      dispatch({ type: 'UPDATE_WAP', wap })
+    }
   }
 }
 

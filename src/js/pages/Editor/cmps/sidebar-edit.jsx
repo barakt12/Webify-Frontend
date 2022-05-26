@@ -12,7 +12,7 @@ export const SidebarEdit = () => {
     (storeState) => storeState.wapModule.selectedElement
   )
   const onDeleteElement = () => {
-    dispatch(deleteElement(selectedElement))
+    if (selectedElement) dispatch(deleteElement(selectedElement))
   }
 
   return <button onClick={onDeleteElement}>Delete</button>
