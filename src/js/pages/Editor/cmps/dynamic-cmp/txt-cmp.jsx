@@ -22,6 +22,7 @@ export function TxtCmp({ cmp, onHoverElement, selectedElement, onSelectElement }
       onClick={() => onSelectElement(cmp)}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverElement(ev)}
+      spellCheck="false"
     >
       {cmp.info.txt}
     </p>

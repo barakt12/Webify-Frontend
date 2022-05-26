@@ -14,7 +14,7 @@ export const Preview = () => {
     <section className='preview'>
       {pageContent?.cmps?.length &&
         pageContent.cmps.map((cmp) => (
-          <div>
+          <div key={cmp.id}>
             <DynamicCmp cmp={cmp} />
           </div>
         ))}
