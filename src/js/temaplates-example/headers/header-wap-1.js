@@ -15,7 +15,7 @@ export const headerWap1 = {
       type: 'txt',
       id: uuidv4(),
       info: {
-        txt: 'Header1',
+        txt: 'Techflow',
       },
       style: {
         fontSize: '2rem',
@@ -37,29 +37,21 @@ export const headerWap1 = {
           style: {},
           cmps: [],
         },
-        {
-          type: 'txt',
-          id: uuidv4(),
-          info: {
-            txt: 'Page1',
-          },
-          style: {},
-          cmps: [],
-        },
-        {
-          type: 'txt',
-          id: uuidv4(),
-          info: {
-            txt: 'Page2',
-          },
-          style: {},
-          cmps: [],
-        },
+
         {
           type: 'txt',
           id: uuidv4(),
           info: {
             txt: 'About',
+          },
+          style: {},
+          cmps: [],
+        },
+        {
+          type: 'txt',
+          id: uuidv4(),
+          info: {
+            txt: 'Contact Us',
           },
           style: {},
           cmps: [],

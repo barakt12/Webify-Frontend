@@ -12,7 +12,7 @@ export const webPreviews = [
     info: {
       name: 'Momentum',
       img: require('../../../assets/img/web-templates-preview/web-template-preview2.jpg'),
-      category: 'Sport',
+      category: 'Technology',
     },
   },
   // {

@@ -156,12 +156,13 @@
     }
   }
   .wap-cards-2-img-container {
-    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     padding-top: 100px;
     img {
+      display: block;
+      height: auto;
       width: 100%;
       max-width: 1200px;
     }
@@ -277,7 +278,7 @@
       }
     }
   }
-  .wap-hero-2{
+  .wap-hero-2 {
     .wap-hero-2-img-container {
       div {
         img {

@@ -8,7 +8,7 @@ export const wapCards2 = {
   thumbnail: '',
   style: {
     backgroundColor: '#1b1b1b',
-    color: 'white'
+    color: 'white',
   },
   cmps: [
     {
@@ -18,8 +18,7 @@ export const wapCards2 = {
       info: {
         txt: 'AENEAN CONSECTETUR PORTA',
       },
-      style: {
-      },
+      style: {},
     },
     {
       type: 'txt',
@@ -28,19 +27,16 @@ export const wapCards2 = {
       info: {
         txt: 'Nullam quis risus eget urna mollis ornare vel eu leo.',
       },
-      style: {
-      },
+      style: {},
     },
     {
       type: 'img',
       name: 'wap-cards-2-img-container',
       id: uuidv4(),
-      style: {
-        height: '55vh',
-        width: '100%'
-      },
+      style: {},
       info: {
-        imgUrl: 'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5afa1b861bc189407c1a9b2c_dash-device.png',
+        imgUrl:
+          'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5afa1b861bc189407c1a9b2c_dash-device.png',
       },
     },
   ],

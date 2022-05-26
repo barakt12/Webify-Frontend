@@ -31,15 +31,21 @@ export const templateService = {
 }
 
 const mapCmpByCategory = {
-  header: [headerWap1,headerWap2],
-  hero: [wapHero1,wapHero2],
-  card: [wapCards1,wapCards2,wapCards2second],
+  header: [headerWap1, headerWap2],
+  hero: [wapHero1, wapHero2],
+  card: [wapCards1, wapCards2, wapCards2second],
   text: [wapText1],
   footer: [wapFooter1, wapFooter2, wapFooter3],
 }
 
 function getCmpsByCategory(category) {
-  return mapCmpByCategory[category].map((cmp) => ({ id: cmp.id, thumbnail: cmp.thumbnail, category }))
+  if (mapCmpByCategory[category]) {
+    return mapCmpByCategory[category].map((cmp) => ({
+      id: cmp.id,
+      thumbnail: cmp.thumbnail,
+      category,
+    }))
+  }
 }
 
 function getCmpById(id) {
