@@ -5,11 +5,6 @@ import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { useEffect, useState } from 'react'
 import { templateService } from '../../../services/templates.service'
 import { themeService } from '../../../services/theme.service'
-import {
-  setSelectedElement,
-  deleteElement,
-} from '../../../store/wap/wap.action'
-import { useSelector, useDispatch } from 'react-redux'
 
 export function EditorSidebar({ onSelectTheme }) {
   const [isSidebarShown, toggleSidebarShown] = useState(true)
@@ -17,15 +12,6 @@ export function EditorSidebar({ onSelectTheme }) {
   const [themeList, setTheme] = useState(null)
   // const [activeBtn, setActiveBtn] = useState(null)
   const [activeTab, setActiveTab] = useState('edit')
-
-  const dispatch = useDispatch()
-  const selectedElement = useSelector(
-    (storeState) => storeState.wapModule.selectedElement
-  )
-
-  const onDeleteElement = () => {
-    dispatch(deleteElement(selectedElement))
-  }
 
   useEffect(() => {
     const cmps = templateService.getCmpsByCategory('header')
@@ -95,9 +81,7 @@ export function EditorSidebar({ onSelectTheme }) {
                   />
                 )
               })}
-            {activeTab === 'edit' && (
-              <SidebarEdit onDeleteElement={onDeleteElement} />
-            )}
+            {activeTab === 'edit' && <SidebarEdit />}
           </div>
         )}
       </Droppable>

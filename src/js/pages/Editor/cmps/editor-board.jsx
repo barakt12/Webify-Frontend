@@ -1,9 +1,11 @@
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { DynamicCmp } from '../cmps/dynamic-cmp'
-
-import { v4 as uuidv4 } from 'uuid'
+// import { setSelectedElement } from '../../../store/wap/wap.action'
+// import { useSelector, useDispatch } from 'react-redux'
 
 export const EditorBoard = ({ pageContent }) => {
+  // const dispatch = useDispatch()
+
   return (
     <>
       <Droppable droppableId='editor'>

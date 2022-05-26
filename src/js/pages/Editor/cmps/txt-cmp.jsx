@@ -20,7 +20,12 @@ export function TxtCmp({ txt }) {
   }
 
   return (
-    <p contentEditable={isEditable} onBlur={handleChange} className="editable-txt">
+    <p
+      contentEditable={isEditable}
+      onBlur={handleChange}
+      suppressContentEditableWarning={true}
+      className='editable-txt'
+    >
       {content}
     </p>
   )
