@@ -9,11 +9,9 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import SwipeableViews from 'react-swipeable-views'
 import { autoPlay } from 'react-swipeable-views-utils'
-import { useDispatch } from 'react-redux'
 
-export const CarosuelCmp = ({ cmp, onHoverElement, selectedElement, setSelectedElement }) => {
+export const CarosuelCmp = ({ cmp, onHoverElement, selectedElement, onSelectElement }) => {
   const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
-  const dispatch = useDispatch()
 
   //must get label: and imgPath
   const images = [...cmp.info.carosuelContent]
@@ -32,10 +30,6 @@ export const CarosuelCmp = ({ cmp, onHoverElement, selectedElement, setSelectedE
 
   const handleStepChange = (step) => {
     setActiveStep(step)
-  }
-
-  const onSelectElement = (cmp) => {
-    dispatch(setSelectedElement(cmp))
   }
 
   return (

@@ -6,7 +6,6 @@ import { BtnCmp } from './btn-cmp'
 import { CarosuelCmp } from './carousel-cmp'
 import { useLocation } from 'react-router'
 import { setSelectedElement } from '../../../../store/wap/wap.action'
-
 import { useSelector, useDispatch } from 'react-redux'
 
 export const DynamicCmp = ({ cmp }) => {
@@ -18,8 +17,14 @@ export const DynamicCmp = ({ cmp }) => {
   )
 
   const onHoverElement = (ev) => {
-    if (cmp.type !== 'container' && location.pathname !== '/preview') {
+    if (location.pathname !== '/preview') {
       ev.target.classList.add('hover')
+    }
+  }
+
+  const onSelectElement = (cmp) => {
+    if (location.pathname !== '/preview') {
+      dispatch(setSelectedElement(cmp))
     }
   }
 
@@ -35,7 +40,7 @@ export const DynamicCmp = ({ cmp }) => {
           cmp={cmp}
           selectedElement={selectedElement}
           onHoverElement={onHoverElement}
-          setSelectedElement={setSelectedElement}
+          onSelectElement={onSelectElement}
         />
       )
       break
@@ -48,7 +53,7 @@ export const DynamicCmp = ({ cmp }) => {
           cmp={cmp}
           selectedElement={selectedElement}
           onHoverElement={onHoverElement}
-          setSelectedElement={setSelectedElement}
+          onSelectElement={onSelectElement}
         />
       )
       break
@@ -58,7 +63,7 @@ export const DynamicCmp = ({ cmp }) => {
           cmp={cmp}
           selectedElement={selectedElement}
           onHoverElement={onHoverElement}
-          setSelectedElement={setSelectedElement}
+          onSelectElement={onSelectElement}
         />
       )
       break
@@ -68,7 +73,7 @@ export const DynamicCmp = ({ cmp }) => {
           cmp={cmp}
           selectedElement={selectedElement}
           onHoverElement={onHoverElement}
-          setSelectedElement={setSelectedElement}
+          onSelectElement={onSelectElement}
         />
       )
       break
@@ -78,7 +83,7 @@ export const DynamicCmp = ({ cmp }) => {
           cmp={cmp}
           selectedElement={selectedElement}
           onHoverElement={onHoverElement}
-          setSelectedElement={setSelectedElement}
+          onSelectElement={onSelectElement}
         />
       )
       break
