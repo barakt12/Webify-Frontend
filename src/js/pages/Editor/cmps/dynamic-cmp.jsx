@@ -4,9 +4,11 @@ import { ImgCmp } from './img-cmp'
 import { FAQCmp } from './faq-cmp'
 import { BtnCmp } from './btn-cmp'
 import { CarosuelCmp } from './carousel-cmp'
+import { useLocation } from 'react-router'
 
 export const DynamicCmp = ({ cmp }) => {
   let insertedCmp = ''
+  const location = useLocation()
 
   switch (cmp.type) {
     case 'container':
@@ -36,8 +38,13 @@ export const DynamicCmp = ({ cmp }) => {
       return
   }
 
+  const onHoverElement = (ev) => {
+    if (cmp.type === 'container' || location.pathname === '/preview') return
+    ev.target.classList.add('hover')
+  }
+
   return (
-    <div className={`cmp ${cmp.name ? cmp.name : ''}`} onMouseOut={(ev) => ev.target.classList.remove('hover')} onMouseOver={(ev) => ev.target.classList.add('hover')} style={cmp.style}>
+    <div className={`cmp ${cmp.name ? cmp.name : ''}`} onMouseOut={(ev) => ev.target.classList.remove('hover')} onMouseOver={(ev) => onHoverElement(ev)} style={cmp.style}>
       {insertedCmp}
     </div>
   )
