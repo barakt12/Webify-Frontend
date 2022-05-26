@@ -10,13 +10,18 @@ export function TxtCmp({ txt }) {
   const location = useLocation()
   useEffect(() => {
     if (location.pathname === '/preview') setIsEditable(false)
-    inputRef.current.style.width = txt.length + 'ch'
+    // inputRef.current.style.width = txt.length + 'ch'
   }, [])
 
   const handleChange = (ev) => {
-    setContent(ev.target.value)
-    inputRef.current.style.width = ev.target.value.length + 'ch'
+    console.log(ev.target.innerText)
+    setContent(ev.target.innerText)
+    // inputRef.current.style.width = ev.target.value.length + 'ch'
   }
 
-  return isEditable ? <input type="text" ref={inputRef} value={content} onChange={handleChange} className="editable-txt" /> : <p className="editable-txt">{txt}</p>
+  return (
+    <p contentEditable={isEditable} onBlur={handleChange} className="editable-txt">
+      {content}
+    </p>
+  )
 }
