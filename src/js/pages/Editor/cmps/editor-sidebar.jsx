@@ -18,6 +18,7 @@ export function EditorSidebar({ onSelectTheme }) {
     setCmpList(cmps)
   }, [])
 
+  //change to one state
   const onChooseCmps = (category) => {
     setTheme(null)
     const cmps = templateService.getCmpsByCategory(category)

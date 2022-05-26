@@ -5,7 +5,7 @@ export const headerWap1 = {
   type: 'container',
   category: 'header',
   themePalette: 'primary',
-  id: 'h101',
+  id: uuidv4(),
   //change to cloudinary
   imgUrl: 'https://i.postimg.cc/vmFf4mMv/header1.png',
   //each component will have his own css file

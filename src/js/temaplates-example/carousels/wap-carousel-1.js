@@ -3,8 +3,9 @@ import { v4 as uuidv4 } from 'uuid'
 export const wapCarousel1 = {
   type: 'container',
   name: 'wap-carousel-1',
+  themePalette: 'secondary',
   category: 'carousels',
-  id: 'wca100',
+  id: uuidv4(),
   thumbnail: '',
   style: {
     backgroundColor: 'white',

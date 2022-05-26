@@ -4,7 +4,8 @@ export const wapFooter3 = {
   type: 'container',
   name: 'wap-footer-3',
   category: 'footer',
-  id: 'wf103',
+  themePalette: 'secondary',
+  id: uuidv4(),
   thumbnail: '',
   cmps: [
     {

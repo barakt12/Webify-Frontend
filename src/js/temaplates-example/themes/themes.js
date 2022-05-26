@@ -8,11 +8,11 @@ export const themes = [
   colors: {
     primary: {
       backgroundColor: '#5b2f2c',
-      color: 'white',
+      color: '#fff',
     },
     secondary: {
       backgroundColor: '#cdaf8c',
-      color: 'white',
+      color: '#fff',
     },
   },
 },
