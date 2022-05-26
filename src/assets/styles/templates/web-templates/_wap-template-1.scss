@@ -2,7 +2,7 @@
   background-color: #3f40cc;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 1rem 3rem;
   align-items: center;
   color: white;
 
@@ -15,7 +15,7 @@
 .wap-hero-1 {
   background-color: #3f40cc;
   background-image: url('https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61d42a8e3b6a3384f014a50c_Group.svg');
-  background-size: contain;
+  background-size: cover;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -42,6 +42,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
+    padding: 0 2.5rem;
   }
 
   .card {
@@ -129,7 +130,7 @@
 
 .wap-footer-2 {
   color: white;
-  padding: 1rem;
+  padding: 1rem 3rem;
   background-color: #3f40cc;
   display: flex;
   align-items: center;
