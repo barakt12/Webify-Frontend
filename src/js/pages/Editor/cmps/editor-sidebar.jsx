@@ -44,6 +44,8 @@ export function EditorSidebar({ onSelectTheme }) {
     setTheme(themes)
   }
 
+  console.log(activeTab)
+
   return (
     <section className='editor-sidebar'>
       <SidebarBtns
@@ -82,7 +84,8 @@ export function EditorSidebar({ onSelectTheme }) {
                   </Draggable>
                 )
               })}
-            {themeList &&
+            {activeTab === 'themes' &&
+              themeList &&
               themeList.map((theme) => {
                 return (
                   <ThemeCmp
