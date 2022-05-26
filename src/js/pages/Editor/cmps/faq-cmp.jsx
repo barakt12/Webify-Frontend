@@ -49,8 +49,6 @@ export function FAQCmp({ questions }) {
     setExpanded(newExpanded ? panel : false)
   }
 
-  console.log(questions)
-
   return (
     <div className='faq-container'>
       {questions.map((question, idx) => {
