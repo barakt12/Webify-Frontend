@@ -5,7 +5,12 @@ export function ImgCmp({
   onSelectElement,
 }) {
   return (
-    <div className='img-container'>
+    <div
+      className='img-container'
+      onMouseOver={(ev) => {
+        ev.stopPropagation()
+      }}
+    >
       <img
         onMouseOut={(ev) => ev.target.classList.remove('hover')}
         onMouseOver={(ev) => onHoverElement(ev)}

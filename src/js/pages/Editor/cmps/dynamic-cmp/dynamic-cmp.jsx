@@ -18,6 +18,7 @@ export const DynamicCmp = (props) => {
   )
 
   const onHoverElement = (ev) => {
+    ev.stopPropagation()
     if (location.pathname !== '/preview') {
       ev.target.classList.add('hover')
     }
