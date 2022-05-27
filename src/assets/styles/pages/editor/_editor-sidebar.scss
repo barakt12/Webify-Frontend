@@ -1,3 +1,5 @@
+// BEGINNING POINT ---------------
+
 .editor-sidebar {
   position: relative;
   display: flex;
@@ -17,26 +19,55 @@
   display: flex;
   flex-direction: column;
   background-color: #0e1318;
+  .sidebar-btn {
+    color: hsla(0, 0%, 100%, 0.7);
+    // opacity: 0.8;
+    &.active {
+      color: white;
+      opacity: 1;
+    }
+    &:hover {
+      color: white;
+      // opacity: 1;
+    }
+    &.border-radius-next {
+      // border-top-right-radius: 10px;
+    }
+
+    &.border-radius-previous {
+      // border-bottom-right-radius: 10px;
+    }
+  }
+
+  //   .nav li:first-child a:before,
+  // .nav li:last-child a:after {
+  //   background-color: #fff;
+  // }
+
+  // .editor-edit-add-btns
+  //  --------------------------------
   .add-btn {
     width: 72px;
 
     align-items: center;
     flex-direction: column;
     border-radius: 0px;
-    background-color: #0e1318;
+    // background-color: #0e1318;
+    background-color: #252627;
     cursor: pointer;
 
     & p {
-      color: white;
       font-size: 13px;
     }
     & .add-btn-summary {
-      border-bottom: 1px solid black;
+      background-color: #0e1318;
+      // border-bottom: 1px solid black;
       padding: 0;
       display: flex;
       height: 72px;
-
       & div {
+        align-items: center;
+        flex-direction: column;
       }
     }
 
@@ -44,16 +75,21 @@
       padding: 16px 0 16px;
       text-align: center;
       cursor: pointer;
+      opacity: 0.7;
+      &:hover {
+        opacity: 1;
+      }
+
       & p {
         pointer-events: none;
       }
 
       &.border-radius-next {
-        border-top-right-radius: 10px;
+        // border-top-right-radius: 10px;
       }
 
       &.border-radius-previous {
-        border-bottom-right-radius: 10px;
+        // border-bottom-right-radius: 10px;
       }
       // &:checked {
       //   // background-color: darken(#3c3d3e, 4%);
@@ -64,30 +100,46 @@
   .edit-btn {
     border: none;
     outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     min-height: 72px;
     background-color: #0e1318;
-    color: white;
     font-size: 13px;
     cursor: pointer;
     &.active {
+      opacity: 1;
       background-color: #252627;
     }
   }
 
   .themes-btn {
     border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     outline: none;
     width: 100%;
     min-height: 72px;
     background-color: #0e1318;
-    color: white;
     font-size: 13px;
     cursor: pointer;
     &.active {
       background-color: #252627;
     }
   }
+}
+.components-list {
+  width: 30%;
+}
+.mini-cmp {
+  max-width: 250px;
+  border-radius: 5px;
+  margin: 0.5rem 0.3rem;
+  transition: transform 0.3s;
 }
 
 .add-btn-summary > div {
@@ -128,6 +180,7 @@
   background-color: #0e1318;
   &.active {
     background-color: #252627;
+    opacity: 1;
   }
   // background-color: red;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
 
 export function AppFooter() {
-  return <div>AppFooter</div>
+  return <div className='app-footer'>AppFooter</div>
 }
