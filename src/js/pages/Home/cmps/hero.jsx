@@ -1,5 +1,5 @@
 import React from 'react'
 
 export function Hero() {
-  return <div>Hero</div>
+  return <div className='home-page-hero'>Hero</div>
 }

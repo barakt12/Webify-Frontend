@@ -9,8 +9,8 @@ export const AppHeader = () => {
     <>
       {location.pathname !== '/preview' && (
         <header className='app-header flex justify-between align-center'>
-          <Link to='/' className='clean-link'>
-            <img src='' alt='Logo' />
+          <Link to='/' className='clean-link logo'>
+            <p className='logo'>webify</p>
           </Link>
           <div className='navbar flex justify-between gap-20'>
             <Link to='/templates' className='clean-link'>
@@ -23,7 +23,6 @@ export const AppHeader = () => {
               Profile
             </Link>
           </div>
-          <button>Login</button>
         </header>
       )}
     </>
