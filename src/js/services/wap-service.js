@@ -13,6 +13,7 @@ export const wapService = {
   remove,
   getWapIdx,
   deleteCmp,
+  updateCmp
 }
 
 function query(filterBy, sortBy) {
@@ -35,6 +36,16 @@ function deleteCmp(cmp, cmpId) {
     return
   } else {
     cmp?.cmps?.forEach((cmp) => deleteCmp(cmp, cmpId))
+  }
+}
+
+function updateCmp(wap,newCmp) {
+  const cmpIndex = wap?.cmps?.findIndex(currCmp => (currCmp.id === newCmp.id))
+  if (cmpIndex > -1) {
+    wap.cmps.splice(cmpIndex,1,newCmp)
+    return
+  }else{
+    wap?.cmps?.forEach((cmp) => updateCmp(cmp, newCmp))
   }
 }
 

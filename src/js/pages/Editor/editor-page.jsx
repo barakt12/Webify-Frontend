@@ -56,7 +56,7 @@ export function Editor() {
   return (
     <section className="editor-container">
       <DragDropContext onDragEnd={handleDragEnd}>
-        <EditorSidebar updateWap={updateWap} wap={wap}/>
+        <EditorSidebar />
         <EditorBoard
           pageContent={pageContent}
           getItemStyle={getItemStyle}
