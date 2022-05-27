@@ -1,5 +1,5 @@
 import { IconCmp } from './icon-cmp'
-import { TxtCmp } from './txt-cmp'
+import { TxtCmp } from '../sidebar/txt-cmp'
 import { ImgCmp } from './img-cmp'
 import { FAQCmp } from './faq-cmp'
 import { BtnCmp } from './btn-cmp'
