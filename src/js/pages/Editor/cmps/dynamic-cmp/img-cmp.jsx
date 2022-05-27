@@ -5,13 +5,18 @@ export function ImgCmp({
   onSelectElement,
 }) {
   return (
-    <img
-      onMouseOut={(ev) => ev.target.classList.remove('hover')}
-      onMouseOver={(ev) => onHoverElement(ev)}
-      className={selectedElement?.id === cmp.id ? 'selected' : ''}
-      src={cmp.info.imgUrl}
-      onClick={() => onSelectElement(cmp)}
-      alt=''
-    />
+    <div className='img-container'>
+      <img
+        onMouseOut={(ev) => ev.target.classList.remove('hover')}
+        onMouseOver={(ev) => onHoverElement(ev)}
+        className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${
+          cmp.name
+        }`}
+        src={cmp.info.imgUrl}
+        onClick={(ev) => onSelectElement(ev, cmp)}
+        alt=''
+        style={cmp.style}
+      />
+    </div>
   )
 }

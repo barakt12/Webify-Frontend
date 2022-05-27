@@ -1,7 +1,7 @@
+import { v4 as uuidv4 } from 'uuid'
 import { storageService } from './async-storage.service.js'
 import { httpService } from './http.service.js'
 // import { utilService } from './util.service.js'
-
 // import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'wap'
@@ -13,7 +13,8 @@ export const wapService = {
   remove,
   getWapIdx,
   deleteCmp,
-  updateCmp
+  updateCmp,
+  changeCmpId,
 }
 
 function query(filterBy, sortBy) {
@@ -39,14 +40,22 @@ function deleteCmp(cmp, cmpId) {
   }
 }
 
-function updateCmp(wap,newCmp) {
-  const cmpIndex = wap?.cmps?.findIndex(currCmp => (currCmp.id === newCmp.id))
+function updateCmp(wap, newCmp) {
+  const cmpIndex = wap?.cmps?.findIndex((currCmp) => currCmp.id === newCmp.id)
   if (cmpIndex > -1) {
-    wap.cmps.splice(cmpIndex,1,newCmp)
+    wap.cmps.splice(cmpIndex, 1, newCmp)
     return
-  }else{
+  } else {
     wap?.cmps?.forEach((cmp) => updateCmp(cmp, newCmp))
   }
+}
+
+function changeCmpId(cmp) {
+  cmp?.cmps?.forEach((currCmp) => {
+    currCmp.id = uuidv4()
+    if (!cmp.cmps || !cmp.cmps.length) return
+    else changeCmpId(currCmp)
+  })
 }
 
 async function add(wap) {

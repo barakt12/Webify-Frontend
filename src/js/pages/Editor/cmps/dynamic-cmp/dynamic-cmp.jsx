@@ -7,10 +7,11 @@ import { CarosuelCmp } from './carousel-cmp'
 import { useLocation } from 'react-router'
 import { setSelectedElement } from '../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
+import { ContainerCmp } from './container-cmp'
 
-export const DynamicCmp = ({ cmp }) => {
+export const DynamicCmp = (props) => {
+  const { cmp } = props
   const dispatch = useDispatch()
-  let insertedCmp = ''
   const location = useLocation()
   const selectedElement = useSelector(
     (storeState) => storeState.wapModule.selectedElement
@@ -22,7 +23,8 @@ export const DynamicCmp = ({ cmp }) => {
     }
   }
 
-  const onSelectElement = (cmp) => {
+  const onSelectElement = (ev, cmp) => {
+    ev.stopPropagation()
     if (location.pathname !== '/preview') {
       dispatch(setSelectedElement(cmp))
     }
@@ -30,12 +32,17 @@ export const DynamicCmp = ({ cmp }) => {
 
   switch (cmp.type) {
     case 'container':
-      insertedCmp = cmp?.cmps?.map((innerCmp) => {
-        return <DynamicCmp key={innerCmp.id} cmp={innerCmp} />
-      })
-      break
+      return (
+        <ContainerCmp
+          {...props}
+          style={cmp.style}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+          selectedElement={selectedElement}
+        />
+      )
     case 'txt':
-      insertedCmp = (
+      return (
         <TxtCmp
           cmp={cmp}
           selectedElement={selectedElement}
@@ -43,12 +50,10 @@ export const DynamicCmp = ({ cmp }) => {
           onSelectElement={onSelectElement}
         />
       )
-      break
     case 'icon':
-      insertedCmp = <IconCmp {...cmp.info} />
-      break
+      return <IconCmp {...cmp.info} />
     case 'img':
-      insertedCmp = (
+      return (
         <ImgCmp
           cmp={cmp}
           selectedElement={selectedElement}
@@ -56,9 +61,8 @@ export const DynamicCmp = ({ cmp }) => {
           onSelectElement={onSelectElement}
         />
       )
-      break
     case 'faq':
-      insertedCmp = (
+      return (
         <FAQCmp
           cmp={cmp}
           selectedElement={selectedElement}
@@ -66,9 +70,8 @@ export const DynamicCmp = ({ cmp }) => {
           onSelectElement={onSelectElement}
         />
       )
-      break
     case 'btn':
-      insertedCmp = (
+      return (
         <BtnCmp
           cmp={cmp}
           selectedElement={selectedElement}
@@ -76,9 +79,8 @@ export const DynamicCmp = ({ cmp }) => {
           onSelectElement={onSelectElement}
         />
       )
-      break
     case 'carosuel':
-      insertedCmp = (
+      return (
         <CarosuelCmp
           cmp={cmp}
           selectedElement={selectedElement}
@@ -86,14 +88,7 @@ export const DynamicCmp = ({ cmp }) => {
           onSelectElement={onSelectElement}
         />
       )
-      break
     default:
       return
   }
-
-  return (
-    <div className={`cmp ${cmp.name ? cmp.name : ''}`} style={cmp.style}>
-      {insertedCmp}
-    </div>
-  )
 }

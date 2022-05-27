@@ -1,19 +1,32 @@
 .display-icons-container {
-    background-color: #0e1318;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 0.5rem;
-    margin: 0 1rem;
-    border-radius: 10px;
+  background-color: #0e1318;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  margin: 0 1rem;
+  border-radius: 10px;
 
-    * {
-        fill: #929292;
-        transition: fill 0.3s;
+  .ico:last-child {
+    svg {
+      transform: scale(1.1);
     }
-    
-    *:hover {
-        fill: #e4e4e4;
+  }
+
+  .ico:first-child {
+    svg {
+      transform: scale(1.3);
     }
+  }
+  .ico:hover {
+    cursor: pointer;
+    svg {
+      fill: #e4e4e4;
+    }
+  }
+  .ico svg {
+    fill: #929292;
+    transition: fill 0.1s;
+  }
 }

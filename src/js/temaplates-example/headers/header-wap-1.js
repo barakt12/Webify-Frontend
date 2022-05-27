@@ -20,6 +20,7 @@ export const headerWap1 = {
       style: {
         fontSize: '2rem',
         fontWeight: '700',
+        margin: 0,
       },
     },
     {
