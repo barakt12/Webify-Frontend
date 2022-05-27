@@ -1,0 +1,14 @@
+.wap-header-3 {
+    background-color: #1c1b1d;
+    color: #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+
+    .nav-bar {
+        display: flex;
+        font-size: 0.8rem;
+        gap: 0.8rem;
+    }
+}
