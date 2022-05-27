@@ -1,18 +1,26 @@
 import React, { useState } from 'react'
-import { CirclePicker } from 'react-color'
 import ColorizeIcon from '@mui/icons-material/Colorize'
+import { useDispatch, useSelector } from 'react-redux'
+import { wapService } from '../../../../services/wap-service' 
+import { setWap } from '../../../../store/wap/wap.action'
 
 export const ColorPicker = () => {
-  const [isShownToggle, setIsShownToggle] = useState(false)
   const [color, setColor] = useState({ background: '#FFFFFF' })
+  const dispatch = useDispatch()
+  const { wap, selectedElement } = useSelector(
+    (storeState) => storeState.wapModule
+  )
 
-  const handleClick = (color) => {
-    setColor({ background: color })
+  const onChangeColor = (colorInput) => {
+    // setColor((prevState) => ({ ...prevState ,background: colorInput }))
+    if (!selectedElement) return
+    //had to use color input
+    console.log(selectedElement)
+    selectedElement.style = { ...selectedElement.style, background: colorInput }
+    wapService.updateCmp(wap,selectedElement)
+    dispatch(setWap(wap))
   }
 
-  const onChangeColor = ({ target }) => {
-    setColor({ background: target.value })
-  }
 
   const popover = {
     position: 'absolute',
@@ -28,15 +36,17 @@ export const ColorPicker = () => {
   // }
 
   const colors = [
-    '#4A90E2',
-    '#F5A623',
-    '#F8E71C',
-    '#8B572A',
-    '#417505',
-    '#BD10E0',
-    '#50E3C2',
-    '#9013FE',
-    '#B8E986',
+    '#FFFFFF',
+    '#F28B82',
+    '#FBBC04',
+    '#FFF475',
+    '#CCFF90',
+    '#A7FFEB',
+    '#CBF0F8',
+    '#F1E4DE',
+    '#D7AEFB',
+    '#FDCFE8',
+    '#E6C9A8',
     'transparent'
   ]
   // const colors = [ // Google's color palette
@@ -80,7 +90,7 @@ export const ColorPicker = () => {
         </label>
         {colors.map((color) => (
           <div
-            onClick={() => handleClick(color)}
+            onClick={() => onChangeColor(color)}
             key={color}
             style={{
               height: '28px',
