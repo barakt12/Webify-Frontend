@@ -3,9 +3,9 @@ import {
   setSelectedElement,
   deleteElement,
 } from '../../../../store/wap/wap.action'
-import { ColorPicker } from '../color-picker'
 import { useSelector, useDispatch } from 'react-redux'
 import { DisplaySize } from './display-size-cmp'
+import { ColorPicker } from './color-picker'
 
 export const SidebarEdit = () => {
   const dispatch = useDispatch()
@@ -18,13 +18,13 @@ export const SidebarEdit = () => {
   }
 
   return (
-    <>
-      <div className="color-picker-container">
+    <section className='editor-sidebar-container'>
+      <DisplaySize />
+      <div className='color-picker-container'>
         <p>Background Color</p>
         <ColorPicker />
       </div>
       <button onClick={onDeleteElement}>Delete</button>
-      <DisplaySize />
-    </>
+    </section>
   )
 }

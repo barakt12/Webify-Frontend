@@ -44,17 +44,25 @@ export function Editor() {
   const handleDragEnd = (result) => {
     // dropped outside the list
     if (!result.destination) return
-    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
+    else if (
+      result.destination.droppableId === 'editor' &&
+      result.source.droppableId !== 'editor'
+    ) {
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(pageContent.cmps, result.source.index, result.destination.index)
-    if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
+    const content = reorder(
+      pageContent.cmps,
+      result.source.index,
+      result.destination.index
+    )
+    if (content)
+      setPageContent((prevState) => ({ ...prevState, cmps: content }))
   }
 
   return (
-    <section className="editor-container">
+    <section className='editor-container'>
       <DragDropContext onDragEnd={handleDragEnd}>
         <EditorSidebar />
         <EditorBoard

@@ -1,4 +1,9 @@
-export function ImgCmp({ cmp, onHoverElement, selectedElement, onSelectElement }) {
+export function ImgCmp({
+  cmp,
+  onHoverElement,
+  selectedElement,
+  onSelectElement,
+}) {
   return (
     <img
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
@@ -6,6 +11,7 @@ export function ImgCmp({ cmp, onHoverElement, selectedElement, onSelectElement }
       className={selectedElement?.id === cmp.id ? 'selected' : ''}
       src={cmp.info.imgUrl}
       onClick={() => onSelectElement(cmp)}
+      alt=''
     />
   )
 }

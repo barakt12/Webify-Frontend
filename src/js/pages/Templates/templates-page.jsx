@@ -17,8 +17,10 @@ export const Templates = () => {
 
   return (
     <>
-      <h2>Select a Template</h2>
-      <section className="main-template-container">
+      <div className='template-page-intro'>
+        <h2>Select a Template</h2>
+      </div>
+      <section className='main-template-container'>
         {templatePreviews.map((preview) => (
           <div key={preview.id} className={preview.id}>
             <div className='template-hover-info-container'>
