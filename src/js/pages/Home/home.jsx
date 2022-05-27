@@ -1,6 +1,6 @@
 import { Hero } from './cmps/hero.jsx'
 import { Cards } from './cmps/cards.jsx'
-import { AppFooter } from '../../cmps/app-footer.jsx'
+import { AppFooter } from '../../cmps/app-footer'
 
 export function Home() {
   return (

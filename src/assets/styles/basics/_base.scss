@@ -3,6 +3,11 @@
   margin: 0;
   padding: 0;
 }
+
+.app {
+  min-height: 80vh;
+}
+
 // :root {
 //   // this is the default value below
 //   --toastify-color-progress-light: linear-gradient(
@@ -16,9 +21,6 @@ html {
   font-size: 16px;
   font-family: $main-font;
   color: black;
-  // $font-main:
-  // $color-main:
-  // $color-secondary:
 }
 
 button,
@@ -27,9 +29,7 @@ input {
 }
 
 body {
-  // background-color: $color1;
   margin: 0;
-  //   overflow: hidden;
 }
 
 main {

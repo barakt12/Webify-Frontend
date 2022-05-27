@@ -4,6 +4,11 @@ import {
   AccordionSummary,
   Typography,
 } from '@mui/material'
+import AddIcon from '@mui/icons-material/Add'
+import EditIcon from '@mui/icons-material/Edit'
+import FormatPaintIcon from '@mui/icons-material/FormatPaint'
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import React, { useState } from 'react'
 export function SidebarBtns({
   onChooseCmps,
@@ -23,36 +28,58 @@ export function SidebarBtns({
     onChooseCmps(cmpName)
   }
 
-  const onChangeTab = (tabName) => {
-    setActiveTab(tabName)
+  const onChangeTab = async (ev, tabName) => {
+    await setActiveTab(tabName)
+    if (ev.target.previousSibling)
+      ev.target.previousSibling.classList.add('border-radius-previous')
+
+    if (ev.target.nextSibling)
+      ev.target.nextSibling.classList.add('border-radius-next')
   }
   return (
     <div className='editor-edit-add-btns'>
       <button
-        className={`edit-btn ${activeTab === 'edit' ? 'active' : ''}`}
-        onClick={() => onChangeTab('edit')}
+        className={`sidebar-btn edit-btn ${
+          activeTab === 'edit' ? 'active' : ''
+        }`}
+        onClick={(ev) => onChangeTab(ev, 'edit')}
       >
+        <EditIcon />
         Edit
       </button>
       <button
-        className={`themes-btn ${activeTab === 'themes' ? 'active' : ''}`}
-        onClick={() => {
-          onChangeTab('themes')
+        className={`sidebar-btn themes-btn ${
+          activeTab === 'themes' ? 'active' : ''
+        }`}
+        onClick={(ev) => {
+          onChangeTab(ev, 'themes')
           onShowThemes()
         }}
       >
+        <FormatPaintIcon />
         Themes
       </button>
       <Accordion
         expanded={activeTab === 'add'}
-        className='add-btn'
-        onClick={() => onChangeTab('add')}
+        className='sidebar-btn add-btn'
+        onClick={(ev) => onChangeTab(ev, 'add')}
       >
         <AccordionSummary className={`add-btn-summary`}>
+          <AddIcon style={{ fontSize: '1.8rem' }} />
           <Typography>Add</Typography>
+          <ExpandMoreIcon
+            className='sidebar-btn'
+            style={{
+              fontSize: '14px',
+              position: 'absolute',
+              bottom: 0,
+              transform: activeTab === 'add' ? 'scale(-1)' : '',
+              transition: '0.2s',
+            }}
+          />
         </AccordionSummary>
         <AccordionDetails
-          className={`add-btn-details ${
+          className={`sidebar-btn add-btn-details ${
             activeAddBtn === 'header' ? 'active' : ''
           }`}
           onClick={(ev) => onClickCmpBtn(ev, 'header')}
@@ -60,7 +87,7 @@ export function SidebarBtns({
           <Typography>Header</Typography>
         </AccordionDetails>
         <AccordionDetails
-          className={`add-btn-details ${
+          className={`sidebar-btn add-btn-details ${
             activeAddBtn === 'section' ? 'active' : ''
           }`}
           onClick={(ev) => onClickCmpBtn(ev, 'section')}
@@ -69,7 +96,7 @@ export function SidebarBtns({
           <Typography>Section</Typography>
         </AccordionDetails>
         <AccordionDetails
-          className={`add-btn-details ${
+          className={`sidebar-btn add-btn-details ${
             activeAddBtn === 'hero' ? 'active' : ''
           }`}
           onClick={(ev) => onClickCmpBtn(ev, 'hero')}
@@ -78,7 +105,7 @@ export function SidebarBtns({
           <Typography>Hero</Typography>
         </AccordionDetails>
         <AccordionDetails
-          className={`add-btn-details ${
+          className={`sidebar-btn add-btn-details ${
             activeAddBtn === 'card' ? 'active' : ''
           }`}
           onClick={(ev) => onClickCmpBtn(ev, 'card')}
@@ -87,7 +114,7 @@ export function SidebarBtns({
           <Typography>Card</Typography>
         </AccordionDetails>
         <AccordionDetails
-          className={`add-btn-details ${
+          className={`sidebar-btn add-btn-details ${
             activeAddBtn === 'text' ? 'active' : ''
           }`}
           onClick={(ev) => onClickCmpBtn(ev, 'text')}
@@ -96,7 +123,7 @@ export function SidebarBtns({
           <Typography>Text</Typography>
         </AccordionDetails>
         <AccordionDetails
-          className={`add-btn-details ${
+          className={`sidebar-btn add-btn-details ${
             activeAddBtn === 'gallery' ? 'active' : ''
           }`}
           onClick={(ev) => onClickCmpBtn(ev, 'gallery')}
@@ -105,7 +132,7 @@ export function SidebarBtns({
           <Typography>Gallery</Typography>
         </AccordionDetails>
         <AccordionDetails
-          className={`add-btn-details ${
+          className={`sidebar-btn add-btn-details ${
             activeAddBtn === 'footer' ? 'active' : ''
           }`}
           onClick={(ev) => onClickCmpBtn(ev, 'footer')}

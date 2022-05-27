@@ -46,6 +46,10 @@ export function Editor() {
     })
   }
 
+  const handleDragStart = () => {
+    console.log('drag')
+  }
+
   const handleDragEnd = (result) => {
     // dropped outside the list
     if (!result.destination) return
@@ -68,7 +72,7 @@ export function Editor() {
 
   return (
     <section className='editor-container'>
-      <DragDropContext onDragEnd={handleDragEnd}>
+      <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <EditorSidebar />
         <EditorBoard pageContent={pageContent} getItemStyle={getItemStyle} />
       </DragDropContext>

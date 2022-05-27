@@ -19,8 +19,6 @@ export const wapCarousel1 = {
         //you will face strange behavior on dragging the component!!!!
       style: {
         width: '100%',
-        display: 'flex',
-        justifyContent: 'center'
       },
       info: {
         carosuelContent: [
