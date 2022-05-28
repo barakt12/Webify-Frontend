@@ -4,7 +4,7 @@ import Slider from '@mui/material/Slider';
 
 export const SidebarSlider = ({onChangeFontSize,selectedElement}) => {
 
-  const currSize = ((+selectedElement.style.fontSize.replace('rem',''))*16)
+  const currSize = ((+selectedElement?.style?.fontSize.replace('rem',''))*16)
 
   return (
     <Box width={92}>

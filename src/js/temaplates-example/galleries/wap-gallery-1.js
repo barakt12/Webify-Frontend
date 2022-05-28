@@ -18,7 +18,7 @@ export const wapGallery1 = {
       },
     },
     {
-      type: "gallery-1",
+      type: "gallery-grid",
       id: uuidv4(),
       name: "gallery",
       info: {
