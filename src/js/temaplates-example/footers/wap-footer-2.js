@@ -17,6 +17,7 @@ export const wapFooter2 = {
       style: {
         fontSize: '2.5rem',
         fontWeight: '700',
+        margin: 0,
       },
     },
     {

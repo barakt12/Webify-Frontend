@@ -54,6 +54,7 @@ export const wapHero2 = {
         {
           type: 'img',
           id: uuidv4(),
+          name: 'wap-hero-2-hero-img',
           info: {
             imgUrl: 'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b10d0ee7f483cdf4e9ca8f8_img-top.png',
           },

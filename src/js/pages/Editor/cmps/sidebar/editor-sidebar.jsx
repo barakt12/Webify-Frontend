@@ -10,7 +10,7 @@ import { SidebarTheme } from './sidebar-theme'
 import { useSelector } from 'react-redux'
 
 export function EditorSidebar() {
-  const [isSidebarShown, toggleSidebarShown] = useState(true)
+  const [isSidebarShown, toggleSidebarShown] = useState(false)
   const [addCmpList, setAddCmpList] = useState(null)
   const [themeList, setTheme] = useState(null)
   const [activeTab, setActiveTab] = useState('add')
@@ -21,6 +21,7 @@ export function EditorSidebar() {
 
   useEffect(() => {
     setActiveTab('edit')
+    toggleSidebarShown(false)
   }, [selectedElement])
 
   useEffect(() => {

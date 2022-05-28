@@ -5,9 +5,12 @@ import { useSelector } from 'react-redux'
 import { DragDropContext } from 'react-beautiful-dnd'
 // import { wapService } from '../../services/wap-service'
 import { templateService } from '../../services/templates.service'
+import { v4 as uuidv4 } from 'uuid'
+
 import { themes } from '../../temaplates-example/themes/themes'
 import { useDispatch } from 'react-redux'
 import { setWap } from '../../store/wap/wap.action'
+import { wapService } from '../../services/wap-service'
 
 export function Editor() {
   const [pageContent, setPageContent] = useState({})
@@ -32,35 +35,46 @@ export function Editor() {
   })
 
   const addCmpToPage = (result) => {
-    const cmp = templateService.getCmpById(result.draggableId)
+    let cmp = templateService.getCmpById(result.draggableId)
+    cmp = JSON.parse(JSON.stringify(cmp))
+    cmp.id = uuidv4()
+    wapService.changeCmpId(cmp)
     setPageContent((prevState) => {
       const newState = JSON.parse(JSON.stringify(prevState))
       newState.cmps.splice(result.destination.index, 0, cmp)
       dispatch(setWap(newState))
-      return newState
     })
+  }
+
+  const handleDragStart = () => {
+    console.log('drag')
   }
 
   const handleDragEnd = (result) => {
     // dropped outside the list
     if (!result.destination) return
-    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
+    else if (
+      result.destination.droppableId === 'editor' &&
+      result.source.droppableId !== 'editor'
+    ) {
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(pageContent.cmps, result.source.index, result.destination.index)
-    if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
+    const content = reorder(
+      pageContent.cmps,
+      result.source.index,
+      result.destination.index
+    )
+    if (content)
+      setPageContent((prevState) => ({ ...prevState, cmps: content }))
   }
 
   return (
-    <section className="editor-container">
-      <DragDropContext onDragEnd={handleDragEnd}>
-        <EditorSidebar updateWap={updateWap} wap={wap}/>
-        <EditorBoard
-          pageContent={pageContent}
-          getItemStyle={getItemStyle}
-        />
+    <section className='editor-container'>
+      <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+        <EditorSidebar />
+        <EditorBoard pageContent={pageContent} getItemStyle={getItemStyle} />
       </DragDropContext>
     </section>
   )

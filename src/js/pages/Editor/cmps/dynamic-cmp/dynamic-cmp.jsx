@@ -1,5 +1,5 @@
 import { IconCmp } from './icon-cmp'
-import { TxtCmp } from './txt-cmp'
+import { TxtCmp } from '../sidebar/txt-cmp'
 import { ImgCmp } from './img-cmp'
 import { FAQCmp } from './faq-cmp'
 import { BtnCmp } from './btn-cmp'
@@ -7,20 +7,29 @@ import { CarosuelCmp } from './carousel-cmp'
 import { useLocation } from 'react-router'
 import { setSelectedElement } from '../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
+import { ContainerCmp } from './container-cmp'
+import { CarouselLgCmp } from './carousel-lg'
+import { VideoCmp } from './videoCmp'
+import { Gallery1 } from './gallery-1'
+import { FormCmp } from './form-cmp'
 
-export const DynamicCmp = ({ cmp }) => {
+export const DynamicCmp = (props) => {
+  const { cmp } = props
   const dispatch = useDispatch()
-  let insertedCmp = ''
   const location = useLocation()
-  const selectedElement = useSelector((storeState) => storeState.wapModule.selectedElement)
+  const selectedElement = useSelector(
+    (storeState) => storeState.wapModule.selectedElement
+  )
 
   const onHoverElement = (ev) => {
+    ev.stopPropagation()
     if (location.pathname !== '/preview') {
       ev.target.classList.add('hover')
     }
   }
 
-  const onSelectElement = (cmp) => {
+  const onSelectElement = (ev, cmp) => {
+    ev.stopPropagation()
     if (location.pathname !== '/preview') {
       dispatch(setSelectedElement(cmp))
     }
@@ -28,35 +37,99 @@ export const DynamicCmp = ({ cmp }) => {
 
   switch (cmp.type) {
     case 'container':
-      insertedCmp = cmp?.cmps?.map((innerCmp) => {
-        return <DynamicCmp key={innerCmp.id} cmp={innerCmp} />
-      })
-      break
+      return (
+        <ContainerCmp
+          {...props}
+          style={cmp.style}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+          selectedElement={selectedElement}
+        />
+      )
     case 'txt':
-      insertedCmp = <TxtCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
-      break
+      return (
+        <TxtCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
     case 'icon':
-      insertedCmp = <IconCmp {...cmp.info} />
-      break
+      return <IconCmp {...cmp.info} />
     case 'img':
-      insertedCmp = <ImgCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
-      break
+      return (
+        <ImgCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
     case 'faq':
-      insertedCmp = <FAQCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
-      break
+      return (
+        <FAQCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
     case 'btn':
-      insertedCmp = <BtnCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
-      break
+      return (
+        <BtnCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
     case 'carosuel':
-      insertedCmp = <CarosuelCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
-      break
+      return (
+        <CarosuelCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
+    case 'carousel-lg':
+      return (
+        <CarouselLgCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
+    case 'video':
+      return (
+        <VideoCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
+    case 'gallery-1':
+      return (
+        <Gallery1
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
+    case 'form':
+      return (
+        <FormCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
     default:
       return
   }
-
-  return (
-    <div className={`cmp ${cmp.name ? cmp.name : ''}`} style={cmp.style}>
-      {insertedCmp}
-    </div>
-  )
 }

@@ -1,0 +1,15 @@
+.txt-editor-container{
+  .txt-align-container,.txt-deco-container{
+    display: flex;
+    padding: 15px 20px 0px 20px;
+    justify-content: space-between;
+    color: white;
+    .txt-icons-container,.txt-deco-icons-container{
+      display: flex;
+      gap: 10px;
+      & > *{
+        cursor: pointer;
+      }
+    }
+  }
+}

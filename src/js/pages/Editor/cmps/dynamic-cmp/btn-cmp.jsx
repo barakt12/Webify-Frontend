@@ -1,11 +1,18 @@
-export function BtnCmp({ cmp, onHoverElement, selectedElement, onSelectElement }) {
+export function BtnCmp({
+  cmp,
+  onHoverElement,
+  selectedElement,
+  onSelectElement,
+}) {
   return (
     <button
-      className={selectedElement?.id === cmp.id ? 'selected' : ''}
-      src={cmp.info.imgUrl}
+      style={cmp.style}
+      className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${
+        cmp.name
+      }`}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverElement(ev)}
-      onClick={() => onSelectElement(cmp)}
+      onClick={(ev) => onSelectElement(ev, cmp)}
     >
       {cmp.info.txt}
     </button>

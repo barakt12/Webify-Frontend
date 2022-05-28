@@ -1,11 +1,9 @@
 // import { wapService } from '../../services/wap-service'
 import { v4 as uuidv4 } from 'uuid'
+import { wapTemplate3 } from '../../temaplates-example/wap-template-3'
 
 const initial_state = {
-  wap: {
-    _id: uuidv4(),
-    cmps: [],
-  },
+  wap: wapTemplate3,
   cmpsList: {
     header: [],
     hero: [],
@@ -21,9 +19,8 @@ export function wapReducer(state = initial_state, action) {
       return { ...state, wap: { ...action.wap } }
 
     case 'SET_ELEMENT':
-      console.log('selected element',action.cmp)
+      console.log('selected element', action.cmp)
       return { ...state, selectedElement: { ...action.cmp } }
-
     case 'SET_DISPLAY_SIZE':
       return { ...state, displaySize: action.displaySize }
     default:
