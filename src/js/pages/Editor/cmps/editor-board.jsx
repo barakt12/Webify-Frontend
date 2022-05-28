@@ -18,7 +18,8 @@ export const EditorBoard = ({ pageContent, isSaving }) => {
   }, [isSaving])
 
   const exportAsImage = async (el, imageFileName) => {
-    const canvas = await html2canvas(editorRef.current, {})
+    const canvas = await html2canvas(editorRef.current, {
+    })
     const image = canvas.toDataURL('image/png', 1.0)
     dispatch(setWapThumbnail(image))
   }

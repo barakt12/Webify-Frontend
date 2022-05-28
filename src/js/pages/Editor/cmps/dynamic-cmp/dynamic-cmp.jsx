@@ -111,7 +111,7 @@ export const DynamicCmp = (props) => {
           onSelectElement={onSelectElement}
         />
       )
-    case 'gallery-1':
+    case 'gallery-grid':
       return (
         <Gallery1
           cmp={cmp}

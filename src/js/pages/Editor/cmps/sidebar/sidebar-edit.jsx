@@ -16,9 +16,10 @@ export const SidebarEdit = ({ onSaveWap }) => {
   return (
     <section className="editor-sidebar-container">
       <DisplaySize />
-      {selectedElement && <>{(!selectedElement || (selectedElement.type !== 'img' && selectedElement.type !== 'container')) && <TxtEditor />}
+      {selectedElement && <>
+      {selectedElement.type === 'txt' && <TxtEditor />}
       <div className="color-picker-container">
-        {(!selectedElement || (selectedElement.type !== 'img' && selectedElement.type !== 'container')) && (
+        {selectedElement.type === 'txt' && (
           <>
             <p>Font Color</p>
             <ColorPicker isBackgroundColor={false} />
@@ -26,7 +27,9 @@ export const SidebarEdit = ({ onSaveWap }) => {
         )}
         <p>Background Color</p>
         <ColorPicker isBackgroundColor={true} />
-      </div></>}
+      </div>
+      </>
+      }
       {!selectedElement && <p>Please choose an element</p>}
       <button onClick={onDeleteElement}>Delete</button>
       <button onClick={onSaveWap}>Save</button>

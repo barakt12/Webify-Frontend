@@ -1,13 +1,10 @@
 .wap-header-2 {
   display: flex;
   justify-content: space-between;
-  padding-inline-start: 6vw;
-  padding-inline-end: 6vw;
-  height: 100px;
+  padding: 1.8rem 4rem;
   align-items: center;
   color: white;
   background: linear-gradient(7deg, #dd1173, #350e47);
-  position: relative;
   p{
     margin: 0;
   }
