@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { v4 as uuidv4 } from 'uuid'
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -20,14 +21,17 @@ export const SidebarSelection = ({onChangeFontType,onChangeTextShadow,isFontType
   }
   
   const fontTypeMenu = [
-    <MenuItem key={'758785'} value={'System-ui'}>System-ui</MenuItem>,
-    <MenuItem key={'75757858778'} value={'Cursive'}>Cursive</MenuItem>
+    <MenuItem key={uuidv4()} value={'System-ui'}>System-ui</MenuItem>,
+    <MenuItem key={uuidv4()} value={'San-serif'}>San-serif</MenuItem>,
+    <MenuItem key={uuidv4()} value={'Cursive'}>Cursive</MenuItem>,
+    <MenuItem key={uuidv4()} value={'Monospace'}>Monospace</MenuItem>,
+    <MenuItem key={uuidv4()} value={'Fangsong'}>Fangsong</MenuItem>,
 ]
 
   const textShadowMenu = [
-    <MenuItem key={'1427856'} value={'-2px 3px 0px black'}>Light</MenuItem>,
-    <MenuItem key={'57423'} value={'-3px 3px 0px black'}>Medium</MenuItem>,
-    <MenuItem key={'2547205873'} value={'-4px 3px 0px black'}>Strong</MenuItem>
+    <MenuItem key={uuidv4()} value={'-2px 3px 0px black'}>Light</MenuItem>,
+    <MenuItem key={uuidv4()} value={'-3px 3px 0px black'}>Medium</MenuItem>,
+    <MenuItem key={uuidv4()} value={'-4px 3px 0px black'}>Strong</MenuItem>
 ]
 
 const currMenu = (isFontType) ? fontTypeMenu : textShadowMenu

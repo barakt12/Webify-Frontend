@@ -23,7 +23,9 @@ export const wapHero2 = {
           info: {
             txt: 'Momentum',
           },
-          style: {},
+          style: {
+            fontSize: '5.75rem',
+          },
         },
         {
           type: 'txt',
@@ -32,7 +34,9 @@ export const wapHero2 = {
           info: {
             txt: 'Launch your product — and savor the momentum',
           },
-          style: {},
+          style: {
+            fontSize: '1.875rem',
+          },
         },
         {
           type: 'btn',
@@ -41,7 +45,9 @@ export const wapHero2 = {
           info: {
             txt: 'Get the App',
           },
-          style: {},
+          style: {
+            fontSize: '1rem',
+          },
         },
       ],
     },

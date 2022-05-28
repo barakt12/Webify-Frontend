@@ -19,7 +19,9 @@ export const wapCards2 = {
       info: {
         txt: 'AENEAN CONSECTETUR PORTA',
       },
-      style: {},
+      style: {
+        fontSize: '0.75rem',
+      },
     },
     {
       type: 'txt',
@@ -28,7 +30,9 @@ export const wapCards2 = {
       info: {
         txt: 'Nullam quis risus eget urna mollis ornare vel eu leo.',
       },
-      style: {},
+      style: {
+        fontSize: '2.375rem',
+      },
     },
     {
       type: 'img',

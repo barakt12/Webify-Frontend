@@ -11,7 +11,7 @@
 
   .nav-bar {
     display: flex;
-    gap: 30px;
+    gap: 2rem;
   }
   .hamburger-nav-bar {
     display: none;
@@ -22,9 +22,10 @@
 }
 
 .wap-hero-2 {
-  position: relative;
-  height: 75vh;
   display: flex;
+  position: relative;
+  width: 100%;
+  height: 75vh;
   background: linear-gradient(135deg, #dd1173, #350e47);
 
   .wap-hero-2-container {
@@ -106,8 +107,9 @@
   .wap-hero-2-img-container {
     div {
       .wap-hero-2-hero-img {
-        width: 600px;
-        padding-inline-end: 2vw;
+        min-width: 600px;
+        width: 70%;
+        padding-inline-end: 2rem;
       }
     }
   }
@@ -124,6 +126,7 @@
   justify-content: center;
   height: 100%;
 
+
   .wap-cards-2-sub-header {
       display: inline-block;
       padding-bottom: 5px;
@@ -134,14 +137,14 @@
       text-transform: uppercase;
   }
   .wap-cards-2-main-header {
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-top: 1.2rem;
+      padding-bottom: 1.2rem;
       color: #fff;
       font-size: 38px;
       line-height: 48px;
       font-weight: 700;
-      padding-inline-start: 35px;
-      padding-inline-end: 35px;
+      padding-inline-start: 2rem;
+      padding-inline-end: 2rem;
       text-align: center;
   }
 
@@ -157,6 +160,7 @@
 .wap-cards-2-second {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   color: black;
   background-color: white;
@@ -164,8 +168,9 @@
   gap: 100px;
   padding-top: 10vh;
   padding-bottom: 10vh;
-  padding-right: 10vw;
-  padding-left: 10vw;
+  padding-right: 2rem;
+  padding-left: 2rem;
+
   img {
     max-height: 600px;
   }
@@ -173,7 +178,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50vw;
     max-width: 450px;
     .wap-cards-2-second-main-header {
         display: inline-block;
@@ -186,7 +190,6 @@
     }
     .wap-cards-2-second-sec-header {
       width: fit-content;
-        width: fit-content;
         padding-top: 20px;
         padding-bottom: 20px;
         color: #000;

@@ -33,7 +33,9 @@ export const headerWap2 = {
           info: {
             txt: 'About',
           },
-          style: {},
+          style: {
+            fontSize: '1rem',
+          },
           cmps: [],
         },
         {
@@ -42,7 +44,9 @@ export const headerWap2 = {
           info: {
             txt: 'Features',
           },
-          style: {},
+          style: {
+            fontSize: '1rem',
+          },
           cmps: [],
         },
         {
@@ -51,7 +55,9 @@ export const headerWap2 = {
           info: {
             txt: 'How to Use',
           },
-          style: {},
+          style: {
+            fontSize: '1rem',
+          },
           cmps: [],
         },
         {
@@ -60,7 +66,9 @@ export const headerWap2 = {
           info: {
             txt: 'Download',
           },
-          style: {},
+          style: {
+            fontSize: '1rem',
+          },
           cmps: [],
         },
       ],

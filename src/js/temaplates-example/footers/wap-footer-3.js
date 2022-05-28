@@ -29,7 +29,9 @@ export const wapFooter3 = {
         info: {
           txt: 'Email',
         },
-        style: {},
+        style: {
+          fontSize: '0.75rem',
+        },
       },
       {
         type: 'txt',
@@ -37,7 +39,9 @@ export const wapFooter3 = {
         info: {
           txt: 'Instagram',
         },
-        style: {},
+        style: {
+          fontSize: '0.75rem',
+        },
       },
       {
         type: 'txt',
@@ -45,7 +49,9 @@ export const wapFooter3 = {
         info: {
           txt: 'Facebook',
         },
-        style: {},
+        style: {
+          fontSize: '0.75rem',
+        },
       },
       {
         type: 'txt',
@@ -53,7 +59,9 @@ export const wapFooter3 = {
         info: {
           txt: 'Twitter',
         },
-        style: {},
+        style: {
+          fontSize: '0.75rem',
+        },
       },
       {
         type: 'txt',
@@ -61,7 +69,9 @@ export const wapFooter3 = {
         info: {
           txt: 'Image License Info',
         },
-        style: {},
+        style: {
+          fontSize: '0.75rem',
+        },
       },
       {
         type: 'txt',
@@ -69,7 +79,9 @@ export const wapFooter3 = {
         info: {
           txt: 'Powered by Webify',
         },
-        style: {},
+        style: {
+          fontSize: '0.75rem',
+        },
       },
     ]
   },
@@ -77,11 +89,12 @@ export const wapFooter3 = {
       type: 'txt',
       id: uuidv4(),
       info: {
-        txt: '©2022. Webify Ltd – All Rights Reserved',
+        txt: '©2022. Webify Ltd - All Rights Reserved',
       },
       style: {
         fontWeight: '700',
         color: 'lightgray',
+        fontSize: '1rem',
       },
     },
   ],
