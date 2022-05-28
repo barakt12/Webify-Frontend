@@ -1,14 +1,22 @@
-.txt-editor-container{
-  .txt-align-container,.txt-deco-container,.txt-slider-container,.txt-type-container,.txt-shadow-container{
+.txt-editor-container {
+  .txt-align-container,
+  .txt-deco-container,
+  .txt-slider-container,
+  .txt-type-container,
+  .txt-shadow-container {
     display: flex;
     padding: 15px 20px 0px 20px;
     justify-content: space-between;
     align-items: center;
     color: white;
-    .txt-icons-container,.txt-deco-icons-container{
+    &:first-child {
+      padding-top: 25px;
+    }
+    .txt-icons-container,
+    .txt-deco-icons-container {
       display: flex;
       gap: 10px;
-      & > *{
+      & > * {
         cursor: pointer;
       }
     }

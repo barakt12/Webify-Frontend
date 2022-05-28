@@ -1,9 +1,11 @@
 import React from 'react'
 import { deleteElement } from '../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
-import { DisplaySize } from './display-size-cmp'
+
 import { ColorPicker } from './color-picker'
 import { TxtEditor } from './txt-editor'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
+import SaveAltIcon from '@mui/icons-material/SaveAlt'
 
 export const SidebarEdit = ({ onSaveWap }) => {
   const dispatch = useDispatch()
@@ -34,9 +36,20 @@ export const SidebarEdit = ({ onSaveWap }) => {
           </div>
         </>
       )}
-      {!selectedElement && <p>Please choose an element</p>}
-      <button onClick={onDeleteElement}>Delete</button>
-      <button onClick={onSaveWap}>Save</button>
+      {!selectedElement && (
+        <p className='sidebar-action-text'>Please choose an element</p>
+      )}
+      <div className='action-btns'>
+        <button onClick={onDeleteElement}>
+          {' '}
+          <DeleteForeverIcon />
+          <span>Delete</span>
+        </button>
+        <button onClick={onSaveWap}>
+          <SaveAltIcon />
+          <span>Save</span>
+        </button>
+      </div>
     </section>
   )
 }

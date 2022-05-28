@@ -18,7 +18,8 @@ export const headerWap3 = {
           id: uuidv4(),
           style: {
             marginBottom: 0,
-            fontSize: '1.6rem',
+            padding: '5px 0',
+            fontSize: '1.7rem',
             fontWeight: '700',
             lineHeight: '0.5',
           },
@@ -31,7 +32,7 @@ export const headerWap3 = {
           id: uuidv4(),
           style: {
             margin: 0,
-            fontSize: '1.6rem',
+            fontSize: '1.7rem',
             fontWeight: '700',
             color: '#fecd11',
           },
@@ -43,7 +44,7 @@ export const headerWap3 = {
           type: 'txt',
           id: uuidv4(),
           style: {
-            fontSize: '0.56rem',
+            fontSize: '0.7rem',
             marginTop: '0',
             marginInlineStart: '1.5rem',
           },

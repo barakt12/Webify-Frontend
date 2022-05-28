@@ -31,14 +31,17 @@ export const loadCmps = () => {
   const cmpsList = {}
   const cmps = templateService.getCmps()
   cmps.forEach((cmp) => {
-    return cmpsList[cmp.category] ? cmpsList[cmp.category].push(cmp) : (cmpsList[cmp.category] = [cmp])
+    return cmpsList[cmp.category]
+      ? cmpsList[cmp.category].push(cmp)
+      : (cmpsList[cmp.category] = [cmp])
   })
 }
 
 export const loadTemplate = (id) => {
   return async (dispatch) => {
     try {
-      const wap = templateService.getTemplateById(id)
+      let wap = templateService.getTemplateById(id)
+      wap = JSON.parse(JSON.stringify(wap))
       dispatch({ type: 'SET_WAP', wap })
     } catch (err) {
       console.log(err)

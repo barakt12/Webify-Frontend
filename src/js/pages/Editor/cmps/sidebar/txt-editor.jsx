@@ -64,10 +64,14 @@ export const TxtEditor = () => {
     dispatch(setWap(wap))
   }
 
+<<<<<<< HEAD
   const fontSizeDebounce = _.debounce(
     (sizeAmount) => onChangeFontSize(sizeAmount),
     20
   )
+=======
+  const debounce = _.debounce((sizeAmount) => onChangeFontSize(sizeAmount), 20)
+>>>>>>> 0e6ee410015dd2e6bf64c1a170c9f0f4dd32940b
 
   const onChangeFontSize = (sizeAmount) => {
     sizeAmount = `${sizeAmount / 16}rem` //switch to rem

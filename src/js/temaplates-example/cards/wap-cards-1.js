@@ -36,7 +36,8 @@ export const wapCards1 = {
               type: 'img',
               id: uuidv4(),
               info: {
-                imgUrl: 'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6bc00c46710f0c92b5a5_image%2016.png',
+                imgUrl:
+                  'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6bc00c46710f0c92b5a5_image%2016.png',
               },
             },
             {
@@ -46,7 +47,7 @@ export const wapCards1 = {
                 txt: 'NFT Marketplace app & website design',
               },
               style: {
-                fontSize: '1.5rem',
+                fontSize: '1rem',
                 fontWeight: '700',
               },
             },
@@ -61,7 +62,8 @@ export const wapCards1 = {
               type: 'img',
               id: uuidv4(),
               info: {
-                imgUrl: 'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6b7272d92a3dbe255cf6_image%2015.png',
+                imgUrl:
+                  'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6b7272d92a3dbe255cf6_image%2015.png',
               },
             },
             {
@@ -71,7 +73,7 @@ export const wapCards1 = {
                 txt: 'A British charity providing critical veterinary support.',
               },
               style: {
-                fontSize: '1.5rem',
+                fontSize: '1rem',
                 fontWeight: '700',
               },
             },
@@ -86,7 +88,8 @@ export const wapCards1 = {
               type: 'img',
               id: uuidv4(),
               info: {
-                imgUrl: 'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6acaa592544ef133dd30_altruistiq.png',
+                imgUrl:
+                  'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6acaa592544ef133dd30_altruistiq.png',
               },
             },
             {
@@ -96,7 +99,7 @@ export const wapCards1 = {
                 txt: 'An environmental tech company reducing Co2 worldwide',
               },
               style: {
-                fontSize: '1.5rem',
+                fontSize: '1rem',
                 fontWeight: '700',
               },
             },

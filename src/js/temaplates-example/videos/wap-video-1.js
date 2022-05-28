@@ -19,6 +19,8 @@ export const wapVideo1 = {
           id: uuidv4(),
           info: {
             txt: 'Next course: July 2022',
+            fontWeight: '500',
+            fontSize: '1.5rem',
           },
         },
         {
@@ -29,6 +31,8 @@ export const wapVideo1 = {
           },
           style: {
             color: '#ebb811',
+            fontWeight: '700',
+            fontSize: '1.5rem',
           },
         },
         {
@@ -39,6 +43,7 @@ export const wapVideo1 = {
           },
           style: {
             fontWeight: '400',
+            fontSize: '1.5rem',
           },
         },
         {
