@@ -20,8 +20,9 @@ export function wapReducer(state = initial_state, action) {
       return { ...state, wap: { ...action.wap } }
     case 'SET_SAVED_WAPS':
       return { ...state, savedWaps: action.savedWaps }
+    case 'SET_THUMBNAIL':
+      return { ...state, wap: { ...state.wap, thumbnail: action.imgData } }
     case 'SET_ELEMENT':
-      console.log('selected element', action.cmp)
       return { ...state, selectedElement: { ...action.cmp } }
     case 'SET_DISPLAY_SIZE':
       return { ...state, displaySize: action.displaySize }
