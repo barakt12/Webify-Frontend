@@ -11,13 +11,15 @@ const initial_state = {
   },
   selectedElement: null,
   displaySize: '100%',
+  savedWaps: null,
 }
 
 export function wapReducer(state = initial_state, action) {
   switch (action.type) {
     case 'SET_WAP':
       return { ...state, wap: { ...action.wap } }
-
+    case 'SET_SAVED_WAPS':
+      return { ...state, savedWaps: action.savedWaps }
     case 'SET_ELEMENT':
       console.log('selected element', action.cmp)
       return { ...state, selectedElement: { ...action.cmp } }

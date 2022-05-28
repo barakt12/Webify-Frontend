@@ -3,17 +3,16 @@ import { EditorBoard } from './cmps/editor-board'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { DragDropContext } from 'react-beautiful-dnd'
-// import { wapService } from '../../services/wap-service'
 import { templateService } from '../../services/templates.service'
 import { v4 as uuidv4 } from 'uuid'
-
 import { themes } from '../../temaplates-example/themes/themes'
 import { useDispatch } from 'react-redux'
-import { setWap } from '../../store/wap/wap.action'
+import { setWap, saveWap } from '../../store/wap/wap.action'
 import { wapService } from '../../services/wap-service'
 
 export function Editor() {
   const [pageContent, setPageContent] = useState({})
+  const [isSaving, setIsSaving] = useState(false)
   const wap = useSelector((storeState) => storeState.wapModule.wap)
   const dispatch = useDispatch()
 
@@ -53,28 +52,26 @@ export function Editor() {
   const handleDragEnd = (result) => {
     // dropped outside the list
     if (!result.destination) return
-    else if (
-      result.destination.droppableId === 'editor' &&
-      result.source.droppableId !== 'editor'
-    ) {
+    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(
-      pageContent.cmps,
-      result.source.index,
-      result.destination.index
-    )
-    if (content)
-      setPageContent((prevState) => ({ ...prevState, cmps: content }))
+    const content = reorder(pageContent.cmps, result.source.index, result.destination.index)
+    if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
+  }
+
+  const onSaveWap = () => {
+    setIsSaving(true)
+    dispatch(saveWap())
+    setIsSaving(false)
   }
 
   return (
-    <section className='editor-container'>
+    <section className="editor-container">
       <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-        <EditorSidebar />
-        <EditorBoard pageContent={pageContent} getItemStyle={getItemStyle} />
+        <EditorSidebar onSaveWap={onSaveWap} />
+        <EditorBoard pageContent={pageContent} getItemStyle={getItemStyle} isSaving={isSaving} />
       </DragDropContext>
     </section>
   )

@@ -8,8 +8,7 @@ const STORAGE_KEY = 'wap'
 export const wapService = {
   query,
   getById,
-  add,
-  update,
+  save,
   remove,
   getWapIdx,
   deleteCmp,
@@ -58,17 +57,39 @@ function changeCmpId(cmp) {
   })
 }
 
-async function add(wap) {
-  storageService.post(STORAGE_KEY, wap)
-  // await httpService.post(`wap/`, wap)
-  // reviewChannel.postMessage()
-}
+// async function add(wap) {
+//   try {
+//     await storageService.post(STORAGE_KEY, wap)
+//     // await httpService.post(`wap/`, wap)
+//     // reviewChannel.postMessage()
+//   } catch (err) {
+//     throw err
+//   }
+// }
 
-async function update(wap) {
+// async function update(wap) {
+//   try {
+//     // const updatedWap = await httpService.put(`wap/${wap._id}`, wap)
+//     const updatedWap = await storageService.put(`wap/${wap._id}`, wap)
+//     return updatedWap
+//   } catch (err) {
+//     throw err
+//   }
+// }
+
+async function save(wap) {
   try {
-    // const updatedWap = await httpService.put(`wap/${wap._id}`, wap)
-    const updatedWap = await storageService.put(`wap/${wap._id}`, wap)
-    return updatedWap
+    const savedWaps = await storageService.query(STORAGE_KEY)
+    const existingWap = savedWaps.find((currWap) => currWap._id === wap._id)
+    console.log(existingWap)
+
+    if (!existingWap) {
+      const newWap = await storageService.post(STORAGE_KEY, wap)
+      return Promise.resolve(newWap)
+    }
+
+    const updatedWap = await storageService.put(STORAGE_KEY, wap)
+    return Promise.resolve(updatedWap)
   } catch (err) {
     throw err
   }

@@ -51,3 +51,26 @@ export const setDisplaySize = (displaySize) => {
     dispatch({ type: 'SET_DISPLAY_SIZE', displaySize })
   }
 }
+
+export const saveWap = () => {
+  return async (dispatch, getState) => {
+    try {
+      const wapToSave = await wapService.save(getState().wapModule.wap)
+      console.log(wapToSave)
+      dispatch({ type: 'SET_WAP', wap: wapToSave })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
+export const loadSavedWaps = () => {
+  return async (dispatch) => {
+    try {
+      const savedWaps = await wapService.query()
+      dispatch({ type: 'SET_SAVED_WAPS', savedWaps })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
