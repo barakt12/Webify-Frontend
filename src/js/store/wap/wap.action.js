@@ -64,6 +64,17 @@ export const saveWap = () => {
   }
 }
 
+export const deleteDraft = (wapId) => {
+  return async (dispatch) => {
+    try {
+      await wapService.remove(wapId)
+      dispatch({ type: 'REMOVE_DRAFT', wapId })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 export const setWapThumbnail = (imgData) => {
   return (dispatch) => {
     dispatch({ type: 'SET_THUMBNAIL', imgData })

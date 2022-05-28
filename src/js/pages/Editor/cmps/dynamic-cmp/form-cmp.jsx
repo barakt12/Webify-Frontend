@@ -7,10 +7,10 @@ export function FormCmp({ cmp, onHoverElement, selectedElement, onSelectElement 
       onMouseOver={(ev) => onHoverElement(ev)}
       onClick={(ev) => onSelectElement(ev, cmp)}
     >
-      {cmp.info.formFields.map((field) => {
-        if (field.type === 'textarea') return <textarea rows={field.rows} placeholder={field.placeholder}></textarea>
+      {cmp.info.formFields.map((field, idx) => {
+        if (field.type === 'textarea') return <textarea key={idx} rows={field.rows} placeholder={field.placeholder}></textarea>
 
-        return <input type={field.input} placeholder={field.placeholder}></input>
+        return <input key={idx} type={field.input} placeholder={field.placeholder}></input>
       })}
     </form>
   )

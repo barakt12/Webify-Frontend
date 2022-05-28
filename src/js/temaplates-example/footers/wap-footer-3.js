@@ -6,85 +6,72 @@ export const wapFooter3 = {
   category: 'footer',
   themePalette: 'primary',
   id: uuidv4(),
-  thumbnail: '',
+  thumbnail: require('../../../assets/img/thumbnails/footer/wap-footer-3.jpg'),
   cmps: [
     {
       type: 'img',
       id: uuidv4(),
-      style: {
-      },
+      style: {},
       info: {
         imgUrl: 'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b149b03d0d5fe3279f270f1_icon-footer.png',
       },
     },
-  {
-    type: 'container',
-    name: 'wap-footer-3-links-container',
-    id: uuidv4(),
-    style: {},
-    cmps: [
-      {
-        type: 'txt',
-        id: uuidv4(),
-        info: {
-          txt: 'Email',
+    {
+      type: 'container',
+      name: 'wap-footer-3-links-container',
+      id: uuidv4(),
+      style: {},
+      cmps: [
+        {
+          type: 'txt',
+          id: uuidv4(),
+          info: {
+            txt: 'Email',
+          },
+          style: {},
         },
-        style: {
-          fontSize: '0.75rem',
+        {
+          type: 'txt',
+          id: uuidv4(),
+          info: {
+            txt: 'Instagram',
+          },
+          style: {},
         },
-      },
-      {
-        type: 'txt',
-        id: uuidv4(),
-        info: {
-          txt: 'Instagram',
+        {
+          type: 'txt',
+          id: uuidv4(),
+          info: {
+            txt: 'Facebook',
+          },
+          style: {},
         },
-        style: {
-          fontSize: '0.75rem',
+        {
+          type: 'txt',
+          id: uuidv4(),
+          info: {
+            txt: 'Twitter',
+          },
+          style: {},
         },
-      },
-      {
-        type: 'txt',
-        id: uuidv4(),
-        info: {
-          txt: 'Facebook',
+        {
+          type: 'txt',
+          id: uuidv4(),
+          info: {
+            txt: 'Image License Info',
+          },
+          style: {},
         },
-        style: {
-          fontSize: '0.75rem',
+        {
+          type: 'txt',
+          id: uuidv4(),
+          info: {
+            txt: 'Powered by Webify',
+          },
+          style: {},
         },
-      },
-      {
-        type: 'txt',
-        id: uuidv4(),
-        info: {
-          txt: 'Twitter',
-        },
-        style: {
-          fontSize: '0.75rem',
-        },
-      },
-      {
-        type: 'txt',
-        id: uuidv4(),
-        info: {
-          txt: 'Image License Info',
-        },
-        style: {
-          fontSize: '0.75rem',
-        },
-      },
-      {
-        type: 'txt',
-        id: uuidv4(),
-        info: {
-          txt: 'Powered by Webify',
-        },
-        style: {
-          fontSize: '0.75rem',
-        },
-      },
-    ]
-  },
+      ],
+    },
     {
       type: 'txt',
       id: uuidv4(),
