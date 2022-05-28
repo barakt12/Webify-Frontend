@@ -8,6 +8,7 @@ import { themeService } from '../../../../services/theme.service'
 import { SidebarAdd } from './sidebar-add'
 import { SidebarTheme } from './sidebar-theme'
 import { useSelector } from 'react-redux'
+import { DisplaySize } from './display-size-cmp'
 
 export function EditorSidebar({ onSaveWap }) {
   const [isSidebarShown, toggleSidebarShown] = useState(true)
@@ -15,7 +16,13 @@ export function EditorSidebar({ onSaveWap }) {
   const [themeList, setTheme] = useState(null)
   const [activeTab, setActiveTab] = useState('add')
 
-  const selectedElement = useSelector((storeState) => storeState.wapModule.selectedElement)
+  const selectedElement = useSelector(
+    (storeState) => storeState.wapModule.selectedElement
+  )
+
+  useEffect(() => {
+    toggleSidebarShown(true)
+  }, [activeTab])
 
   useEffect(() => {
     setActiveTab('edit')
@@ -41,18 +48,36 @@ export function EditorSidebar({ onSaveWap }) {
   }
 
   return (
-    <section className="editor-sidebar">
-      <SidebarBtns onChooseCmps={onChooseCmps} onShowThemes={onShowThemes} activeTab={activeTab} setActiveTab={setActiveTab} />
-      <Droppable droppableId="hb5" isDropDisabled={true}>
+    <section className='editor-sidebar'>
+      <SidebarBtns
+        onChooseCmps={onChooseCmps}
+        onShowThemes={onShowThemes}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
+      <Droppable droppableId='hb5' isDropDisabled={true}>
         {(provided) => (
-          <div ref={provided.innerRef} {...provided.droppableProps} className="cmps-list" style={{ width: isSidebarShown ? '270px' : '0px' }}>
-            {activeTab === 'add' && addCmpList && <SidebarAdd addCmpList={addCmpList} />}
-            {activeTab === 'themes' && themeList && <SidebarTheme themeList={themeList} />}
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            className='sidebar-actions'
+            style={{ width: isSidebarShown ? '270px' : '0px' }}
+          >
+            <DisplaySize />
             {activeTab === 'edit' && <SidebarEdit onSaveWap={onSaveWap} />}
+            {activeTab === 'themes' && themeList && (
+              <SidebarTheme themeList={themeList} />
+            )}
+            {activeTab === 'add' && addCmpList && (
+              <SidebarAdd addCmpList={addCmpList} />
+            )}
           </div>
         )}
       </Droppable>
-      <SidebarCloseBtn toggleSidebarShown={toggleSidebarShown} isSidebarShown={isSidebarShown} />
+      <SidebarCloseBtn
+        toggleSidebarShown={toggleSidebarShown}
+        isSidebarShown={isSidebarShown}
+      />
     </section>
   )
 }

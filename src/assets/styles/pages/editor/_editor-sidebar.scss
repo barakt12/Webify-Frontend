@@ -3,7 +3,7 @@
 .editor-sidebar {
   position: relative;
   display: flex;
-  .cmps-list {
+  .sidebar-actions {
     background-color: #252627;
     width: 270px;
     overflow: hidden;
@@ -184,6 +184,43 @@
   }
   // background-color: red;
 }
+
+.text-editor-container {
+  margin-top: 20px;
+}
+
+.action-btns {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  gap: 10px;
+  & > * {
+    color: hsla(0deg, 0%, 100%, 0.7);
+    &:hover {
+      color: white;
+    }
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    background-color: unset;
+    align-items: center;
+    border: none;
+    & > svg {
+      font-size: 1.8rem;
+    }
+  }
+}
+.sidebar-action-text {
+  padding-top: 30px;
+  color: white;
+  text-align: center;
+}
+// & p {
+//   padding-top: 30px;
+//   color: white;
+//   text-align: center;
+// }
 
 // .add-btn:hover + .edit-btn {
 //   background-color: red;

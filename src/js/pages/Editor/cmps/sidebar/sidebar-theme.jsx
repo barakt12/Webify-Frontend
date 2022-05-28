@@ -17,9 +17,19 @@ export const SidebarTheme = ({ themeList }) => {
     })
     dispatch(setWap(wap))
   }
-  return themeList.map((theme) => {
-    return (
-      <ThemeCmp key={theme.id} theme={theme} onSelectTheme={onSelectTheme} />
-    )
-  })
+  return (
+    <>
+      {/* <h3 className='sidebar-action-text'>Choose a theme</h3> */}
+
+      {themeList.map((theme) => {
+        return (
+          <ThemeCmp
+            key={theme.id}
+            theme={theme}
+            onSelectTheme={onSelectTheme}
+          />
+        )
+      })}
+    </>
+  )
 }

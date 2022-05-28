@@ -8,18 +8,22 @@ import { setWapThumbnail, saveWap } from '../../../store/wap/wap.action'
 export const EditorBoard = ({ pageContent, isSaving, onDoneSaving }) => {
   const dispatch = useDispatch()
 
-  const editorWidth = useSelector((storeState) => storeState.wapModule.displaySize)
+  const editorWidth = useSelector(
+    (storeState) => storeState.wapModule.displaySize
+  )
   const editorRef = useRef(null)
 
   useEffect(() => {
     if (isSaving) {
-      console.log('saving')
+      console.log('Saving')
       exportAsImage()
     }
   }, [isSaving])
 
   const exportAsImage = async (el, imageFileName) => {
     const canvas = await html2canvas(editorRef.current, {
+      allowTaint: true,
+      useCORS: true,
     })
     const image = canvas.toDataURL('image/png', 1.0)
     dispatch(setWapThumbnail(image))
@@ -28,14 +32,14 @@ export const EditorBoard = ({ pageContent, isSaving, onDoneSaving }) => {
   }
 
   return (
-    <div ref={editorRef} className="editor-inner-container">
-      <Droppable droppableId="editor">
+    <div ref={editorRef} className='editor-inner-container'>
+      <Droppable droppableId='editor'>
         {(provided, snapshot) => {
           return (
             <section
               {...provided.droppableProps}
               ref={provided.innerRef}
-              className="editor"
+              className='editor'
               style={{
                 maxWidth: editorWidth,
                 margin: 'auto',
@@ -46,9 +50,17 @@ export const EditorBoard = ({ pageContent, isSaving, onDoneSaving }) => {
                 <p>Drag and Drop to add components</p>
               ) : (
                 pageContent.cmps.map((cmp, index) => (
-                  <Draggable key={cmp.id} draggableId={cmp.id + index} index={index}>
+                  <Draggable
+                    key={cmp.id}
+                    draggableId={cmp.id + index}
+                    index={index}
+                  >
                     {(provided, snapshot) => (
-                      <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
                         <DynamicCmp cmp={cmp} />
                       </div>
                     )}
