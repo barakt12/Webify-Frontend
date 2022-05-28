@@ -21,7 +21,7 @@ export function EditorSidebar() {
 
   useEffect(() => {
     setActiveTab('edit')
-    toggleSidebarShown(true)
+    toggleSidebarShown(false)
   }, [selectedElement])
 
   useEffect(() => {

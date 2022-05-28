@@ -10,7 +10,6 @@ export function BtnCmp({
       className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${
         cmp.name
       }`}
-      src={cmp.info.imgUrl}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverElement(ev)}
       onClick={(ev) => onSelectElement(ev, cmp)}
