@@ -1,10 +1,20 @@
 import React from 'react'
-export const SidebarCloseBtn = ({ toggleSidebarShown, isSidebarShown }) => {
+export const SidebarCloseBtn = ({
+  toggleSidebarShown,
+  isSidebarShown,
+  setActiveTab,
+}) => {
+  const toggleSidebar = () => {
+    if (!isSidebarShown) {
+      setActiveTab('edit')
+      toggleSidebarShown(true)
+    } else {
+      toggleSidebarShown(false)
+    }
+  }
+
   return (
-    <div
-      className='sidebar-close-btn'
-      onClick={() => toggleSidebarShown(!isSidebarShown)}
-    >
+    <div className='sidebar-close-btn' onClick={() => toggleSidebar()}>
       <svg
         width={'15'}
         height='96'

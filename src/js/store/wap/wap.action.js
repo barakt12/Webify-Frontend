@@ -1,5 +1,6 @@
 import { templateService } from '../../services/templates.service'
 import { wapService } from '../../services/wap-service.js'
+import { v4 as uuidv4 } from 'uuid'
 
 export const setSelectedElement = (cmp) => {
   return (dispatch) => {
@@ -13,13 +14,18 @@ export const deleteElement = (cmp) => {
     if (wap && cmp) {
       wapService.deleteCmp(wap, cmp.id)
       dispatch({ type: 'SET_WAP', wap })
+      wapService.saveToDraft(wap)
     }
   }
 }
 
 export const setWap = (wap) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     try {
+      if (!wap && wap?._id) {
+        wap._id = uuidv4()
+      }
+      await wapService.saveToDraft(wap)
       dispatch({ type: 'SET_WAP', wap })
     } catch (err) {
       console.log(err)

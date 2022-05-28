@@ -12,6 +12,7 @@ import { CarouselLgCmp } from './carousel-lg'
 import { VideoCmp } from './videoCmp'
 import { Gallery1 } from './gallery-1'
 import { FormCmp } from './form-cmp'
+import { useRef } from 'react'
 
 export const DynamicCmp = (props) => {
   const { cmp } = props

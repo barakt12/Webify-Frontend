@@ -13,6 +13,7 @@ import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined'
 import { SidebarSlider } from './sidebar-slider'
 
 import { SidebarSelection } from './sidebar-selection'
+import { useState } from 'react'
 
 export const TxtEditor = () => {
   const _ = require('lodash')
@@ -21,6 +22,8 @@ export const TxtEditor = () => {
   const { wap, selectedElement } = useSelector(
     (storeState) => storeState.wapModule
   )
+
+  const [activeBtn, setActiveBtn] = useState('')
 
   const onChangeAlign = (alignType) => {
     selectedElement.style = { ...selectedElement.style, textAlign: alignType }
@@ -103,27 +106,44 @@ export const TxtEditor = () => {
   }
 
   return (
-    <section className="txt-editor-container">
-      Text Editor
+    <section className='txt-editor-container'>
       {selectedElement.type === 'txt' && (
         <>
-          <div className="txt-align-container">
+          <div className='txt-align-container'>
             <p>Align</p>
-            <div className="txt-icons-container">
-              <span onClick={() => onChangeAlign('left')}>
+            <div className='txt-icons-container'>
+              <span
+                onClick={() => {
+                  onChangeAlign('left')
+                  setActiveBtn('start')
+                }}
+                className={`${activeBtn === 'start' ? 'active' : ''}`}
+              >
                 <FormatAlignLeftIcon />
               </span>
-              <span onClick={() => onChangeAlign('center')}>
+              <span
+                onClick={() => {
+                  onChangeAlign('center')
+                  setActiveBtn('center')
+                }}
+                className={`${activeBtn === 'center' ? 'active' : ''}`}
+              >
                 <FormatAlignCenterIcon />
               </span>
-              <span onClick={() => onChangeAlign('right')}>
+              <span
+                onClick={() => {
+                  onChangeAlign('right')
+                  setActiveBtn('end')
+                }}
+                className={`${activeBtn === 'end' ? 'active' : ''}`}
+              >
                 <FormatAlignRightIcon />
               </span>
             </div>
           </div>
-          <div className="txt-deco-container">
+          <div className='txt-deco-container'>
             <p>Decoration</p>
-            <div className="txt-deco-icons-container">
+            <div className='txt-deco-icons-container'>
               <span onClick={onChangeFontWeight}>
                 <FormatBoldIcon />
               </span>
@@ -137,7 +157,7 @@ export const TxtEditor = () => {
           </div>
         </>
       )}
-      <div className="txt-slider-container">
+      <div className='txt-slider-container'>
         <p>Font Size</p>
         <SidebarSlider
           isFontSize={true}
@@ -145,7 +165,7 @@ export const TxtEditor = () => {
           selectedElement={selectedElement}
         />
       </div>
-      <div className="txt-slider-container">
+      <div className='txt-slider-container'>
         <p>Border Radius</p>
         <SidebarSlider
           isFontSize={false}
@@ -153,14 +173,14 @@ export const TxtEditor = () => {
           selectedElement={selectedElement}
         />
       </div>
-      <div className="txt-type-container">
+      <div className='txt-type-container'>
         <p>Font Type</p>
         <SidebarSelection
           onChangeFontType={onChangeFontType}
           isFontType={true}
         />
       </div>
-      <div className="txt-shadow-container">
+      <div className='txt-shadow-container'>
         <p>Font Shadow</p>
         <SidebarSelection
           onChangeTextShadow={onChangeTextShadow}
