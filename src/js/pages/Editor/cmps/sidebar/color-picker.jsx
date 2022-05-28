@@ -86,6 +86,8 @@ export const ColorPicker = ({ isBackgroundColor }) => {
               }}
             />
           ) : (
+            //change fill to white/black with mixin func
+            // className: (isBackgroundColor) ? `color ${color.background}` : `color ${color.color}` ,
             <svg
               style={{ transform: 'scale(0.7)' }}
               width='28px'
