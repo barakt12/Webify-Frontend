@@ -19,7 +19,6 @@ export const SidebarEdit = ({ onSaveWap }) => {
 
   return (
     <section className="editor-sidebar-container">
-      <DisplaySize />
       {selectedElement && (
         <>
           {(selectedElement.type === 'txt' || selectedElement.type === 'btn') && <TxtEditor />}

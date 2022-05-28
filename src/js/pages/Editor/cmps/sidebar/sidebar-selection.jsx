@@ -21,7 +21,6 @@ export const SidebarSelection = ({onChangeFontType,onChangeTextShadow,isFontType
   }
   
   const fontTypeMenu = [
-    <MenuItem key={uuidv4()} value={'System-ui'}>System-ui</MenuItem>,
     <MenuItem key={uuidv4()} value={'San-serif'}>San-serif</MenuItem>,
     <MenuItem key={uuidv4()} value={'Cursive'}>Cursive</MenuItem>,
     <MenuItem key={uuidv4()} value={'Monospace'}>Monospace</MenuItem>,
@@ -37,14 +36,14 @@ export const SidebarSelection = ({onChangeFontType,onChangeTextShadow,isFontType
 const currMenu = (isFontType) ? fontTypeMenu : textShadowMenu
   return (
     <div>
-      <FormControl sx={{backgroundColor: '#FFF' , borderRadius: 1, m: 1, minWidth: 120, height: 40,margin: 0 }} size="small">
+      <FormControl sx={{backgroundColor: 'whitesmoke' , borderRadius: 1, m: 1, minWidth: 120, height: 40,margin: 0}} size="small">
         <Select
           value={(isFontType) ? fontType : textShadow}
           onChange={handleChange}
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem value="">
+          <MenuItem value="" style={{display: 'flex',flexDirection: 'column'}}>
             <em>None</em>
           </MenuItem>
           {currMenu.map(menu => menu)}
