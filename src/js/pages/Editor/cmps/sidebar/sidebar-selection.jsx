@@ -21,6 +21,7 @@ export const SidebarSelection = ({onChangeFontType,onChangeTextShadow,isFontType
   }
   
   const fontTypeMenu = [
+    <MenuItem key={uuidv4()} value={'System-ui'}>System-ui</MenuItem>,
     <MenuItem key={uuidv4()} value={'San-serif'}>San-serif</MenuItem>,
     <MenuItem key={uuidv4()} value={'Cursive'}>Cursive</MenuItem>,
     <MenuItem key={uuidv4()} value={'Monospace'}>Monospace</MenuItem>,
@@ -43,7 +44,7 @@ const currMenu = (isFontType) ? fontTypeMenu : textShadowMenu
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem value="" style={{display: 'flex',flexDirection: 'column'}}>
+          <MenuItem value="">
             <em>None</em>
           </MenuItem>
           {currMenu.map(menu => menu)}
