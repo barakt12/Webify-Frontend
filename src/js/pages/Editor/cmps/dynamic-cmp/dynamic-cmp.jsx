@@ -8,6 +8,10 @@ import { useLocation } from 'react-router'
 import { setSelectedElement } from '../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
 import { ContainerCmp } from './container-cmp'
+import { CarouselLgCmp } from './carousel-lg'
+import { VideoCmp } from './videoCmp'
+import { Gallery1 } from './gallery-1'
+import { FormCmp } from './form-cmp'
 
 export const DynamicCmp = (props) => {
   const { cmp } = props
@@ -83,6 +87,42 @@ export const DynamicCmp = (props) => {
     case 'carosuel':
       return (
         <CarosuelCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
+    case 'carousel-lg':
+      return (
+        <CarouselLgCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
+    case 'video':
+      return (
+        <VideoCmp
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
+    case 'gallery-1':
+      return (
+        <Gallery1
+          cmp={cmp}
+          selectedElement={selectedElement}
+          onHoverElement={onHoverElement}
+          onSelectElement={onSelectElement}
+        />
+      )
+    case 'form':
+      return (
+        <FormCmp
           cmp={cmp}
           selectedElement={selectedElement}
           onHoverElement={onHoverElement}
