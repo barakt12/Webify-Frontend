@@ -61,9 +61,12 @@ export function Editor() {
     if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
   }
 
-  const onSaveWap = async () => {
+  const onSaveWap = () => {
     setIsSaving(true)
-    await dispatch(saveWap())
+    // await dispatch(saveWap())
+  }
+
+  const onDoneSaving = () => {
     setIsSaving(false)
   }
 
@@ -71,7 +74,7 @@ export function Editor() {
     <section className="editor-container">
       <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <EditorSidebar onSaveWap={onSaveWap} />
-        <EditorBoard pageContent={pageContent} getItemStyle={getItemStyle} isSaving={isSaving} />
+        <EditorBoard pageContent={pageContent} getItemStyle={getItemStyle} isSaving={isSaving} onDoneSaving={onDoneSaving} />
       </DragDropContext>
     </section>
   )

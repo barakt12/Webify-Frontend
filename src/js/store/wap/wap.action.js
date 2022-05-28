@@ -54,6 +54,7 @@ export const setDisplaySize = (displaySize) => {
 
 export const saveWap = () => {
   return async (dispatch, getState) => {
+    console.log('in3')
     try {
       const wapToSave = await wapService.save(getState().wapModule.wap)
       console.log(wapToSave)

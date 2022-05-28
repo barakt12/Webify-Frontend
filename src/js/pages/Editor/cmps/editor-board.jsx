@@ -3,9 +3,9 @@ import { DynamicCmp } from './dynamic-cmp/dynamic-cmp'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useRef } from 'react'
 import html2canvas from 'html2canvas'
-import { setWapThumbnail } from '../../../store/wap/wap.action'
+import { setWapThumbnail, saveWap } from '../../../store/wap/wap.action'
 
-export const EditorBoard = ({ pageContent, isSaving }) => {
+export const EditorBoard = ({ pageContent, isSaving, onDoneSaving }) => {
   const dispatch = useDispatch()
 
   const editorWidth = useSelector((storeState) => storeState.wapModule.displaySize)
@@ -13,6 +13,7 @@ export const EditorBoard = ({ pageContent, isSaving }) => {
 
   useEffect(() => {
     if (isSaving) {
+      console.log('saving')
       exportAsImage()
     }
   }, [isSaving])
@@ -21,6 +22,8 @@ export const EditorBoard = ({ pageContent, isSaving }) => {
     const canvas = await html2canvas(editorRef.current, {})
     const image = canvas.toDataURL('image/png', 1.0)
     dispatch(setWapThumbnail(image))
+    dispatch(saveWap())
+    onDoneSaving()
   }
 
   return (
