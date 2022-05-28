@@ -1,5 +1,9 @@
+.home {
+  display: flex;
+  flex-direction: column;
+}
 .home-page-hero {
   flex-grow: 1;
-
+  align-self: center;
   font-family: Pensum;
 }

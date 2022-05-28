@@ -115,9 +115,9 @@ export const TxtEditor = () => {
               <span
                 onClick={() => {
                   onChangeAlign('left')
-                  setActiveBtn('start')
+                  setActiveBtn('left')
                 }}
-                className={`${activeBtn === 'start' ? 'active' : ''}`}
+                className={`${activeBtn === 'left' ? 'active' : ''}`}
               >
                 <FormatAlignLeftIcon />
               </span>
@@ -133,9 +133,9 @@ export const TxtEditor = () => {
               <span
                 onClick={() => {
                   onChangeAlign('right')
-                  setActiveBtn('end')
+                  setActiveBtn('right')
                 }}
-                className={`${activeBtn === 'end' ? 'active' : ''}`}
+                className={`${activeBtn === 'right' ? 'active' : ''}`}
               >
                 <FormatAlignRightIcon />
               </span>
@@ -144,13 +144,35 @@ export const TxtEditor = () => {
           <div className='txt-deco-container'>
             <p>Decoration</p>
             <div className='txt-deco-icons-container'>
-              <span onClick={onChangeFontWeight}>
+              <span
+                onClick={() => {
+                  onChangeFontWeight()
+                  activeBtn === 'bold' ? setActiveBtn('') : setActiveBtn('bold')
+                }}
+                className={`${activeBtn === 'bold' ? 'active' : ''}`}
+              >
                 <FormatBoldIcon />
               </span>
-              <span onClick={onChangeFontFormat}>
+              <span
+                onClick={() => {
+                  onChangeFontFormat()
+                  activeBtn === 'italic'
+                    ? setActiveBtn('')
+                    : setActiveBtn('italic')
+                }}
+                className={`${activeBtn === 'italic' ? 'active' : ''}`}
+              >
                 <FormatItalicIcon />
               </span>
-              <span onClick={onChangeTextDeco}>
+              <span
+                onClick={() => {
+                  onChangeTextDeco()
+                  activeBtn === 'underline'
+                    ? setActiveBtn('')
+                    : setActiveBtn('underline')
+                }}
+                className={`${activeBtn === 'underline' ? 'active' : ''}`}
+              >
                 <FormatUnderlinedIcon />
               </span>
             </div>
