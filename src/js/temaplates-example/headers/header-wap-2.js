@@ -6,7 +6,7 @@ export const headerWap2 = {
   id: uuidv4(),
   type: 'container',
   //change to cloudinary
-  imgUrl: 'https://i.postimg.cc/vmFf4mMv/header1.png',
+  thumbnail: require('../../../assets/img/thumbnails/header/wap-header-2.jpg'),
   //each component will have his own css file
   style: {},
   cmps: [
@@ -14,7 +14,7 @@ export const headerWap2 = {
       type: 'txt',
       id: uuidv4(),
       info: {
-        txt: 'Header2',
+        txt: 'Webify',
       },
       style: {
         fontSize: '2rem',
@@ -75,8 +75,7 @@ export const headerWap2 = {
           type: 'img',
           id: uuidv4(),
           info: {
-            imgUrl:
-              'https://icon-library.com/images/white-hamburger-menu-icon/white-hamburger-menu-icon-24.jpg',
+            imgUrl: 'https://icon-library.com/images/white-hamburger-menu-icon/white-hamburger-menu-icon-24.jpg',
           },
           style: {},
         },

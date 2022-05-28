@@ -57,11 +57,21 @@ export const setDisplaySize = (displaySize) => {
 
 export const saveWap = () => {
   return async (dispatch, getState) => {
-    console.log('in3')
     try {
       const wapToSave = await wapService.save(getState().wapModule.wap)
       console.log(wapToSave)
       dispatch({ type: 'SET_WAP', wap: wapToSave })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
+export const deleteDraft = (wapId) => {
+  return async (dispatch) => {
+    try {
+      await wapService.remove(wapId)
+      dispatch({ type: 'REMOVE_DRAFT', wapId })
     } catch (err) {
       console.log(err)
     }

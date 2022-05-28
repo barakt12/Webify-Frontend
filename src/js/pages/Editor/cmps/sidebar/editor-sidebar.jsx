@@ -38,6 +38,7 @@ export function EditorSidebar({ onSaveWap }) {
   const onChooseCmps = (category) => {
     setTheme(null)
     const cmps = templateService.getCmpsByCategory(category)
+    console.log(cmps)
     setAddCmpList(cmps)
   }
 

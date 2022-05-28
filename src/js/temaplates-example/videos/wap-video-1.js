@@ -6,7 +6,7 @@ export const wapVideo1 = {
   category: 'video',
   themePalette: 'primary',
   id: uuidv4(),
-  imgUrl: null,
+  thumbnail: require('../../../assets/img/thumbnails/video/wap-video-1.jpg'),
   style: {},
   cmps: [
     {

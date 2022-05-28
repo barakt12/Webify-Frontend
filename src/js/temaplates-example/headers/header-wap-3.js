@@ -5,7 +5,7 @@ export const headerWap3 = {
   name: 'wap-header-3',
   themePalette: 'secondary',
   id: uuidv4(),
-  imgUrl: null,
+  thumbnail: require('../../../assets/img/thumbnails/header/wap-header-3.png'),
   style: {},
   cmps: [
     {
