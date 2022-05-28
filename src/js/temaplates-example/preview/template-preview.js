@@ -15,4 +15,12 @@ export const templatePreviews = [
       category: 'Technology',
     },
   },
+  {
+    id: 'ahlaid3',
+    info: {
+      name: 'Academy',
+      img: require('../../../assets/img/web-templates-preview/web-template-preview3.jpg'),
+      category: 'Education',
+    },
+  },
 ]

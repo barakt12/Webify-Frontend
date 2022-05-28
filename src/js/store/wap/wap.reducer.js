@@ -1,9 +1,10 @@
-// import { wapService } from '../../services/wap-service'
 import { v4 as uuidv4 } from 'uuid'
-import { wapTemplate3 } from '../../temaplates-example/wap-template-3'
 
 const initial_state = {
-  wap: wapTemplate3,
+  wap: {
+    _id: uuidv4(),
+    cmps: [],
+  },
   cmpsList: {
     header: [],
     hero: [],
@@ -20,6 +21,8 @@ export function wapReducer(state = initial_state, action) {
       return { ...state, wap: { ...action.wap } }
     case 'SET_SAVED_WAPS':
       return { ...state, savedWaps: action.savedWaps }
+    case 'REMOVE_DRAFT':
+      return { ...state, savedWaps: state.savedWaps.filter((wap) => wap._id !== action.wapId) }
     case 'SET_THUMBNAIL':
       return { ...state, wap: { ...state.wap, thumbnail: action.imgData } }
     case 'SET_ELEMENT':

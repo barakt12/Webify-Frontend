@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadSavedWaps, setWap } from '../../store/wap/wap.action'
+import { loadSavedWaps, setWap, deleteDraft } from '../../store/wap/wap.action'
 import { Link } from 'react-router-dom'
 
 export const Profile = () => {
@@ -19,6 +19,11 @@ export const Profile = () => {
     const selectedWap = savedWaps.find((wap) => wap._id === id)
     dispatch(setWap(selectedWap))
   }
+
+  const onDeleteDraft = (id) => {
+    dispatch(deleteDraft(id))
+  }
+
   return (
     <>
       <div className="template-page-intro">
@@ -36,6 +41,9 @@ export const Profile = () => {
                 <Link className="template-select-btn" to="/editor">
                   <button onClick={() => onSelectTemplate(wap._id)}>Select</button>
                 </Link>
+                <button className="template-select-btn" onClick={() => onDeleteDraft(wap._id)}>
+                  Delete
+                </button>
               </div>
             </div>
             <img src={wap.thumbnail} alt="" />

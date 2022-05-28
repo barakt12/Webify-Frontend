@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from 'uuid'
 
-
 export const wapHero2 = {
   name: 'wap-hero-2',
   themePalette: 'secondary',
   id: uuidv4(),
   type: 'container',
+  thumbnail: require('../../../assets/img/thumbnails/hero/wap-hero-2.jpg'),
   style: {},
   cmps: [
     {
@@ -64,7 +64,7 @@ export const wapHero2 = {
           id: uuidv4(),
           style: {},
           name: 'wap-hero-2-arrow-img-container',
-           cmps: [
+          cmps: [
             {
               type: 'img',
               id: uuidv4(),
@@ -72,10 +72,10 @@ export const wapHero2 = {
               info: {
                 imgUrl: 'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b1437cbda3c5c3369fe4460_arrow.svg',
               },
-            }
-           ]
-        }
-      ]
-    }
+            },
+          ],
+        },
+      ],
+    },
   ],
 }
