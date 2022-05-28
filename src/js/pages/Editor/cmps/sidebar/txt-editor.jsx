@@ -17,6 +17,7 @@ import { SidebarSelection } from './sidebar-selection'
 export const TxtEditor = () => {
   const _ = require('lodash');
   const dispatch = useDispatch()
+  
 
 const {wap,selectedElement} = useSelector(
     (storeState) => storeState.wapModule
@@ -71,6 +72,7 @@ const {wap,selectedElement} = useSelector(
     dispatch(setWap(wap))
   }
 
+
   return <section className="txt-editor-container">
     txt editor
     <div className="txt-align-container">
@@ -91,7 +93,7 @@ const {wap,selectedElement} = useSelector(
     </div>
     <div className="txt-slider-container">
       <p>Font Size</p>
-      <SidebarSlider onChangeFontSize={debounce}/>
+      <SidebarSlider onChangeFontSize={debounce} selectedElement={selectedElement}/>
     </div>
     <div className="txt-type-container">
       <p>Font Type</p>
