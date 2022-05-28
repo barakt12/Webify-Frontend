@@ -64,6 +64,12 @@ export const saveWap = () => {
   }
 }
 
+export const setWapThumbnail = (imgData) => {
+  return (dispatch) => {
+    dispatch({ type: 'SET_THUMBNAIL', imgData })
+  }
+}
+
 export const loadSavedWaps = () => {
   return async (dispatch) => {
     try {

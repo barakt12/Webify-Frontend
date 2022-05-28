@@ -38,7 +38,7 @@ export const Profile = () => {
                 </Link>
               </div>
             </div>
-            {/* <img src={wap.info.img} alt="" /> */}
+            <img src={wap.thumbnail} alt="" />
             <hr />
             {/* <div className="template-info-container">
               <p className="info-template-name">{wap.info.name}</p>

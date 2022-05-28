@@ -8,6 +8,7 @@
     "@mui/icons-material": "^5.8.0",
     "@mui/material": "^5.8.0",
     "axios": "^0.27.2",
+    "html2canvas": "^1.4.1",
     "lodash": "^4.17.21",
     "react": "^18.1.0",
     "react-beautiful-dnd": "^13.1.0",
@@ -24,7 +25,6 @@
     "redux-thunk": "^2.4.1",
     "sass": "^1.52.1",
     "socket.io-client": "^4.5.1",
-    "use-react-screenshot": "^3.0.0",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },

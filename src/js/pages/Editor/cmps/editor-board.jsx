@@ -1,25 +1,30 @@
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { DynamicCmp } from './dynamic-cmp/dynamic-cmp'
-import { useSelector } from 'react-redux'
-import { useScreenshot } from 'use-react-screenshot'
+import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useRef } from 'react'
+import html2canvas from 'html2canvas'
+import { setWapThumbnail } from '../../../store/wap/wap.action'
 
 export const EditorBoard = ({ pageContent, isSaving }) => {
+  const dispatch = useDispatch()
+
   const editorWidth = useSelector((storeState) => storeState.wapModule.displaySize)
-  const [image, takeScreenshot] = useScreenshot()
   const editorRef = useRef(null)
 
   useEffect(() => {
     if (isSaving) {
-      getImage()
-      console.log(image)
+      exportAsImage()
     }
   }, [isSaving])
 
-  const getImage = () => takeScreenshot(editorRef.current)
+  const exportAsImage = async (el, imageFileName) => {
+    const canvas = await html2canvas(editorRef.current, {})
+    const image = canvas.toDataURL('image/png', 1.0)
+    dispatch(setWapThumbnail(image))
+  }
 
   return (
-    <div ref={editorRef}>
+    <div ref={editorRef} className="editor-inner-container">
       <Droppable droppableId="editor">
         {(provided, snapshot) => {
           return (

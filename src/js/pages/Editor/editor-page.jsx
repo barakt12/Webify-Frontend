@@ -61,9 +61,9 @@ export function Editor() {
     if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
   }
 
-  const onSaveWap = () => {
+  const onSaveWap = async () => {
     setIsSaving(true)
-    dispatch(saveWap())
+    await dispatch(saveWap())
     setIsSaving(false)
   }
 

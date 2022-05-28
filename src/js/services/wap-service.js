@@ -78,6 +78,7 @@ function changeCmpId(cmp) {
 // }
 
 async function save(wap) {
+  console.log(wap)
   try {
     const savedWaps = await storageService.query(STORAGE_KEY)
     const existingWap = savedWaps.find((currWap) => currWap._id === wap._id)
