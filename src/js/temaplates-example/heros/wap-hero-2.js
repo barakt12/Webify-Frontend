@@ -60,12 +60,20 @@ export const wapHero2 = {
           },
         },
         {
-          type: 'img',
+          type: 'container',
           id: uuidv4(),
-          name: 'wap-hero-2-arrow-img',
-          info: {
-            imgUrl: 'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b1437cbda3c5c3369fe4460_arrow.svg',
-          },
+          style: {},
+          name: 'wap-hero-2-arrow-img-container',
+           cmps: [
+            {
+              type: 'img',
+              id: uuidv4(),
+              name: 'wap-hero-2-arrow-img',
+              info: {
+                imgUrl: 'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b1437cbda3c5c3369fe4460_arrow.svg',
+              },
+            }
+           ]
         }
       ]
     }

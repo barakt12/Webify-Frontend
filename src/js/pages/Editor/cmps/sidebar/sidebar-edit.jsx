@@ -16,7 +16,7 @@ export const SidebarEdit = ({ onSaveWap }) => {
   return (
     <section className="editor-sidebar-container">
       <DisplaySize />
-      <TxtEditor />
+      {(!selectedElement || (selectedElement.type !== 'img' && selectedElement.type !== 'container')) && <TxtEditor />}
       <div className="color-picker-container">
         {(!selectedElement || (selectedElement.type !== 'img' && selectedElement.type !== 'container')) && (
           <>
