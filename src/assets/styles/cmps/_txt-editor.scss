@@ -1,8 +1,9 @@
 .txt-editor-container{
-  .txt-align-container,.txt-deco-container{
+  .txt-align-container,.txt-deco-container,.txt-slider-container,.txt-type-container,.txt-shadow-container{
     display: flex;
     padding: 15px 20px 0px 20px;
     justify-content: space-between;
+    align-items: center;
     color: white;
     .txt-icons-container,.txt-deco-icons-container{
       display: flex;

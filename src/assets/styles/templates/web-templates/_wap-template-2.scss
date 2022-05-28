@@ -74,17 +74,22 @@
     display: flex;
     justify-content: end;
     padding-top: 30px;
-    .wap-hero-2-arrow-img {
-      position: absolute;
+    .wap-hero-2-arrow-img-container{
       width: 100%;
-      display: flex;
+      position: absolute;
       bottom: 0;
-      justify-content: center;
-      padding-bottom: 20px;
-      animation: floating;
-      animation-duration: 1.5s;
-      animation-iteration-count: infinite;
-      height: 40px;
+      .wap-hero-2-arrow-img {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        bottom: 0;
+        justify-content: center;
+        padding-bottom: 20px;
+        animation: floating;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        height: 60px;
+      }
     }
   }
 
@@ -103,7 +108,7 @@
   }
   .wap-hero-2-img-container {
     div {
-      img {
+      .wap-hero-2-hero-img {
         width: 600px;
         padding-inline-end: 2vw;
       }
@@ -218,6 +223,7 @@
   }
   .wap-footer-3-links-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
     padding-inline-start: 15px;
     padding-inline-end: 15px;
@@ -232,8 +238,7 @@
   display: flex;
   justify-content: center;
   padding: 15vh;
-  background-image: url('https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b11c1af7f519f50eaefd140_wavy-bg.svg');
-  background-color: linear-gradient(135deg, #fc0a7e, #602bb6);
+  background: url('https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b11c1af7f519f50eaefd140_wavy-bg.svg'), linear-gradient(135deg, #fc0a7e, #602bb6);
   background-position: 50% 50%, 0px 0px;
   background-size: cover, auto;
 }
@@ -256,6 +261,14 @@
     }
   }
   .wap-hero-2 {
+    .wap-hero-2-container{
+      .wap-hero-2-main-hero-header {
+        font-size: 60px;
+      }
+    .wap-hero-2-sec-hero-header {
+        font-size: 20px;
+    }
+    }
     .wap-hero-2-img-container {
       div {
         img {
