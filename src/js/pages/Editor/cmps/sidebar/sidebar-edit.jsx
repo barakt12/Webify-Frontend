@@ -18,18 +18,20 @@ export const SidebarEdit = ({ onSaveWap }) => {
   }
 
   return (
-    <section className="editor-sidebar-container">
+    <section className='editor-sidebar-container'>
       {selectedElement && (
         <>
-          {(selectedElement.type === 'txt' || selectedElement.type === 'btn') && <TxtEditor />}
-            
-          <div className="color-picker-container">
-            {(selectedElement.type === 'txt' || selectedElement.type === 'btn') && (
-                <>
-                  <p>Font Color</p>
-                  <ColorPicker isBackgroundColor={false} />
-                </>
-              )}
+          {(selectedElement.type === 'txt' ||
+            selectedElement.type === 'btn') && <TxtEditor />}
+
+          <div className='color-picker-container'>
+            {(selectedElement.type === 'txt' ||
+              selectedElement.type === 'btn') && (
+              <>
+                <p>Font Color</p>
+                <ColorPicker isBackgroundColor={false} />
+              </>
+            )}
             <p>Background Color</p>
             <ColorPicker isBackgroundColor={true} />
           </div>

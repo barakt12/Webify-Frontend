@@ -32,18 +32,18 @@ export const wapVideo1 = {
           style: {
             color: '#ebb811',
             fontWeight: '700',
-            fontSize: '1.5rem',
+            fontSize: '1.7rem',
           },
         },
         {
           type: 'txt',
           id: uuidv4(),
           info: {
-            txt: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt, molestias? Neque ullam, voluptate in nihil saepe animi perspiciatis? Officia, nulla voluptate quibusdam dolores adipisci dolorem veniam corporis vitae est vel?',
+            txt: 'Webify Academy has transferred all courses to LIVE. The same instructors, the same practitioners, the same personal attitude now using the ZOOM app in your home. Hundreds of students have already chosen to make the most of these days and learn to program in the leading and well-known programming course in the country. Intensive 12 weeks of programming studies followed by rapid integration into the high-tech industry.',
           },
           style: {
             fontWeight: '400',
-            fontSize: '1.5rem',
+            fontSize: '1.4rem',
           },
         },
         {
