@@ -1,5 +1,6 @@
 import { toJpeg } from 'html-to-image'
 
+
 export const createJpegFromElement = async (element, width, height) => {
   const dataUrl = await toJpeg(element, { cacheBust: true, style: { width: '100%', margin: '0', outline: 'none' }, width, height, quality: 0.5 })
   const ev = {
@@ -13,7 +14,7 @@ export const createJpegFromElement = async (element, width, height) => {
 /////check ev
 
 export async function uploadImgToCloud(ev) {
-  const CLOUD_NAME = 'dpmzxdfuh'
+  const CLOUD_NAME = 'dgxe7pqxa' 
   const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
 
   const formData = new FormData()

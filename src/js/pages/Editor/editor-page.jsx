@@ -76,10 +76,10 @@ export function Editor() {
   }
 
   const onSaveWap = () => {
-    if (!loggedUser) {
-      console.log('you must be logged in to save!')
-      return
-    }
+    // if (!loggedUser) {
+    //   console.log('you must be logged in to save!')
+    //   return
+    // }
     setIsSaving(true)
     // await dispatch(saveWap())
   }
