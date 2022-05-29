@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import ColorizeIcon from '@mui/icons-material/Colorize'
 import { useDispatch, useSelector } from 'react-redux'
-import { wapService } from '../../../../services/wap-service'
-import { setWap } from '../../../../store/wap/wap.action'
+import { wapService } from '../../../../../services/wap-service'
+import { setWap } from '../../../../../store/wap/wap.action'
 import _ from 'lodash'
 
-export const ColorPicker = ({ isBackgroundColor }) => {
+export const EditColorPicker = ({ isBackgroundColor }) => {
   //use memo
   const [color, setColor] = useState({
     color: '#FFFFFF',

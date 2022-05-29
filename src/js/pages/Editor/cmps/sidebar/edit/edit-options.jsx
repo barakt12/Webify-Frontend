@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 
-export const SidebarSelection = ({
+export const EditOptions = ({
   onChangeFontType,
   onChangeTextShadow,
   isFontType,
@@ -13,7 +13,6 @@ export const SidebarSelection = ({
   const [textShadow, setTextShadow] = React.useState('')
 
   const handleChange = (event) => {
-    console.log('handle')
     if (isFontType) {
       console.log(isFontType)
       setFontType((prevState) => event.target.value)

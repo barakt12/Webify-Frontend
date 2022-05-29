@@ -8,7 +8,13 @@ import Typography from '@mui/material/Typography'
 import { useDispatch } from 'react-redux'
 
 const Accordion = styled((props) => (
-  <MuiAccordion sx={{outline: 'none !important'}} disableGutters elevation={0} square {...props} />
+  <MuiAccordion
+    sx={{ outline: 'none !important' }}
+    disableGutters
+    elevation={0}
+    square
+    {...props}
+  />
 ))(({ theme }) => ({
   border: `1px solid ${theme.palette.divider}`,
   '&:not(:last-child)': {
@@ -20,8 +26,13 @@ const Accordion = styled((props) => (
 }))
 
 const AccordionSummary = styled((props) => (
-  <MuiAccordionSummary sx={{outline: 'none !important'}}
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem',outline: 'none !important' }} />}
+  <MuiAccordionSummary
+    sx={{ outline: 'none !important' }}
+    expandIcon={
+      <ArrowForwardIosSharpIcon
+        sx={{ fontSize: '0.9rem', outline: 'none !important' }}
+      />
+    }
     {...props}
   />
 ))(({ theme }) => ({
@@ -35,7 +46,7 @@ const AccordionSummary = styled((props) => (
   },
   '& .MuiAccordionSummary-content': {
     marginLeft: theme.spacing(1),
-    outline: 'none !important'
+    outline: 'none !important',
   },
 }))
 
@@ -44,7 +55,12 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }))
 
-export function FAQCmp({ cmp, onHoverElement, selectedElement, onSelectElement }) {
+export function FAQCmp({
+  cmp,
+  onHoverElement,
+  selectedElement,
+  onSelectElement,
+}) {
   const [expanded, setExpanded] = React.useState('panel1')
   const dispatch = useDispatch()
 
@@ -55,7 +71,9 @@ export function FAQCmp({ cmp, onHoverElement, selectedElement, onSelectElement }
   return (
     <div
       style={cmp.style}
-      className={`faq-container ${selectedElement?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
+      className={`faq-container ${
+        selectedElement?.id === cmp.id ? 'selected' : ''
+      } ${cmp.name}`}
       onClick={(ev) => onSelectElement(ev, cmp)}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverElement(ev)}
@@ -69,14 +87,18 @@ export function FAQCmp({ cmp, onHoverElement, selectedElement, onSelectElement }
             onChange={handleChange(`panel${idx + 1}`)}
           >
             <AccordionSummary
-              sx={{outline: 'none !important'}}
+              sx={{ outline: 'none !important' }}
               aria-controls={`panel${idx + 1}d-content`}
               id={`panel${idx + 1}d-header`}
             >
-              <Typography sx={{outline: 'none !important'}}>{question.question}</Typography>
+              <Typography sx={{ outline: 'none !important' }}>
+                {question.question}
+              </Typography>
             </AccordionSummary>
-            <AccordionDetails sx={{outline: 'none !important'}}>
-              <Typography sx={{outline: 'none !important'}}>{question.answer}</Typography>
+            <AccordionDetails sx={{ outline: 'none !important' }}>
+              <Typography sx={{ outline: 'none !important' }}>
+                {question.answer}
+              </Typography>
             </AccordionDetails>
           </Accordion>
         )

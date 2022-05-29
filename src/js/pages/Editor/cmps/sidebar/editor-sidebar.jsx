@@ -1,14 +1,14 @@
 import { SidebarCloseBtn } from './sidebar-close-btn'
-import { SidebarEdit } from './sidebar-edit'
+import { SidebarEdit } from './edit/sidebar-edit'
 import { SidebarBtns } from './sidebar-btns'
 import { Droppable } from 'react-beautiful-dnd'
 import { useEffect, useState } from 'react'
 import { templateService } from '../../../../services/templates.service'
 import { themeService } from '../../../../services/theme.service'
-import { SidebarAdd } from './sidebar-add'
-import { SidebarTheme } from './sidebar-theme'
+import { SidebarAdd } from './add/sidebar-add-list'
+import { SidebarTheme } from './theme/sidebar-theme'
 import { useSelector } from 'react-redux'
-import { DisplaySize } from './display-size-cmp'
+import { DisplaySize } from './display-size-btns'
 
 export function EditorSidebar({ onSaveWap }) {
   const [isSidebarShown, toggleSidebarShown] = useState(true)
@@ -22,20 +22,16 @@ export function EditorSidebar({ onSaveWap }) {
 
   useEffect(() => {
     if (activeTab) toggleSidebarShown(true)
-    else toggleSidebarShown(false)
+    if (activeTab === 'add') {
+      const cmps = templateService.getCmpsByCategory('header')
+      setAddCmpList(cmps)
+    } else if (!activeTab) toggleSidebarShown(false)
   }, [activeTab])
 
   useEffect(() => {
     setActiveTab('edit')
     toggleSidebarShown(true)
   }, [selectedElement])
-
-  useEffect(() => {
-    if (activeTab === 'add') {
-      const cmps = templateService.getCmpsByCategory('header')
-      setAddCmpList(cmps)
-    }
-  }, [activeTab])
 
   useEffect(() => {
     if (!isSidebarShown) setActiveTab(null)

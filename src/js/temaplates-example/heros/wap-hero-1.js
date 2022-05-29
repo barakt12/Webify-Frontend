@@ -22,7 +22,6 @@ export const wapHero1 = {
       style: {
         fontSize: '3rem',
         fontWeight: '700',
-        alignSelf: 'center',
       },
     },
     {
@@ -35,7 +34,6 @@ export const wapHero1 = {
         fontSize: '1.5rem',
         fontWeight: '700',
         color: 'rgba(249,245,242,0.5)',
-        alignSelf: 'center',
       },
     },
     {
