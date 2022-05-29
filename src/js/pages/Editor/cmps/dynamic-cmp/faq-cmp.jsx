@@ -7,9 +7,13 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
 import { useDispatch } from 'react-redux'
 
+<<<<<<< HEAD
 const Accordion = styled((props) => (
   <MuiAccordion sx={{outline: 'none !important'}} disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
+=======
+const Accordion = styled((props) => <MuiAccordion disableGutters elevation={0} square {...props} />)(({ theme }) => ({
+>>>>>>> 6f5863210382e5c6aa8d82bc65b9f02c6721b48d
   border: `1px solid ${theme.palette.divider}`,
   '&:not(:last-child)': {
     borderBottom: 0,
@@ -19,6 +23,7 @@ const Accordion = styled((props) => (
   },
 }))
 
+<<<<<<< HEAD
 const AccordionSummary = styled((props) => (
   <MuiAccordionSummary sx={{outline: 'none !important'}}
     expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem',outline: 'none !important' }} />}
@@ -29,6 +34,10 @@ const AccordionSummary = styled((props) => (
     theme.palette.mode === 'dark'
       ? 'rgba(255, 255, 255, .05)'
       : 'rgba(0, 0, 0, .03)',
+=======
+const AccordionSummary = styled((props) => <MuiAccordionSummary expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />} {...props} />)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, .05)' : 'rgba(0, 0, 0, .03)',
+>>>>>>> 6f5863210382e5c6aa8d82bc65b9f02c6721b48d
   flexDirection: 'row-reverse',
   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
     transform: 'rotate(90deg)',
@@ -44,12 +53,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }))
 
-export function FAQCmp({
-  cmp,
-  onHoverElement,
-  selectedElement,
-  onSelectElement,
-}) {
+export function FAQCmp({ cmp, onHoverElement, selectedElement, onSelectElement }) {
   const [expanded, setExpanded] = React.useState('panel1')
   const dispatch = useDispatch()
 
@@ -60,9 +64,7 @@ export function FAQCmp({
   return (
     <div
       style={cmp.style}
-      className={`faq-container ${
-        selectedElement?.id === cmp.id ? 'selected' : ''
-      } ${cmp.name}`}
+      className={`faq-container ${selectedElement?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
       onClick={(ev) => onSelectElement(ev, cmp)}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverElement(ev)}
