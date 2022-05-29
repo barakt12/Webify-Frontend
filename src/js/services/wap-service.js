@@ -95,11 +95,9 @@ async function getDraft() {
 // }
 
 async function save(wap) {
-  console.log(wap)
   try {
     const savedWaps = await storageService.query(STORAGE_KEY)
     const existingWap = savedWaps.find((currWap) => currWap._id === wap._id)
-    console.log(existingWap)
 
     if (!existingWap) {
       const newWap = await storageService.post(STORAGE_KEY, wap)

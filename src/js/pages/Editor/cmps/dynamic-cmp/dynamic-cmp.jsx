@@ -23,7 +23,6 @@ export const DynamicCmp = (props) => {
   const onHoverElement = (ev) => {
     ev.stopPropagation()
     if (location.pathname !== '/preview') {
-      console.log('ev', ev.target)
       ev.target.classList.add('hover')
     }
   }
@@ -55,14 +54,7 @@ export const DynamicCmp = (props) => {
     case 'video':
       return <VideoCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     case 'gallery-grid':
-      return (
-        <Gallery
-          cmp={cmp}
-          selectedElement={selectedElement}
-          onHoverElement={onHoverElement}
-          onSelectElement={onSelectElement}
-        />
-      )
+      return <Gallery cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     case 'form':
       return <FormCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     default:

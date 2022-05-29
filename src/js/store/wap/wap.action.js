@@ -38,9 +38,7 @@ export const loadCmps = () => {
   const cmpsList = {}
   const cmps = templateService.getCmps()
   cmps.forEach((cmp) => {
-    return cmpsList[cmp.category]
-      ? cmpsList[cmp.category].push(cmp)
-      : (cmpsList[cmp.category] = [cmp])
+    return cmpsList[cmp.category] ? cmpsList[cmp.category].push(cmp) : (cmpsList[cmp.category] = [cmp])
   })
 }
 
@@ -66,7 +64,6 @@ export const saveWap = () => {
   return async (dispatch, getState) => {
     try {
       const wapToSave = await wapService.save(getState().wapModule.wap)
-      console.log(wapToSave)
       dispatch({ type: 'SET_WAP', wap: wapToSave })
     } catch (err) {
       console.log(err)
