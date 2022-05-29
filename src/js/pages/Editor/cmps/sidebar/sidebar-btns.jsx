@@ -35,12 +35,14 @@ export function SidebarBtns({
   }
 
   const onChangeTab = async (ev, tabName) => {
+    if (activeTab === tabName) return
     await setActiveTab(tabName)
     if (ev.target.previousSibling)
       ev.target.previousSibling.classList.add('border-radius-previous')
 
-    if (ev.target.nextSibling)
+    if (ev.target.nextSibling) {
       ev.target.nextSibling.classList.add('border-radius-next')
+    }
   }
   return (
     <div className='editor-edit-add-btns'>
