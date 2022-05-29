@@ -28,14 +28,13 @@
   height: 75vh;
   background: linear-gradient(135deg, #dd1173, #350e47);
   color: white;
+  padding: 0 4rem;
 
   .wap-hero-2-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     z-index: 1;
-    padding-inline-start: 6vw;
-    padding-inline-end: 6vw;
     position: absolute;
     height: 100%;
     .wap-hero-2-main-hero-header {
@@ -110,7 +109,6 @@
       .wap-hero-2-hero-img {
         min-width: 600px;
         width: 70%;
-        padding-inline-end: 2rem;
       }
     }
   }

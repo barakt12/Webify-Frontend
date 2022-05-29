@@ -15,6 +15,12 @@
   height: 15px;
 }
 
+.wap-hero-1 .img-container{
+  max-width: 50%;
+  display: flex;
+  align-self: center;
+}
+
 .app {
   min-height: 100vh;
   background-color: $accent-color;

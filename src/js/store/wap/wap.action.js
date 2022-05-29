@@ -25,6 +25,7 @@ export const setWap = (wap) => {
       if (!wap && wap?._id) {
         wap._id = uuidv4()
       }
+
       await wapService.saveToDraft(wap)
       dispatch({ type: 'SET_WAP', wap })
     } catch (err) {

@@ -5,6 +5,7 @@ export const themes = [
     id: uuidv4(),
     name: 'Calming',
     description: 'Calm & easy-going',
+    fontFamily: 'Oswald',
     colors: {
       primary: {
         background: '#92B4EC',
@@ -20,6 +21,7 @@ export const themes = [
     id: uuidv4(),
     name: 'Warm',
     description: 'Modern & pleasant',
+    fontFamily: 'monospace',
     colors: {
       primary: {
         background: '#C6CCCA',
@@ -39,6 +41,7 @@ export const themes = [
     id: uuidv4(),
     name: 'Retro Vibrant',
     description: 'Hip, mod & stylish',
+    fontFamily: 'fangsong',
     colors: {
       primary: {
         background: '#035772',
