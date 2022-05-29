@@ -7,7 +7,7 @@ import { templateService } from '../../services/templates.service'
 import { v4 as uuidv4 } from 'uuid'
 import { themes } from '../../temaplates-example/themes/themes'
 import { useDispatch } from 'react-redux'
-import { setWap, saveWap } from '../../store/wap/wap.action'
+import { setWap, saveWap, setSelectedElement } from '../../store/wap/wap.action'
 import { wapService } from '../../services/wap-service'
 
 export function Editor() {
@@ -19,6 +19,9 @@ export function Editor() {
   useEffect(() => {
     if (!wap._id) {
       getDraft()
+    }
+    return () => {
+      dispatch(setSelectedElement(null))
     }
   }, [])
 

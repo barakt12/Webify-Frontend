@@ -1,5 +1,5 @@
 import { IconCmp } from './icon-cmp'
-import { TxtCmp } from '../sidebar/txt-cmp'
+import { TxtCmp } from './txt-cmp'
 import { ImgCmp } from './img-cmp'
 import { FAQCmp } from './faq-cmp'
 import { BtnCmp } from './btn-cmp'
@@ -8,9 +8,9 @@ import { useLocation } from 'react-router'
 import { setSelectedElement } from '../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
 import { ContainerCmp } from './container-cmp'
-import { CarouselLgCmp } from './carousel-lg'
-import { VideoCmp } from './videoCmp'
-import { Gallery1 } from './gallery-1'
+import { CarouselLgCmp } from './carousel-lg-cmp'
+import { VideoCmp } from './video-cmp'
+import { Gallery } from './gallery-cmp'
 import { FormCmp } from './form-cmp'
 import { useRef } from 'react'
 
@@ -25,6 +25,7 @@ export const DynamicCmp = (props) => {
   const onHoverElement = (ev) => {
     ev.stopPropagation()
     if (location.pathname !== '/preview') {
+      console.log('ev', ev.target)
       ev.target.classList.add('hover')
     }
   }
@@ -114,7 +115,7 @@ export const DynamicCmp = (props) => {
       )
     case 'gallery-grid':
       return (
-        <Gallery1
+        <Gallery
           cmp={cmp}
           selectedElement={selectedElement}
           onHoverElement={onHoverElement}

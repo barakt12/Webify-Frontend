@@ -1,9 +1,9 @@
 import React from 'react'
-import { deleteElement } from '../../../../store/wap/wap.action'
+import { deleteElement } from '../../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { ColorPicker } from './color-picker'
-import { ImageUrl } from './img-url-cmp'
+import { EditColorPicker } from './edit-color-picker'
+import { ImageUrl } from './img-url-input'
 import { TxtEditor } from './txt-editor'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import SaveAltIcon from '@mui/icons-material/SaveAlt'
@@ -14,6 +14,7 @@ export const SidebarEdit = ({ onSaveWap }) => {
   const selectedElement = useSelector(
     (storeState) => storeState.wapModule.selectedElement
   )
+
   const onDeleteElement = () => {
     if (selectedElement) dispatch(deleteElement(selectedElement))
   }
@@ -30,11 +31,11 @@ export const SidebarEdit = ({ onSaveWap }) => {
               selectedElement.type === 'btn') && (
               <>
                 <p>Font Color</p>
-                <ColorPicker isBackgroundColor={false} />
+                <EditColorPicker isBackgroundColor={false} />
               </>
             )}
             <p>Background Color</p>
-            <ColorPicker isBackgroundColor={true} />
+            <EditColorPicker isBackgroundColor={true} />
           </div>
           {selectedElement.type === 'img' && (
             <div className='img-url-container'>

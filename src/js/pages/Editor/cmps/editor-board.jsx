@@ -7,7 +7,7 @@ import { setWapThumbnail, saveWap } from '../../../store/wap/wap.action'
 
 export const EditorBoard = ({ wap, isSaving, onDoneSaving }) => {
   const dispatch = useDispatch()
-
+  console.log('hi from board')
   const editorWidth = useSelector(
     (storeState) => storeState.wapModule.displaySize
   )

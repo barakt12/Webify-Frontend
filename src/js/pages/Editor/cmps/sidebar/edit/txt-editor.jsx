@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { wapService } from '../../../../services/wap-service'
-import { setWap } from '../../../../store/wap/wap.action'
+import { wapService } from '../../../../../services/wap-service'
+import { setWap } from '../../../../../store/wap/wap.action'
 
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft'
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter'
@@ -10,16 +10,20 @@ import FormatBoldIcon from '@mui/icons-material/FormatBold'
 import FormatItalicIcon from '@mui/icons-material/FormatItalic'
 import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined'
 
-import { SidebarSlider } from './sidebar-slider'
+import { EditSlider } from './edit-slider'
 
-import { SidebarSelection } from './sidebar-selection'
+import { EditOptions } from './edit-options'
 import { useState } from 'react'
 
 export const TxtEditor = () => {
   const _ = require('lodash')
   const dispatch = useDispatch()
 
-  const { wap, selectedElement } = useSelector((storeState) => storeState.wapModule)
+  // Refactor all functions to a single function
+
+  const { wap, selectedElement } = useSelector(
+    (storeState) => storeState.wapModule
+  )
   const [activeBtn, setActiveBtn] = useState('')
 
   const onChangeAlign = (alignType) => {
@@ -29,17 +33,20 @@ export const TxtEditor = () => {
   }
 
   const onChangeFontWeight = () => {
-    const fontWeightType = selectedElement.style.fontWeight === 'bold' ? 'normal' : 'bold'
+    const fontWeightType =
+      selectedElement.style.fontWeight === 'bold' ? 'normal' : 'bold'
     selectedElement.style = {
       ...selectedElement.style,
       fontWeight: fontWeightType,
     }
+
     wapService.updateCmp(wap, selectedElement)
     dispatch(setWap(wap))
   }
 
   const onChangeFontFormat = () => {
-    const fontFormatType = selectedElement.style.fontStyle === 'italic' ? 'normal' : 'italic'
+    const fontFormatType =
+      selectedElement.style.fontStyle === 'italic' ? 'normal' : 'italic'
     selectedElement.style = {
       ...selectedElement.style,
       fontStyle: fontFormatType,
@@ -49,7 +56,10 @@ export const TxtEditor = () => {
   }
 
   const onChangeTextDeco = () => {
-    const fontDecoType = selectedElement.style.textDecoration === 'underline' ? 'none' : 'underline'
+    const fontDecoType =
+      selectedElement.style.textDecoration === 'underline'
+        ? 'none'
+        : 'underline'
     selectedElement.style = {
       ...selectedElement.style,
       textDecoration: fontDecoType,
@@ -58,10 +68,9 @@ export const TxtEditor = () => {
     dispatch(setWap(wap))
   }
 
-  const fontSizeDebounce = _.debounce((sizeAmount) => onChangeFontSize(sizeAmount), 20)
-
   const onChangeFontSize = (sizeAmount) => {
     sizeAmount = `${sizeAmount / 16}rem` //switch to rem
+    if (sizeAmount === selectedElement.style.fontSize) return
     selectedElement.style = { ...selectedElement.style, fontSize: sizeAmount }
     wapService.updateCmp(wap, selectedElement)
     dispatch(setWap(wap))
@@ -79,8 +88,6 @@ export const TxtEditor = () => {
     dispatch(setWap(wap))
   }
 
-  const borderRadiusDebounce = _.debounce((borderAmount) => onChangeBorderRadius(borderAmount), 20)
-
   const onChangeBorderRadius = (borderAmount) => {
     selectedElement.style = {
       ...selectedElement.style,
@@ -91,13 +98,13 @@ export const TxtEditor = () => {
   }
 
   return (
-    <section className="txt-editor-container">
+    <section className='txt-editor-container'>
       Text Editor
       {selectedElement.type === 'txt' && (
         <>
-          <div className="txt-align-container">
+          <div className='txt-align-container'>
             <p>Align</p>
-            <div className="txt-icons-container">
+            <div className='txt-icons-container'>
               <span
                 onClick={() => {
                   onChangeAlign('left')
@@ -121,9 +128,9 @@ export const TxtEditor = () => {
               </span>
             </div>
           </div>
-          <div className="txt-deco-container">
+          <div className='txt-deco-container'>
             <p>Decoration</p>
-            <div className="txt-deco-icons-container">
+            <div className='txt-deco-icons-container'>
               <span
                 onClick={() => {
                   onChangeFontWeight()
@@ -136,7 +143,9 @@ export const TxtEditor = () => {
               <span
                 onClick={() => {
                   onChangeFontFormat()
-                  activeBtn === 'italic' ? setActiveBtn('') : setActiveBtn('italic')
+                  activeBtn === 'italic'
+                    ? setActiveBtn('')
+                    : setActiveBtn('italic')
                 }}
                 className={`${activeBtn === 'italic' ? 'active' : ''}`}
               >
@@ -145,7 +154,9 @@ export const TxtEditor = () => {
               <span
                 onClick={() => {
                   onChangeTextDeco()
-                  activeBtn === 'underline' ? setActiveBtn('') : setActiveBtn('underline')
+                  activeBtn === 'underline'
+                    ? setActiveBtn('')
+                    : setActiveBtn('underline')
                 }}
                 className={`${activeBtn === 'underline' ? 'active' : ''}`}
               >
@@ -155,21 +166,32 @@ export const TxtEditor = () => {
           </div>
         </>
       )}
-      <div className="txt-slider-container">
+      <div className='txt-slider-container'>
         <p>Font Size</p>
-        <SidebarSlider isFontSize={true} onChangeFontSize={fontSizeDebounce} selectedElement={selectedElement} />
+        <EditSlider
+          isFontSize={true}
+          onChangeFontSize={onChangeFontSize}
+          selectedElement={selectedElement}
+        />
       </div>
-      <div className="txt-slider-container">
+      <div className='txt-slider-container'>
         <p>Border Radius</p>
-        <SidebarSlider isFontSize={false} onChangeBorderRadius={borderRadiusDebounce} selectedElement={selectedElement} />
+        <EditSlider
+          isFontSize={false}
+          onChangeBorderRadius={onChangeBorderRadius}
+          selectedElement={selectedElement}
+        />
       </div>
-      <div className="txt-type-container">
+      <div className='txt-type-container'>
         <p>Font Type</p>
-        <SidebarSelection onChangeFontType={onChangeFontType} isFontType={true} />
+        <EditOptions onChangeFontType={onChangeFontType} isFontType={true} />
       </div>
-      <div className="txt-shadow-container">
+      <div className='txt-shadow-container'>
         <p>Font Shadow</p>
-        <SidebarSelection onChangeTextShadow={onChangeTextShadow} isFontType={false} />
+        <EditOptions
+          onChangeTextShadow={onChangeTextShadow}
+          isFontType={false}
+        />
       </div>
     </section>
   )

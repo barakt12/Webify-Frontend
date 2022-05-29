@@ -1,8 +1,15 @@
-export function Gallery1({ cmp, onHoverElement, selectedElement, onSelectElement }) {
+export function Gallery({
+  cmp,
+  onHoverElement,
+  selectedElement,
+  onSelectElement,
+}) {
   return (
     <div
       style={cmp.style}
-      className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
+      className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${
+        cmp.name
+      }`}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverElement(ev)}
       onClick={(ev) => onSelectElement(ev, cmp)}

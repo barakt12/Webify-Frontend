@@ -1,4 +1,4 @@
-export const ThemeCmp = ({ theme, onSelectTheme }) => {
+export const ThemePreview = ({ theme, onSelectTheme }) => {
   return (
     <section
       className='theme-container'

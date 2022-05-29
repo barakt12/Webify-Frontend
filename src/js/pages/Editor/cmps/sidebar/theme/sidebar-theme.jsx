@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { setWap } from '../../../../store/wap/wap.action'
-import { ThemeCmp } from './theme-cmp'
+import { setWap } from '../../../../../store/wap/wap.action'
+import { ThemePreview } from './theme-preview'
 
 export const SidebarTheme = ({ themeList }) => {
   const dispatch = useDispatch()
@@ -23,7 +23,7 @@ export const SidebarTheme = ({ themeList }) => {
 
       {themeList.map((theme) => {
         return (
-          <ThemeCmp
+          <ThemePreview
             key={theme.id}
             theme={theme}
             onSelectTheme={onSelectTheme}
