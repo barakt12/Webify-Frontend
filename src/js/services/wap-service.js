@@ -5,6 +5,7 @@ import { httpService } from './http.service.js'
 // import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'wap'
+const STORAGE_DRAFT_KEY = 'draftWap'
 export const wapService = {
   query,
   getById,
@@ -14,6 +15,8 @@ export const wapService = {
   deleteCmp,
   updateCmp,
   changeCmpId,
+  saveToDraft,
+  getDraft,
 }
 
 function query(filterBy, sortBy) {
@@ -55,6 +58,20 @@ function changeCmpId(cmp) {
     if (!cmp.cmps || !cmp.cmps.length) return
     else changeCmpId(currCmp)
   })
+}
+
+async function saveToDraft(wap) {
+  const draft = localStorage.getItem(STORAGE_DRAFT_KEY)
+  if (draft) {
+    await storageService.put(STORAGE_DRAFT_KEY, wap)
+    // localStorage.setItem(STORAGE_DRAFT_KEY, JSON.stringify(wap))
+  } else {
+    await storageService.post(STORAGE_DRAFT_KEY, wap)
+  }
+}
+
+async function getDraft() {
+  return await storageService.query(STORAGE_DRAFT_KEY)
 }
 
 // async function add(wap) {

@@ -21,7 +21,8 @@ export function EditorSidebar({ onSaveWap }) {
   )
 
   useEffect(() => {
-    toggleSidebarShown(true)
+    if (activeTab) toggleSidebarShown(true)
+    else toggleSidebarShown(false)
   }, [activeTab])
 
   useEffect(() => {
@@ -33,6 +34,10 @@ export function EditorSidebar({ onSaveWap }) {
     const cmps = templateService.getCmpsByCategory('header')
     setAddCmpList(cmps)
   }, [])
+
+  useEffect(() => {
+    if (!isSidebarShown) setActiveTab(null)
+  }, [isSidebarShown])
 
   //change to one state
   const onChooseCmps = (category) => {
@@ -49,7 +54,10 @@ export function EditorSidebar({ onSaveWap }) {
   }
 
   return (
-    <section className='editor-sidebar'>
+    <section
+      className='editor-sidebar'
+      style={{ backgroundColor: isSidebarShown ? '#252627' : '#0e1318' }}
+    >
       <SidebarBtns
         onChooseCmps={onChooseCmps}
         onShowThemes={onShowThemes}
@@ -78,6 +86,7 @@ export function EditorSidebar({ onSaveWap }) {
       <SidebarCloseBtn
         toggleSidebarShown={toggleSidebarShown}
         isSidebarShown={isSidebarShown}
+        setActiveTab={setActiveTab}
       />
     </section>
   )

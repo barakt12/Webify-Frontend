@@ -2,13 +2,8 @@ import { v4 as uuidv4 } from 'uuid'
 
 const initial_state = {
   wap: {
-    _id: uuidv4(),
+    _id: null,
     cmps: [],
-  },
-  cmpsList: {
-    header: [],
-    hero: [],
-    text: [],
   },
   selectedElement: null,
   displaySize: '100%',
@@ -22,7 +17,10 @@ export function wapReducer(state = initial_state, action) {
     case 'SET_SAVED_WAPS':
       return { ...state, savedWaps: action.savedWaps }
     case 'REMOVE_DRAFT':
-      return { ...state, savedWaps: state.savedWaps.filter((wap) => wap._id !== action.wapId) }
+      return {
+        ...state,
+        savedWaps: state.savedWaps.filter((wap) => wap._id !== action.wapId),
+      }
     case 'SET_THUMBNAIL':
       return { ...state, wap: { ...state.wap, thumbnail: action.imgData } }
     case 'SET_ELEMENT':

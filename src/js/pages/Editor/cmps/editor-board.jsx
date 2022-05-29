@@ -5,12 +5,13 @@ import { useEffect, useRef } from 'react'
 import html2canvas from 'html2canvas'
 import { setWapThumbnail, saveWap } from '../../../store/wap/wap.action'
 
-export const EditorBoard = ({ pageContent, isSaving, onDoneSaving }) => {
+export const EditorBoard = ({ wap, isSaving, onDoneSaving }) => {
   const dispatch = useDispatch()
 
   const editorWidth = useSelector(
     (storeState) => storeState.wapModule.displaySize
   )
+
   const editorRef = useRef(null)
 
   useEffect(() => {
@@ -46,10 +47,10 @@ export const EditorBoard = ({ pageContent, isSaving, onDoneSaving }) => {
                 transition: 'max-width 0.3s',
               }}
             >
-              {!pageContent?.cmps?.length ? (
+              {!wap?.cmps?.length ? (
                 <p>Drag and Drop to add components</p>
               ) : (
-                pageContent.cmps.map((cmp, index) => (
+                wap.cmps.map((cmp, index) => (
                   <Draggable
                     key={cmp.id}
                     draggableId={cmp.id + index}

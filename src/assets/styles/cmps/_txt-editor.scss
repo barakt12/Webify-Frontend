@@ -17,7 +17,14 @@
       display: flex;
       gap: 10px;
       & > * {
+        color: hsla(0deg, 0%, 100%, 0.7);
         cursor: pointer;
+        &:hover {
+          color: white;
+        }
+        &.active {
+          color: white;
+        }
       }
     }
   }

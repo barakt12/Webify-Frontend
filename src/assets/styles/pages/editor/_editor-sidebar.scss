@@ -3,11 +3,30 @@
 .editor-sidebar {
   position: relative;
   display: flex;
+  padding-right: 5px;
+  transition: 0.3s;
   .sidebar-actions {
     background-color: #252627;
     width: 270px;
-    overflow: hidden;
     transition: 0.3s;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      width: 8px;
+      background-color: #252627;
+    }
+    &::-webkit-scrollbar:horizontal {
+      height: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      border: 1px #252627 solid;
+      border-radius: 10px;
+      -webkit-box-shadow: 0 0 6px #252627 inset;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #acacac;
+      border-radius: 16px;
+    }
   }
 }
 

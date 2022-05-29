@@ -18,9 +18,7 @@ export const TxtEditor = () => {
   const _ = require('lodash')
   const dispatch = useDispatch()
 
-  const { wap, selectedElement } = useSelector(
-    (storeState) => storeState.wapModule
-  )
+  const { wap, selectedElement } = useSelector((storeState) => storeState.wapModule)
 
   const onChangeAlign = (alignType) => {
     selectedElement.style = { ...selectedElement.style, textAlign: alignType }
@@ -29,8 +27,7 @@ export const TxtEditor = () => {
   }
 
   const onChangeFontWeight = () => {
-    const fontWeightType =
-      selectedElement.style.fontWeight === 'bold' ? 'normal' : 'bold'
+    const fontWeightType = selectedElement.style.fontWeight === 'bold' ? 'normal' : 'bold'
     selectedElement.style = {
       ...selectedElement.style,
       fontWeight: fontWeightType,
@@ -40,8 +37,7 @@ export const TxtEditor = () => {
   }
 
   const onChangeFontFormat = () => {
-    const fontFormatType =
-      selectedElement.style.fontStyle === 'italic' ? 'normal' : 'italic'
+    const fontFormatType = selectedElement.style.fontStyle === 'italic' ? 'normal' : 'italic'
     selectedElement.style = {
       ...selectedElement.style,
       fontStyle: fontFormatType,
@@ -52,10 +48,7 @@ export const TxtEditor = () => {
   }
 
   const onChangeTextDeco = () => {
-    const fontDecoType =
-      selectedElement.style.textDecoration === 'underline'
-        ? 'none'
-        : 'underline'
+    const fontDecoType = selectedElement.style.textDecoration === 'underline' ? 'none' : 'underline'
     selectedElement.style = {
       ...selectedElement.style,
       textDecoration: fontDecoType,
@@ -64,10 +57,7 @@ export const TxtEditor = () => {
     dispatch(setWap(wap))
   }
 
-  const fontSizeDebounce = _.debounce(
-    (sizeAmount) => onChangeFontSize(sizeAmount),
-    20
-  )
+  const fontSizeDebounce = _.debounce((sizeAmount) => onChangeFontSize(sizeAmount), 20)
 
   const onChangeFontSize = (sizeAmount) => {
     sizeAmount = `${sizeAmount / 16}rem` //switch to rem
@@ -88,10 +78,7 @@ export const TxtEditor = () => {
     dispatch(setWap(wap))
   }
 
-  const borderRadiusDebounce = _.debounce(
-    (borderAmount) => onChangeBorderRadius(borderAmount),
-    20
-  )
+  const borderRadiusDebounce = _.debounce((borderAmount) => onChangeBorderRadius(borderAmount), 20)
 
   const onChangeBorderRadius = (borderAmount) => {
     selectedElement.style = {
@@ -139,33 +126,19 @@ export const TxtEditor = () => {
       )}
       <div className="txt-slider-container">
         <p>Font Size</p>
-        <SidebarSlider
-          isFontSize={true}
-          onChangeFontSize={fontSizeDebounce}
-          selectedElement={selectedElement}
-        />
+        <SidebarSlider isFontSize={true} onChangeFontSize={fontSizeDebounce} selectedElement={selectedElement} />
       </div>
       <div className="txt-slider-container">
         <p>Border Radius</p>
-        <SidebarSlider
-          isFontSize={false}
-          onChangeBorderRadius={borderRadiusDebounce}
-          selectedElement={selectedElement}
-        />
+        <SidebarSlider isFontSize={false} onChangeBorderRadius={borderRadiusDebounce} selectedElement={selectedElement} />
       </div>
       <div className="txt-type-container">
         <p>Font Type</p>
-        <SidebarSelection
-          onChangeFontType={onChangeFontType}
-          isFontType={true}
-        />
+        <SidebarSelection onChangeFontType={onChangeFontType} isFontType={true} />
       </div>
       <div className="txt-shadow-container">
         <p>Font Shadow</p>
-        <SidebarSelection
-          onChangeTextShadow={onChangeTextShadow}
-          isFontType={false}
-        />
+        <SidebarSelection onChangeTextShadow={onChangeTextShadow} isFontType={false} />
       </div>
     </section>
   )

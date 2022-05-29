@@ -11,14 +11,24 @@ import { setWap, saveWap } from '../../store/wap/wap.action'
 import { wapService } from '../../services/wap-service'
 
 export function Editor() {
-  const [pageContent, setPageContent] = useState({})
+  // const [pageContent, setPageContent] = useState({})
   const [isSaving, setIsSaving] = useState(false)
   const wap = useSelector((storeState) => storeState.wapModule.wap)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setPageContent(wap)
-  }, [wap])
+    if (!wap._id) {
+      getDraft()
+    }
+  }, [])
+
+  const getDraft = async () => {
+    const draft = await wapService.getDraft()
+    console.log(draft)
+    if (draft.length && draft[0]._id) {
+      dispatch(setWap(draft[0]))
+    }
+  }
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list)
@@ -38,27 +48,37 @@ export function Editor() {
     cmp = JSON.parse(JSON.stringify(cmp))
     cmp.id = uuidv4()
     wapService.changeCmpId(cmp)
-    setPageContent((prevState) => {
-      const newState = JSON.parse(JSON.stringify(prevState))
-      newState.cmps.splice(result.destination.index, 0, cmp)
-      dispatch(setWap(newState))
-    })
+    // setPageContent((prevState) => {
+    const newState = JSON.parse(JSON.stringify(wap))
+    newState.cmps.splice(result.destination.index, 0, cmp)
+    dispatch(setWap(newState))
+    // })
   }
 
   const handleDragStart = () => {
     console.log('drag')
   }
 
-  const handleDragEnd = (result) => {
+  const handleDragEnd = async (result) => {
     // dropped outside the list
     if (!result.destination) return
-    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
+    else if (
+      result.destination.droppableId === 'editor' &&
+      result.source.droppableId !== 'editor'
+    ) {
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(pageContent.cmps, result.source.index, result.destination.index)
-    if (content) setPageContent((prevState) => ({ ...prevState, cmps: content }))
+    const content = reorder(
+      wap.cmps,
+      result.source.index,
+      result.destination.index
+    )
+    if (content) {
+      // setPageContent((prevState) => ({ ...prevState, cmps: content }))
+      dispatch(setWap({ ...wap, cmps: content }))
+    }
   }
 
   const onSaveWap = () => {
@@ -71,10 +91,16 @@ export function Editor() {
   }
 
   return (
-    <section className="editor-container">
+    <section className='editor-container'>
       <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <EditorSidebar onSaveWap={onSaveWap} />
-        <EditorBoard pageContent={pageContent} getItemStyle={getItemStyle} isSaving={isSaving} onDoneSaving={onDoneSaving} />
+        <EditorBoard
+          wap={wap}
+          // pageContent={pageContent}
+          getItemStyle={getItemStyle}
+          isSaving={isSaving}
+          onDoneSaving={onDoneSaving}
+        />
       </DragDropContext>
     </section>
   )
