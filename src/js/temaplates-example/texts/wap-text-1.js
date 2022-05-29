@@ -17,8 +17,7 @@ export const wapText1 = {
       style: {
         fontSize: '3rem',
         fontWeight: '700',
-        paddingBottom: '1rem',
-        alignSelf: 'center',
+        marginBottom: '1rem',
       },
     },
     {
@@ -31,8 +30,7 @@ export const wapText1 = {
         fontSize: '1.5rem',
         fontWeight: '700',
         color: 'rgba(249,245,242,0.5)',
-        paddingBottom: '2rem',
-        alignSelf: 'center',
+        marginBottom: '2rem',
       },
     },
     {

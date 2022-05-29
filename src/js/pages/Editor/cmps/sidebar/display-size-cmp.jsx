@@ -12,14 +12,14 @@ export function DisplaySize() {
   }
 
   return (
-    <div className="display-icons-container">
-      <div className="ico" onClick={() => onSetDisplaySize('100%')}>
+    <div className='display-icons-container'>
+      <div className='ico' onClick={() => onSetDisplaySize('100%')}>
         <ScreenshotMonitorIcon />
       </div>
-      <div className="ico" onClick={() => onSetDisplaySize('720px')}>
+      <div className='ico' onClick={() => onSetDisplaySize('720px')}>
         <TabletMacIcon />
       </div>
-      <div className="ico" onClick={() => onSetDisplaySize('400px')}>
+      <div className='ico' onClick={() => onSetDisplaySize('420px')}>
         <PhoneIphoneIcon />
       </div>
     </div>

@@ -13,12 +13,14 @@ import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined'
 import { SidebarSlider } from './sidebar-slider'
 
 import { SidebarSelection } from './sidebar-selection'
+import { useState } from 'react'
 
 export const TxtEditor = () => {
   const _ = require('lodash')
   const dispatch = useDispatch()
 
   const { wap, selectedElement } = useSelector((storeState) => storeState.wapModule)
+  const [activeBtn, setActiveBtn] = useState('')
 
   const onChangeAlign = (alignType) => {
     selectedElement.style = { ...selectedElement.style, textAlign: alignType }
@@ -42,7 +44,6 @@ export const TxtEditor = () => {
       ...selectedElement.style,
       fontStyle: fontFormatType,
     }
-    console.log(selectedElement.style)
     wapService.updateCmp(wap, selectedElement)
     dispatch(setWap(wap))
   }
@@ -97,13 +98,25 @@ export const TxtEditor = () => {
           <div className="txt-align-container">
             <p>Align</p>
             <div className="txt-icons-container">
-              <span onClick={() => onChangeAlign('left')}>
+              <span
+                onClick={() => {
+                  onChangeAlign('left')
+                  setActiveBtn('left')
+                }}
+                className={`${activeBtn === 'left' ? 'active' : ''}`}
+              >
                 <FormatAlignLeftIcon />
               </span>
               <span onClick={() => onChangeAlign('center')}>
                 <FormatAlignCenterIcon />
               </span>
-              <span onClick={() => onChangeAlign('right')}>
+              <span
+                onClick={() => {
+                  onChangeAlign('right')
+                  setActiveBtn('right')
+                }}
+                className={`${activeBtn === 'right' ? 'active' : ''}`}
+              >
                 <FormatAlignRightIcon />
               </span>
             </div>
@@ -111,13 +124,31 @@ export const TxtEditor = () => {
           <div className="txt-deco-container">
             <p>Decoration</p>
             <div className="txt-deco-icons-container">
-              <span onClick={onChangeFontWeight}>
+              <span
+                onClick={() => {
+                  onChangeFontWeight()
+                  activeBtn === 'bold' ? setActiveBtn('') : setActiveBtn('bold')
+                }}
+                className={`${activeBtn === 'bold' ? 'active' : ''}`}
+              >
                 <FormatBoldIcon />
               </span>
-              <span onClick={onChangeFontFormat}>
+              <span
+                onClick={() => {
+                  onChangeFontFormat()
+                  activeBtn === 'italic' ? setActiveBtn('') : setActiveBtn('italic')
+                }}
+                className={`${activeBtn === 'italic' ? 'active' : ''}`}
+              >
                 <FormatItalicIcon />
               </span>
-              <span onClick={onChangeTextDeco}>
+              <span
+                onClick={() => {
+                  onChangeTextDeco()
+                  activeBtn === 'underline' ? setActiveBtn('') : setActiveBtn('underline')
+                }}
+                className={`${activeBtn === 'underline' ? 'active' : ''}`}
+              >
                 <FormatUnderlinedIcon />
               </span>
             </div>

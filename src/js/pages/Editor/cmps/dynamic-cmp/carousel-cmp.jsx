@@ -40,7 +40,7 @@ export const CarosuelCmp = ({
   return (
     <Box
       style={cmp.style}
-      sx={{ maxWidth: 600, minWidth: 250 }}
+      sx={{ maxWidth: 500, minWidth: 250 }}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverElement(ev)}
       className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${

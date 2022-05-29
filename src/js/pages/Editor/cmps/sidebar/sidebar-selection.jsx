@@ -37,7 +37,7 @@ export const SidebarSelection = ({onChangeFontType,onChangeTextShadow,isFontType
 const currMenu = (isFontType) ? fontTypeMenu : textShadowMenu
   return (
     <div>
-      <FormControl sx={{backgroundColor: '#FFF' , borderRadius: 1, m: 1, minWidth: 120, height: 40,margin: 0 }} size="small">
+      <FormControl sx={{backgroundColor: 'whitesmoke' , borderRadius: 1, m: 1, minWidth: 120, height: 40,margin: 0}} size="small">
         <Select
           value={(isFontType) ? fontType : textShadow}
           onChange={handleChange}
