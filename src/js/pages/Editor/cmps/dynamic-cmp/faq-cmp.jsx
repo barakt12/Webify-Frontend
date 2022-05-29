@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography'
 import { useDispatch } from 'react-redux'
 
 const Accordion = styled((props) => (
-  <MuiAccordion disableGutters elevation={0} square {...props} />
+  <MuiAccordion sx={{outline: 'none !important'}} disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
   border: `1px solid ${theme.palette.divider}`,
   '&:not(:last-child)': {
@@ -20,8 +20,8 @@ const Accordion = styled((props) => (
 }))
 
 const AccordionSummary = styled((props) => (
-  <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+  <MuiAccordionSummary sx={{outline: 'none !important'}}
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem',outline: 'none !important' }} />}
     {...props}
   />
 ))(({ theme }) => ({
@@ -35,6 +35,7 @@ const AccordionSummary = styled((props) => (
   },
   '& .MuiAccordionSummary-content': {
     marginLeft: theme.spacing(1),
+    outline: 'none !important'
   },
 }))
 
@@ -75,14 +76,14 @@ export function FAQCmp({
             onChange={handleChange(`panel${idx + 1}`)}
           >
             <AccordionSummary
-              sx={{}}
+              sx={{outline: 'none !important'}}
               aria-controls={`panel${idx + 1}d-content`}
               id={`panel${idx + 1}d-header`}
             >
-              <Typography>{question.question}</Typography>
+              <Typography sx={{outline: 'none !important'}}>{question.question}</Typography>
             </AccordionSummary>
-            <AccordionDetails>
-              <Typography sx={{}}>{question.answer}</Typography>
+            <AccordionDetails sx={{outline: 'none !important'}}>
+              <Typography sx={{outline: 'none !important'}}>{question.answer}</Typography>
             </AccordionDetails>
           </Accordion>
         )

@@ -2,7 +2,7 @@ export const ThemeCmp = ({ theme, onSelectTheme }) => {
   return (
     <section
       className='theme-container'
-      onClick={() => onSelectTheme(theme.colors)}
+      onClick={() => onSelectTheme(theme)}
     >
       <div className='theme-header-info'>
         <p className='theme-header'>{theme.name}</p>

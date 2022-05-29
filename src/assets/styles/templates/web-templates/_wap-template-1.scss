@@ -119,6 +119,9 @@
     text-align: initial;
     max-width: 800px;
     margin: auto;
+    &:hover:not(.selected){
+      outline: 1px dashed gray !important;
+    }
     .question {
       color: #3f40cc;
       font-weight: 700;

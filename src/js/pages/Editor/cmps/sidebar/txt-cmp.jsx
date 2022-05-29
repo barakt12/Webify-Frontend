@@ -11,6 +11,8 @@ export function TxtCmp({
   selectedElement,
   onSelectElement,
 }) {
+
+  
   const [isEditable, setIsEditable] = useState(true)
   const location = useLocation()
   const dispatch = useDispatch()

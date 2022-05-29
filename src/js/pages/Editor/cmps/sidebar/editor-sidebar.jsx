@@ -51,6 +51,7 @@ export function EditorSidebar({ onSaveWap }) {
   const onShowThemes = () => {
     setAddCmpList(null)
     const themes = themeService.getThemes()
+    console.log('themes',themes)
     setTheme(themes)
   }
 
