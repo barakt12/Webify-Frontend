@@ -3,6 +3,7 @@ import { deleteElement } from '../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { ColorPicker } from './color-picker'
+import { ImageUrl } from './img-url-cmp'
 import { TxtEditor } from './txt-editor'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import SaveAltIcon from '@mui/icons-material/SaveAlt'
@@ -35,10 +36,16 @@ export const SidebarEdit = ({ onSaveWap }) => {
             <p>Background Color</p>
             <ColorPicker isBackgroundColor={true} />
           </div>
+          {selectedElement.type === 'img' && (
+            <div className='img-url-container'>
+              <p>Image Link</p>
+              <ImageUrl cmp={selectedElement} />
+            </div>
+          )}
         </>
       )}
       {!selectedElement && (
-        <p className='sidebar-action-text'>Choose an element to edit</p>
+        <p className='sidebar-action-text'>Please choose an element</p>
       )}
       <div className='action-btns'>
         <button onClick={onDeleteElement}>

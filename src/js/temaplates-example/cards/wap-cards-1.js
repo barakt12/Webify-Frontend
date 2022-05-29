@@ -16,7 +16,7 @@ export const wapCards1 = {
         txt: 'Latest Projects',
       },
       style: {
-        textAlign: 'center',
+        alignSelf: 'center',
         fontSize: '3rem',
         fontWeight: '700',
         marginBottom: '1rem',
@@ -36,8 +36,7 @@ export const wapCards1 = {
               type: 'img',
               id: uuidv4(),
               info: {
-                imgUrl:
-                  'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6bc00c46710f0c92b5a5_image%2016.png',
+                imgUrl: 'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6bc00c46710f0c92b5a5_image%2016.png',
               },
             },
             {
@@ -62,8 +61,7 @@ export const wapCards1 = {
               type: 'img',
               id: uuidv4(),
               info: {
-                imgUrl:
-                  'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6b7272d92a3dbe255cf6_image%2015.png',
+                imgUrl: 'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6b7272d92a3dbe255cf6_image%2015.png',
               },
             },
             {
@@ -88,8 +86,7 @@ export const wapCards1 = {
               type: 'img',
               id: uuidv4(),
               info: {
-                imgUrl:
-                  'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6acaa592544ef133dd30_altruistiq.png',
+                imgUrl: 'https://assets.website-files.com/61ea6abd5724fb064ae5cd40/61ea6acaa592544ef133dd30_altruistiq.png',
               },
             },
             {
