@@ -6,7 +6,7 @@ export const wapFooter2 = {
   themePalette: 'primary',
   category: 'footer',
   id: uuidv4(),
-  thumbnail: 'https://i.postimg.cc/ryrV1WDH/wap-footer-1.png',
+  thumbnail: require('../../../assets/img/thumbnails/footer/wap-footer-2.jpg'),
   cmps: [
     {
       type: 'txt',
