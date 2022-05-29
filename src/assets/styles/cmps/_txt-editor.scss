@@ -8,7 +8,9 @@
     padding: 15px 20px 0px 20px;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    // color: white;
+    color: hsla(0deg, 0%, 100%, 0.8);
+
     &:first-child {
       padding-top: 25px;
     }
