@@ -24,11 +24,13 @@ export const wapCarousel1 = {
         carosuelContent: [
           {
             label: 'Parturient Tortor',
-            imgPath: 'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5afa506095815377cd097a34_img-002-p-500.jpeg',
+            imgPath:
+              'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5afa506095815377cd097a34_img-002-p-500.jpeg',
           },
           {
             label: 'Sem Risus Elit Vestibulum',
-            imgPath: 'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5afa50601bc189f92b1ad1f1_img-003-p-500.jpeg',
+            imgPath:
+              'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5afa50601bc189f92b1ad1f1_img-003-p-500.jpeg',
           },
         ],
       },

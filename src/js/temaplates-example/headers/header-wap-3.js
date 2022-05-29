@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 export const headerWap3 = {
   type: 'container',
   name: 'wap-header-3',
-  themePalette: 'secondary',
+  themePalette: 'primary',
   id: uuidv4(),
   thumbnail: require('../../../assets/img/thumbnails/header/wap-header-3.png'),
   style: {},

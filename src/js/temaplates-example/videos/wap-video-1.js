@@ -4,7 +4,7 @@ export const wapVideo1 = {
   type: 'container',
   name: 'wap-video-1',
   category: 'video',
-  themePalette: 'primary',
+  themePalette: 'secondary',
   id: uuidv4(),
   thumbnail: require('../../../assets/img/thumbnails/video/wap-video-1.jpg'),
   style: {},

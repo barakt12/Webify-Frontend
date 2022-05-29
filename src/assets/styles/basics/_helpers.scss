@@ -104,3 +104,9 @@
 .selected {
   outline: 2px dashed gray !important;
 }
+
+.container.selected {
+  outline: 2px dashed gray !important;
+  //   border-inline: 1px dashed gray;
+  outline-offset: -2px;
+}

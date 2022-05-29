@@ -14,10 +14,10 @@ export const ThemeCmp = ({ theme, onSelectTheme }) => {
             <div
               key={theme.id + idx}
               style={{
-                flexBasis: '60%',
+                // flexBasis: '60%',
                 height: '15px',
-                width: '100px',
-                backgroundColor: color[1].backgroundColor,
+                // idth: '100px',
+                backgroundColor: color[1].background,
               }}
             ></div>
           )

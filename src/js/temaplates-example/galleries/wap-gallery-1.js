@@ -5,7 +5,7 @@ export const wapGallery1 = {
   name: 'wap-gallery-1',
   id: uuidv4(),
   category: 'gallery',
-  themePalette: 'primary',
+  themePalette: 'secondary',
   thumbnail: require('../../../assets/img/thumbnails/gallery/wap-gallery-1.jpg'),
   style: {},
   cmps: [

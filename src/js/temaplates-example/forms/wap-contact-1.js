@@ -4,7 +4,7 @@ export const wapContact1 = {
   name: 'wap-contact-1',
   id: uuidv4(),
   type: 'container',
-  themePalette: 'primary',
+  themePalette: 'secondary',
   category: 'form',
   thumbnail: require('../../../assets/img/thumbnails/form/wap-form-1.jpg'),
   cmps: [

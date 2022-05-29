@@ -12,9 +12,7 @@ export const wapHero2 = {
       type: 'container',
       id: uuidv4(),
       name: 'wap-hero-2-container',
-      style: {
-        color: 'white',
-      },
+      style: {},
       cmps: [
         {
           type: 'txt',
@@ -62,7 +60,8 @@ export const wapHero2 = {
           id: uuidv4(),
           name: 'wap-hero-2-hero-img',
           info: {
-            imgUrl: 'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b10d0ee7f483cdf4e9ca8f8_img-top.png',
+            imgUrl:
+              'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b10d0ee7f483cdf4e9ca8f8_img-top.png',
           },
         },
         {
@@ -76,7 +75,8 @@ export const wapHero2 = {
               id: uuidv4(),
               name: 'wap-hero-2-arrow-img',
               info: {
-                imgUrl: 'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b1437cbda3c5c3369fe4460_arrow.svg',
+                imgUrl:
+                  'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b1437cbda3c5c3369fe4460_arrow.svg',
               },
             },
           ],
