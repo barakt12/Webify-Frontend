@@ -15,7 +15,7 @@ export const wapFooter2 = {
         txt: 'Techflow',
       },
       style: {
-        fontSize: '2.5rem',
+        fontSize: '2rem',
         fontWeight: '700',
         margin: 0,
       },

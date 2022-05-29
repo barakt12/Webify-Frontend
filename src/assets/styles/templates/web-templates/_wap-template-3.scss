@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
 
   .nav-bar {
     display: flex;
@@ -17,24 +17,33 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding: 2rem 1rem;
+  padding: 2rem 3rem;
   font-size: 1.5rem;
   font-weight: 700;
   color: #1c1b1d;
   justify-content: space-around;
   text-align: center;
+  align-items: center;
 
-  @media screen and (min-width: 980px) {
+  @media screen and (min-width: 1400px) {
     flex-direction: row;
-    padding: 5rem 1rem;
+    padding: 5rem 3rem;
   }
 
   .video-description {
     display: flex;
+
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    flex-basis: 40%;
+    flex-basis: 50%;
+
+    .video-description > * {
+      margin-top: 20px;
+    }
+    @media screen and (min-width: 1400px) {
+      flex-basis: 40%;
+    }
   }
 
   button {
@@ -55,13 +64,14 @@
   }
 
   iframe {
-    flex-basis: 60%;
+    flex-basis: 50%;
     width: 100%;
     aspect-ratio: 1 / 0.5;
     border: 0;
 
-    @media screen and (min-width: 980px) {
+    @media screen and (min-width: 1400px) {
       width: 50%;
+      flex-basis: 60%;
     }
   }
 }

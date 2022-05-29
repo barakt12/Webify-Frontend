@@ -38,7 +38,7 @@ export const SidebarEdit = ({ onSaveWap }) => {
         </>
       )}
       {!selectedElement && (
-        <p className='sidebar-action-text'>Please choose an element</p>
+        <p className='sidebar-action-text'>Choose an element to edit</p>
       )}
       <div className='action-btns'>
         <button onClick={onDeleteElement}>
