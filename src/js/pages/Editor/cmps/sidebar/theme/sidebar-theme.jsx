@@ -7,16 +7,19 @@ export const SidebarTheme = ({ themeList }) => {
   const wap = useSelector((storeState) => storeState.wapModule.wap)
 
   const onSelectTheme = (theme) => {
-    console.log('on select theme')
+    console.log('on select theme',theme)
     setTheme(wap, theme)
   }
 
-  const setTheme = (wap, themeColors) => {
+  const setTheme = (wap, {colors,fontFamily}) => {
+    console.log(colors,fontFamily)
     wap.cmps.forEach((cmp) => {
-      cmp.style = { ...cmp.style, ...themeColors[cmp.themePalette] }
+      cmp.style = { ...cmp.style, ...colors[cmp.themePalette], fontFamily}
     })
     dispatch(setWap(wap))
   }
+
+
   return (
     <>
       {/* <h3 className='sidebar-action-text'>Choose a theme</h3> */}

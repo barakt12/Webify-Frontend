@@ -14,6 +14,7 @@ export function Editor() {
   // const [pageContent, setPageContent] = useState({})
   const [isSaving, setIsSaving] = useState(false)
   const wap = useSelector((storeState) => storeState.wapModule.wap)
+  const loggedUser = useSelector((storeState) => storeState.userModule.user)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -65,19 +66,12 @@ export function Editor() {
   const handleDragEnd = async (result) => {
     // dropped outside the list
     if (!result.destination) return
-    else if (
-      result.destination.droppableId === 'editor' &&
-      result.source.droppableId !== 'editor'
-    ) {
+    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(
-      wap.cmps,
-      result.source.index,
-      result.destination.index
-    )
+    const content = reorder(wap.cmps, result.source.index, result.destination.index)
     if (content) {
       // setPageContent((prevState) => ({ ...prevState, cmps: content }))
       dispatch(setWap({ ...wap, cmps: content }))
@@ -85,6 +79,10 @@ export function Editor() {
   }
 
   const onSaveWap = () => {
+    if (!loggedUser) {
+      console.log('you must be logged in to save!')
+      return
+    }
     setIsSaving(true)
     // await dispatch(saveWap())
   }
@@ -94,7 +92,7 @@ export function Editor() {
   }
 
   return (
-    <section className='editor-container'>
+    <section className="editor-container">
       <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <EditorSidebar onSaveWap={onSaveWap} />
         <EditorBoard

@@ -99,7 +99,6 @@ export const TxtEditor = () => {
 
   return (
     <section className='txt-editor-container'>
-      Text Editor
       {selectedElement.type === 'txt' && (
         <>
           <div className='txt-align-container'>
