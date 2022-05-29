@@ -7,7 +7,7 @@ export const headerWap1 = {
   themePalette: 'primary',
   id: uuidv4(),
   //change to cloudinary
-  thumbnail: 'https://i.postimg.cc/vmFf4mMv/header1.png',
+  thumbnail: require('../../../assets/img/thumbnails/header/wap-header-1.jpg'),
   //each component will have his own css file
   style: {},
   cmps: [
