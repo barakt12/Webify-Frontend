@@ -11,19 +11,23 @@ import SaveAltIcon from '@mui/icons-material/SaveAlt'
 export const SidebarEdit = ({ onSaveWap }) => {
   const dispatch = useDispatch()
 
-  const selectedElement = useSelector((storeState) => storeState.wapModule.selectedElement)
+  const selectedElement = useSelector(
+    (storeState) => storeState.wapModule.selectedElement
+  )
   const onDeleteElement = () => {
     if (selectedElement) dispatch(deleteElement(selectedElement))
   }
 
   return (
-    <section className="editor-sidebar-container">
+    <section className='editor-sidebar-container'>
       {selectedElement && (
         <>
-          {(selectedElement.type === 'txt' || selectedElement.type === 'btn') && <TxtEditor />}
+          {(selectedElement.type === 'txt' ||
+            selectedElement.type === 'btn') && <TxtEditor />}
 
-          <div className="color-picker-container">
-            {(selectedElement.type === 'txt' || selectedElement.type === 'btn') && (
+          <div className='color-picker-container'>
+            {(selectedElement.type === 'txt' ||
+              selectedElement.type === 'btn') && (
               <>
                 <p>Font Color</p>
                 <ColorPicker isBackgroundColor={false} />
@@ -33,15 +37,17 @@ export const SidebarEdit = ({ onSaveWap }) => {
             <ColorPicker isBackgroundColor={true} />
           </div>
           {selectedElement.type === 'img' && (
-            <div className="img-url-container">
+            <div className='img-url-container'>
               <p>Image Link</p>
               <ImageUrl cmp={selectedElement} />
             </div>
           )}
         </>
       )}
-      {!selectedElement && <p className="sidebar-action-text">Please choose an element</p>}
-      <div className="action-btns">
+      {!selectedElement && (
+        <p className='sidebar-action-text'>Please choose an element</p>
+      )}
+      <div className='action-btns'>
         <button onClick={onDeleteElement}>
           {' '}
           <DeleteForeverIcon />

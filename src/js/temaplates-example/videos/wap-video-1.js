@@ -43,7 +43,7 @@ export const wapVideo1 = {
           },
           style: {
             fontWeight: '400',
-            fontSize: '1.4rem',
+            fontSize: '1.3rem',
           },
         },
         {

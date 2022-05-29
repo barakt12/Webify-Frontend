@@ -21,7 +21,7 @@ export const SidebarSlider = ({isFontSize,onChangeFontSize,onChangeBorderRadius,
 
   return (
     <Box width={92}>
-      <Slider key={'fontSizeSlider123'} onChange={(ev) => func(ev.target.value)} value={currValue ? currValue : 10} aria-label="Default" valueLabelDisplay="auto" min={minVal} max={maxVal}/>
+      <Slider size="medium" key={'fontSizeSlider123'} onChange={(ev) => func(ev.target.value)} value={currValue ? currValue : 10} aria-label="Default" valueLabelDisplay="auto" min={minVal} max={maxVal}/>
     </Box>
   );
 }
