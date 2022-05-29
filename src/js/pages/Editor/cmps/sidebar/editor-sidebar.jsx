@@ -31,9 +31,11 @@ export function EditorSidebar({ onSaveWap }) {
   }, [selectedElement])
 
   useEffect(() => {
-    const cmps = templateService.getCmpsByCategory('header')
-    setAddCmpList(cmps)
-  }, [])
+    if (activeTab === 'add') {
+      const cmps = templateService.getCmpsByCategory('header')
+      setAddCmpList(cmps)
+    }
+  }, [activeTab])
 
   useEffect(() => {
     if (!isSidebarShown) setActiveTab(null)
@@ -43,7 +45,6 @@ export function EditorSidebar({ onSaveWap }) {
   const onChooseCmps = (category) => {
     setTheme(null)
     const cmps = templateService.getCmpsByCategory(category)
-    console.log(cmps)
     setAddCmpList(cmps)
   }
 
@@ -70,7 +71,10 @@ export function EditorSidebar({ onSaveWap }) {
             ref={provided.innerRef}
             {...provided.droppableProps}
             className='sidebar-actions'
-            style={{ width: (isSidebarShown) ? '270px' : '0px' , padding: (activeTab === 'add') ? '0 6px 0px 6px' : '0px'}}
+            style={{
+              width: isSidebarShown ? '270px' : '0px',
+              padding: activeTab === 'add' ? '0 6px 0px 6px' : '0px',
+            }}
           >
             <DisplaySize />
             {activeTab === 'edit' && <SidebarEdit onSaveWap={onSaveWap} />}
