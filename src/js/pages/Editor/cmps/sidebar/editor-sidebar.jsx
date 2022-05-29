@@ -70,7 +70,7 @@ export function EditorSidebar({ onSaveWap }) {
             ref={provided.innerRef}
             {...provided.droppableProps}
             className='sidebar-actions'
-            style={{ width: isSidebarShown ? '270px' : '0px' }}
+            style={{ width: (isSidebarShown) ? '270px' : '0px' , padding: (activeTab === 'add') ? '0 6px 0px 6px' : '0px'}}
           >
             <DisplaySize />
             {activeTab === 'edit' && <SidebarEdit onSaveWap={onSaveWap} />}
