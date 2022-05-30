@@ -78,7 +78,7 @@ async function getDraft() {
 async function save(wap, user) {
   try {
     const updatedUser = await httpService.put(`user/${user._id}/wap`, wap)
-    return Promise.resolve(updatedUser)
+    return updatedUser
   } catch (err) {
     throw err
   }

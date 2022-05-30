@@ -5,7 +5,7 @@ export const themes = [
     id: uuidv4(),
     name: 'Calming',
     description: 'Calm & easy-going',
-    fontFamily: 'Oswald',
+    fontFamily: 'Arial',
     colors: {
       primary: {
         background: '#92B4EC',

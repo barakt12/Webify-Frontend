@@ -3,6 +3,7 @@ export const ThemePreview = ({ theme, onSelectTheme }) => {
     <section
       className='theme-container'
       onClick={() => onSelectTheme(theme)}
+      style={{ fontFamily: theme.fontFamily }}
     >
       <div className='theme-header-info'>
         <p className='theme-header'>{theme.name}</p>
