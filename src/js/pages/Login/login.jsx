@@ -1,15 +1,10 @@
 import * as React from 'react'
-import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
-// import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox'
-// import Link from '@mui/material/Link'
+import Link from '@mui/material/Link'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
-import { Link } from 'react-router-dom'
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
@@ -18,7 +13,7 @@ import { userService } from '../../services/user.service'
 import { setUser } from '../../store/user/user.action'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-// import { TextField } from '@material-ui/core'
+import { useNavigate } from 'react-router'
 
 export const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -26,6 +21,7 @@ export const Login = () => {
     password: '',
   })
   const dispatch = useDispatch()
+  const navigation = useNavigate()
 
   const onLogin = async (cred) => {
     try {
@@ -34,6 +30,9 @@ export const Login = () => {
         : { ...cred, username: cred.loginWith }
       const user = await userService.login(cred)
       dispatch(setUser(user))
+      navigation('/')
+      console.log('login successfully')
+
     } catch (error) {
       console.log(error)
     }
@@ -67,16 +66,9 @@ export const Login = () => {
   // }
 
   const theme = createTheme()
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    })
-  }
 
   return (
+    <div>
     <ThemeProvider theme={theme}>
       <Container
         component='main'
@@ -107,7 +99,6 @@ export const Login = () => {
             validate={onValidate}
             initialValues={credentials}
             onSubmit={onLogin}
-            //formik form refreshes - need to check
           >
             {({ errors }) => (
               <Form>
@@ -116,11 +107,8 @@ export const Login = () => {
                   margin='normal'
                   required
                   fullWidth
-                  // id="email"
-                  // label="Email Address"
-                  placeholder='Email or Username'
-                  name='loginWith'
-                  // autoComplete="email"
+                  placeholder="Email or Username"
+                  name="loginWith"
                   autoFocus
                   sx={{ backgroundColor: '#eee' }}
                 />
@@ -130,12 +118,11 @@ export const Login = () => {
                   margin='normal'
                   required
                   fullWidth
-                  name='password'
-                  // label="Password"
-                  placeholder='Password'
-                  type='password'
-                  id='password'
-                  autoComplete='current-password'
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
                   sx={{ backgroundColor: '#eee' }}
                 />
                 {<span className='error'>{errors.password}</span>}
@@ -158,11 +145,11 @@ export const Login = () => {
                 </Button>
                 <Grid container>
                   <Grid item>
-                    <Link to='/signup'>{"Don't have an account?"}
+                    <Link href="/signup" variant="body2" color="#666">
+                      {"Don't have an account?"}
                     </Link>
                   </Grid>
                 </Grid>
-                {/* </Box> */}
               </Form>
             )}
           </Formik>
@@ -170,5 +157,6 @@ export const Login = () => {
         {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
     </ThemeProvider>
+    </div>
   )
 }

@@ -1,9 +1,18 @@
 import React from 'react'
+import { useDispatch,useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { userLogout } from '../store/user/user.action'
 
 export const AppHeader = () => {
   const location = useLocation()
+  const dispatch = useDispatch()
+  const loggedUser = useSelector((storeState) => storeState.userModule.user)
+
+  const onLogout = () => {
+    dispatch(userLogout())
+    console.log('logged out successfuly')
+  }
 
   return (
     <>
@@ -19,12 +28,19 @@ export const AppHeader = () => {
             <Link to='/editor' className='clean-link'>
               Editor
             </Link>
+            {(!loggedUser) ? <Link to='/login' className='clean-link'>
+              Login
+            </Link>
+            :
+            <>
+            <p>Welcome, {loggedUser.fullname}!</p>
             <Link to='/profile' className='clean-link'>
               Profile
             </Link>
-            <Link to='/login' className='clean-link'>
-              Login
+            <Link to='/' onClick={onLogout} className='clean-link'>
+              Logout
             </Link>
+            </>}
           </div>
         </header>
       )}
