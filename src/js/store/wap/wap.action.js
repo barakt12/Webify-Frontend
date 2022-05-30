@@ -35,7 +35,9 @@ export const loadCmps = () => {
   const cmpsList = {}
   const cmps = templateService.getCmps()
   cmps.forEach((cmp) => {
-    return cmpsList[cmp.category] ? cmpsList[cmp.category].push(cmp) : (cmpsList[cmp.category] = [cmp])
+    return cmpsList[cmp.category]
+      ? cmpsList[cmp.category].push(cmp)
+      : (cmpsList[cmp.category] = [cmp])
   })
 }
 
@@ -107,6 +109,7 @@ export const selectWap = (id) => {
   return async (dispatch) => {
     try {
       const selectedWap = await wapService.getById(id)
+      console.log('asdasd', selectedWap)
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
   }

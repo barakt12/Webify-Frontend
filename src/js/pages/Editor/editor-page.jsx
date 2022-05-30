@@ -1,22 +1,21 @@
 import { EditorSidebar } from './cmps/sidebar/editor-sidebar'
 import { EditorBoard } from './cmps/editor-board'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { templateService } from '../../services/templates.service'
 import { v4 as uuidv4 } from 'uuid'
-import { themes } from '../../temaplates-example/themes/themes'
+
 import { useDispatch } from 'react-redux'
-import { setWap, saveWap, setSelectedElement } from '../../store/wap/wap.action'
+import { setWap, setSelectedElement } from '../../store/wap/wap.action'
 import { wapService } from '../../services/wap-service'
 
 export function Editor() {
-  // const [pageContent, setPageContent] = useState({})
   const wap = useSelector((storeState) => storeState.wapModule.wap)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (!wap) {
+    if (!wap.cmps.length) {
       getDraft()
     }
     return () => {

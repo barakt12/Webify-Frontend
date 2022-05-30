@@ -5,9 +5,10 @@ import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 
 export const EditOptions = ({
-  onChangeFontType,
-  onChangeTextShadow,
+  onChangeStyling,
   isFontType,
+  currTxtShadow,
+  currFontType,
 }) => {
   const [fontType, setFontType] = React.useState('')
   const [textShadow, setTextShadow] = React.useState('')
@@ -16,32 +17,35 @@ export const EditOptions = ({
     if (isFontType) {
       console.log(isFontType)
       setFontType((prevState) => event.target.value)
-      onChangeFontType(event.target.value)
+      onChangeStyling('fontFamily', event.target.value)
     } else {
       setTextShadow((prevState) => event.target.value)
-      onChangeTextShadow(event.target.value)
+      onChangeStyling('textShadow', event.target.value)
     }
   }
 
   const fontTypeMenu = [
-    <MenuItem key={uuidv4()} value={'System-ui'} style={{ fontSize: '14px' }}>
+    <MenuItem key={uuidv4()} value={'system-ui'} style={{ fontSize: '14px' }}>
       System-ui
     </MenuItem>,
-    <MenuItem key={uuidv4()} value={'San-serif'} style={{ fontSize: '14px' }}>
+    <MenuItem key={uuidv4()} value={'sans-serif'} style={{ fontSize: '14px' }}>
       Sans-serif
     </MenuItem>,
-    <MenuItem key={uuidv4()} value={'Cursive'} style={{ fontSize: '14px' }}>
+    <MenuItem key={uuidv4()} value={'cursive'} style={{ fontSize: '14px' }}>
       Cursive
     </MenuItem>,
-    <MenuItem key={uuidv4()} value={'Monospace'} style={{ fontSize: '14px' }}>
+    <MenuItem key={uuidv4()} value={'monospace'} style={{ fontSize: '14px' }}>
       Monospace
     </MenuItem>,
-    <MenuItem key={uuidv4()} value={'Fangsong'} style={{ fontSize: '14px' }}>
+    <MenuItem key={uuidv4()} value={'fangsong'} style={{ fontSize: '14px' }}>
       Fangsong
     </MenuItem>,
   ]
 
   const textShadowMenu = [
+    <MenuItem key={uuidv4()} value={''} style={{ fontSize: '14px' }}>
+      Default
+    </MenuItem>,
     <MenuItem
       key={uuidv4()}
       value={'-2px 3px 0px black'}
@@ -66,6 +70,12 @@ export const EditOptions = ({
   ]
 
   const currMenu = isFontType ? fontTypeMenu : textShadowMenu
+  // if(currTxtShadow){
+  //   if(currTxtShadow.split(' ')[0] === '-2px') currTxtShadow = 'Light'
+  //   else if(currTxtShadow.split(' ')[0] === '-3px') currTxtShadow = 'Medium'
+  //   else if(currTxtShadow.split(' ')[0] === '-4px') currTxtShadow = 'Strong'
+  // }
+  console.log(currTxtShadow)
   return (
     <div>
       <FormControl
@@ -79,36 +89,22 @@ export const EditOptions = ({
         size='small'
       >
         <Select
-          value={isFontType ? fontType : textShadow}
+          //BE AWARE!, sans-serif is the default font-family when no font-family found on the selected element
+          value={
+            isFontType
+              ? currFontType
+                ? currFontType
+                : 'sans-serif'
+              : currTxtShadow
+              ? currTxtShadow
+              : ''
+          }
           onChange={handleChange}
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}
           style={{ fontSize: '14px' }}
         >
-          <MenuItem
-            value=''
-            sx={{
-              width: 100,
-              fontSize: '14px',
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
-            <em style={{ fontStyle: 'normal' }}>Default</em>
-          </MenuItem>
           {currMenu.map((menu) => menu)}
-          {/* Material-ui doesnt accept child fragments */}
-          {/* {(isFontType) ? <span>
-          <MenuItem value={'System-ui'}>System-ui</MenuItem>
-          <MenuItem value={'Cursive'}>Cursive</MenuItem>
-          </span>
-          :
-          <span>
-          <MenuItem value={'-2px 3px 0px black'}>Light</MenuItem>
-          <MenuItem value={'-3px 3px 0px black'}>Medium</MenuItem>
-          <MenuItem value={'-4px 3px 0px black'}>Strong</MenuItem>
-          </span>
-          } */}
         </Select>
       </FormControl>
     </div>

@@ -16,10 +16,6 @@ export const Profile = () => {
     dispatch(selectWap(id))
   }
 
-  const onPreviewTemplate = (id) => {
-    dispatch(selectWap(id))
-  }
-
   const onDeleteWap = (id) => {
     dispatch(deleteWap(id))
   }
@@ -39,7 +35,7 @@ export const Profile = () => {
                 <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
                 <div className="template-hover-btns-container">
                   <Link to={`/preview`} className="template-preview-btn">
-                    <button onClick={() => onPreviewTemplate(wap._id)}>Preview</button>
+                    <button onClick={() => onSelectTemplate(wap._id)}>Preview</button>
                   </Link>
                   <Link className="template-select-btn" to="/editor">
                     <button onClick={() => onSelectTemplate(wap._id)}>Select</button>
