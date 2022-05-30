@@ -10,7 +10,6 @@ import { toJpeg,toSvg } from 'html-to-image'
 
 export const EditorBoard = ({ wap, isSaving, onDoneSaving }) => {
   const dispatch = useDispatch()
-  console.log('hi from board')
   const editorWidth = useSelector(
     (storeState) => storeState.wapModule.displaySize
   )
