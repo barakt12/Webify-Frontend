@@ -15,10 +15,14 @@
   src: url('../../fonts/Pensum-DEMO-fonts/PensumDEMO-Regular.otf');
 }
 
-
 @font-face {
   font-family: Oswald;
-  src: url('../../fonts/Righteous-Regular.ttf');
+  src: url('../../fonts/Oswald-Regular.ttf');
+
+  @font-face {
+    font-family: Raleway;
+    src: url('../../fonts/Raleway/Raleway-Bold.ttf');
+  }
 }
 // Nunito Sans
 

@@ -35,20 +35,58 @@ export function SignUp() {
   }
 
   return (
-    <section className="login-container">
-      <div className="form-container">
-        <Formik validateOnChange validate={onValidate} initialValues={credentials} onSubmit={onSubmitUser}>
+    <section className='login-container'>
+      <div className='form-container'>
+        <Formik
+          validateOnChange
+          validate={onValidate}
+          initialValues={credentials}
+          onSubmit={onSubmitUser}
+        >
           {({ errors }) => (
             <>
               <Form>
-                <Field name="username" type="text" as={TextField} variant="outlined" label="Username" fullWidth />
-                {<span className="error">{errors.username}</span>}
-                <Field name="email" type="text" as={TextField} variant="outlined" label="Email" fullWidth />
-                {<span className="error">{errors.email}</span>}
-                <Field name="password" type="password" as={TextField} variant="outlined" label="Password" fullWidth />
-                {<span className="error">{errors.password}</span>}
-                <Field name="fullname" type="text" as={TextField} variant="outlined" label="Full Name" fullWidth />
-                <Button type="submit" variant="contained" color="primary" size="large">
+                <Field
+                  name='username'
+                  type='text'
+                  as={TextField}
+                  variant='outlined'
+                  label='Username'
+                  fullWidth
+                />
+                {<span className='error'>{errors.username}</span>}
+                <Field
+                  name='email'
+                  type='text'
+                  as={TextField}
+                  variant='outlined'
+                  label='Email'
+                  fullWidth
+                />
+                {<span className='error'>{errors.email}</span>}
+                <Field
+                  name='password'
+                  type='password'
+                  as={TextField}
+                  variant='outlined'
+                  label='Password'
+                  fullWidth
+                />
+                {<span className='error'>{errors.password}</span>}
+                <Field
+                  name='fullname'
+                  type='text'
+                  as={TextField}
+                  variant='outlined'
+                  label='Full Name'
+                  fullWidth
+                />
+                <Button
+                  type='submit'
+                  variant='contained'
+                  color='primary'
+                  size='large'
+                >
                   Sign Up
                 </Button>
               </Form>

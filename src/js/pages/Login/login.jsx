@@ -5,9 +5,10 @@ import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
 // import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox'
-import Link from '@mui/material/Link'
+// import Link from '@mui/material/Link'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
+import { Link } from 'react-router-dom'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
@@ -28,7 +29,9 @@ export const Login = () => {
 
   const onLogin = async (cred) => {
     try {
-      cred = (cred.loginWith.includes('@')) ? {...cred, email: cred.loginWith} : {...cred, username: cred.loginWith}
+      cred = cred.loginWith.includes('@')
+        ? { ...cred, email: cred.loginWith }
+        : { ...cred, username: cred.loginWith }
       const user = await userService.login(cred)
       dispatch(setUser(user))
     } catch (error) {
@@ -43,7 +46,7 @@ export const Login = () => {
     // } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
     //   errors.email = 'Invalid email address'
     // }
-    if(!loginWith) errors.loginWith = 'Missing email or username input'
+    if (!loginWith) errors.loginWith = 'Missing email or username input'
     if (!password || password.length < 3)
       errors.password = 'Passwords must be at least three characters.'
 
@@ -76,7 +79,7 @@ export const Login = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container
-        component="main"
+        component='main'
         sx={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}
       >
         <CssBaseline />
@@ -93,8 +96,8 @@ export const Login = () => {
             <LockOutlinedIcon />
           </Avatar> */}
           <Typography
-            component="h1"
-            variant="h5"
+            component='h1'
+            variant='h5'
             sx={{ fontWeight: 700, fontSize: '38px' }}
           >
             Log Into My Account
@@ -107,40 +110,39 @@ export const Login = () => {
             //formik form refreshes - need to check
           >
             {({ errors }) => (
-
               <Form>
                 <Field
                   as={TextField}
-                  margin="normal"
+                  margin='normal'
                   required
                   fullWidth
                   // id="email"
                   // label="Email Address"
-                  placeholder="Email or Username"
-                  name="loginWith"
+                  placeholder='Email or Username'
+                  name='loginWith'
                   // autoComplete="email"
                   autoFocus
                   sx={{ backgroundColor: '#eee' }}
                 />
-                {<span className="error">{errors.email}</span>}
+                {<span className='error'>{errors.email}</span>}
                 <Field
                   as={TextField}
-                  margin="normal"
+                  margin='normal'
                   required
                   fullWidth
-                  name="password"
+                  name='password'
                   // label="Password"
-                  placeholder="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
+                  placeholder='Password'
+                  type='password'
+                  id='password'
+                  autoComplete='current-password'
                   sx={{ backgroundColor: '#eee' }}
                 />
-                {<span className="error">{errors.password}</span>}
+                {<span className='error'>{errors.password}</span>}
                 <Button
-                  type="submit"
+                  type='submit'
                   fullWidth
-                  variant="contained"
+                  variant='contained'
                   sx={{
                     mt: 3,
                     mb: 2,
@@ -155,18 +157,12 @@ export const Login = () => {
                   Log In
                 </Button>
                 <Grid container>
-                  <Grid item xs>
-                    <Link href="#" variant="body2" color="#666">
-                      Forgot password?
-                    </Link>
-                  </Grid>
                   <Grid item>
-                    <Link href="#" variant="body2" color="#666">
-                      {"Don't have an account?"}
+                    <Link to='/signup'>{"Don't have an account?"}
                     </Link>
                   </Grid>
                 </Grid>
-               {/* </Box> */}
+                {/* </Box> */}
               </Form>
             )}
           </Formik>
