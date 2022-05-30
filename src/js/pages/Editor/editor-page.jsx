@@ -7,7 +7,7 @@ import { templateService } from '../../services/templates.service'
 import { v4 as uuidv4 } from 'uuid'
 
 import { useDispatch } from 'react-redux'
-import { setWap, setSelectedElement } from '../../store/wap/wap.action'
+import { setWap, setSelectedElement, updateWap } from '../../store/wap/wap.action'
 import { wapService } from '../../services/wap-service'
 
 export function Editor() {
@@ -16,7 +16,7 @@ export function Editor() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (!wap.cmps.length) {
+    if (!wap?.cmps?.length) {
       getDraft()
     }
     return () => {
@@ -53,7 +53,7 @@ export function Editor() {
     // setPageContent((prevState) => {
     const newState = JSON.parse(JSON.stringify(wap))
     newState.cmps.splice(result.destination.index, 0, cmp)
-    dispatch(setWap(newState))
+    dispatch(updateWap(newState))
     // })
   }
 

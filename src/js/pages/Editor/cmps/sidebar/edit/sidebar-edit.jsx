@@ -1,13 +1,16 @@
 import React from 'react'
-import { deleteElement } from '../../../../../store/wap/wap.action'
-import { toggleSave } from '../../../../../store/system/system.action'
+import {
+  deleteElement,
+  duplicateElement,
+  undoWap,
+} from '../../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
-
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import RestoreIcon from '@mui/icons-material/Restore'
 import { EditColorPicker } from './edit-color-picker'
 import { ImageUrl } from './img-url-input'
 import { TxtEditor } from './txt-editor'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
-import SaveIcon from '@mui/icons-material/Save'
 export const SidebarEdit = () => {
   const dispatch = useDispatch()
 
@@ -15,12 +18,21 @@ export const SidebarEdit = () => {
     (storeState) => storeState.wapModule.selectedElement
   )
 
-  const onDeleteElement = () => {
-    if (selectedElement) dispatch(deleteElement(selectedElement))
-  }
-
-  const onSaveWap = () => {
-    dispatch(toggleSave())
+  const onElementAction = (actionType) => {
+    if (!selectedElement) return
+    switch (actionType) {
+      case 'delete':
+        dispatch(deleteElement(selectedElement))
+        break
+      case 'duplicate':
+        dispatch(duplicateElement(selectedElement))
+        break
+      case 'undo':
+        dispatch(undoWap())
+        break
+      default:
+        return
+    }
   }
 
   return (
@@ -54,14 +66,18 @@ export const SidebarEdit = () => {
         <p className='sidebar-action-text'>Please choose an element</p>
       )}
       <div className='action-btns'>
-        <button onClick={onDeleteElement}>
+        <button onClick={() => onElementAction('duplicate')}>
+          <ContentCopyIcon />
+          <span>Duplicate</span>
+        </button>
+        <button onClick={() => onElementAction('delete')}>
           {' '}
           <DeleteForeverIcon />
           <span>Delete</span>
         </button>
-        <button onClick={onSaveWap}>
-          <SaveIcon />
-          <span>Save</span>
+        <button onClick={() => onElementAction('undo')}>
+          <RestoreIcon />
+          <span>Undo</span>
         </button>
       </div>
     </section>
