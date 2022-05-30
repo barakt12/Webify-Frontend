@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { storageService } from './async-storage.service.js'
 import { httpService } from './http.service.js'
 // import { utilService } from './util.service.js'
-// import { userService } from './user.service.js'
+import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'wap'
 const STORAGE_DRAFT_KEY = 'draftWap'
@@ -20,8 +20,9 @@ export const wapService = {
 }
 
 function query(filterBy, sortBy) {
-  return storageService.query(STORAGE_KEY)
-  // return httpService.get(`wap/${queryStr}`)
+  // return storageService.query(STORAGE_KEY)
+  const loggedUser = userService.getLoggedinUser()
+  return httpService.get(`wap/`, loggedUser.username)
 }
 
 function getById(wapId) {
@@ -31,8 +32,7 @@ function getById(wapId) {
 async function remove(wapId) {
   // await storageService.remove(STORAGE_KEY, wapId)
   try {
-    const updatedUser = await httpService.delete(`wap/${wapId}`)
-    return updatedUser
+    await httpService.delete(`wap/${wapId}`)
   } catch (err) {
     console.log(err)
   }

@@ -35,9 +35,7 @@ export const loadCmps = () => {
   const cmpsList = {}
   const cmps = templateService.getCmps()
   cmps.forEach((cmp) => {
-    return cmpsList[cmp.category]
-      ? cmpsList[cmp.category].push(cmp)
-      : (cmpsList[cmp.category] = [cmp])
+    return cmpsList[cmp.category] ? cmpsList[cmp.category].push(cmp) : (cmpsList[cmp.category] = [cmp])
   })
 }
 
@@ -78,10 +76,8 @@ export const saveWap = () => {
 export const deleteWap = (wapId) => {
   return async (dispatch, getState) => {
     try {
-      const user = getState().userModule.user
-      const updatedUser = await wapService.remove(wapId)
-      console.log(updatedUser)
-      dispatch({ type: 'SET_USER', user: updatedUser })
+      await wapService.remove(wapId)
+      dispatch({ type: 'REMOVE_WAP', wapId })
     } catch (err) {
       console.log(err)
     }
@@ -106,10 +102,9 @@ export const loadSavedWaps = () => {
 }
 
 export const selectWap = (id) => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     try {
-      const selectedWap = await wapService.getById(id)
-      console.log('asdasd', selectedWap)
+      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
   }

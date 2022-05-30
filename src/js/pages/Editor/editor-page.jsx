@@ -1,11 +1,10 @@
 import { EditorSidebar } from './cmps/sidebar/editor-sidebar'
 import { EditorBoard } from './cmps/editor-board'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { templateService } from '../../services/templates.service'
 import { v4 as uuidv4 } from 'uuid'
-
 import { useDispatch } from 'react-redux'
 import { setWap, setSelectedElement } from '../../store/wap/wap.action'
 import { wapService } from '../../services/wap-service'
@@ -56,10 +55,6 @@ export function Editor() {
     // })
   }
 
-  const handleDragStart = () => {
-    console.log('drag')
-  }
-
   const handleDragEnd = async (result) => {
     // dropped outside the list
     if (!result.destination) return
@@ -77,7 +72,7 @@ export function Editor() {
 
   return (
     <section className="editor-container">
-      <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+      <DragDropContext onDragEnd={handleDragEnd}>
         <EditorSidebar />
         <EditorBoard wap={wap} getItemStyle={getItemStyle} />
       </DragDropContext>

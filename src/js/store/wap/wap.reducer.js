@@ -11,7 +11,7 @@ export function wapReducer(state = initial_state, action) {
       return { ...state, wap: { ...action.wap } }
     case 'SET_SAVED_WAPS':
       return { ...state, savedWaps: action.savedWaps }
-    case 'REMOVE_DRAFT':
+    case 'REMOVE_WAP':
       return {
         ...state,
         savedWaps: state.savedWaps.filter((wap) => wap._id !== action.wapId),
