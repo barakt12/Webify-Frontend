@@ -4,14 +4,13 @@ import Slider from '@mui/material/Slider'
 
 export const EditSlider = ({
   isFontSize,
-  onChangeFontSize,
-  onChangeBorderRadius,
+  onChangeStyling,
   selectedElement,
 }) => {
   let currValue
   let minVal
   let maxVal
-  let func = isFontSize ? onChangeFontSize : onChangeBorderRadius
+  let type = isFontSize ? 'fontSize' : 'borderRadius'
 
   if (isFontSize) {
     minVal = 10
@@ -32,7 +31,7 @@ export const EditSlider = ({
       <Slider
         size='medium'
         key={'fontSizeSlider123'}
-        onChange={(ev) => func(ev.target.value)}
+        onChange={(ev) => onChangeStyling(type, ev.target.value)}
         value={currValue ? currValue : 0}
         aria-label='Default'
         valueLabelDisplay='auto'

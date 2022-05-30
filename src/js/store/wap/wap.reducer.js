@@ -1,5 +1,5 @@
 const initial_state = {
-  wap: null,
+  wap: { cmps: [] },
   selectedElement: null,
   displaySize: '100%',
   savedWaps: null,

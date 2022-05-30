@@ -5,11 +5,10 @@ import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 
 export const EditOptions = ({
-  onChangeFontType,
-  onChangeTextShadow,
+  onChangeStyling,
   isFontType,
   currTxtShadow,
-  currFontType
+  currFontType,
 }) => {
   const [fontType, setFontType] = React.useState('')
   const [textShadow, setTextShadow] = React.useState('')
@@ -18,10 +17,10 @@ export const EditOptions = ({
     if (isFontType) {
       console.log(isFontType)
       setFontType((prevState) => event.target.value)
-      onChangeFontType(event.target.value)
+      onChangeStyling('fontFamily', event.target.value)
     } else {
       setTextShadow((prevState) => event.target.value)
-      onChangeTextShadow(event.target.value)
+      onChangeStyling('textShadow', event.target.value)
     }
   }
 
@@ -44,11 +43,7 @@ export const EditOptions = ({
   ]
 
   const textShadowMenu = [
-    <MenuItem
-      key={uuidv4()}
-      value={''}
-      style={{ fontSize: '14px' }}
-    >
+    <MenuItem key={uuidv4()} value={''} style={{ fontSize: '14px' }}>
       Default
     </MenuItem>,
     <MenuItem
@@ -94,8 +89,16 @@ export const EditOptions = ({
         size='small'
       >
         <Select
-        //BE AWARE!, sans-serif is the default font-family when no font-family found on the selected element
-          value={isFontType ? ((currFontType) ? currFontType : 'sans-serif') : ((currTxtShadow) ? currTxtShadow : '')}
+          //BE AWARE!, sans-serif is the default font-family when no font-family found on the selected element
+          value={
+            isFontType
+              ? currFontType
+                ? currFontType
+                : 'sans-serif'
+              : currTxtShadow
+              ? currTxtShadow
+              : ''
+          }
           onChange={handleChange}
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}

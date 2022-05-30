@@ -5,6 +5,7 @@ import { DynamicCmp } from '../Editor/cmps/dynamic-cmp/dynamic-cmp'
 export const Preview = () => {
   const wap = useSelector((storeState) => storeState.wapModule.wap)
 
+  console.log(wap)
   return (
     <section className='preview'>
       {wap?.cmps?.length &&
