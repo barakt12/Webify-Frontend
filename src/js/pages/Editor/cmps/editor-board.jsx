@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useRef } from 'react'
 import { setWapThumbnail, saveWap } from '../../../store/wap/wap.action'
 import { toggleSave } from '../../../store/system/system.action'
-import { toJpeg } from 'html-to-image'
+import { createJpegFromElement } from '../../../services/cloudinary.service'
 
 export const EditorBoard = ({ wap }) => {
   const dispatch = useDispatch()
@@ -14,14 +14,14 @@ export const EditorBoard = ({ wap }) => {
 
   useEffect(() => {
     if (isSaving) {
-      exportAsImage(editorRef.current, editorRef.current.clientWidth, editorRef.current.clientHeight)
+      saveWapWithThumbnail()
     }
   }, [isSaving])
 
-  const exportAsImage = async (element, width, height) => {
+  const saveWapWithThumbnail = async () => {
     console.log('SAVING...')
-    const dataUrl = await toJpeg(element, { width, height })
-    dispatch(setWapThumbnail(dataUrl))
+    const thumbnailUrl = await createJpegFromElement(editorRef.current, editorRef.current.clientWidth, editorRef.current.clientHeight)
+    dispatch(setWapThumbnail(thumbnailUrl))
     dispatch(saveWap())
     dispatch(toggleSave())
   }

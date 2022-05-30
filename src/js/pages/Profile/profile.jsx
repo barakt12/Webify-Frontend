@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadSavedWaps, setWap, deleteDraft } from '../../store/wap/wap.action'
+import { loadSavedWaps, setWap, deleteWap } from '../../store/wap/wap.action'
 import { Link } from 'react-router-dom'
 
 export const Profile = () => {
   const dispatch = useDispatch()
-  const savedWaps = useSelector((storeState) => storeState.wapModule.savedWaps)
-  useEffect(() => {
-    dispatch(loadSavedWaps())
-  }, [])
+  const savedWaps = useSelector((storeState) => storeState.userModule.user?.waps)
 
   const onSelectTemplate = (id) => {
     const selectedWap = savedWaps.find((wap) => wap._id === id)
@@ -20,8 +17,8 @@ export const Profile = () => {
     dispatch(setWap(selectedWap))
   }
 
-  const onDeleteDraft = (id) => {
-    dispatch(deleteDraft(id))
+  const onDeleteWap = (id) => {
+    dispatch(deleteWap(id))
   }
 
   return (
@@ -29,6 +26,8 @@ export const Profile = () => {
       <div className="template-page-intro">
         <h2>Select a Template</h2>
       </div>
+      {!savedWaps && <p>Please login to see your websites!</p>}
+      {savedWaps && !savedWaps.length && <p>You havent created websites yet</p>}
       <section className="main-template-container">
         {savedWaps?.map((wap) => (
           <div key={wap._id} className={wap._id}>
@@ -41,12 +40,12 @@ export const Profile = () => {
                 <Link className="template-select-btn" to="/editor">
                   <button onClick={() => onSelectTemplate(wap._id)}>Select</button>
                 </Link>
-                <button className="template-select-btn" onClick={() => onDeleteDraft(wap._id)}>
+                <button className="template-select-btn" onClick={() => onDeleteWap(wap._id)}>
                   Delete
                 </button>
               </div>
             </div>
-            <img src={wap.thumbnail} alt="" />
+            <img className="profile-wap-display" src={wap.thumbnail} alt="" />
             <hr />
             {/* <div className="template-info-container">
               <p className="info-template-name">{wap.info.name}</p>

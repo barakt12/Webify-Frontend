@@ -1,5 +1,6 @@
 import { templateService } from '../../services/templates.service'
 import { wapService } from '../../services/wap-service.js'
+import { userService } from '../../services/user.service'
 import { v4 as uuidv4 } from 'uuid'
 
 export const setSelectedElement = (cmp) => {
@@ -63,15 +64,21 @@ export const setDisplaySize = (displaySize) => {
 export const saveWap = () => {
   return async (dispatch, getState) => {
     try {
-      const wapToSave = await wapService.save(getState().wapModule.wap)
-      dispatch({ type: 'SET_WAP', wap: wapToSave })
+      const wapToSave = getState().wapModule.wap
+      const user = getState().userModule.user
+      const updatedUser = await wapService.save(wapToSave, user)
+      console.log(updatedUser)
+      // if (existingWap) await wapService.save(wapToSave)
+      // else await wapService.save
+
+      dispatch({ type: 'SET_USER', user: updatedUser })
     } catch (err) {
       console.log(err)
     }
   }
 }
 
-export const deleteDraft = (wapId) => {
+export const deleteWap = (wapId) => {
   return async (dispatch) => {
     try {
       await wapService.remove(wapId)
