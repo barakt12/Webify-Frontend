@@ -20,8 +20,8 @@ export function SidebarBtns({
   }, [activeTab])
 
   const setDisplay = () => {
-    if (isSidebarShown) return 'flex'
-    else return 'none'
+    if (!isSidebarShown && window.innerWidth < 700) return 'none'
+    else return 'flex'
   }
 
   const onClickCmpBtn = async (ev, cmpName) => {

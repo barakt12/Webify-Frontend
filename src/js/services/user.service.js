@@ -1,10 +1,6 @@
 import { storageService } from './async-storage.service'
 // import { store } from '../store/store'
-import {
-  socketService,
-  SOCKET_EVENT_USER_UPDATED,
-  SOCKET_EMIT_USER_WATCH,
-} from './socket.service'
+import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from './socket.service'
 import { httpService } from './http.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
@@ -19,7 +15,7 @@ export const userService = {
   getById,
   remove,
   update,
-  changeScore,
+  getSavedWaps,
 }
 
 window.userService = userService
@@ -34,8 +30,8 @@ function getUsers() {
 // }
 
 async function getById(userId) {
-  const user = await storageService.get('user', userId)
-  // const user = await httpService.get(`user/${userId}`)
+  // const user = await storageService.get('user', userId)
+  const user = await httpService.get(`user/${userId}`)
   // gWatchedUser = user;
 
   //   socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
@@ -44,6 +40,7 @@ async function getById(userId) {
 
   return user
 }
+
 function remove(userId) {
   return storageService.remove('user', userId)
   // return httpService.delete(`user/${userId}`)
@@ -68,7 +65,7 @@ async function login(userCred) {
       return saveLocalUser(user)
     }
   } catch (err) {
-     throw err
+    throw err
   }
 }
 
@@ -84,14 +81,6 @@ async function logout() {
   // return await httpService.post('auth/logout')
 }
 
-async function changeScore(by) {
-  const user = getLoggedinUser()
-  if (!user) throw new Error('Not loggedin')
-  user.score = user.score + by || by
-  await update(user)
-  return user.score
-}
-
 function saveLocalUser(user) {
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   return user
@@ -100,6 +89,8 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
   return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
+
+function getSavedWaps() {}
 
 // ;(async ()=>{
 //     await userService.signup({fullname: 'Puki Norma', username: 'user1', password:'123',score: 10000, isAdmin: false})

@@ -23,10 +23,6 @@ export const deleteElement = (cmp) => {
 export const setWap = (wap) => {
   return async (dispatch) => {
     try {
-      if (!wap && wap?._id) {
-        wap._id = uuidv4()
-      }
-
       await wapService.saveToDraft(wap)
       dispatch({ type: 'SET_WAP', wap })
     } catch (err) {
@@ -47,8 +43,10 @@ export const loadTemplate = (id) => {
   return async (dispatch) => {
     try {
       let wap = templateService.getTemplateById(id)
-      wap = JSON.parse(JSON.stringify(wap))
-      dispatch({ type: 'SET_WAP', wap })
+      const wapCopy = JSON.parse(JSON.stringify(wap))
+      delete wapCopy._id
+      await wapService.saveToDraft(wapCopy)
+      dispatch({ type: 'SET_WAP', wap: wapCopy })
     } catch (err) {
       console.log(err)
     }
@@ -66,12 +64,9 @@ export const saveWap = () => {
     try {
       const wapToSave = getState().wapModule.wap
       const user = getState().userModule.user
-      const updatedUser = await wapService.save(wapToSave, user)
-      console.log(updatedUser)
-      // if (existingWap) await wapService.save(wapToSave)
-      // else await wapService.save
-
-      dispatch({ type: 'SET_USER', user: updatedUser })
+      wapToSave.createdBy = user.username
+      const wapWithId = await wapService.save(wapToSave, user)
+      dispatch({ type: 'SET_WAP', wap: wapWithId })
     } catch (err) {
       console.log(err)
     }
@@ -79,10 +74,12 @@ export const saveWap = () => {
 }
 
 export const deleteWap = (wapId) => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     try {
-      await wapService.remove(wapId)
-      dispatch({ type: 'REMOVE_DRAFT', wapId })
+      const user = getState().userModule.user
+      const updatedUser = await wapService.remove(wapId)
+      console.log(updatedUser)
+      dispatch({ type: 'SET_USER', user: updatedUser })
     } catch (err) {
       console.log(err)
     }
@@ -103,5 +100,14 @@ export const loadSavedWaps = () => {
     } catch (err) {
       console.log(err)
     }
+  }
+}
+
+export const selectWap = (id) => {
+  return async (dispatch) => {
+    try {
+      const selectedWap = await wapService.getById(id)
+      dispatch({ type: 'SET_WAP', wap: selectedWap })
+    } catch (err) {}
   }
 }

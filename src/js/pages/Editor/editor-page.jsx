@@ -17,7 +17,7 @@ export function Editor() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (!wap._id) {
+    if (!wap) {
       getDraft()
     }
     return () => {
@@ -27,7 +27,8 @@ export function Editor() {
 
   const getDraft = async () => {
     const draft = await wapService.getDraft()
-    if (draft.length && draft[0]._id) {
+    if (draft.length) {
+      delete draft[0]._id
       dispatch(setWap(draft[0]))
     }
   }
