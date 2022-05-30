@@ -4,6 +4,7 @@ export const wapCarousel2 = {
   type: 'container',
   id: uuidv4(),
   name: 'wap-carousel-2',
+  category: 'gallery',
   thumbnail: require('../../../assets/img/thumbnails/carousel/wap-carousel-2.jpg'),
   category: 'carousel',
   themePalette: 'secondary',

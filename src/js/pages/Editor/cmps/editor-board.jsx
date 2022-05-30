@@ -20,7 +20,8 @@ export const EditorBoard = ({ wap }) => {
 
   const saveWapWithThumbnail = async () => {
     console.log('SAVING...')
-    const thumbnailUrl = await createJpegFromElement(editorRef.current, editorRef.current.clientWidth, editorRef.current.clientHeight)
+    const elBoard = document.querySelector('.editor-inner-container')
+    const thumbnailUrl = await createJpegFromElement(elBoard, elBoard.clientWidth, elBoard.clientHeight)
     dispatch(setWapThumbnail(thumbnailUrl))
     dispatch(saveWap())
     dispatch(toggleSave())

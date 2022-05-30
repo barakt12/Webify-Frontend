@@ -4,7 +4,7 @@ export const wapCarousel1 = {
   type: 'container',
   name: 'wap-carousel-1',
   themePalette: 'secondary',
-  category: 'carousel',
+  category: 'gallery',
   id: uuidv4(),
   thumbnail: require('../../../assets/img/thumbnails/carousel/wap-carousel-1.jpg'),
   style: {
@@ -21,17 +21,9 @@ export const wapCarousel1 = {
         width: '100%',
       },
       info: {
-        carosuelContent: [
-          {
-            label: 'Parturient Tortor',
-            imgPath:
-              'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5afa506095815377cd097a34_img-002-p-500.jpeg',
-          },
-          {
-            label: 'Sem Risus Elit Vestibulum',
-            imgPath:
-              'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5afa50601bc189f92b1ad1f1_img-003-p-500.jpeg',
-          },
+        images: [
+          'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5afa506095815377cd097a34_img-002-p-500.jpeg',
+          'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5afa50601bc189f92b1ad1f1_img-003-p-500.jpeg',
         ],
       },
     },
