@@ -15,7 +15,6 @@ export function Login() {
   const onLogin = async (cred) => {
     try {
       const user = await userService.login(cred)
-      console.log(user)
       dispatch(setUser(user))
     } catch (error) {
       console.log(error)

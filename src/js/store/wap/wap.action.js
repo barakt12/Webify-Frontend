@@ -79,10 +79,12 @@ export const saveWap = () => {
 }
 
 export const deleteWap = (wapId) => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     try {
-      await wapService.remove(wapId)
-      dispatch({ type: 'REMOVE_DRAFT', wapId })
+      const user = getState().userModule.user
+      const updatedUser = await wapService.remove(wapId, user._id)
+      console.log(updatedUser)
+      dispatch({ type: 'SET_USER', user: updatedUser })
     } catch (err) {
       console.log(err)
     }

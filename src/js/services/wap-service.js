@@ -27,10 +27,14 @@ function query(filterBy, sortBy) {
 function getById(wapId) {
   return httpService.get(`wap/${wapId}`)
 }
-async function remove(wapId) {
-  console.log('deleting')
+async function remove(wapId, userId) {
   // await storageService.remove(STORAGE_KEY, wapId)
-  // await httpService.delete(`user/:userId/wap/${wapId}`)
+  try {
+    const updatedUser = await httpService.delete(`user/${userId}/wap`, wapId)
+    return updatedUser
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 function deleteCmp(cmp, cmpId) {
