@@ -21,7 +21,7 @@ export const EditSlider = ({
       : null
   } else {
     minVal = 0
-    maxVal = 15
+    maxVal = 30
     currValue = selectedElement?.style?.borderRadius
       ? +selectedElement?.style?.borderRadius
       : null
@@ -33,7 +33,7 @@ export const EditSlider = ({
         size='medium'
         key={'fontSizeSlider123'}
         onChange={(ev) => func(ev.target.value)}
-        value={currValue ? currValue : 10}
+        value={currValue ? currValue : 0}
         aria-label='Default'
         valueLabelDisplay='auto'
         min={minVal}

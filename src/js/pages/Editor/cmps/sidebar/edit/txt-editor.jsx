@@ -13,18 +13,23 @@ import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined'
 import { EditSlider } from './edit-slider'
 
 import { EditOptions } from './edit-options'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const TxtEditor = () => {
   const _ = require('lodash')
   const dispatch = useDispatch()
-
-  // Refactor all functions to a single function
-
   const { wap, selectedElement } = useSelector(
     (storeState) => storeState.wapModule
   )
   const [activeBtn, setActiveBtn] = useState('')
+
+  useEffect(() => {
+    console.log(selectedElement.style)
+    
+  },[selectedElement])
+
+  // Refactor all functions to a single function
+
 
   const onChangeAlign = (alignType) => {
     selectedElement.style = { ...selectedElement.style, textAlign: alignType }
@@ -34,7 +39,7 @@ export const TxtEditor = () => {
 
   const onChangeFontWeight = () => {
     const fontWeightType =
-      selectedElement.style.fontWeight === 'bold' ? 'normal' : 'bold'
+      (selectedElement.style.fontWeight === 'bold' || selectedElement.style.fontWeight === '700') ? 'normal' : 'bold'
     selectedElement.style = {
       ...selectedElement.style,
       fontWeight: fontWeightType,
@@ -97,89 +102,76 @@ export const TxtEditor = () => {
     dispatch(setWap(wap))
   }
 
+
+  const currStyles = { txtAlign: selectedElement?.style?.textAlign,
+                       txtBold: selectedElement?.style?.fontWeight,
+                       fontStyle: selectedElement?.style?.fontStyle,
+                       txtDeco: selectedElement?.style?.textDecoration,
+                       txtShadow: selectedElement?.style?.textShadow,
+                       fontFamily: selectedElement?.style?.fontFamily
+                      }
+
   return (
-    <section className='txt-editor-container'>
+    <section className="txt-editor-container">
       {selectedElement.type === 'txt' && (
         <>
-          <div className='txt-align-container'>
+          <div className="txt-align-container">
             <p>Align</p>
-            <div className='txt-icons-container'>
+            <div className="txt-icons-container">
               <span
-                onClick={() => {
-                  onChangeAlign('left')
-                  setActiveBtn('left')
-                }}
-                className={`${activeBtn === 'left' ? 'active' : ''}`}
+                onClick={() => onChangeAlign('left')}
+                className={`${(currStyles.txtAlign === 'left') ? 'active' : ''}`}
               >
                 <FormatAlignLeftIcon />
               </span>
-              <span 
-              onClick={() => {
-                onChangeAlign('center')
-                setActiveBtn('center')
-              }}
-              className={`${activeBtn === 'center' ? 'active' : ''}`}
+              <span
+                onClick={() => onChangeAlign('center')}
+                className={`${(!currStyles.txtAlign || currStyles.txtAlign === 'center') ? 'active' : ''}`}
               >
                 <FormatAlignCenterIcon />
               </span>
               <span
-                onClick={() => {
-                  onChangeAlign('right')
-                  setActiveBtn('right')
-                }}
-                className={`${activeBtn === 'right' ? 'active' : ''}`}
+                onClick={() => onChangeAlign('right')}
+                className={`${(currStyles.txtAlign === 'right') ? 'active' : ''}`}
               >
                 <FormatAlignRightIcon />
               </span>
             </div>
           </div>
-          <div className='txt-deco-container'>
+          <div className="txt-deco-container">
             <p>Decoration</p>
-            <div className='txt-deco-icons-container'>
+            <div className="txt-deco-icons-container">
               <span
-                onClick={() => {
-                  onChangeFontWeight()
-                  activeBtn === 'bold' ? setActiveBtn('') : setActiveBtn('bold')
-                }}
-                className={`${activeBtn === 'bold' ? 'active' : ''}`}
+                onClick={() => onChangeFontWeight()}
+                className={`${(currStyles.txtBold === 'bold' || currStyles.txtBold === '700') ? 'active' : ''}`}
               >
                 <FormatBoldIcon />
               </span>
               <span
-                onClick={() => {
-                  onChangeFontFormat()
-                  activeBtn === 'italic'
-                    ? setActiveBtn('')
-                    : setActiveBtn('italic')
-                }}
-                className={`${activeBtn === 'italic' ? 'active' : ''}`}
+                onClick={() => onChangeFontFormat()}
+                className={`${currStyles.fontStyle === 'italic' ? 'active' : ''}`}
               >
                 <FormatItalicIcon />
               </span>
               <span
-                onClick={() => {
-                  onChangeTextDeco()
-                  activeBtn === 'underline'
-                    ? setActiveBtn('')
-                    : setActiveBtn('underline')
-                }}
-                className={`${activeBtn === 'underline' ? 'active' : ''}`}
+                onClick={() => onChangeTextDeco()}
+                className={`${currStyles.txtDeco === 'underline' ? 'active' : ''}`}
               >
                 <FormatUnderlinedIcon />
               </span>
             </div>
           </div>
+          <div className="txt-slider-container">
+            <p>Font Size</p>
+            <EditSlider
+              isFontSize={true}
+              onChangeFontSize={onChangeFontSize}
+              selectedElement={selectedElement}
+            />
+          </div>
         </>
       )}
-      <div className='txt-slider-container'>
-        <p>Font Size</p>
-        <EditSlider
-          isFontSize={true}
-          onChangeFontSize={onChangeFontSize}
-          selectedElement={selectedElement}
-        />
-      </div>
-      <div className='txt-slider-container'>
+      <div className="txt-slider-container">
         <p>Border Radius</p>
         <EditSlider
           isFontSize={false}
@@ -187,17 +179,26 @@ export const TxtEditor = () => {
           selectedElement={selectedElement}
         />
       </div>
-      <div className='txt-type-container'>
-        <p>Font Type</p>
-        <EditOptions onChangeFontType={onChangeFontType} isFontType={true} />
-      </div>
-      <div className='txt-shadow-container'>
-        <p>Font Shadow</p>
-        <EditOptions
-          onChangeTextShadow={onChangeTextShadow}
-          isFontType={false}
-        />
-      </div>
+      {selectedElement.type === 'txt' && (
+        <>
+          <div className="txt-type-container">
+            <p>Font Type</p>
+            <EditOptions
+              onChangeFontType={onChangeFontType}
+              isFontType={true}
+              currFontType={currStyles.fontFamily}
+            />
+          </div>
+          <div className="txt-shadow-container">
+            <p>Font Shadow</p>
+            <EditOptions
+              onChangeTextShadow={onChangeTextShadow}
+              isFontType={false}
+              currTxtShadow={currStyles.txtShadow}
+            />
+          </div>
+        </>
+      )}
     </section>
   )
 }

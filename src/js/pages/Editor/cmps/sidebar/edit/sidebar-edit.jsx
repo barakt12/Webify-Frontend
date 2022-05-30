@@ -28,7 +28,8 @@ export const SidebarEdit = () => {
       {selectedElement && (
         <>
           {(selectedElement.type === 'txt' ||
-            selectedElement.type === 'btn') && <TxtEditor />}
+            selectedElement.type === 'btn' ||
+            selectedElement.type === 'img') && <TxtEditor />}
 
           <div className='color-picker-container'>
             {(selectedElement.type === 'txt' ||
