@@ -25,7 +25,9 @@ export const Login = () => {
 
   const onLogin = async (cred) => {
     try {
-      cred = (cred.loginWith.includes('@')) ? {...cred, email: cred.loginWith} : {...cred, username: cred.loginWith}
+      cred = cred.loginWith.includes('@')
+        ? { ...cred, email: cred.loginWith }
+        : { ...cred, username: cred.loginWith }
       const user = await userService.login(cred)
       dispatch(setUser(user))
       navigation('/')
@@ -43,7 +45,7 @@ export const Login = () => {
     // } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
     //   errors.email = 'Invalid email address'
     // }
-    if(!loginWith) errors.loginWith = 'Missing email or username input'
+    if (!loginWith) errors.loginWith = 'Missing email or username input'
     if (!password || password.length < 3)
       errors.password = 'Passwords must be at least three characters.'
 
@@ -69,7 +71,7 @@ export const Login = () => {
     <div>
     <ThemeProvider theme={theme}>
       <Container
-        component="main"
+        component='main'
         sx={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}
       >
         <CssBaseline />
@@ -86,8 +88,8 @@ export const Login = () => {
             <LockOutlinedIcon />
           </Avatar> */}
           <Typography
-            component="h1"
-            variant="h5"
+            component='h1'
+            variant='h5'
             sx={{ fontWeight: 700, fontSize: '38px' }}
           >
             Log Into My Account
@@ -99,11 +101,10 @@ export const Login = () => {
             onSubmit={onLogin}
           >
             {({ errors }) => (
-
               <Form>
                 <Field
                   as={TextField}
-                  margin="normal"
+                  margin='normal'
                   required
                   fullWidth
                   placeholder="Email or Username"
@@ -111,10 +112,10 @@ export const Login = () => {
                   autoFocus
                   sx={{ backgroundColor: '#eee' }}
                 />
-                {<span className="error">{errors.email}</span>}
+                {<span className='error'>{errors.email}</span>}
                 <Field
                   as={TextField}
-                  margin="normal"
+                  margin='normal'
                   required
                   fullWidth
                   name="password"
@@ -124,11 +125,11 @@ export const Login = () => {
                   autoComplete="current-password"
                   sx={{ backgroundColor: '#eee' }}
                 />
-                {<span className="error">{errors.password}</span>}
+                {<span className='error'>{errors.password}</span>}
                 <Button
-                  type="submit"
+                  type='submit'
                   fullWidth
-                  variant="contained"
+                  variant='contained'
                   sx={{
                     mt: 3,
                     mb: 2,

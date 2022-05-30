@@ -40,17 +40,20 @@ export const wapText1 = {
       cmps: [
         {
           type: 'container',
+          name: 'reasons-to-join-div',
           id: uuidv4(),
           cmps: [
             {
               type: 'img',
               id: uuidv4(),
               info: {
-                imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c77246be61543f9fc27_crown%20(3)%201.svg',
+                imgUrl:
+                  'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c77246be61543f9fc27_crown%20(3)%201.svg',
               },
             },
             {
               type: 'txt',
+
               id: uuidv4(),
               info: {
                 txt: 'Lead by a Webflow Expert',
@@ -61,12 +64,15 @@ export const wapText1 = {
         {
           type: 'container',
           id: uuidv4(),
+          name: 'reasons-to-join-div',
+
           cmps: [
             {
               type: 'img',
               id: uuidv4(),
               info: {
-                imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c78d5a24b4d37d29e8c_open-24-hours%201.svg',
+                imgUrl:
+                  'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c78d5a24b4d37d29e8c_open-24-hours%201.svg',
               },
             },
             {
@@ -81,12 +87,16 @@ export const wapText1 = {
         {
           type: 'container',
           id: uuidv4(),
+
+          name: 'reasons-to-join-div',
+
           cmps: [
             {
               type: 'img',
               id: uuidv4(),
               info: {
-                imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c787cc6d3185c383aae_folder%201.svg',
+                imgUrl:
+                  'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c787cc6d3185c383aae_folder%201.svg',
               },
             },
             {
@@ -100,14 +110,16 @@ export const wapText1 = {
         },
         {
           type: 'container',
-          name: 'wap-container-text-1',
+          name: 'reasons-to-join-div',
+
           id: uuidv4(),
           cmps: [
             {
               type: 'img',
               id: uuidv4(),
               info: {
-                imgUrl: 'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c7896d2bf26cd23df19_barcode%201.svg',
+                imgUrl:
+                  'https://assets.website-files.com/61cc561b6b6505a3ab5446e0/61ea7c7896d2bf26cd23df19_barcode%201.svg',
               },
             },
             {
