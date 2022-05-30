@@ -28,8 +28,9 @@ function getById(wapId) {
   return httpService.get(`wap/${wapId}`)
 }
 async function remove(wapId) {
-  await storageService.remove(STORAGE_KEY, wapId)
-  // await httpService.delete(`wap/${wapId}`)
+  console.log('deleting')
+  // await storageService.remove(STORAGE_KEY, wapId)
+  // await httpService.delete(`user/:userId/wap/${wapId}`)
 }
 
 function deleteCmp(cmp, cmpId) {
@@ -74,40 +75,10 @@ async function getDraft() {
   return await storageService.query(STORAGE_DRAFT_KEY)
 }
 
-// async function add(wap) {
-//   try {
-//     await storageService.post(STORAGE_KEY, wap)
-//     // await httpService.post(`wap/`, wap)
-//     // reviewChannel.postMessage()
-//   } catch (err) {
-//     throw err
-//   }
-// }
-
-// async function update(wap) {
-//   try {
-//     // const updatedWap = await httpService.put(`wap/${wap._id}`, wap)
-//     const updatedWap = await storageService.put(`wap/${wap._id}`, wap)
-//     return updatedWap
-//   } catch (err) {
-//     throw err
-//   }
-// }
-
-async function save(wap) {
-  console.log(wap)
+async function save(wap, user) {
   try {
-    const savedWaps = await storageService.query(STORAGE_KEY)
-    const existingWap = savedWaps.find((currWap) => currWap._id === wap._id)
-    console.log(existingWap)
-
-    if (!existingWap) {
-      const newWap = await storageService.post(STORAGE_KEY, wap)
-      return Promise.resolve(newWap)
-    }
-
-    const updatedWap = await storageService.put(STORAGE_KEY, wap)
-    return Promise.resolve(updatedWap)
+    const updatedUser = await httpService.put(`user/${user._id}/wap`, wap)
+    return Promise.resolve(updatedUser)
   } catch (err) {
     throw err
   }

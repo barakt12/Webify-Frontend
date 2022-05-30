@@ -12,7 +12,6 @@ import { wapService } from '../../services/wap-service'
 
 export function Editor() {
   // const [pageContent, setPageContent] = useState({})
-  const [isSaving, setIsSaving] = useState(false)
   const wap = useSelector((storeState) => storeState.wapModule.wap)
   const loggedUser = useSelector((storeState) => storeState.userModule.user)
   const dispatch = useDispatch()
@@ -28,7 +27,6 @@ export function Editor() {
 
   const getDraft = async () => {
     const draft = await wapService.getDraft()
-    console.log(draft)
     if (draft.length && draft[0]._id) {
       dispatch(setWap(draft[0]))
     }
@@ -78,30 +76,11 @@ export function Editor() {
     }
   }
 
-  const onSaveWap = () => {
-    // if (!loggedUser) {
-    //   console.log('you must be logged in to save!')
-    //   return
-    // }
-    setIsSaving(true)
-    // await dispatch(saveWap())
-  }
-
-  const onDoneSaving = () => {
-    setIsSaving(false)
-  }
-
   return (
     <section className="editor-container">
       <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-        <EditorSidebar onSaveWap={onSaveWap} />
-        <EditorBoard
-          wap={wap}
-          // pageContent={pageContent}
-          getItemStyle={getItemStyle}
-          isSaving={isSaving}
-          onDoneSaving={onDoneSaving}
-        />
+        <EditorSidebar />
+        <EditorBoard wap={wap} getItemStyle={getItemStyle} />
       </DragDropContext>
     </section>
   )
