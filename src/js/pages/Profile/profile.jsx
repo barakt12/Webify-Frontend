@@ -50,7 +50,7 @@ export const Profile = () => {
                   </button>
                 </div>
               </div>
-              <img className="profile-wap-display" src={wap.thumbnail} alt="" />
+              <img className="profile-wap-display" src={wap.thunmbnail} alt="" />
               <hr />
               {/* <div className="template-info-container">
               <p className="info-template-name">{wap.info.name}</p>
