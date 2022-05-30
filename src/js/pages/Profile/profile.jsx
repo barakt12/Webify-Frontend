@@ -17,8 +17,7 @@ export const Profile = () => {
   }
 
   const onPreviewTemplate = (id) => {
-    const selectedWap = savedWaps.find((wap) => wap._id === id)
-    dispatch(setWap(selectedWap))
+    dispatch(selectWap(id))
   }
 
   const onDeleteWap = (id) => {

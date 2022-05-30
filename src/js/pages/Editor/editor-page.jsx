@@ -13,7 +13,6 @@ import { wapService } from '../../services/wap-service'
 export function Editor() {
   // const [pageContent, setPageContent] = useState({})
   const wap = useSelector((storeState) => storeState.wapModule.wap)
-  const loggedUser = useSelector((storeState) => storeState.userModule.user)
   const dispatch = useDispatch()
 
   useEffect(() => {
