@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 export function SignUp() {
   const [credentials, setCredentials] = useState({
     username: '',
+    email: '',
     password: '',
     fullname: '',
   })
@@ -27,6 +28,7 @@ export function SignUp() {
     const errors = {}
 
     if (!username) errors.username = 'Required'
+    if (!email) errors.email = 'Required'
     if (!password) errors.password = 'Required'
 
     return errors
@@ -41,6 +43,8 @@ export function SignUp() {
               <Form>
                 <Field name="username" type="text" as={TextField} variant="outlined" label="Username" fullWidth />
                 {<span className="error">{errors.username}</span>}
+                <Field name="email" type="text" as={TextField} variant="outlined" label="Email" fullWidth />
+                {<span className="error">{errors.email}</span>}
                 <Field name="password" type="password" as={TextField} variant="outlined" label="Password" fullWidth />
                 {<span className="error">{errors.password}</span>}
                 <Field name="fullname" type="text" as={TextField} variant="outlined" label="Full Name" fullWidth />

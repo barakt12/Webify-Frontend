@@ -22,6 +22,9 @@ export const AppHeader = () => {
             <Link to='/profile' className='clean-link'>
               Profile
             </Link>
+            <Link to='/login' className='clean-link'>
+              Login
+            </Link>
           </div>
         </header>
       )}
