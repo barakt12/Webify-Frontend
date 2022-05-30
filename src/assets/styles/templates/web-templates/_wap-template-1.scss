@@ -2,7 +2,7 @@
   background-color: #3f40cc;
   display: flex;
   justify-content: space-between;
-  padding: 1rem 4.5rem;
+  padding: 1rem 5.5rem;
   align-items: center;
   color: white;
 
@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  padding-top: 2.5rem;
+  padding: 2.5rem 5.5rem;
   flex-direction: column;
 
   img {
@@ -36,16 +36,17 @@
   width: 100%;
   min-height: 300px;
   align-content: center;
-  padding: 1rem 1rem;
+  padding: 3rem 5.5rem;
   background-color: #3f40cc;
-  padding-top: 3rem;
-  padding-bottom: 3.5rem;
 
   .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
-    padding: 0 4.5rem;
+    @media screen and (min-width: '700px') {
+      // padding: 1rem 5.5rem;
+      padding: 1rem 20px;
+    }
   }
 
   .card {
@@ -85,7 +86,7 @@
   background-color: #3f40cc;
   color: white;
   text-align: center;
-  padding: 4rem 1rem 6rem;
+  padding: 4rem 5.5rem 6rem;
 
   .reasons-to-join {
     font-size: 1.5rem;
@@ -93,22 +94,25 @@
     background-color: #ebe079;
     color: #3f40cc;
     font-weight: 700;
-    width: 90%;
     border-radius: 20px;
     padding: 0.5rem 1rem;
     // font-size: 0.8rem;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     margin: auto;
     gap: 1rem;
     flex-direction: column;
     padding: 10px 40px;
+    .reasons-to-join-div {
+      max-width: 200px;
+    }
     img {
       max-width: 70px;
     }
 
     @media screen and (min-width: '1100px') {
       flex-direction: row;
+      width: 100%;
     }
   }
 }
@@ -118,14 +122,12 @@
   flex-direction: column;
   background-color: white;
   text-align: center;
-  padding-bottom: 3rem;
-  padding-top: 3rem;
-
+  padding: 3rem 5.5rem;
   .faq-container {
     text-align: initial;
     max-width: 800px;
     margin: auto;
-    &:hover:not(.selected){
+    &:hover:not(.selected) {
       outline: 1px dashed gray !important;
     }
     .question {
@@ -147,7 +149,7 @@
 
 .wap-footer-2 {
   color: white;
-  padding: 1rem 4.5rem;
+  padding: 1rem 5.5rem;
   background-color: #3f40cc;
   display: flex;
   align-items: center;

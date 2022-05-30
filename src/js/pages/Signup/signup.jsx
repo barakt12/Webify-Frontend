@@ -1,11 +1,24 @@
-import { useState } from 'react'
+import * as React from 'react'
+import Button from '@mui/material/Button'
+import CssBaseline from '@mui/material/CssBaseline'
+import TextField from '@mui/material/TextField'
+import Link from '@mui/material/Link'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Container from '@mui/material/Container'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { Formik, Field, Form } from 'formik'
-import { Button, TextField } from '@material-ui/core'
 import { userService } from '../../services/user.service'
 import { setUser } from '../../store/user/user.action'
 import { useDispatch } from 'react-redux'
+import { useState } from 'react'
+import { useNavigate } from 'react-router'
 
-export function SignUp() {
+export const SignUp = () => {
+
+  const navigate = useNavigate()
+
   const [credentials, setCredentials] = useState({
     username: '',
     email: '',
@@ -14,49 +27,148 @@ export function SignUp() {
   })
   const dispatch = useDispatch()
 
-  const onSubmitUser = async (cred) => {
+  const onSignup = async (cred) => {
     try {
       const user = await userService.signup(cred)
       console.log(user)
       dispatch(setUser(user))
+      navigate('/')
+      console.log('Signed up successfuly!')
     } catch (error) {
       // TODO: barak you need to add user msg!@!!!!
       console.log(error.response.data.err)
     }
   }
 
-  const onValidate = ({ username, password, email }) => {
+  const onValidate = ({ username, password, email,fullname }) => {
     const errors = {}
 
     if (!username) errors.username = 'Required'
     if (!email) errors.email = 'Required'
     if (!password) errors.password = 'Required'
+    if (!fullname) errors.fullname = 'Required'
 
     return errors
   }
 
+const theme = createTheme()
+
   return (
-    <section className="login-container">
-      <div className="form-container">
-        <Formik validateOnChange validate={onValidate} initialValues={credentials} onSubmit={onSubmitUser}>
-          {({ errors }) => (
-            <>
+    <div>
+    <ThemeProvider theme={theme}>
+      <Container
+        component="main"
+        sx={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}
+      >
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '475px',
+          }}
+        >
+          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar> */}
+          <Typography
+            component="h1"
+            variant="h5"
+            sx={{ fontWeight: 700, fontSize: '38px' }}
+          >
+            Start designing for free
+          </Typography>
+          <Formik
+            validateOnChange
+            validate={onValidate}
+            initialValues={credentials}
+            onSubmit={onSignup}
+          >
+            {({ errors }) => (
+
               <Form>
-                <Field name="username" type="text" as={TextField} variant="outlined" label="Username" fullWidth />
+                <Field
+                  as={TextField}
+                  margin="normal"
+                  required
+                  fullWidth
+                  placeholder="Fullname"
+                  name="fullname"
+                  autoFocus
+                  sx={{ backgroundColor: '#eee' }}
+                />
+                {<span className="error">{errors.fullname}</span>}
+                <Field
+                  as={TextField}
+                  margin="normal"
+                  required
+                  fullWidth
+                  placeholder="Username"
+                  name="username"
+                  autoFocus
+                  sx={{ backgroundColor: '#eee' }}
+                />
                 {<span className="error">{errors.username}</span>}
-                <Field name="email" type="text" as={TextField} variant="outlined" label="Email" fullWidth />
+                <Field
+                  as={TextField}
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="email"
+                  placeholder="Email"
+                  type="email"
+                  id="email"
+                  sx={{ backgroundColor: '#eee' }}
+                />
                 {<span className="error">{errors.email}</span>}
-                <Field name="password" type="password" as={TextField} variant="outlined" label="Password" fullWidth />
+
+                <Field
+                  as={TextField}
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  sx={{ backgroundColor: '#eee' }}
+                />
                 {<span className="error">{errors.password}</span>}
-                <Field name="fullname" type="text" as={TextField} variant="outlined" label="Full Name" fullWidth />
-                <Button type="submit" variant="contained" color="primary" size="large">
-                  Sign Up
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{
+                    mt: 3,
+                    mb: 2,
+                    backgroundColor: '#4253ff',
+                    fontSize: '1rem',
+                    fontFamily: 'sans-serif',
+                    height: '50px',
+                    textTransform: 'capitalize',
+                    fontWeight: '600',
+                  }}
+                >
+                  Log In
                 </Button>
+                <Grid container>
+                  <Grid item>
+                    <Link href="/login" variant="body2" color="#666">
+                      {"Have an account?"}
+                    </Link>
+                  </Grid>
+                </Grid>
+               {/* </Box> */}
               </Form>
-            </>
-          )}
-        </Formik>
-      </div>
-    </section>
+            )}
+          </Formik>
+        </Box>
+        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
+      </Container>
+    </ThemeProvider>
+    </div>
   )
 }

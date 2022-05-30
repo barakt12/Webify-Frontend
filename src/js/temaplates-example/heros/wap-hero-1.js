@@ -8,9 +8,7 @@ export const wapHero1 = {
   category: 'hero',
   thumbnail: 'https://i.postimg.cc/CxmShs2R/wap-hero-1.png',
   style: {
-    width: '100%', // remove
     color: 'white',
-    padding: '20px', // remove
   },
   cmps: [
     {
@@ -40,7 +38,8 @@ export const wapHero1 = {
       type: 'img',
       id: uuidv4(),
       info: {
-        imgUrl: 'https://res.cloudinary.com/dgxe7pqxa/image/upload/v1653852763/hero1_vbtxkf.svg',
+        imgUrl:
+          'https://res.cloudinary.com/dgxe7pqxa/image/upload/v1653852763/hero1_vbtxkf.svg',
       },
     },
   ],

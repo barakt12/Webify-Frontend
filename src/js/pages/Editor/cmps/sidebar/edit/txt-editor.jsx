@@ -113,7 +113,13 @@ export const TxtEditor = () => {
               >
                 <FormatAlignLeftIcon />
               </span>
-              <span onClick={() => onChangeAlign('center')}>
+              <span 
+              onClick={() => {
+                onChangeAlign('center')
+                setActiveBtn('center')
+              }}
+              className={`${activeBtn === 'center' ? 'active' : ''}`}
+              >
                 <FormatAlignCenterIcon />
               </span>
               <span

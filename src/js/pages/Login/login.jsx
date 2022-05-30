@@ -1,14 +1,10 @@
 import * as React from 'react'
-import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
-// import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox'
 import Link from '@mui/material/Link'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
@@ -17,7 +13,7 @@ import { userService } from '../../services/user.service'
 import { setUser } from '../../store/user/user.action'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-// import { TextField } from '@material-ui/core'
+import { useNavigate } from 'react-router'
 
 export const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -25,12 +21,18 @@ export const Login = () => {
     password: '',
   })
   const dispatch = useDispatch()
+  const navigation = useNavigate()
 
   const onLogin = async (cred) => {
     try {
-      cred = (cred.loginWith.includes('@')) ? {...cred, email: cred.loginWith} : {...cred, username: cred.loginWith}
+      cred = cred.loginWith.includes('@')
+        ? { ...cred, email: cred.loginWith }
+        : { ...cred, username: cred.loginWith }
       const user = await userService.login(cred)
       dispatch(setUser(user))
+      navigation('/')
+      console.log('login successfully')
+
     } catch (error) {
       console.log(error)
     }
@@ -43,7 +45,7 @@ export const Login = () => {
     // } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
     //   errors.email = 'Invalid email address'
     // }
-    if(!loginWith) errors.loginWith = 'Missing email or username input'
+    if (!loginWith) errors.loginWith = 'Missing email or username input'
     if (!password || password.length < 3)
       errors.password = 'Passwords must be at least three characters.'
 
@@ -64,19 +66,12 @@ export const Login = () => {
   // }
 
   const theme = createTheme()
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    })
-  }
 
   return (
+    <div>
     <ThemeProvider theme={theme}>
       <Container
-        component="main"
+        component='main'
         sx={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}
       >
         <CssBaseline />
@@ -93,8 +88,8 @@ export const Login = () => {
             <LockOutlinedIcon />
           </Avatar> */}
           <Typography
-            component="h1"
-            variant="h5"
+            component='h1'
+            variant='h5'
             sx={{ fontWeight: 700, fontSize: '38px' }}
           >
             Log Into My Account
@@ -104,43 +99,37 @@ export const Login = () => {
             validate={onValidate}
             initialValues={credentials}
             onSubmit={onLogin}
-            //formik form refreshes - need to check
           >
             {({ errors }) => (
-
               <Form>
                 <Field
                   as={TextField}
-                  margin="normal"
+                  margin='normal'
                   required
                   fullWidth
-                  // id="email"
-                  // label="Email Address"
                   placeholder="Email or Username"
                   name="loginWith"
-                  // autoComplete="email"
                   autoFocus
                   sx={{ backgroundColor: '#eee' }}
                 />
-                {<span className="error">{errors.email}</span>}
+                {<span className='error'>{errors.email}</span>}
                 <Field
                   as={TextField}
-                  margin="normal"
+                  margin='normal'
                   required
                   fullWidth
                   name="password"
-                  // label="Password"
                   placeholder="Password"
                   type="password"
                   id="password"
                   autoComplete="current-password"
                   sx={{ backgroundColor: '#eee' }}
                 />
-                {<span className="error">{errors.password}</span>}
+                {<span className='error'>{errors.password}</span>}
                 <Button
-                  type="submit"
+                  type='submit'
                   fullWidth
-                  variant="contained"
+                  variant='contained'
                   sx={{
                     mt: 3,
                     mb: 2,
@@ -155,18 +144,12 @@ export const Login = () => {
                   Log In
                 </Button>
                 <Grid container>
-                  <Grid item xs>
-                    <Link href="#" variant="body2" color="#666">
-                      Forgot password?
-                    </Link>
-                  </Grid>
                   <Grid item>
-                    <Link href="#" variant="body2" color="#666">
+                    <Link href="/signup" variant="body2" color="#666">
                       {"Don't have an account?"}
                     </Link>
                   </Grid>
                 </Grid>
-               {/* </Box> */}
               </Form>
             )}
           </Formik>
@@ -174,5 +157,6 @@ export const Login = () => {
         {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
     </ThemeProvider>
+    </div>
   )
 }

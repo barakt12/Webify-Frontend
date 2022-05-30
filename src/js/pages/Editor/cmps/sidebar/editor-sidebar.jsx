@@ -47,20 +47,42 @@ export function EditorSidebar({ onSaveWap }) {
   const onShowThemes = () => {
     setAddCmpList(null)
     const themes = themeService.getThemes()
-    console.log('themes',themes)
+    console.log('themes', themes)
     setTheme(themes)
+  }
+
+  const setWidth = () => {
+    if (isSidebarShown && window.innerWidth > 700) return '270px'
+    else if (isSidebarShown && window.innerWidth < 700) return '100%'
+    else if (!isSidebarShown && window.innerWidth < 700) return '100%'
+    else {
+      return '0px'
+    }
+  }
+
+  const setHeight = () => {
+    if (window.innerWidth > 700) return '100%'
+    else if (isSidebarShown && window.innerWidth < 700) return '40%'
+    else if (!isSidebarShown && window.innerWidth < 700) return '0'
+    else {
+      return '100%'
+    }
   }
 
   return (
     <section
       className='editor-sidebar'
-      style={{ backgroundColor: isSidebarShown ? '#252627' : '#0e1318' }}
+      style={{
+        backgroundColor: isSidebarShown ? '#252627' : '#0e1318',
+        height: setHeight(),
+      }}
     >
       <SidebarBtns
         onChooseCmps={onChooseCmps}
         onShowThemes={onShowThemes}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        isSidebarShown={isSidebarShown}
       />
       <Droppable droppableId='hb5' isDropDisabled={true}>
         {(provided) => (
@@ -69,8 +91,16 @@ export function EditorSidebar({ onSaveWap }) {
             {...provided.droppableProps}
             className='sidebar-actions'
             style={{
-              width: isSidebarShown ? '270px' : '0px',
-              padding: activeTab === 'add' ? '0 6px 0px 6px' : '0px',
+              width: setWidth(),
+              // width:
+              //   isSidebarShown && window.innerWidth > 700 ? '270px' : '0px',
+              // width: isSidebarShown && window.innerWidth < 700 ? '100%' : '0px',
+              padding:
+                activeTab === 'add' && window.innerWidth > 700
+                  ? '0 6px 0px 6px'
+                  : '',
+              marginTop:
+                activeTab === 'add' && window.innerWidth < 700 ? '55px' : '',
             }}
           >
             <DisplaySize />

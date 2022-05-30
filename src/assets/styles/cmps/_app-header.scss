@@ -1,9 +1,12 @@
 .app-header {
-  padding: 0 4.3%;
+  // padding: 0 4.3%;
+  padding: 0 6.6%;
+  position: relative;
+  z-index: 5;
   height: 70px;
   background-color: $accent-color;
   color: $main-color;
-  box-shadow: 0 1px 5px 0 rgb(41 85 115 / 21%);
+  // box-shadow: 0 1px 5px 0 rgb(41 85 115 / 21%);
   .logo {
     color: $main-color;
     height: 100%;

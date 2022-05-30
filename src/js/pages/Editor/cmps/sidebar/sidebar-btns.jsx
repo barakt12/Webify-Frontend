@@ -9,6 +9,7 @@ export function SidebarBtns({
   onShowThemes,
   activeTab,
   setActiveTab,
+  isSidebarShown,
 }) {
   const [activeAddBtn, setActiveAddBtn] = useState('header')
 
@@ -17,6 +18,11 @@ export function SidebarBtns({
       setActiveAddBtn('header')
     }
   }, [activeTab])
+
+  const setDisplay = () => {
+    if (!isSidebarShown && window.innerWidth < 700) return 'none'
+    else return 'flex'
+  }
 
   const onClickCmpBtn = async (ev, cmpName) => {
     await setActiveAddBtn(cmpName)
@@ -39,7 +45,7 @@ export function SidebarBtns({
     }
   }
   return (
-    <div className='editor-edit-add-btns'>
+    <div className='editor-edit-add-btns' style={{ display: setDisplay() }}>
       <button
         className={`sidebar-btn edit-btn ${
           activeTab === 'edit' ? 'active' : ''

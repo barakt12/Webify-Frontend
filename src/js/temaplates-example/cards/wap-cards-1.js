@@ -19,6 +19,7 @@ export const wapCards1 = {
         fontSize: '3rem',
         fontWeight: '700',
         marginBottom: '1rem',
+        textAlign: 'center',
       },
     },
     {

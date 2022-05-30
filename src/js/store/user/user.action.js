@@ -17,3 +17,13 @@ export function loadSavedWaps() {
     }
   }
 }
+
+export function userLogout() {
+  return (dispatch) => {
+    userService.logout()
+    dispatch({
+      type: 'SET_USER',
+      user: null,
+    })
+  }
+}
