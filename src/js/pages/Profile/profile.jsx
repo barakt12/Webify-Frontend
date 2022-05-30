@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadSavedWaps, setWap, deleteWap } from '../../store/wap/wap.action'
+import { setWap, deleteWap, selectWap } from '../../store/wap/wap.action'
+import { loadSavedWaps } from '../../store/user/user.action'
 import { Link } from 'react-router-dom'
 
 export const Profile = () => {
   const dispatch = useDispatch()
   const savedWaps = useSelector((storeState) => storeState.userModule.user?.waps)
 
+  useEffect(() => {
+    dispatch(loadSavedWaps())
+  }, [])
+
   const onSelectTemplate = (id) => {
-    const selectedWap = savedWaps.find((wap) => wap._id === id)
-    dispatch(setWap(selectedWap))
+    dispatch(selectWap(id))
   }
 
   const onPreviewTemplate = (id) => {
@@ -45,7 +49,7 @@ export const Profile = () => {
                 </button>
               </div>
             </div>
-            <img className="profile-wap-display" src={wap.thumbnail} alt="" />
+            <img className="profile-wap-display" src={wap.thunmbnail} alt="" />
             <hr />
             {/* <div className="template-info-container">
               <p className="info-template-name">{wap.info.name}</p>

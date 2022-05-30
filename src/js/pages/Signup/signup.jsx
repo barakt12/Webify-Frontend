@@ -17,6 +17,7 @@ export function SignUp() {
   const onSubmitUser = async (cred) => {
     try {
       const user = await userService.signup(cred)
+      console.log(user)
       dispatch(setUser(user))
     } catch (error) {
       // TODO: barak you need to add user msg!@!!!!

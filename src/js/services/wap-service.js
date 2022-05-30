@@ -25,12 +25,13 @@ function query(filterBy, sortBy) {
 }
 
 function getById(wapId) {
+  console.log(wapId)
   return httpService.get(`wap/${wapId}`)
 }
-async function remove(wapId, userId) {
+async function remove(wapId) {
   // await storageService.remove(STORAGE_KEY, wapId)
   try {
-    const updatedUser = await httpService.delete(`user/${userId}/wap`, wapId)
+    const updatedUser = await httpService.delete(`wap/${wapId}`)
     return updatedUser
   } catch (err) {
     console.log(err)
@@ -79,10 +80,13 @@ async function getDraft() {
   return await storageService.query(STORAGE_DRAFT_KEY)
 }
 
-async function save(wap, user) {
+async function save(wap) {
   try {
-    const updatedUser = await httpService.put(`user/${user._id}/wap`, wap)
-    return Promise.resolve(updatedUser)
+    if (!wap._id) {
+      return await httpService.post(`wap`, wap)
+    } else {
+      return await httpService.put(`wap/${wap._id}`, wap)
+    }
   } catch (err) {
     throw err
   }

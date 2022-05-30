@@ -15,7 +15,7 @@ export const userService = {
   getById,
   remove,
   update,
-  changeScore,
+  getSavedWaps,
 }
 
 window.userService = userService
@@ -30,8 +30,8 @@ function getUsers() {
 // }
 
 async function getById(userId) {
-  const user = await storageService.get('user', userId)
-  // const user = await httpService.get(`user/${userId}`)
+  // const user = await storageService.get('user', userId)
+  const user = await httpService.get(`user/${userId}`)
   // gWatchedUser = user;
 
   //   socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
@@ -40,6 +40,7 @@ async function getById(userId) {
 
   return user
 }
+
 function remove(userId) {
   return storageService.remove('user', userId)
   // return httpService.delete(`user/${userId}`)
@@ -56,9 +57,7 @@ async function update(user) {
 async function login(userCred) {
   //   const users = await storageService.query('user')
   const user = await httpService.post('auth/login', userCred)
-  console.log(user)
   if (user) {
-    // socketService.login(user._id)
     return saveLocalUser(user)
   }
 }
@@ -75,14 +74,6 @@ async function logout() {
   // return await httpService.post('auth/logout')
 }
 
-async function changeScore(by) {
-  const user = getLoggedinUser()
-  if (!user) throw new Error('Not loggedin')
-  user.score = user.score + by || by
-  await update(user)
-  return user.score
-}
-
 function saveLocalUser(user) {
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   return user
@@ -91,6 +82,8 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
   return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
+
+function getSavedWaps() {}
 
 // ;(async ()=>{
 //     await userService.signup({fullname: 'Puki Norma', username: 'user1', password:'123',score: 10000, isAdmin: false})
