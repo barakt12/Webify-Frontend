@@ -28,6 +28,7 @@ export const DynamicCmp = (props) => {
 
   const onSelectElement = (ev, cmp) => {
     ev.stopPropagation()
+    console.log(cmp)
     if (location.pathname !== '/preview') {
       dispatch(setSelectedElement(cmp))
     }
