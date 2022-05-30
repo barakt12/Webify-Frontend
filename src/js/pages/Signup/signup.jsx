@@ -30,6 +30,7 @@ export const SignUp = () => {
   const onSignup = async (cred) => {
     try {
       const user = await userService.signup(cred)
+      console.log(user)
       dispatch(setUser(user))
       navigate('/')
       console.log('Signed up successfuly!')
