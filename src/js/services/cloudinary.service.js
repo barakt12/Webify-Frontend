@@ -1,7 +1,7 @@
-import { toJpeg } from 'html-to-image'
+import { toPng } from 'html-to-image'
 
 export const createJpegFromElement = async (element, width, height) => {
-  const dataUrl = await toJpeg(element, { cacheBust: true, style: { width: '100%', margin: '0', outline: 'none' }, width, height, quality: 0.5 })
+  const dataUrl = await toPng(element, { width, height })
   const ev = {
     target: {
       files: [dataUrl],
