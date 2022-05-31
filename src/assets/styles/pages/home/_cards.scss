@@ -1,0 +1,149 @@
+.home-page-cards {
+  display: flex;
+  position: relative;
+  // justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color: #fff;
+  flex-direction: column;
+  & .line {
+    position: absolute;
+    left: 50%;
+    z-index: 10;
+    margin-left: -1.5px;
+    width: 3px;
+    height: 80%;
+    top: 20%;
+    background-image: linear-gradient(
+      white,
+      rgb(108, 129, 180) 5%,
+      rgb(108, 129, 180) 95%,
+      white
+    );
+  }
+  & .cards-white-block {
+    position: absolute;
+    top: -147px;
+  }
+  & .cards-bg-wave {
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://siftnewstherapy.com/build/assets/fade.7e0dc151.png');
+    background-position: left top;
+    background-repeat: repeat-x;
+    align-items: center;
+
+    background-size: 600px 200px;
+    width: 100%;
+    & h1 {
+      align-self: center;
+      position: relative;
+      z-index: 20;
+      &:first-of-type {
+        font-family: Pensum;
+        font-size: 3rem;
+        margin-top: 40px;
+      }
+      &:nth-of-type(2) {
+        font-family: Righteous;
+        font-size: 4rem;
+        font-weight: 400;
+        color: $accent2-color;
+      }
+    }
+  }
+
+  .cards {
+    display: flex;
+    width: 58%;
+    position: relative;
+
+    height: 400px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+
+    .card-number-circle::before {
+      content: '';
+      display: block;
+      width: 63px;
+      height: 1px;
+      background-color: rgb(189, 201, 234);
+      position: absolute;
+      right: -63px;
+    }
+    &:nth-of-type(even) {
+      .card-number-circle::before {
+        left: -63px;
+      }
+    }
+  }
+
+  .card1 {
+    margin-top: 200px;
+  }
+
+  & .cards-right-wisp {
+    background-image: url('https://siftnewstherapy.com/build/assets/singleWhispWhiteBg.333232c3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 640px;
+    height: 390px;
+    position: absolute;
+    right: 0;
+    top: 24rem;
+    z-index: 5;
+    transform: scaleX(-1);
+  }
+}
+
+.cards-right-box-container {
+  // width: 560px;
+  display: flex;
+  position: relative;
+  flex: 1 1;
+  height: 410px;
+  z-index: 15;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards-left-box-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1;
+  height: 410px;
+}
+
+.card-number-circle {
+  z-index: 20;
+  font-family: Ringside, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    Roboto, 'sans-serif';
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid rgb(189, 201, 234);
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(108, 129, 180);
+  position: absolute;
+
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
+
+  // &:nth-of-type(2) {
+  //   top: 50%;
+  // }
+}

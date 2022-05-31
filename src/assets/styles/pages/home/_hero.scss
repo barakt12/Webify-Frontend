@@ -54,19 +54,19 @@
     }
   }
 
-  .wave-png {
-    position: absolute;
-    background-image: url('../../../img/illustrations/wave.png');
-    background-repeat: no-repeat;
-    background-position: center top;
-    // width: 1800px;
-    width: 100%;
-    height: 1217px;
-    background-size: cover;
-    z-index: 10;
-    pointer-events: none;
-    top: 166px;
-  }
+  // .wave-png {
+  //   position: absolute;
+  //   background-image: url('../../../img/illustrations/wave.png');
+  //   background-repeat: no-repeat;
+  //   background-position: center top;
+  //   // width: 1800px;
+  //   width: 100%;
+  //   height: 1712px;
+  //   background-size: cover;
+  //   z-index: 10;
+  //   pointer-events: none;
+  //   top: 166px;
+  // }
   .wave2-png {
     background-image: url('../../../img/illustrations/wave2.png');
     width: 100%;
@@ -82,6 +82,7 @@
 }
 
 .storm-png {
+  padding-bottom: 20px;
   width: 1155px;
   height: 1073px;
   z-index: 10;

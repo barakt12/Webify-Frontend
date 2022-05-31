@@ -14,13 +14,13 @@ export const headerCmp4 = {
       id: uuidv4(),
       name: 'logo',
       cmps: [
-        // {
-        //   type: 'img',
-        //   id: uuidv4(),
-        //   info: {
-        //     imgUrl: 'https://res.cloudinary.com/dnv7wszu3/image/upload/v1653997825/tattoo-shop-logo_bt4hrg.png',
-        //   },
-        // },
+        {
+          type: 'img',
+          id: uuidv4(),
+          info: {
+            imgUrl: 'https://res.cloudinary.com/dnv7wszu3/image/upload/v1654029430/tattoo-shop-logo_en0luz.svg',
+          },
+        },
         {
           type: 'txt',
           id: uuidv4(),
