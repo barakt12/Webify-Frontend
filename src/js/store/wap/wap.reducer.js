@@ -3,6 +3,7 @@ const initial_state = {
   selectedElement: null,
   displaySize: '100%',
   savedWaps: null,
+  wapDraft: []
 }
 
 export function wapReducer(state = initial_state, action) {
@@ -11,6 +12,9 @@ export function wapReducer(state = initial_state, action) {
       return { ...state, wap: { ...action.wap } }
     case 'SET_SAVED_WAPS':
       return { ...state, savedWaps: action.savedWaps }
+    case 'UPDATE_WAP_DRAFT':
+      state.wapDraft.push(action.cmps) 
+      return { ...state }
     case 'REMOVE_DRAFT':
       return {
         ...state,

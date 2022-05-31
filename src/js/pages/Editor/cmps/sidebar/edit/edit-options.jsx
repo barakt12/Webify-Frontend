@@ -15,7 +15,6 @@ export const EditOptions = ({
 
   const handleChange = (event) => {
     if (isFontType) {
-      console.log(isFontType)
       setFontType((prevState) => event.target.value)
       onChangeStyling('fontFamily', event.target.value)
     } else {
@@ -75,7 +74,7 @@ export const EditOptions = ({
   //   else if(currTxtShadow.split(' ')[0] === '-3px') currTxtShadow = 'Medium'
   //   else if(currTxtShadow.split(' ')[0] === '-4px') currTxtShadow = 'Strong'
   // }
-  console.log(currTxtShadow)
+
   return (
     <div>
       <FormControl

@@ -69,7 +69,6 @@ export const TxtEditor = () => {
   const onChangeStyling = (type, value) => {
     if (type === 'fontSize') value = `${value / 16}rem`
     if (value === selectedElement.style.type) return
-    console.log(',aasda', type, value)
     selectedElement.style = { ...selectedElement.style, [type]: value }
     wapService.updateCmp(wap, selectedElement)
     dispatch(setWap(wap))

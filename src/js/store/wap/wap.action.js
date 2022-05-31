@@ -20,9 +20,25 @@ export const deleteElement = (cmp) => {
   }
 }
 
+export const wapUndo = (cmps) => {
+  return async (dispatch) => {
+    try {
+      console.log('undo!!')
+      let wap = {cmps: [...cmps]}
+      console.log(wap)
+      dispatch({ type: 'SET_WAP', wap })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 export const setWap = (wap) => {
   return async (dispatch) => {
     try {
+      console.log('set wap',wap.cmps)
+      let draftCmps = JSON.parse(JSON.stringify(wap.cmps))
+      dispatch({ type: 'UPDATE_WAP_DRAFT', cmps: draftCmps })
       await wapService.saveToDraft(wap)
       dispatch({ type: 'SET_WAP', wap })
     } catch (err) {
@@ -30,6 +46,8 @@ export const setWap = (wap) => {
     }
   }
 }
+
+
 
 export const loadCmps = () => {
   const cmpsList = {}
@@ -80,7 +98,7 @@ export const deleteWap = (wapId) => {
     try {
       const user = getState().userModule.user
       const updatedUser = await wapService.remove(wapId)
-      console.log(updatedUser)
+      console.log('set new user',updatedUser)
       dispatch({ type: 'SET_USER', user: updatedUser })
     } catch (err) {
       console.log(err)

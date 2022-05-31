@@ -17,6 +17,7 @@ export const EditColorPicker = ({ isBackgroundColor }) => {
   )
 
   const onChangeColor = (colorInput) => {
+    console.log('change color')
     setColor((prevState) => ({ ...prevState, background: colorInput }))
     if (!selectedElement) return
     const newColor = isBackgroundColor

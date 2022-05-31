@@ -1,5 +1,5 @@
 import React from 'react'
-import { deleteElement } from '../../../../../store/wap/wap.action'
+import { deleteElement,wapUndo } from '../../../../../store/wap/wap.action'
 import { toggleSave } from '../../../../../store/system/system.action'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -7,13 +7,21 @@ import { EditColorPicker } from './edit-color-picker'
 import { ImageUrl } from './img-url-input'
 import { TxtEditor } from './txt-editor'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
+import UndoIcon from '@mui/icons-material/Undo';
 import SaveIcon from '@mui/icons-material/Save'
+
 export const SidebarEdit = () => {
   const dispatch = useDispatch()
 
-  const selectedElement = useSelector(
-    (storeState) => storeState.wapModule.selectedElement
+  const {selectedElement,wapDraft} = useSelector(
+    (storeState) => storeState.wapModule
   )
+
+  const onUndo = () => {
+    console.log('undo')
+    const cmps = wapDraft.pop()
+    dispatch(wapUndo(cmps))
+  }
 
   const onDeleteElement = () => {
     if (selectedElement) dispatch(deleteElement(selectedElement))
@@ -54,6 +62,11 @@ export const SidebarEdit = () => {
         <p className='sidebar-action-text'>Please choose an element</p>
       )}
       <div className='action-btns'>
+        <button onClick={onUndo}>
+          {' '}
+          <UndoIcon />
+          <span>Undo</span>
+        </button>
         <button onClick={onDeleteElement}>
           {' '}
           <DeleteForeverIcon />
