@@ -21,9 +21,7 @@ export const wapHero2 = {
           info: {
             txt: 'Momentum',
           },
-          style: {
-            fontSize: '5.75rem',
-          },
+          style: {},
         },
         {
           type: 'txt',
@@ -32,9 +30,7 @@ export const wapHero2 = {
           info: {
             txt: 'Launch your product — and savor the momentum',
           },
-          style: {
-            fontSize: '1.875rem',
-          },
+          style: {},
         },
         {
           type: 'btn',
@@ -43,17 +39,15 @@ export const wapHero2 = {
           info: {
             txt: 'Get the App',
           },
-          style: {
-            fontSize: '1rem',
-          },
+          style: {},
         },
       ],
     },
     {
       type: 'container',
       id: uuidv4(),
-      style: {},
       name: 'wap-hero-2-img-container',
+      style: {},
       cmps: [
         {
           type: 'img',
@@ -64,22 +58,22 @@ export const wapHero2 = {
               'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b10d0ee7f483cdf4e9ca8f8_img-top.png',
           },
         },
+      ],
+    },
+    {
+      type: 'container',
+      id: uuidv4(),
+      style: {},
+      name: 'wap-hero-2-arrow-img-container',
+      cmps: [
         {
-          type: 'container',
+          type: 'img',
           id: uuidv4(),
-          style: {},
-          name: 'wap-hero-2-arrow-img-container',
-          cmps: [
-            {
-              type: 'img',
-              id: uuidv4(),
-              name: 'wap-hero-2-arrow-img',
-              info: {
-                imgUrl:
-                  'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b1437cbda3c5c3369fe4460_arrow.svg',
-              },
-            },
-          ],
+          name: 'wap-hero-2-arrow-img',
+          info: {
+            imgUrl:
+              'https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b1437cbda3c5c3369fe4460_arrow.svg',
+          },
         },
       ],
     },
