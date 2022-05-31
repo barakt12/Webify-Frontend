@@ -6,8 +6,7 @@ export const headerCmp4 = {
   category: 'header',
   themePalette: 'primary',
   id: uuidv4(),
-  //change to cloudinary
-  thumbnail: null,
+  thumbnail: require('../../../assets/img/thumbnails/header/wap-header-4.JPG'),
   style: {},
   cmps: [
     {

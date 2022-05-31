@@ -6,9 +6,7 @@ export const heroCmp4 = {
   category: 'hero',
   themePalette: 'primary',
   id: uuidv4(),
-  //change to cloudinary
-  thumbnail: null,
-  //each component will have his own css file
+  thumbnail: require('../../../assets/img/thumbnails/hero/wap-hero-3.JPG'),
   style: {},
   cmps: [
     {
@@ -16,7 +14,8 @@ export const heroCmp4 = {
       name: 'paralax-container',
       id: uuidv4(),
       style: {
-        backgroundImage: 'url(https://trichos.pl/wp-content/uploads/2021/03/b795b156c00b6e0e7a4af2a65747d328-1170x658.jpg)',
+        backgroundImage:
+          'url(https://static.wixstatic.com/media/84770f_92972b392a4f499185503c585f31e793~mv2_d_2594_1675_s_2.jpg/v1/fill/w_1118,h_897,al_t,q_85,usm_0.66_1.00_0.01,enc_auto/84770f_92972b392a4f499185503c585f31e793~mv2_d_2594_1675_s_2.jpg)',
       },
       cmps: [
         {

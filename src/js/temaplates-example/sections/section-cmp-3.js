@@ -6,7 +6,7 @@ export const sectionCmp3 = {
   category: 'section',
   themePalette: 'primary',
   id: uuidv4(),
-  thumbnail: null,
+  thumbnail: require('../../../assets/img/thumbnails/section/wap-section-3.JPG'),
   style: {},
   cmps: [
     {

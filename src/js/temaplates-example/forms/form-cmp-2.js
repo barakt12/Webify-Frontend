@@ -6,7 +6,7 @@ export const formCmp3 = {
   category: 'section',
   themePalette: 'secondary',
   id: uuidv4(),
-  thumbnail: null,
+  thumbnail: require('../../../assets/img/thumbnails/form/wap-form-2.JPG'),
   style: {},
   cmps: [
     {

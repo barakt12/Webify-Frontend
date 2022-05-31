@@ -6,7 +6,7 @@ export const footerCmp4 = {
   category: 'section',
   themePalette: 'secondary',
   id: uuidv4(),
-  thumbnail: null,
+  thumbnail: require('../../../assets/img/thumbnails/footer/wap-footer-4.JPG'),
   style: {},
   cmps: [
     {
