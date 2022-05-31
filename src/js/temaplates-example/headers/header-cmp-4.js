@@ -36,6 +36,14 @@ export const headerCmp4 = {
       name: 'nav-bar',
       cmps: [
         {
+          type: 'img',
+          id: uuidv4(),
+          name: 'nav-hamburger',
+          info: {
+            imgUrl: 'https://static.thenounproject.com/png/1010514-200.png',
+          },
+        },
+        {
           type: 'txt',
           id: uuidv4(),
           info: {
