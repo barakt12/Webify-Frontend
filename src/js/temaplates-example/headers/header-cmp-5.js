@@ -30,15 +30,21 @@ export const headerCmp5 = {
       style: {},
       cmps: [
         {
+          type: 'img',
+          id: uuidv4(),
+          info: {
+            imgUrl: 'https://icon-library.com/images/hamburger-menu-icon-png/hamburger-menu-icon-png-29.jpg',
+          },
+          style: {},
+        },
+        {
           type: 'txt',
           id: uuidv4(),
           info: {
             txt: 'HOME',
           },
           style: {},
-          cmps: [],
         },
-
         {
           type: 'txt',
           id: uuidv4(),
@@ -46,7 +52,6 @@ export const headerCmp5 = {
             txt: 'SERVICES',
           },
           style: {},
-          cmps: [],
         },
         {
           type: 'txt',
@@ -55,7 +60,6 @@ export const headerCmp5 = {
             txt: 'ABOUT',
           },
           style: {},
-          cmps: [],
         },
         {
           type: 'txt',
@@ -64,7 +68,6 @@ export const headerCmp5 = {
             txt: 'PROJECTS',
           },
           style: {},
-          cmps: [],
         },
         {
           type: 'txt',
@@ -73,7 +76,6 @@ export const headerCmp5 = {
             txt: 'CONTACT',
           },
           style: {},
-          cmps: [],
         },
       ],
     },

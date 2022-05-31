@@ -12,11 +12,18 @@
   .nav-bar {
     display: flex;
     width: 40%;
-    justify-content: space-around;
+    min-width: 400px;
+    justify-content: space-between;
     background: transparent;
     padding-inline-end: 4rem;
     color: white;
     font-size: 0.9rem;
+    gap: 10px;
+    img {
+      display: none;
+      height: 50px;
+      width: 50px;
+    }
   }
 }
 
@@ -36,6 +43,7 @@
     font-size: 3rem;
     margin-top: 5rem;
     margin: 5rem 13.5vw 0 13.5vw;
+    word-break: break-word;
   }
   .img-container {
     width: 100%;
@@ -96,6 +104,7 @@
     }
     .wap-sub-txt-5 {
       word-spacing: 3px;
+      min-width: 250px;
     }
   }
 
@@ -113,6 +122,8 @@
   justify-content: center;
   .cards-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 5rem;
     padding: 5rem;
     .card {
@@ -139,6 +150,8 @@
     gap: 30px;
     & > .container {
       display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
       gap: 30px;
       .img-container {
         height: 455px;
@@ -152,13 +165,54 @@
   }
 }
 
-.wap-footer-5{
+.wap-footer-5 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 27.8rem;
-  .footer-icons-container{
+  justify-content: space-around;
+  padding: 1.5rem 13.8rem;
+  .footer-icons-container {
     display: flex;
     gap: 10px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .wap-header-5 {
+    & > p {
+      padding: 2rem 2rem;
+    }
+    .nav-bar {
+      width: unset;
+      min-width: unset;
+      padding-inline-end: 1.2rem;
+      & > p {
+        display: none;
+      }
+      img {
+        display: block;
+      }
+    }
+  }
+  .wap-hero-5 {
+    & > p {
+      margin: 5rem 4rem 0 4rem;
+    }
+  }
+  .wap-section-5 {
+    flex-direction: column;
+    padding: 0 4rem;
+  }
+  .main-cards-container {
+    & > .container {
+      .img-container {
+        height: 300px !important;
+        width: 300px !important;
+      }
+    }
+  }
+  .wap-footer-5 {
+    flex-direction: column;
+    gap: 20px;
+    padding: 1.5rem 2rem;
   }
 }
