@@ -1,0 +1,164 @@
+.wap-header-5 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1e2d3b;
+  & > p {
+    font-size: 2rem;
+    font-weight: 700;
+    background-color: #edc72a;
+    padding: 2rem 5rem;
+  }
+  .nav-bar {
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+    background: transparent;
+    padding-inline-end: 4rem;
+    color: white;
+    font-size: 0.9rem;
+  }
+}
+
+.wap-hero-5 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: white;
+  background-image: url('https://res.cloudinary.com/dnv7wszu3/image/upload/v1654000516/constuctionSite2_niz3dm.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  height: 80vh;
+  & > p {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    font-size: 3rem;
+    margin-top: 5rem;
+    margin: 5rem 13.5vw 0 13.5vw;
+  }
+  .img-container {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.wap-cards-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > p {
+    letter-spacing: 0.05rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    text-underline-offset: 20px;
+  }
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 7rem;
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      height: 450px;
+      background-color: #f7f7f7;
+
+      .card-text {
+        padding: 1.5rem 2rem;
+        & > p {
+          padding-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.wap-section-5 {
+  display: flex;
+  background-color: #f7f7f7;
+  gap: 80px;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0 23vw;
+
+  .cards-container {
+    flex-basis: 35%;
+    width: 100%;
+    .wap-main-txt-5 {
+      text-underline-offset: 20px;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+    .wap-sub-txt-5 {
+      word-spacing: 3px;
+    }
+  }
+
+  .wap-card-5-img-container {
+    width: 100%;
+    height: 65vh;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-image: url('https://static.wixstatic.com/media/c19c76_427a7bbf62474f74968cb087499c7a3e.jpg/v1/fill/w_1273,h_865,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c19c76_427a7bbf62474f74968cb087499c7a3e.jpg');
+  }
+}
+
+.wap-cards-5-second {
+  display: flex;
+  justify-content: center;
+  .cards-container {
+    display: flex;
+    gap: 5rem;
+    padding: 5rem;
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 125px;
+      text-align: center;
+    }
+  }
+}
+
+.wap-cards-5-third {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  & > p {
+    text-underline-offset: 20px;
+    margin-bottom: 80px;
+  }
+  .main-cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    & > .container {
+      display: flex;
+      gap: 30px;
+      .img-container {
+        height: 455px;
+        width: 455px;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.wap-footer-5{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 27.8rem;
+  .footer-icons-container{
+    display: flex;
+    gap: 10px;
+  }
+}

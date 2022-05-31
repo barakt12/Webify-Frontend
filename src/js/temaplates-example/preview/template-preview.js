@@ -23,4 +23,12 @@ export const templatePreviews = [
       category: 'Education',
     },
   },
+  {
+    id: 'ahlaid5',
+    info: {
+      name: 'Sphere',
+      img: require('../../../assets/img/web-templates-preview/web-template-preview5.jpg'),
+      category: 'Construction',
+    },
+  },
 ]
