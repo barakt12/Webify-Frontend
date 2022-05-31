@@ -13,7 +13,6 @@ export function Hero() {
           Start building your page!
         </button>
       </div>
-      <div className='wave-png'></div>
       <div className='wave2-png'></div>
       <img className='storm-png' src={Storm} alt='' />
       <div className='monk-png'></div>

@@ -1,0 +1,54 @@
+.home-page-cards {
+  display: flex;
+  position: relative;
+  // justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color: #fff;
+  flex-direction: column;
+  & .line {
+    position: absolute;
+    left: 50%;
+    margin-left: -1.5px;
+    width: 3px;
+    height: 80%;
+    top: 20%;
+    background-image: linear-gradient(
+      white,
+      rgb(108, 129, 180) 5%,
+      rgb(108, 129, 180) 95%,
+      white
+    );
+  }
+  & .cards-white-block {
+    position: absolute;
+    top: -147px;
+  }
+  & .cards-bg-wave {
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://siftnewstherapy.com/build/assets/fade.7e0dc151.png');
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: 600px 200px;
+    height: 1300px;
+    width: 100%;
+    & h2 {
+      align-self: center;
+      position: relative;
+      z-index: 20;
+    }
+  }
+  & .cards-right-wisp {
+    background-image: url('https://siftnewstherapy.com/build/assets/singleWhispWhiteBg.333232c3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 640px;
+    height: 390px;
+    position: absolute;
+    right: 0;
+    top: 200px;
+    z-index: 5;
+    transform: scaleX(-1);
+  }
+}
