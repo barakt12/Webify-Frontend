@@ -23,4 +23,12 @@ export const templatePreviews = [
       category: 'Education',
     },
   },
+  {
+    id: 'ahlaid4',
+    info: {
+      name: 'Tatoos',
+      // img: require('../../../assets/img/web-templates-preview/web-template-preview4.jpg'),
+      category: 'Artistic',
+    },
+  },
 ]

@@ -73,7 +73,7 @@ export function Editor() {
   return (
     <section className="editor-container">
       <DragDropContext onDragEnd={handleDragEnd}>
-        {/* <EditorSidebar /> */}
+        <EditorSidebar />
         <EditorBoard wap={wap} getItemStyle={getItemStyle} />
       </DragDropContext>
     </section>

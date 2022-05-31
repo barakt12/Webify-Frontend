@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 
-export const footerCmp3 = {
+export const footerCmp4 = {
   name: 'footer-cmp-3',
   type: 'container',
   category: 'section',

@@ -5,7 +5,6 @@ import { useEffect, useRef } from 'react'
 import { setWapThumbnail, saveWap } from '../../../store/wap/wap.action'
 import { toggleSave } from '../../../store/system/system.action'
 import { createJpegFromElement } from '../../../services/cloudinary.service'
-import { wapTemplate4 } from '../../../temaplates-example/wap-template-4'
 
 export const EditorBoard = ({ wap }) => {
   const dispatch = useDispatch()
@@ -42,10 +41,10 @@ export const EditorBoard = ({ wap }) => {
         {(provided, snapshot) => {
           return (
             <section {...provided.droppableProps} ref={provided.innerRef} className="editor">
-              {!wapTemplate4?.cmps?.length ? (
+              {!wap?.cmps?.length ? (
                 <h2>Drag and Drop to add components</h2>
               ) : (
-                wapTemplate4.cmps.map((cmp, index) => (
+                wap.cmps.map((cmp, index) => (
                   <Draggable key={cmp.id} draggableId={cmp.id + index} index={index}>
                     {(provided, snapshot) => (
                       <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
