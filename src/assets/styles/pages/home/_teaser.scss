@@ -1,0 +1,11 @@
+.teaser-container {
+  background-color: #3d496e;
+  display: flex;
+  height: 1513px;
+  justify-content: center;
+  align-items: center;
+  & img {
+    box-shadow: 0px 12px 20px 4px #21212157,
+      0px -4px 20px 0px rgb(33 33 33 / 34%);
+  }
+}
