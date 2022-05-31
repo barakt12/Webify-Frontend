@@ -17,35 +17,45 @@ export const Templates = () => {
 
   return (
     <>
-      <div className='template-page-intro'>
+      <div className="template-page-intro">
         <h2>Select a Template</h2>
       </div>
-      <section className='main-template-container'>
-        {templatePreviews.map((preview) => (
-          <div key={preview.id} className={preview.id}>
-            <div className='template-hover-info-container'>
-              <p>
-                A simple and bold layout that makes it easy for you to showcase
-                your product and share it with the world in no time.
-              </p>
-              <div className='template-hover-btns-container'>
-                <Link to={`/preview`} className='template-preview-btn'>
-                  <button onClick={() => onPreviewTemplate(preview.id)}>
-                    Preview
-                  </button>
-                </Link>
-                <Link className='template-select-btn' to='/editor'>
-                  <button onClick={() => onSelectTemplate(preview.id)}>
-                    Select
-                  </button>
+      <section className="main-template-container">
+        <div>
+          <div className="template-hover-info-container create-new">
+            <p className="blank-label">BLANK</p>
+            <div className="create-new-info-container">
+              <p>Start from a blank canvas — and build exactly what you have in mind.</p>
+              <div className="template-hover-btns-container">
+                <Link className="template-select-btn" to="/editor">
+                  <button onClick={() => onSelectTemplate('blank')}>Select</button>
                 </Link>
               </div>
             </div>
-            <img src={preview.info.img} alt='' />
+          </div>
+          <hr />
+          <div className="template-info-container">
+            <p className="info-template-name">Create a blank site</p>
+          </div>
+        </div>
+        {templatePreviews.map((preview) => (
+          <div key={preview.id} className={preview.id}>
+            <div className="template-hover-info-container">
+              <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
+              <div className="template-hover-btns-container">
+                <Link to={`/preview`} className="template-preview-btn">
+                  <button onClick={() => onPreviewTemplate(preview.id)}>Preview</button>
+                </Link>
+                <Link className="template-select-btn" to="/editor">
+                  <button onClick={() => onSelectTemplate(preview.id)}>Select</button>
+                </Link>
+              </div>
+            </div>
+            <img src={preview.info.img} alt="" />
             <hr />
-            <div className='template-info-container'>
-              <p className='info-template-name'>{preview.info.name}</p>
-              <p className='info-template-category'>{preview.info.category}</p>
+            <div className="template-info-container">
+              <p className="info-template-name">{preview.info.name}</p>
+              <p className="info-template-category">{preview.info.category}</p>
             </div>
           </div>
         ))}
