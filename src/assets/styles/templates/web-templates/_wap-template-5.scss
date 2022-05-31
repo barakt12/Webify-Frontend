@@ -57,6 +57,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white;
   & > p {
     letter-spacing: 0.05rem;
     margin-top: 5rem;
@@ -110,7 +111,7 @@
 
   .wap-card-5-img-container {
     width: 100%;
-    height: 65vh;
+    height: 82vh;
     background-attachment: fixed;
     background-position: bottom;
     background-image: url('https://static.wixstatic.com/media/c19c76_427a7bbf62474f74968cb087499c7a3e.jpg/v1/fill/w_1273,h_865,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c19c76_427a7bbf62474f74968cb087499c7a3e.jpg');
@@ -126,6 +127,7 @@
     justify-content: center;
     gap: 5rem;
     padding: 5rem;
+    background-color: white;
     .card {
       display: flex;
       flex-direction: column;
@@ -139,6 +141,7 @@
 .wap-cards-5-third {
   margin-top: 50px;
   margin-bottom: 50px;
+  background-color: white;
   & > p {
     text-underline-offset: 20px;
     margin-bottom: 80px;
@@ -170,6 +173,7 @@
   align-items: center;
   justify-content: space-around;
   padding: 1.5rem 13.8rem;
+  background-color: white;
   .footer-icons-container {
     display: flex;
     gap: 10px;

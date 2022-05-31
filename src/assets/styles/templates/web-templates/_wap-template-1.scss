@@ -165,9 +165,12 @@
   margin: 0;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
+  html{
+    font-size: 14px;
+  }
   .wap-header-1 {
-    padding: 1rem 2.5rem;
+    padding: 1rem 1.5rem;
     .nav-bar {
       & > p {
         display: none;
@@ -178,16 +181,16 @@
     }
   }
   .wap-hero-1{
-    padding: 2.5rem 2.5rem;
+    padding: 2.5rem 0.5rem;
   }
   .wap-cards-1{
-    padding: 3rem 2.5rem;
+    padding: 3rem 0.5rem;
   }
   .wap-text-1{
-    padding: 4rem 2.5rem 6rem;
+    padding: 4rem 0.5rem 6rem;
   }
   .wap-faq-1{
-    padding: 3rem 2.5rem;
+    padding: 3rem 0.5rem;
   }
   .wap-footer-2 {
     flex-direction: column;
