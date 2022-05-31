@@ -14,7 +14,7 @@ export const deleteElement = (cmp) => {
     let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
     if (wap && cmp) {
       await wapService.deleteCmp(wap, cmp.id)
-      dispatch({ type: 'SET_WAP', wap })
+      dispatch(updateWap(wap))
       wapService.saveToDraft(wap)
     }
   }
@@ -26,7 +26,7 @@ export const duplicateElement = (cmp) => {
     const duplicateCmp = JSON.parse(JSON.stringify(cmp))
     duplicateCmp.id = uuidv4()
     await wapService.duplicateCmp(wap, duplicateCmp, cmp.id)
-    dispatch({ type: 'SET_WAP', wap })
+    dispatch(updateWap(wap))
     wapService.saveToDraft(wap)
   }
 }
@@ -46,7 +46,6 @@ export const updateWap = (wap) => {
   return async (dispatch, getState) => {
     try {
       const lastWapState = JSON.parse(JSON.stringify(getState().wapModule.wap))
-      // const history = JSON.parse(JSON.stringify(getState().wapModule.history))
       dispatch({ type: 'UPDATE_WAP', wap, lastWapState })
       await wapService.saveToDraft(wap)
     } catch (err) {
@@ -59,7 +58,9 @@ export const loadCmps = () => {
   const cmpsList = {}
   const cmps = templateService.getCmps()
   cmps.forEach((cmp) => {
-    return cmpsList[cmp.category] ? cmpsList[cmp.category].push(cmp) : (cmpsList[cmp.category] = [cmp])
+    return cmpsList[cmp.category]
+      ? cmpsList[cmp.category].push(cmp)
+      : (cmpsList[cmp.category] = [cmp])
   })
 }
 
@@ -71,6 +72,7 @@ export const loadTemplate = (id) => {
       delete wapCopy._id
       await wapService.saveToDraft(wapCopy)
       dispatch({ type: 'SET_WAP', wap: wapCopy })
+      // dispatch({ type: 'RESET_HISTORY', wap: wapCopy })
     } catch (err) {
       console.log(err)
     }
@@ -89,9 +91,8 @@ export const undoWap = () => {
       const history = JSON.parse(JSON.stringify(getState().wapModule.history))
       if (history.length) {
         let lastWapState = history.pop()
-
-        dispatch({ type: 'UNDO_WAP', wap: lastWapState, history })
         wapService.saveToDraft(lastWapState)
+        dispatch({ type: 'UNDO_WAP', wap: lastWapState, history })
       }
     } catch (err) {
       console.log(err)
@@ -144,8 +145,11 @@ export const loadSavedWaps = () => {
 export const selectWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
+      const selectedWap = getState().wapModule.savedWaps.find(
+        (wap) => wap._id === id
+      )
       dispatch({ type: 'SET_WAP', wap: selectedWap })
+      // dispatch({ type: 'RESET_HISTORY', wap: selectedWap })
     } catch (err) {}
   }
 }

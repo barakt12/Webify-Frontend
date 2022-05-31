@@ -15,8 +15,9 @@ export function ImageUrl({ cmp }) {
   const onChangeUrl = (ev) => {
     setUrl(ev.target.value)
     cmp.info.imgUrl = ev.target.value
-    wapService.updateCmp(wap, cmp)
-    dispatch(updateWap(wap))
+    const wapCopy = wapService.getWapCopy(wap)
+    wapService.updateCmp(wapCopy, cmp)
+    dispatch(updateWap(wapCopy))
   }
 
   return (

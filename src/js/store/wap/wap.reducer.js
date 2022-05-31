@@ -1,4 +1,3 @@
-
 const initial_state = {
   wap: { cmps: [] },
   selectedElement: null,
@@ -13,7 +12,9 @@ export function wapReducer(state = initial_state, action) {
       return {
         ...state,
         wap: { ...action.wap },
+        history: [],
       }
+
     case 'UPDATE_WAP':
       return {
         ...state,
@@ -26,6 +27,8 @@ export function wapReducer(state = initial_state, action) {
         wap: { ...action.wap },
         history: [...action.history],
       }
+    // case 'RESET_HISTORY':
+    //   return { ...state, history: [action.wap] }
     case 'SET_SAVED_WAPS':
       return { ...state, savedWaps: action.savedWaps }
     case 'REMOVE_WAP':

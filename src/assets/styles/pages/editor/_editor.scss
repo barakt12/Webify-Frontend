@@ -18,6 +18,13 @@
   height: 100%;
   //   max-height: 99vh;
   overflow: auto;
+  position: relative;
+  & > h2 {
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translateX(-50%);
+  }
 }
 
 // .header {

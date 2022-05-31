@@ -61,7 +61,7 @@ export function EditorSidebar() {
   }
 
   const setWidth = () => {
-    if (isSidebarShown && window.innerWidth > 700) return '270px'
+    if (isSidebarShown && window.innerWidth > 700) return '352px'
     else if (isSidebarShown && window.innerWidth < 700) return '100%'
     else if (!isSidebarShown && window.innerWidth < 700) return '100%'
     else {
@@ -113,7 +113,14 @@ export function EditorSidebar() {
             }}
           >
             <DisplaySize />
-            <div className='action-btns'>
+            {activeTab === 'edit' && <SidebarEdit />}
+            {activeTab === 'themes' && themeList && (
+              <SidebarTheme themeList={themeList} />
+            )}
+            {activeTab === 'add' && addCmpList && (
+              <SidebarAdd addCmpList={addCmpList} />
+            )}
+            <div className='action-btns save-publish'>
               <button onClick={onSaveWap}>
                 <SaveIcon />
                 <span>Save</span>
@@ -123,13 +130,6 @@ export function EditorSidebar() {
                 <span>Publish</span>
               </button>
             </div>
-            {activeTab === 'edit' && <SidebarEdit />}
-            {activeTab === 'themes' && themeList && (
-              <SidebarTheme themeList={themeList} />
-            )}
-            {activeTab === 'add' && addCmpList && (
-              <SidebarAdd addCmpList={addCmpList} />
-            )}
           </div>
         )}
       </Droppable>

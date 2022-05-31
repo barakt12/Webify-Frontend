@@ -17,7 +17,8 @@ export const wapService = {
   changeCmpId,
   saveToDraft,
   getDraft,
-  duplicateCmp
+  duplicateCmp,
+  getWapCopy
 }
 
 function query(filterBy, sortBy) {
@@ -37,6 +38,10 @@ async function remove(wapId) {
   } catch (err) {
     console.log(err)
   }
+}
+
+function getWapCopy(wap) {
+  return JSON.parse(JSON.stringify(wap))
 }
 
 function deleteCmp(cmp, cmpId) {

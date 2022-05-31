@@ -35,9 +35,9 @@ export const TxtEditor = () => {
       ...selectedElement.style,
       fontWeight: fontWeightType,
     }
-
-    wapService.updateCmp(wap, selectedElement)
-    dispatch(updateWap(wap))
+    const wapCopy = wapService.getWapCopy(wap)
+    wapService.updateCmp(wapCopy, selectedElement)
+    dispatch(updateWap(wapCopy))
   }
 
   const onChangeFontFormat = () => {
@@ -47,8 +47,10 @@ export const TxtEditor = () => {
       ...selectedElement.style,
       fontStyle: fontFormatType,
     }
-    wapService.updateCmp(wap, selectedElement)
-    dispatch(updateWap(wap))
+    const wapCopy = wapService.getWapCopy(wap)
+
+    wapService.updateCmp(wapCopy, selectedElement)
+    dispatch(updateWap(wapCopy))
   }
 
   const onChangeTextDeco = () => {
@@ -60,17 +62,20 @@ export const TxtEditor = () => {
       ...selectedElement.style,
       textDecoration: fontDecoType,
     }
-    wapService.updateCmp(wap, selectedElement)
-    dispatch(updateWap(wap))
+    const wapCopy = wapService.getWapCopy(wap)
+
+    wapService.updateCmp(wapCopy, selectedElement)
+    dispatch(updateWap(wapCopy))
   }
 
   const onChangeStyling = (type, value) => {
     if (type === 'fontSize') value = `${value / 16}rem`
     if (value === selectedElement.style.type) return
-    console.log(',aasda', type, value)
     selectedElement.style = { ...selectedElement.style, [type]: value }
-    wapService.updateCmp(wap, selectedElement)
-    dispatch(updateWap(wap))
+    const wapCopy = wapService.getWapCopy(wap)
+
+    wapService.updateCmp(wapCopy, selectedElement)
+    dispatch(updateWap(wapCopy))
   }
 
   const currStyles = {
