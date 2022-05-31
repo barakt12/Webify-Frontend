@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { wapService } from '../../../../../services/wap-service'
-import { setWap, updateWap } from '../../../../../store/wap/wap.action'
+import { setWap } from '../../../../../store/wap/wap.action'
 
-export function ImageUrl({ cmp }) {
+export function VideoInput({ cmp }) {
   const [url, setUrl] = useState(cmp.info.imgUrl)
   const { wap } = useSelector((storeState) => storeState.wapModule)
   const dispatch = useDispatch()
@@ -16,15 +16,8 @@ export function ImageUrl({ cmp }) {
     setUrl(ev.target.value)
     cmp.info.imgUrl = ev.target.value
     wapService.updateCmp(wap, cmp)
-    dispatch(updateWap(wap))
+    dispatch(setWap(wap))
   }
 
-  return (
-    <input
-      type='text'
-      placeholder='Enter image url..'
-      value={url}
-      onChange={onChangeUrl}
-    />
-  )
+  return <input type="text" placeholder="Enter image url.." value={url} onChange={onChangeUrl} />
 }

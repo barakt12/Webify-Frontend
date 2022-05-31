@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { wapService } from '../../../../services/wap-service'
-import { setWap } from '../../../../store/wap/wap.action'
+import { setWap, updateWap } from '../../../../store/wap/wap.action'
 
 export function TxtCmp({ cmp, onHoverElement, selectedElement, onSelectElement }) {
   const [isEditable, setIsEditable] = useState(true)
@@ -19,7 +19,7 @@ export function TxtCmp({ cmp, onHoverElement, selectedElement, onSelectElement }
   const handleChange = (ev) => {
     cmp.info.txt = ev.target.innerText
     wapService.updateCmp(wap, cmp)
-    dispatch(setWap(wap))
+    dispatch(updateWap(wap))
   }
 
   return (

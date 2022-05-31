@@ -74,7 +74,6 @@ export const EditOptions = ({
   //   else if(currTxtShadow.split(' ')[0] === '-3px') currTxtShadow = 'Medium'
   //   else if(currTxtShadow.split(' ')[0] === '-4px') currTxtShadow = 'Strong'
   // }
-
   return (
     <div>
       <FormControl

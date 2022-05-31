@@ -14,7 +14,7 @@ export const CarosuelCmp = ({ cmp, onHoverElement, selectedElement, onSelectElem
   const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
 
   //must get label: and imgPath
-  const images = [...cmp.info.carosuelContent]
+  const images = [...cmp.info.images]
 
   const theme = useTheme()
   const [activeStep, setActiveStep] = React.useState(0)
@@ -53,7 +53,7 @@ export const CarosuelCmp = ({ cmp, onHoverElement, selectedElement, onSelectElem
           color: 'white',
         }}
       >
-        <Typography>{images[activeStep].label}</Typography>
+        {/* <Typography>{images[activeStep].label}</Typography> */}
       </Paper>
       <AutoPlaySwipeableViews axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'} index={activeStep} onChangeIndex={handleStepChange} enableMouseEvents>
         {images.map((step, index) => (
@@ -69,7 +69,7 @@ export const CarosuelCmp = ({ cmp, onHoverElement, selectedElement, onSelectElem
                   overflow: 'hidden',
                   width: '100%',
                 }}
-                src={step.imgPath}
+                src={step}
                 alt={step.label}
               />
             ) : null}

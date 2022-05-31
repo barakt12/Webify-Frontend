@@ -1,3 +1,7 @@
+import { toggleSave } from '../../../../store/system/system.action'
+
+import SaveIcon from '@mui/icons-material/Save'
+import CloudDoneIcon from '@mui/icons-material/CloudDone'
 import { SidebarCloseBtn } from './sidebar-close-btn'
 import { SidebarEdit } from './edit/sidebar-edit'
 import { SidebarBtns } from './sidebar-btns'
@@ -7,14 +11,15 @@ import { templateService } from '../../../../services/templates.service'
 import { themeService } from '../../../../services/theme.service'
 import { SidebarAdd } from './add/sidebar-add-list'
 import { SidebarTheme } from './theme/sidebar-theme'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { DisplaySize } from './display-size-btns'
 
-export function EditorSidebar({ onSaveWap }) {
+export function EditorSidebar() {
   const [isSidebarShown, toggleSidebarShown] = useState(true)
   const [addCmpList, setAddCmpList] = useState(null)
   const [themeList, setTheme] = useState(null)
   const [activeTab, setActiveTab] = useState('add')
+  const dispatch = useDispatch()
 
   const selectedElement = useSelector(
     (storeState) => storeState.wapModule.selectedElement
@@ -49,6 +54,10 @@ export function EditorSidebar({ onSaveWap }) {
     const themes = themeService.getThemes()
     console.log('themes', themes)
     setTheme(themes)
+  }
+
+  const onSaveWap = () => {
+    dispatch(toggleSave())
   }
 
   const setWidth = () => {
@@ -104,7 +113,17 @@ export function EditorSidebar({ onSaveWap }) {
             }}
           >
             <DisplaySize />
-            {activeTab === 'edit' && <SidebarEdit onSaveWap={onSaveWap} />}
+            <div className='action-btns'>
+              <button onClick={onSaveWap}>
+                <SaveIcon />
+                <span>Save</span>
+              </button>
+              <button>
+                <CloudDoneIcon />
+                <span>Publish</span>
+              </button>
+            </div>
+            {activeTab === 'edit' && <SidebarEdit />}
             {activeTab === 'themes' && themeList && (
               <SidebarTheme themeList={themeList} />
             )}

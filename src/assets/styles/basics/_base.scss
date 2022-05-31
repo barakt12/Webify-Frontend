@@ -4,33 +4,58 @@
   padding: 0;
 }
 
-.MuiMenu-list{
+.MuiMenu-list {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.MuiSlider-thumbColorPrimary.MuiSlider-thumbSizeMedium.MuiSlider-thumb.css-eg0mwd-MuiSlider-thumb{
+.MuiSlider-thumbColorPrimary.MuiSlider-thumbSizeMedium.MuiSlider-thumb.css-eg0mwd-MuiSlider-thumb {
   width: 15px;
   height: 15px;
 }
 
-.MuiOutlinedInput-root.MuiInputBase-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.Mui-focused{
+.MuiOutlinedInput-root.MuiInputBase-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.Mui-focused {
   background-color: #fff;
 }
-form .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
+form
+  .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
   border-color: #333;
 }
 
-form .MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-fullWidth.MuiButtonBase-root.css-1kezstn-MuiButtonBase-root-MuiButton-root:hover {
+form
+  .MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-fullWidth.MuiButtonBase-root.css-1kezstn-MuiButtonBase-root-MuiButton-root:hover {
   background-color: #3b4be6;
 }
 
-.MuiTypography-root.MuiTypography-h5.css-rtt0ga-MuiTypography-root{    
+.MuiTypography-root.MuiTypography-h5.css-rtt0ga-MuiTypography-root {
   align-self: start;
 }
 
-.wap-hero-1 .img-container{
+form .google-sign-in-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  button {
+    border-radius: 0px !important;
+    font-size: 16px !important;
+    width: 100% !important;
+    border: none !important;
+    height: 50px !important;
+    justify-content: center !important;
+    box-shadow: rgb(221 221 221) 0px 0px 0px 1px inset !important;
+  }
+  p {
+    color: #666;
+    font-weight: 400;
+    font-family: sans-serif;
+    padding-top: 20px;
+  }
+}
+
+.wap-hero-1 .img-container {
   max-width: 50%;
   display: flex;
   align-self: center;

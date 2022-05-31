@@ -8,9 +8,7 @@ import { createJpegFromElement } from '../../../services/cloudinary.service'
 
 export const EditorBoard = ({ wap }) => {
   const dispatch = useDispatch()
-  const editorWidth = useSelector(
-    (storeState) => storeState.wapModule.displaySize
-  )
+  const editorWidth = useSelector((storeState) => storeState.wapModule.displaySize)
   const { isSaving } = useSelector((storeState) => storeState.systemModule)
   const editorRef = useRef(null)
 
@@ -22,11 +20,8 @@ export const EditorBoard = ({ wap }) => {
 
   const saveWapWithThumbnail = async () => {
     console.log('SAVING...')
-    const thumbnailUrl = await createJpegFromElement(
-      editorRef.current,
-      editorRef.current.clientWidth,
-      editorRef.current.clientHeight
-    )
+    const elBoard = document.querySelector('.editor-inner-container')
+    const thumbnailUrl = await createJpegFromElement(elBoard, elBoard.clientWidth, elBoard.clientHeight)
     dispatch(setWapThumbnail(thumbnailUrl))
     dispatch(saveWap())
     dispatch(toggleSave())
@@ -40,31 +35,19 @@ export const EditorBoard = ({ wap }) => {
         margin: '0 auto',
         transition: 'max-width 0.3s',
       }}
-      className='editor-inner-container'
+      className="editor-inner-container"
     >
-      <Droppable droppableId='editor'>
+      <Droppable droppableId="editor">
         {(provided, snapshot) => {
           return (
-            <section
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-              className='editor'
-            >
+            <section {...provided.droppableProps} ref={provided.innerRef} className="editor">
               {!wap?.cmps?.length ? (
                 <p>Drag and Drop to add components</p>
               ) : (
                 wap.cmps.map((cmp, index) => (
-                  <Draggable
-                    key={cmp.id}
-                    draggableId={cmp.id + index}
-                    index={index}
-                  >
+                  <Draggable key={cmp.id} draggableId={cmp.id + index} index={index}>
                     {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      >
+                      <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                         <DynamicCmp cmp={cmp} />
                       </div>
                     )}

@@ -2,7 +2,7 @@ import { templateService } from '../../services/templates.service'
 import { wapService } from '../../services/wap-service.js'
 import { userService } from '../../services/user.service'
 import { v4 as uuidv4 } from 'uuid'
-
+import { isEqual } from 'lodash'
 export const setSelectedElement = (cmp) => {
   return (dispatch) => {
     dispatch({ type: 'SET_ELEMENT', cmp })
@@ -10,37 +10,46 @@ export const setSelectedElement = (cmp) => {
 }
 
 export const deleteElement = (cmp) => {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
     if (wap && cmp) {
-      wapService.deleteCmp(wap, cmp.id)
+      await wapService.deleteCmp(wap, cmp.id)
       dispatch({ type: 'SET_WAP', wap })
       wapService.saveToDraft(wap)
     }
   }
 }
 
-export const wapUndo = (cmps) => {
-  return async (dispatch) => {
-    try {
-      console.log('undo!!')
-      let wap = {cmps: [...cmps]}
-      console.log(wap)
-      dispatch({ type: 'SET_WAP', wap })
-    } catch (err) {
-      console.log(err)
-    }
+export const duplicateElement = (cmp) => {
+  return async (dispatch, getState) => {
+    let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
+    const duplicateCmp = JSON.parse(JSON.stringify(cmp))
+    duplicateCmp.id = uuidv4()
+    await wapService.duplicateCmp(wap, duplicateCmp, cmp.id)
+    dispatch({ type: 'SET_WAP', wap })
+    wapService.saveToDraft(wap)
   }
 }
 
 export const setWap = (wap) => {
   return async (dispatch) => {
     try {
-      console.log('set wap',wap.cmps)
-      let draftCmps = JSON.parse(JSON.stringify(wap.cmps))
-      dispatch({ type: 'UPDATE_WAP_DRAFT', cmps: draftCmps })
-      await wapService.saveToDraft(wap)
       dispatch({ type: 'SET_WAP', wap })
+      await wapService.saveToDraft(wap)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
+export const updateWap = (wap) => {
+  return async (dispatch, getState) => {
+    try {
+      console.log('update')
+      const lastWapState = JSON.parse(JSON.stringify(getState().wapModule.wap))
+      // const history = JSON.parse(JSON.stringify(getState().wapModule.history))
+      dispatch({ type: 'UPDATE_WAP', wap, lastWapState })
+      await wapService.saveToDraft(wap)
     } catch (err) {
       console.log(err)
     }
@@ -53,9 +62,7 @@ export const loadCmps = () => {
   const cmpsList = {}
   const cmps = templateService.getCmps()
   cmps.forEach((cmp) => {
-    return cmpsList[cmp.category]
-      ? cmpsList[cmp.category].push(cmp)
-      : (cmpsList[cmp.category] = [cmp])
+    return cmpsList[cmp.category] ? cmpsList[cmp.category].push(cmp) : (cmpsList[cmp.category] = [cmp])
   })
 }
 
@@ -79,6 +86,22 @@ export const setDisplaySize = (displaySize) => {
   }
 }
 
+export const undoWap = () => {
+  return async (dispatch, getState) => {
+    try {
+      const history = JSON.parse(JSON.stringify(getState().wapModule.history))
+      if (history.length) {
+        let lastWapState = history.pop()
+
+        dispatch({ type: 'UNDO_WAP', wap: lastWapState, history })
+        wapService.saveToDraft(lastWapState)
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 export const saveWap = () => {
   return async (dispatch, getState) => {
     try {
@@ -96,10 +119,8 @@ export const saveWap = () => {
 export const deleteWap = (wapId) => {
   return async (dispatch, getState) => {
     try {
-      const user = getState().userModule.user
-      const updatedUser = await wapService.remove(wapId)
-      console.log('set new user',updatedUser)
-      dispatch({ type: 'SET_USER', user: updatedUser })
+      await wapService.remove(wapId)
+      dispatch({ type: 'REMOVE_WAP', wapId })
     } catch (err) {
       console.log(err)
     }
@@ -124,10 +145,9 @@ export const loadSavedWaps = () => {
 }
 
 export const selectWap = (id) => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     try {
-      const selectedWap = await wapService.getById(id)
-      console.log('asdasd', selectedWap)
+      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
   }

@@ -1,21 +1,35 @@
+
 const initial_state = {
   wap: { cmps: [] },
   selectedElement: null,
   displaySize: '100%',
   savedWaps: null,
-  wapDraft: []
+  history: [],
 }
 
 export function wapReducer(state = initial_state, action) {
   switch (action.type) {
     case 'SET_WAP':
-      return { ...state, wap: { ...action.wap } }
+      console.log('set wap on reducer')
+      return {
+        ...state,
+        wap: { ...action.wap },
+      }
+    case 'UPDATE_WAP':
+      return {
+        ...state,
+        wap: { ...action.wap },
+        history: [...state.history, action.lastWapState],
+      }
+    case 'UNDO_WAP':
+      return {
+        ...state,
+        wap: { ...action.wap },
+        history: [...action.history],
+      }
     case 'SET_SAVED_WAPS':
       return { ...state, savedWaps: action.savedWaps }
-    case 'UPDATE_WAP_DRAFT':
-      state.wapDraft.push(action.cmps) 
-      return { ...state }
-    case 'REMOVE_DRAFT':
+    case 'REMOVE_WAP':
       return {
         ...state,
         savedWaps: state.savedWaps.filter((wap) => wap._id !== action.wapId),

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { wapService } from '../../../../../services/wap-service'
-import { setWap } from '../../../../../store/wap/wap.action'
+import { setWap, updateWap } from '../../../../../store/wap/wap.action'
 
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft'
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter'
@@ -23,9 +23,7 @@ export const TxtEditor = () => {
   )
   const [activeBtn, setActiveBtn] = useState('')
 
-  useEffect(() => {
-    console.log(selectedElement.style)
-  }, [selectedElement])
+  useEffect(() => {}, [selectedElement])
 
   const onChangeFontWeight = () => {
     const fontWeightType =
@@ -39,7 +37,7 @@ export const TxtEditor = () => {
     }
 
     wapService.updateCmp(wap, selectedElement)
-    dispatch(setWap(wap))
+    dispatch(updateWap(wap))
   }
 
   const onChangeFontFormat = () => {
@@ -50,7 +48,7 @@ export const TxtEditor = () => {
       fontStyle: fontFormatType,
     }
     wapService.updateCmp(wap, selectedElement)
-    dispatch(setWap(wap))
+    dispatch(updateWap(wap))
   }
 
   const onChangeTextDeco = () => {
@@ -63,7 +61,7 @@ export const TxtEditor = () => {
       textDecoration: fontDecoType,
     }
     wapService.updateCmp(wap, selectedElement)
-    dispatch(setWap(wap))
+    dispatch(updateWap(wap))
   }
 
   const onChangeStyling = (type, value) => {
@@ -71,7 +69,7 @@ export const TxtEditor = () => {
     if (value === selectedElement.style.type) return
     selectedElement.style = { ...selectedElement.style, [type]: value }
     wapService.updateCmp(wap, selectedElement)
-    dispatch(setWap(wap))
+    dispatch(updateWap(wap))
   }
 
   const currStyles = {

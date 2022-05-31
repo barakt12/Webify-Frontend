@@ -94,7 +94,7 @@ const theme = createTheme()
                   margin="normal"
                   required
                   fullWidth
-                  placeholder="Fullname"
+                  placeholder="Full Name"
                   name="fullname"
                   autoFocus
                   sx={{ backgroundColor: '#eee' }}
@@ -152,7 +152,7 @@ const theme = createTheme()
                     fontWeight: '600',
                   }}
                 >
-                  Log In
+                  Create account
                 </Button>
                 <Grid container>
                   <Grid item>
