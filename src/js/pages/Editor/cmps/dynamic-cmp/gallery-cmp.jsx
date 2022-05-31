@@ -15,11 +15,7 @@ export function Gallery({
       onClick={(ev) => onSelectElement(ev, cmp)}
     >
       {cmp.info.images.map((img, idx) => (
-<<<<<<< HEAD
-        <img src={img} key={idx} />
-=======
         <img src={img} key={idx} alt=''></img>
->>>>>>> d0a2206399a0f863a5fcae1353f9c3a608ed9e64
       ))}
     </div>
   )

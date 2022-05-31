@@ -24,19 +24,19 @@ export const templatePreviews = [
     },
   },
   {
-<<<<<<< HEAD
-    id: 'ahlaid5',
-    info: {
-      name: 'Sphere',
-      img: require('../../../assets/img/web-templates-preview/web-template-preview5.jpg'),
-      category: 'Construction',
-=======
     id: 'ahlaid4',
     info: {
       name: 'Tattoos',
       img: require('../../../assets/img/web-templates-preview/web-template-preview4.jpg'),
       category: 'Artistic',
->>>>>>> 01b165f9095b7956d9fa5630bc61c3ccd05f4b40
+    },
+  },
+  {
+    id: 'ahlaid5',
+    info: {
+      name: 'Sphere',
+      img: require('../../../assets/img/web-templates-preview/web-template-preview5.jpg'),
+      category: 'Construction',
     },
   },
 ]
