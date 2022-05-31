@@ -43,6 +43,7 @@
     font-size: 3rem;
     margin-top: 5rem;
     margin: 5rem 13.5vw 0 13.5vw;
+    word-break: break-word;
   }
   .img-container {
     width: 100%;
@@ -189,7 +190,24 @@
       }
     }
   }
+  .wap-hero-5{
+    & > p{
+      margin: 5rem 4rem 0 4rem;
+    }
+  }
+  .wap-section-5{
+    flex-direction: column;
+    padding: 0 4rem;
+  }
+  .main-cards-container{
+    & > .container{
+      height: 300px;
+      width: 300px;
+    }
+  }
   .wap-footer-5{
+    flex-direction: column;
+    gap: 20px;
     padding: 1.5rem 2rem;
   }
 }

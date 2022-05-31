@@ -35,7 +35,7 @@ export const templatePreviews = [
     id: 'ahlaid5',
     info: {
       name: 'Sphere',
-      img: require('../../../assets/img/web-templates-preview/web-template-preview5.jpg'),
+      img: require('../../../assets/img/web-templates-preview/web-template-preview5-new.jpg'),
       category: 'Construction',
     },
   },
