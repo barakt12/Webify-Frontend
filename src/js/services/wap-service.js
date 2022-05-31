@@ -17,6 +17,7 @@ export const wapService = {
   changeCmpId,
   saveToDraft,
   getDraft,
+  duplicateCmp
 }
 
 function query(filterBy, sortBy) {
@@ -48,13 +49,24 @@ function deleteCmp(cmp, cmpId) {
   }
 }
 
-function updateCmp(wap, newCmp) {
-  const cmpIndex = wap?.cmps?.findIndex((currCmp) => currCmp.id === newCmp.id)
+function duplicateCmp(cmp, newCmp, cmpId) {
+  const idx = cmp?.cmps?.findIndex((cmp) => cmp.id === cmpId)
+  if(idx> -1) {
+    cmp.cmps.splice(idx, 0, newCmp)
+    return
+  }
+  else {
+    cmp?.cmps?.forEach(cmp => duplicateCmp(cmp, newCmp, cmpId))
+  }
+}
+ 
+function updateCmp(cmp, newCmp) {
+  const cmpIndex = cmp?.cmps?.findIndex((currCmp) => currCmp.id === newCmp.id)
   if (cmpIndex > -1) {
-    wap.cmps.splice(cmpIndex, 1, newCmp)
+    cmp.cmps.splice(cmpIndex, 1, newCmp)
     return
   } else {
-    wap?.cmps?.forEach((cmp) => updateCmp(cmp, newCmp))
+    cmp?.cmps?.forEach((cmp) => updateCmp(cmp, newCmp))
   }
 }
 
