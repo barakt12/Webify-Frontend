@@ -19,7 +19,7 @@
     color: white;
     font-size: 0.9rem;
     gap: 10px;
-    img{
+    img {
       display: none;
       height: 50px;
       width: 50px;
@@ -165,51 +165,54 @@
   }
 }
 
-.wap-footer-5{
+.wap-footer-5 {
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 1.5rem 13.8rem;
-  .footer-icons-container{
+  .footer-icons-container {
     display: flex;
     gap: 10px;
   }
 }
 
-
 @media (max-width: 1050px) {
   .wap-header-5 {
+    & > p {
+      padding: 2rem 2rem;
+    }
     .nav-bar {
-    width: unset;
-    min-width: unset;
-      & > p{
+      width: unset;
+      min-width: unset;
+      padding-inline-end: 1.2rem;
+      & > p {
         display: none;
       }
-      img{
+      img {
         display: block;
       }
     }
   }
-  .wap-hero-5{
-    & > p{
+  .wap-hero-5 {
+    & > p {
       margin: 5rem 4rem 0 4rem;
     }
   }
-  .wap-section-5{
+  .wap-section-5 {
     flex-direction: column;
     padding: 0 4rem;
   }
-  .main-cards-container{
-    & > .container{
-      height: 300px;
-      width: 300px;
+  .main-cards-container {
+    & > .container {
+      .img-container {
+        height: 300px !important;
+        width: 300px !important;
+      }
     }
   }
-  .wap-footer-5{
+  .wap-footer-5 {
     flex-direction: column;
     gap: 20px;
     padding: 1.5rem 2rem;
   }
 }
-
-
