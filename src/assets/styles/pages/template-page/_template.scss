@@ -1,20 +1,14 @@
 .main-template-container {
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 0 5%;
   gap: 40px;
-  // margin-top: 50px;
 
   & > * {
     height: 430px;
     width: 270px;
     border-radius: 5px;
-    //black edition:
-    // background-color: #000000c2;
-    // color: white;
     background-color: rgb(255 255 255);
     color: black;
     overflow: hidden;
@@ -27,6 +21,26 @@
       p {
         font-size: 15px;
         margin-bottom: 60%;
+      }
+
+      .blank-label {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        font-weight: 700;
+        opacity: 0.15;
+        z-index: -1;
+      }
+
+      .create-new-info-container {
+        display: none;
+        background-color: white;
+      }
+
+      &.create-new {
+        display: block;
       }
 
       .template-hover-btns-container {
@@ -106,6 +120,12 @@
     .template-hover-info-container {
       display: flex;
       flex-direction: column;
+    }
+
+    .create-new-info-container {
+      display: flex;
+      flex-direction: column;
+      gap: 85px;
     }
 
     img {

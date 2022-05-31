@@ -41,7 +41,7 @@ export const footerCmp4 = {
       type: 'txt',
       id: uuidv4(),
       info: {
-        txt: '© 2023 by ELLIE PAGE. Proudly created with Wix.com',
+        txt: '© 2023 by ELLIE PAGE. Proudly created with Webify',
       },
     },
   ],
