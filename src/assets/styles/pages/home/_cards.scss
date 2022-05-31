@@ -34,7 +34,6 @@
     align-items: center;
 
     background-size: 600px 200px;
-    height: 1300px;
     width: 100%;
     & h1 {
       align-self: center;
@@ -54,30 +53,36 @@
     }
   }
 
-  .cards.card1 {
+  .cards {
     display: flex;
     width: 58%;
     position: relative;
 
-    height: 564px;
+    height: 400px;
     -webkit-box-pack: center;
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
     position: relative;
-    &:first-child {
-      top: 40%;
-      // margin-top: -25px;
-      &::before {
-        content: '';
-        display: block;
-        width: 63px;
-        height: 1px;
-        background-color: rgb(189, 201, 234);
-        position: absolute;
-        right: -63px;
+
+    .card-number-circle::before {
+      content: '';
+      display: block;
+      width: 63px;
+      height: 1px;
+      background-color: rgb(189, 201, 234);
+      position: absolute;
+      right: -63px;
+    }
+    &:nth-of-type(even) {
+      .card-number-circle::before {
+        left: -63px;
       }
     }
+  }
+
+  .card1 {
+    margin-top: 200px;
   }
 
   & .cards-right-wisp {
@@ -94,23 +99,22 @@
   }
 }
 
-.cards-right-box-1-container {
+.cards-right-box-container {
   // width: 560px;
+  display: flex;
   position: relative;
   flex: 1 1;
   height: 410px;
   z-index: 15;
-
-  background-color: aliceblue;
+  align-items: center;
+  justify-content: center;
 }
 
-.cards-left-box-1-container {
+.cards-left-box-container {
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: antiquewhite;
   flex: 1 1;
   height: 410px;
 }
