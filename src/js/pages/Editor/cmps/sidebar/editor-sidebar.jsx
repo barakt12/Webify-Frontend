@@ -21,9 +21,7 @@ export function EditorSidebar() {
   const [activeTab, setActiveTab] = useState('add')
   const dispatch = useDispatch()
 
-  const selectedElement = useSelector(
-    (storeState) => storeState.wapModule.selectedElement
-  )
+  const selectedElement = useSelector((storeState) => storeState.wapModule.selectedElement)
 
   useEffect(() => {
     if (activeTab) toggleSidebarShown(true)
@@ -80,47 +78,33 @@ export function EditorSidebar() {
 
   return (
     <section
-      className='editor-sidebar'
+      className="editor-sidebar"
       style={{
         backgroundColor: isSidebarShown ? '#252627' : '#0e1318',
         height: setHeight(),
       }}
     >
-      <SidebarBtns
-        onChooseCmps={onChooseCmps}
-        onShowThemes={onShowThemes}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        isSidebarShown={isSidebarShown}
-      />
-      <Droppable droppableId='hb5' isDropDisabled={true}>
+      <SidebarBtns onChooseCmps={onChooseCmps} onShowThemes={onShowThemes} activeTab={activeTab} setActiveTab={setActiveTab} isSidebarShown={isSidebarShown} />
+      <Droppable droppableId="hb5" isDropDisabled={true}>
         {(provided) => (
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className='sidebar-actions'
+            className="sidebar-actions"
             style={{
               width: setWidth(),
               // width:
               //   isSidebarShown && window.innerWidth > 700 ? '270px' : '0px',
               // width: isSidebarShown && window.innerWidth < 700 ? '100%' : '0px',
-              padding:
-                activeTab === 'add' && window.innerWidth > 700
-                  ? '0 6px 0px 6px'
-                  : '',
-              marginTop:
-                activeTab === 'add' && window.innerWidth < 700 ? '55px' : '',
+              padding: activeTab === 'add' && window.innerWidth > 700 ? '0 6px 0px 6px' : '',
+              marginTop: activeTab === 'add' && window.innerWidth < 700 ? '55px' : '',
             }}
           >
             <DisplaySize />
             {activeTab === 'edit' && <SidebarEdit />}
-            {activeTab === 'themes' && themeList && (
-              <SidebarTheme themeList={themeList} />
-            )}
-            {activeTab === 'add' && addCmpList && (
-              <SidebarAdd addCmpList={addCmpList} />
-            )}
-            <div className='action-btns save-publish'>
+            {activeTab === 'themes' && themeList && <SidebarTheme themeList={themeList} />}
+            {activeTab === 'add' && addCmpList && <SidebarAdd addCmpList={addCmpList} />}
+            <div className="action-btns save-publish">
               <button onClick={onSaveWap}>
                 <SaveIcon />
                 <span>Save</span>
@@ -133,11 +117,7 @@ export function EditorSidebar() {
           </div>
         )}
       </Droppable>
-      <SidebarCloseBtn
-        toggleSidebarShown={toggleSidebarShown}
-        isSidebarShown={isSidebarShown}
-        setActiveTab={setActiveTab}
-      />
+      <SidebarCloseBtn toggleSidebarShown={toggleSidebarShown} isSidebarShown={isSidebarShown} setActiveTab={setActiveTab} />
     </section>
   )
 }
