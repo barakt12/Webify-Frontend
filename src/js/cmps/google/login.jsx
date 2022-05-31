@@ -31,7 +31,7 @@ export function GoogleLoginBtn() {
 
   return (
     <div className='google-sign-in-btn-container'>
-      <GoogleLogin  clientId={clientId} buttonText="Login with google" onSuccess={onSuccess} onFailure={onFailure} cookiePolicy={'single_host_origin'} />
+      <GoogleLogin  clientId={clientId} buttonText="Login with Google" onSuccess={onSuccess} onFailure={onFailure} cookiePolicy={'single_host_origin'} />
       <p>or</p>
     </div>
   )
