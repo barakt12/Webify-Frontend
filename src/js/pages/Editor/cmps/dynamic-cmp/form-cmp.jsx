@@ -1,15 +1,8 @@
-export function FormCmp({
-  cmp,
-  onHoverElement,
-  selectedElement,
-  onSelectElement,
-}) {
+export function FormCmp({ cmp, onHoverElement, selectedElement, onSelectElement }) {
   return (
     <form
       style={cmp.style}
-      className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${
-        cmp.name
-      }`}
+      className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverElement(ev)}
       onClick={(ev) => onSelectElement(ev, cmp)}
@@ -17,19 +10,17 @@ export function FormCmp({
       {cmp.info.formFields.map((field, idx) => {
         if (field.type === 'textarea')
           return (
-            <textarea
-              key={idx}
-              rows={field.rows}
-              placeholder={field.placeholder}
-            ></textarea>
+            <label>
+              {field.label}
+              <textarea key={idx} rows={field.rows} placeholder={field.placeholder}></textarea>
+            </label>
           )
 
         return (
-          <input
-            key={idx}
-            type={field.input}
-            placeholder={field.placeholder}
-          ></input>
+          <label>
+            {field.label}
+            <input key={idx} type={field.input} placeholder={field.placeholder}></input>
+          </label>
         )
       })}
     </form>
