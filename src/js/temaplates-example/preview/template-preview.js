@@ -26,7 +26,7 @@ export const templatePreviews = [
   {
     id: 'ahlaid4',
     info: {
-      name: 'Tatoos',
+      name: 'Tattoos',
       img: require('../../../assets/img/web-templates-preview/web-template-preview4.jpg'),
       category: 'Artistic',
     },
