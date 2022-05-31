@@ -10,59 +10,83 @@ export const EditOptions = ({
   currTxtShadow,
   currFontType,
 }) => {
-  const [fontType, setFontType] = React.useState('')
-  const [textShadow, setTextShadow] = React.useState('')
+  const [, setFontType] = React.useState('')
+  const [, setTextShadow] = React.useState('')
 
   const handleChange = (event) => {
     if (isFontType) {
-      setFontType((prevState) => event.target.value)
+      setFontType(event.target.value)
       onChangeStyling('fontFamily', event.target.value)
     } else {
-      setTextShadow((prevState) => event.target.value)
+      setTextShadow(event.target.value)
       onChangeStyling('textShadow', event.target.value)
     }
   }
 
   const fontTypeMenu = [
-    <MenuItem key={uuidv4()} value={'system-ui'} style={{ fontSize: '14px' }}>
+    <MenuItem
+      key={uuidv4()}
+      value={'system-ui'}
+      style={{ fontSize: '13px', width: '90%' }}
+    >
       System-ui
     </MenuItem>,
-    <MenuItem key={uuidv4()} value={'sans-serif'} style={{ fontSize: '14px' }}>
+    <MenuItem
+      key={uuidv4()}
+      value={'sans-serif'}
+      style={{ fontSize: '13px', width: '90%' }}
+    >
       Sans-serif
     </MenuItem>,
-    <MenuItem key={uuidv4()} value={'cursive'} style={{ fontSize: '14px' }}>
+    <MenuItem
+      key={uuidv4()}
+      value={'cursive'}
+      style={{ fontSize: '13px', width: '90%' }}
+    >
       Cursive
     </MenuItem>,
-    <MenuItem key={uuidv4()} value={'monospace'} style={{ fontSize: '14px' }}>
+    <MenuItem
+      key={uuidv4()}
+      value={'monospace'}
+      style={{ fontSize: '13px', width: '90%' }}
+    >
       Monospace
     </MenuItem>,
-    <MenuItem key={uuidv4()} value={'fangsong'} style={{ fontSize: '14px' }}>
+    <MenuItem
+      key={uuidv4()}
+      value={'fangsong'}
+      style={{ fontSize: '13px', width: '90%' }}
+    >
       Fangsong
     </MenuItem>,
   ]
 
   const textShadowMenu = [
-    <MenuItem key={uuidv4()} value={''} style={{ fontSize: '14px' }}>
+    <MenuItem
+      key={uuidv4()}
+      value={''}
+      style={{ fontSize: '13px', width: '90%' }}
+    >
       Default
     </MenuItem>,
     <MenuItem
       key={uuidv4()}
       value={'-2px 3px 0px black'}
-      style={{ fontSize: '14px' }}
+      style={{ fontSize: '13px', width: '90%' }}
     >
       Light
     </MenuItem>,
     <MenuItem
       key={uuidv4()}
       value={'-3px 3px 0px black'}
-      style={{ fontSize: '14px' }}
+      style={{ fontSize: '13px', width: '90%' }}
     >
       Medium
     </MenuItem>,
     <MenuItem
       key={uuidv4()}
       value={'-4px 3px 0px black'}
-      style={{ fontSize: '14px' }}
+      style={{ fontSize: '13px', width: '90%' }}
     >
       Strong
     </MenuItem>,
@@ -100,7 +124,7 @@ export const EditOptions = ({
           onChange={handleChange}
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}
-          style={{ fontSize: '14px' }}
+          style={{ fontSize: '14px', width: '120px' }}
         >
           {currMenu.map((menu) => menu)}
         </Select>

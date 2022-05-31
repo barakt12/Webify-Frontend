@@ -5,7 +5,6 @@ import MuiAccordion from '@mui/material/Accordion'
 import MuiAccordionSummary from '@mui/material/AccordionSummary'
 import MuiAccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
-import { useDispatch } from 'react-redux'
 
 const Accordion = styled((props) => (
   <MuiAccordion
@@ -62,7 +61,6 @@ export function FAQCmp({
   onSelectElement,
 }) {
   const [expanded, setExpanded] = React.useState('panel1')
-  const dispatch = useDispatch()
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false)

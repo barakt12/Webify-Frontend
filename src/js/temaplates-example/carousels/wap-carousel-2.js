@@ -6,7 +6,7 @@ export const wapCarousel2 = {
   name: 'wap-carousel-2',
   category: 'gallery',
   thumbnail: require('../../../assets/img/thumbnails/carousel/wap-carousel-2.jpg'),
-  category: 'carousel',
+  // category: 'carousel',
   themePalette: 'secondary',
   cmps: [
     {

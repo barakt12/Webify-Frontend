@@ -3,7 +3,7 @@ import { TxtCmp } from './txt-cmp'
 import { ImgCmp } from './img-cmp'
 import { FAQCmp } from './faq-cmp'
 import { BtnCmp } from './btn-cmp'
-import { CarosuelCmp } from './carousel-cmp'
+import { CarouselCmp } from './carousel-cmp'
 import { useLocation } from 'react-router'
 import { setSelectedElement } from '../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
@@ -86,7 +86,7 @@ export const DynamicCmp = (props) => {
       )
     case 'carosuel':
       return (
-        <CarosuelCmp
+        <CarouselCmp
           cmp={cmp}
           selectedElement={selectedElement}
           onHoverElement={onHoverElement}

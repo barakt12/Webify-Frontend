@@ -1,6 +1,5 @@
 .app-header {
-  padding: 0 176px;
-  // padding: 0 6.6%;
+  padding: 0 7.7%;
   position: relative;
   z-index: 5;
   height: 70px;
@@ -16,7 +15,42 @@
     line-height: 65px;
   }
 
+  .logout-icon {
+    display: flex;
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    .logout-svg {
+      font-size: 1.7rem;
+    }
+    &:hover {
+      background-color: rgb(221 221 221 / 36%);
+    }
+  }
   .navbar {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+
+    font-size: 2rem;
+  }
+  @media screen and (min-width: '1100px') {
+    .navbar {
+      display: flex;
+    }
+    .menu-icon {
+      display: none;
+    }
+  }
+  @media screen and (min-width: '1300px') {
+    padding: 0 176px;
+    .navbar {
+      font-size: 1.2rem;
+    }
   }
 }

@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { wapService } from '../../../../../services/wap-service'
-import { setWap, updateWap } from '../../../../../store/wap/wap.action'
+import { updateCmp } from '../../../../../store/wap/wap.action'
 
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft'
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter'
@@ -13,15 +12,11 @@ import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined'
 import { EditSlider } from './edit-slider'
 
 import { EditOptions } from './edit-options'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 export const TxtEditor = () => {
-  const _ = require('lodash')
   const dispatch = useDispatch()
-  const { wap, selectedElement } = useSelector(
-    (storeState) => storeState.wapModule
-  )
-  const [activeBtn, setActiveBtn] = useState('')
+  const { selectedElement } = useSelector((storeState) => storeState.wapModule)
 
   useEffect(() => {}, [selectedElement])
 
@@ -35,9 +30,8 @@ export const TxtEditor = () => {
       ...selectedElement.style,
       fontWeight: fontWeightType,
     }
-    const wapCopy = wapService.getWapCopy(wap)
-    wapService.updateCmp(wapCopy, selectedElement)
-    dispatch(updateWap(wapCopy))
+
+    dispatch(updateCmp(selectedElement))
   }
 
   const onChangeFontFormat = () => {
@@ -47,12 +41,8 @@ export const TxtEditor = () => {
       ...selectedElement.style,
       fontStyle: fontFormatType,
     }
-    const wapCopy = wapService.getWapCopy(wap)
-
-    wapService.updateCmp(wapCopy, selectedElement)
-    dispatch(updateWap(wapCopy))
+    dispatch(updateCmp(selectedElement))
   }
-
   const onChangeTextDeco = () => {
     const fontDecoType =
       selectedElement.style.textDecoration === 'underline'
@@ -62,20 +52,15 @@ export const TxtEditor = () => {
       ...selectedElement.style,
       textDecoration: fontDecoType,
     }
-    const wapCopy = wapService.getWapCopy(wap)
-
-    wapService.updateCmp(wapCopy, selectedElement)
-    dispatch(updateWap(wapCopy))
+    dispatch(updateCmp(selectedElement))
   }
 
   const onChangeStyling = (type, value) => {
     if (type === 'fontSize') value = `${value / 16}rem`
-    if (value === selectedElement.style.type) return
+    if (selectedElement.style && value === selectedElement.style[type]) return
     selectedElement.style = { ...selectedElement.style, [type]: value }
-    const wapCopy = wapService.getWapCopy(wap)
 
-    wapService.updateCmp(wapCopy, selectedElement)
-    dispatch(updateWap(wapCopy))
+    dispatch(updateCmp(selectedElement))
   }
 
   const currStyles = {

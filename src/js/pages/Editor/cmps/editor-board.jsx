@@ -18,6 +18,7 @@ export const EditorBoard = ({ wap }) => {
     if (isSaving) {
       saveWapWithThumbnail()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSaving])
 
   const saveWapWithThumbnail = async () => {
