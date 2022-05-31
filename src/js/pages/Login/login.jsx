@@ -27,12 +27,11 @@ export const Login = () => {
 
   useEffect(() => {
     function start() {
-      gapi.auth2.init({
+      gapi.client.init({
         clientId: clientId,
         scope: '',
       })
     }
-
     gapi.load('client:auth2', start)
   })
 

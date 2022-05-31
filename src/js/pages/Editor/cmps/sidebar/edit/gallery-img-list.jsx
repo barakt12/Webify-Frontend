@@ -1,6 +1,6 @@
 import { GalleryImgInput } from './gallery-img-input'
 import { wapService } from '../../../../../services/wap-service'
-import { setWap } from '../../../../../store/wap/wap.action'
+import { setWap, updateWap } from '../../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
 
 export function GalleryImgList({ cmp }) {
@@ -9,9 +9,9 @@ export function GalleryImgList({ cmp }) {
 
   const onChangeImg = (imgUrl, idx) => {
     cmp.info.images.splice(idx, 1, imgUrl)
-    console.log(cmp)
-    wapService.updateCmp(wap, cmp)
-    dispatch(setWap(wap))
+    const wapCopy = wapService.getWapCopy(wap)
+    wapService.updateCmp(wapCopy, cmp)
+    dispatch(updateWap(wapCopy))
   }
-  return cmp.info.images.map((img, idx) => <GalleryImgInput idx={idx} img={img} onChangeImg={onChangeImg} />)
+  return cmp.info.images.map((img, idx) => <GalleryImgInput key={idx} idx={idx} img={img} onChangeImg={onChangeImg} />)
 }

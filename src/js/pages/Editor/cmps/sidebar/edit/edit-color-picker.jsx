@@ -24,8 +24,10 @@ export const EditColorPicker = ({ isBackgroundColor }) => {
       ? { background: colorInput }
       : { color: colorInput }
     selectedElement.style = { ...selectedElement.style, ...newColor }
-    wapService.updateCmp(wap, selectedElement)
-    dispatch(updateWap(wap))
+    const wapCopy = wapService.getWapCopy(wap)
+
+    wapService.updateCmp(wapCopy, selectedElement)
+    dispatch(updateWap(wapCopy))
   }
 
   const debounce = _.debounce((colorInput) => onChangeColor(colorInput), 25)

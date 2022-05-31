@@ -17,17 +17,17 @@ export const wapService = {
   changeCmpId,
   saveToDraft,
   getDraft,
-  duplicateCmp
+  duplicateCmp,
+  getWapCopy,
 }
 
 function query(filterBy, sortBy) {
   // return storageService.query(STORAGE_KEY)
   const loggedUser = userService.getLoggedinUser()
-  return httpService.get(`wap/`, loggedUser.username)
+  return httpService.get(`wap/`, { email: loggedUser.email })
 }
 
 function getById(wapId) {
-  console.log(wapId)
   return httpService.get(`wap/${wapId}`)
 }
 async function remove(wapId) {
@@ -37,6 +37,10 @@ async function remove(wapId) {
   } catch (err) {
     console.log(err)
   }
+}
+
+function getWapCopy(wap) {
+  return JSON.parse(JSON.stringify(wap))
 }
 
 function deleteCmp(cmp, cmpId) {
@@ -51,15 +55,14 @@ function deleteCmp(cmp, cmpId) {
 
 function duplicateCmp(cmp, newCmp, cmpId) {
   const idx = cmp?.cmps?.findIndex((cmp) => cmp.id === cmpId)
-  if(idx> -1) {
+  if (idx > -1) {
     cmp.cmps.splice(idx, 0, newCmp)
     return
-  }
-  else {
-    cmp?.cmps?.forEach(cmp => duplicateCmp(cmp, newCmp, cmpId))
+  } else {
+    cmp?.cmps?.forEach((cmp) => duplicateCmp(cmp, newCmp, cmpId))
   }
 }
- 
+
 function updateCmp(cmp, newCmp) {
   const cmpIndex = cmp?.cmps?.findIndex((currCmp) => currCmp.id === newCmp.id)
   if (cmpIndex > -1) {

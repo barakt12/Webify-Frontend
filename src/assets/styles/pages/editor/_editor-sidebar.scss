@@ -50,7 +50,7 @@
 
 .editor-sidebar-container {
   @media screen and (min-width: '700px') {
-    width: 270px;
+    width: 352px;
   }
   font-size: 14px;
 }
@@ -220,7 +220,7 @@
   margin-left: 0%;
   transition: transform 0.3s;
   @media screen and (min-width: '700px') {
-    max-width: 250px;
+    // max-width: 250px;
     margin-left: unset;
   }
 }
@@ -300,6 +300,12 @@
       font-size: 1.8rem;
     }
   }
+}
+.save-publish {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-25%);
 }
 .sidebar-action-text {
   padding-top: 30px;
