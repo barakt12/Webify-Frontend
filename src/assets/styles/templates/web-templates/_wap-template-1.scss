@@ -9,6 +9,11 @@
   .nav-bar {
     display: flex;
     gap: 1rem;
+    img {
+      display: none;
+      height: 50px;
+      width: 50px;
+    }
   }
 }
 
@@ -158,4 +163,33 @@
 
 .wap-footer-2 > p:last-child {
   margin: 0;
+}
+
+@media (max-width: 800px) {
+  .wap-header-1 {
+    padding: 1rem 2.5rem;
+    .nav-bar {
+      & > p {
+        display: none;
+      }
+      img {
+        display: block;
+      }
+    }
+  }
+  .wap-hero-1{
+    padding: 2.5rem 2.5rem;
+  }
+  .wap-cards-1{
+    padding: 3rem 2.5rem;
+  }
+  .wap-text-1{
+    padding: 4rem 2.5rem 6rem;
+  }
+  .wap-faq-1{
+    padding: 3rem 2.5rem;
+  }
+  .wap-footer-2 {
+    flex-direction: column;
+  }
 }
