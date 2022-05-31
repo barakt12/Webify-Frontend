@@ -1,7 +1,7 @@
 .wap-header-2 {
   display: flex;
   justify-content: space-between;
-  padding: 1.8rem 4rem;
+  padding: 2rem 6%;
   align-items: center;
   color: white;
   background: linear-gradient(7deg, #dd1173, #350e47);
@@ -23,9 +23,10 @@
 
 .wap-hero-2 {
   display: flex;
+  align-items: center;
   position: relative;
   width: 100%;
-  height: 75vh;
+  min-height: 75vh;
   background: linear-gradient(135deg, #dd1173, #350e47);
   color: white;
   padding: 0 4rem;
@@ -35,18 +36,19 @@
     flex-direction: column;
     justify-content: center;
     z-index: 1;
-    position: absolute;
     height: 100%;
+    gap: 15px;
+
     .wap-hero-2-main-hero-header {
       padding-top: 20px;
       padding-bottom: 10px;
-      font-size: 10vh;
+      font-size: 5.75rem;
       line-height: 10vh;
       font-weight: 600;
       margin: 0;
     }
     .wap-hero-2-sec-hero-header {
-      font-size: 30px;
+      font-size: 1.875rem;
       line-height: 44px;
     }
     .wap-hero-2-hero-btn {
@@ -58,7 +60,7 @@
       transition: background-color 500ms cubic-bezier(0.789, 0.159, 0.25, 1),
         color 200ms cubic-bezier(0.789, 0.159, 0.25, 1);
       color: #fff;
-      font-size: 16px;
+      font-size: 1rem;
       line-height: 26px;
       font-weight: 600;
       text-align: center;
@@ -66,21 +68,15 @@
       padding-top: 20px;
     }
   }
-}
-.wap-hero-2-img-container {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 30px;
   .wap-hero-2-arrow-img-container {
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-    right: 0;
-    margin-bottom: 40px;
-
-    .wap-hero-2-arrow-img {
+    .img-container {
       width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
       animation: floating;
       animation-duration: 1.5s;
       animation-iteration-count: infinite;
@@ -89,27 +85,18 @@
   }
 }
 
-.wap-hero-2 {
-  .wap-hero-2-main-hero-header {
-    font-size: 5vh;
-    line-height: 5vh;
-  }
-  .wap-hero-2-sec-hero-header {
-    font-size: 20px;
-  }
-  .wap-hero-2-hero-btn {
-    button {
-      padding: 15px 30px;
-    }
-  }
-  .wap-hero-2-img-container {
-   & > .img-container {
-      height: 600px;
-      width: 550px;
-      .wap-hero-2-hero-img {
-        width: 100%;
-        height: 100%;
-      }
+.wap-hero-2-img-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 30px;
+
+  & > .img-container {
+    height: 600px;
+    width: 550px;
+    .wap-hero-2-hero-img {
+      width: 100%;
+      height: 100%;
     }
   }
 }
@@ -242,9 +229,20 @@
   background-size: cover, auto;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1280px) {
+  .wap-hero-2 {
+    flex-direction: column;
+    .wap-hero-2-img-container {
+      padding-bottom: 60px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 14px;
+  }
   .wap-header-2 {
-    padding-inline-end: 2vw;
     .nav-bar {
       display: none;
     }
@@ -260,43 +258,30 @@
     }
   }
   .wap-hero-2 {
+    padding: 2rem 2rem;
     .wap-hero-2-container {
-      .wap-hero-2-main-hero-header {
-        font-size: 3rem !important;
-        padding: 0px !important;
+      gap: unset;
+      & .wap-hero-2-main-hero-header {
+        font-size: 3.75rem;
+        padding-bottom: unset;
       }
-      .wap-hero-2-sec-hero-header {
-        font-size: 1.25rem !important;
+      & .wap-hero-2-sec-hero-header {
+        line-height: unset;
+        font-size: 1.175rem;
+        margin-bottom: 20px;
       }
-      .wap-hero-2-hero-btn{
-        font-size: 0.9rem !important;
-        width: 150px !important;
-        padding: 20px 20px !important;
-      }
-    }
-    .wap-hero-2-img-container {
-      & > .img-container {
-          width: 450px !important;
+
+      .wap-hero-2-hero-btn {
+        width: 150px;
+        padding: 20px 20px;
       }
     }
   }
 
-  .wap-cards-2-second {
-    flex-direction: column;
-  }
+  // .wap-cards-2-second {
+  //   flex-direction: column;
+  // }
 }
-
-// @media (max-width: 850px) {
-//   .wap-hero-2 {
-//     .wap-hero-2-img-container {
-//       div {
-//         img {
-//           padding-inline-end: -4vw;
-//         }
-//       }
-//     }
-//   }
-// }
 
 @keyframes floating {
   0% {
