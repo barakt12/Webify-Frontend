@@ -12,14 +12,13 @@ import { CarouselLgCmp } from './carousel-lg-cmp'
 import { VideoCmp } from './video-cmp'
 import { Gallery } from './gallery-cmp'
 import { FormCmp } from './form-cmp'
+import { PagingGallery } from './paging-gallery'
 
 export const DynamicCmp = (props) => {
   const { cmp } = props
   const dispatch = useDispatch()
   const location = useLocation()
-  const selectedElement = useSelector(
-    (storeState) => storeState.wapModule.selectedElement
-  )
+  const selectedElement = useSelector((storeState) => storeState.wapModule.selectedElement)
 
   const onHoverElement = (ev) => {
     ev.stopPropagation()
@@ -29,6 +28,7 @@ export const DynamicCmp = (props) => {
   }
 
   const onSelectElement = (ev, cmp) => {
+    console.log(cmp)
     ev.stopPropagation()
     if (location.pathname !== '/preview') {
       dispatch(setSelectedElement(cmp))
@@ -37,98 +37,29 @@ export const DynamicCmp = (props) => {
 
   switch (cmp.type) {
     case 'container':
-      return (
-        <ContainerCmp
-          {...props}
-          style={cmp.style}
-          onHoverElement={onHoverElement}
-          onSelectElement={onSelectElement}
-          selectedElement={selectedElement}
-        />
-      )
+      return <ContainerCmp {...props} style={cmp.style} onHoverElement={onHoverElement} onSelectElement={onSelectElement} selectedElement={selectedElement} />
     case 'txt':
-      return (
-        <TxtCmp
-          cmp={cmp}
-          selectedElement={selectedElement}
-          onHoverElement={onHoverElement}
-          onSelectElement={onSelectElement}
-        />
-      )
+      return <TxtCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     case 'icon':
       return <IconCmp {...cmp.info} />
     case 'img':
-      return (
-        <ImgCmp
-          cmp={cmp}
-          selectedElement={selectedElement}
-          onHoverElement={onHoverElement}
-          onSelectElement={onSelectElement}
-        />
-      )
+      return <ImgCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     case 'faq':
-      return (
-        <FAQCmp
-          cmp={cmp}
-          selectedElement={selectedElement}
-          onHoverElement={onHoverElement}
-          onSelectElement={onSelectElement}
-        />
-      )
+      return <FAQCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     case 'btn':
-      return (
-        <BtnCmp
-          cmp={cmp}
-          selectedElement={selectedElement}
-          onHoverElement={onHoverElement}
-          onSelectElement={onSelectElement}
-        />
-      )
+      return <BtnCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     case 'carosuel':
-      return (
-        <CarouselCmp
-          cmp={cmp}
-          selectedElement={selectedElement}
-          onHoverElement={onHoverElement}
-          onSelectElement={onSelectElement}
-        />
-      )
+      return <CarouselCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     case 'carousel-lg':
-      return (
-        <CarouselLgCmp
-          cmp={cmp}
-          selectedElement={selectedElement}
-          onHoverElement={onHoverElement}
-          onSelectElement={onSelectElement}
-        />
-      )
+      return <CarouselLgCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     case 'video':
-      return (
-        <VideoCmp
-          cmp={cmp}
-          selectedElement={selectedElement}
-          onHoverElement={onHoverElement}
-          onSelectElement={onSelectElement}
-        />
-      )
+      return <VideoCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     case 'gallery-grid':
-      return (
-        <Gallery
-          cmp={cmp}
-          selectedElement={selectedElement}
-          onHoverElement={onHoverElement}
-          onSelectElement={onSelectElement}
-        />
-      )
+      return <Gallery cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
+    case 'paging-gallery':
+      return <PagingGallery cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     case 'form':
-      return (
-        <FormCmp
-          cmp={cmp}
-          selectedElement={selectedElement}
-          onHoverElement={onHoverElement}
-          onSelectElement={onSelectElement}
-        />
-      )
+      return <FormCmp cmp={cmp} selectedElement={selectedElement} onHoverElement={onHoverElement} onSelectElement={onSelectElement} />
     default:
       return
   }

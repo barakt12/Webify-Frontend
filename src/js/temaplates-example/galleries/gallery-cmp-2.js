@@ -19,8 +19,7 @@ export const galleryCmp2 = {
       },
     },
     {
-      type: 'gallery-paged-slider',
-      name: 'gallery',
+      type: 'paging-gallery',
       id: uuidv4(),
       info: {
         images: [

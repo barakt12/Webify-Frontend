@@ -12,11 +12,22 @@
 
     .logo {
         letter-spacing: 0.05rem;
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+
+        img {
+            width: 150px;
+        }
+
+        p {
+            position: relative;
+            top: -60px;
+            left: -5px;
+        }
     }
 
     .nav-bar {
         display: flex;
+        font-size: 1.3rem;
         gap: 80px;
     }
 }
@@ -90,6 +101,7 @@
     color: #414141;
     font-size: 2rem;
     text-align: center;
+    padding-bottom: 5rem;
     p {
         padding: 5rem;
     }
