@@ -26,10 +26,21 @@ export function Cards() {
       <div className='cards-bg-wave'>
         {' '}
         <div className='cards-right-wisp'></div>
-        <h2>
-          Introducing <span>Webify</span>
-        </h2>
+        <h1>Introducing</h1>
+        <h1>webify</h1>
         <div className='line'></div>
+        <div className='cards card1'>
+          <div className='card-number-circle'>1</div>
+          <div className='cards-left-box-1-container'>
+            <h3>Hello text 1</h3>
+          </div>
+          <div className='cards-right-box-1-container'>
+            <div className='card-right-box-1'></div>
+          </div>
+        </div>
+        <div className='cards card2'>
+          <div className='card-number-circle'>2</div>
+        </div>
       </div>
     </div>
   )

@@ -7,7 +7,9 @@ export const CardCmp5 = {
   category: 'cards',
   id: uuidv4(),
   thumbnail: require('../../../assets/img/thumbnails/gallery/wap-gallery-5.JPG'),
-  style: {},
+  style: {
+    backgroundColor: '#fff',
+  },
   cmps: [
     {
       type: 'txt',
