@@ -105,7 +105,7 @@ export const saveWap = () => {
     try {
       const wapToSave = getState().wapModule.wap
       const user = getState().userModule.user
-      wapToSave.createdBy = user.username
+      wapToSave.createdBy = user.email
       const wapWithId = await wapService.save(wapToSave, user)
       dispatch({ type: 'SET_WAP', wap: wapWithId })
     } catch (err) {

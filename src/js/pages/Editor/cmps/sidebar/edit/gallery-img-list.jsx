@@ -13,5 +13,5 @@ export function GalleryImgList({ cmp }) {
     wapService.updateCmp(wapCopy, cmp)
     dispatch(updateWap(wapCopy))
   }
-  return cmp.info.images.map((img, idx) => <GalleryImgInput idx={idx} img={img} onChangeImg={onChangeImg} />)
+  return cmp.info.images.map((img, idx) => <GalleryImgInput key={idx} idx={idx} img={img} onChangeImg={onChangeImg} />)
 }
