@@ -14,7 +14,7 @@ export const EditSlider = ({
 
   if (isFontSize) {
     minVal = 10
-    maxVal = 60
+    maxVal = 72
     currValue = selectedElement?.style?.fontSize
       ? +selectedElement?.style?.fontSize.replace('rem', '') * 16
       : null
@@ -37,6 +37,7 @@ export const EditSlider = ({
         valueLabelDisplay='auto'
         min={minVal}
         max={maxVal}
+        sx={{ color: '#aedff9' }}
       />
     </Box>
   )

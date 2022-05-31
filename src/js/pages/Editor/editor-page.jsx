@@ -1,6 +1,6 @@
 import { EditorSidebar } from './cmps/sidebar/editor-sidebar'
 import { EditorBoard } from './cmps/editor-board'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { templateService } from '../../services/templates.service'
@@ -20,6 +20,7 @@ export function Editor() {
     return () => {
       dispatch(setSelectedElement(null))
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const getDraft = async () => {
@@ -48,11 +49,9 @@ export function Editor() {
     cmp = JSON.parse(JSON.stringify(cmp))
     cmp.id = uuidv4()
     wapService.changeCmpId(cmp)
-    // setPageContent((prevState) => {
     const newState = JSON.parse(JSON.stringify(wap))
     newState.cmps.splice(result.destination.index, 0, cmp)
     dispatch(updateWap(newState))
-    // })
   }
 
   const handleDragEnd = async (result) => {
@@ -65,7 +64,6 @@ export function Editor() {
 
     const content = reorder(wap.cmps, result.source.index, result.destination.index)
     if (content) {
-      // setPageContent((prevState) => ({ ...prevState, cmps: content }))
       dispatch(updateWap({ ...wap, cmps: content }))
     }
   }

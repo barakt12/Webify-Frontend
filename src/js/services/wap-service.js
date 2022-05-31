@@ -1,10 +1,8 @@
 import { v4 as uuidv4 } from 'uuid'
 import { storageService } from './async-storage.service.js'
 import { httpService } from './http.service.js'
-// import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-const STORAGE_KEY = 'wap'
 const STORAGE_DRAFT_KEY = 'draftWap'
 export const wapService = {
   query,
@@ -51,6 +49,7 @@ function deleteCmp(cmp, cmpId) {
   } else {
     cmp?.cmps?.forEach((cmp) => deleteCmp(cmp, cmpId))
   }
+  
 }
 
 function duplicateCmp(cmp, newCmp, cmpId) {

@@ -15,7 +15,7 @@ export const wapHero1 = {
       type: 'txt',
       id: uuidv4(),
       info: {
-        txt: 'Unlimited Webflow Design for Startups',
+        txt: 'Unlimited Techflow Design for Startups',
       },
       style: {
         fontSize: '3rem',

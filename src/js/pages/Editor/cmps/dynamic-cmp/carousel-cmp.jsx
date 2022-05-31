@@ -3,14 +3,18 @@ import { useTheme } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import MobileStepper from '@mui/material/MobileStepper'
 import Paper from '@mui/material/Paper'
-import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import SwipeableViews from 'react-swipeable-views'
 import { autoPlay } from 'react-swipeable-views-utils'
 
-export const CarosuelCmp = ({ cmp, onHoverElement, selectedElement, onSelectElement }) => {
+export const CarouselCmp = ({
+  cmp,
+  onHoverElement,
+  selectedElement,
+  onSelectElement,
+}) => {
   const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
 
   //must get label: and imgPath
@@ -38,7 +42,9 @@ export const CarosuelCmp = ({ cmp, onHoverElement, selectedElement, onSelectElem
       sx={{ maxWidth: 500, minWidth: 250 }}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverElement(ev)}
-      className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
+      className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${
+        cmp.name
+      }`}
       onClick={(ev) => onSelectElement(ev, cmp)}
     >
       <Paper
@@ -55,12 +61,17 @@ export const CarosuelCmp = ({ cmp, onHoverElement, selectedElement, onSelectElem
       >
         {/* <Typography>{images[activeStep].label}</Typography> */}
       </Paper>
-      <AutoPlaySwipeableViews axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'} index={activeStep} onChangeIndex={handleStepChange} enableMouseEvents>
+      <AutoPlaySwipeableViews
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={activeStep}
+        onChangeIndex={handleStepChange}
+        enableMouseEvents
+      >
         {images.map((step, index) => (
           <div key={step.label}>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
-                component="img"
+                component='img'
                 sx={{
                   height: 255,
                   display: 'block',
@@ -78,21 +89,39 @@ export const CarosuelCmp = ({ cmp, onHoverElement, selectedElement, onSelectElem
       </AutoPlaySwipeableViews>
       <MobileStepper
         steps={maxSteps}
-        position="static"
+        position='static'
         activeStep={activeStep}
         sx={{
           bgcolor: '#1b1b1b',
           color: 'white',
         }}
         nextButton={
-          <Button size="small" onClick={handleNext} style={{ color: 'white' }} disabled={activeStep === maxSteps - 1}>
+          <Button
+            size='small'
+            onClick={handleNext}
+            style={{ color: 'white' }}
+            disabled={activeStep === maxSteps - 1}
+          >
             Next
-            {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+            {theme.direction === 'rtl' ? (
+              <KeyboardArrowLeft />
+            ) : (
+              <KeyboardArrowRight />
+            )}
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} style={{ color: 'white' }} disabled={activeStep === 0}>
-            {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+          <Button
+            size='small'
+            onClick={handleBack}
+            style={{ color: 'white' }}
+            disabled={activeStep === 0}
+          >
+            {theme.direction === 'rtl' ? (
+              <KeyboardArrowRight />
+            ) : (
+              <KeyboardArrowLeft />
+            )}
             Back
           </Button>
         }

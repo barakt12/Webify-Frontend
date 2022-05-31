@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import ColorizeIcon from '@mui/icons-material/Colorize'
 import { useDispatch, useSelector } from 'react-redux'
-import { wapService } from '../../../../../services/wap-service'
-import { updateWap } from '../../../../../store/wap/wap.action'
+import { updateCmp } from '../../../../../store/wap/wap.action'
 import _ from 'lodash'
 
 export const EditColorPicker = ({ isBackgroundColor }) => {
@@ -12,22 +11,17 @@ export const EditColorPicker = ({ isBackgroundColor }) => {
     background: '#FFFFFF',
   })
   const dispatch = useDispatch()
-  const { wap, selectedElement } = useSelector(
-    (storeState) => storeState.wapModule
-  )
+  const { selectedElement } = useSelector((storeState) => storeState.wapModule)
 
   const onChangeColor = (colorInput) => {
-    console.log('change color')
     setColor((prevState) => ({ ...prevState, background: colorInput }))
     if (!selectedElement) return
     const newColor = isBackgroundColor
       ? { background: colorInput }
       : { color: colorInput }
     selectedElement.style = { ...selectedElement.style, ...newColor }
-    const wapCopy = wapService.getWapCopy(wap)
 
-    wapService.updateCmp(wapCopy, selectedElement)
-    dispatch(updateWap(wapCopy))
+    dispatch(updateCmp(selectedElement))
   }
 
   const debounce = _.debounce((colorInput) => onChangeColor(colorInput), 25)

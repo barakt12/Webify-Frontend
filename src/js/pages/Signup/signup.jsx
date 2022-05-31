@@ -19,6 +19,7 @@ export const SignUp = () => {
 
   const navigate = useNavigate()
 
+  // eslint-disable-next-line no-unused-vars
   const [credentials, setCredentials] = useState({
     username: '',
     email: '',

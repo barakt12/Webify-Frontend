@@ -1,4 +1,4 @@
-const initial_state = {
+const initialState = {
   wap: { cmps: [] },
   selectedElement: null,
   displaySize: '100%',
@@ -6,21 +6,20 @@ const initial_state = {
   history: [],
 }
 
-export function wapReducer(state = initial_state, action) {
+export function wapReducer(state = initialState, action) {
   switch (action.type) {
     case 'SET_WAP':
-      console.log('set wap on reducer')
       return {
-        ...state,
+        ...initialState,
         wap: { ...action.wap },
-        history: [],
+        savedWaps: state.savedWaps,
       }
 
     case 'UPDATE_WAP':
       return {
         ...state,
         wap: { ...action.wap },
-        history: [...state.history, action.lastWapState],
+        history: [...state.history, state.wap],
       }
     case 'UNDO_WAP':
       return {
@@ -28,10 +27,9 @@ export function wapReducer(state = initial_state, action) {
         wap: { ...action.wap },
         history: [...action.history],
       }
-    // case 'RESET_HISTORY':
-    //   return { ...state, history: [action.wap] }
     case 'SET_SAVED_WAPS':
       return { ...state, savedWaps: action.savedWaps }
+
     case 'REMOVE_WAP':
       return {
         ...state,
@@ -39,8 +37,10 @@ export function wapReducer(state = initial_state, action) {
       }
     case 'SET_THUMBNAIL':
       return { ...state, wap: { ...state.wap, thumbnail: action.imgData } }
+
     case 'SET_ELEMENT':
       return { ...state, selectedElement: { ...action.cmp } }
+      
     case 'SET_DISPLAY_SIZE':
       return { ...state, displaySize: action.displaySize }
     default:
