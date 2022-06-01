@@ -11,6 +11,9 @@ header {
   color: $main-color;
   // box-shadow: 0 1px 5px 0 rgb(41 85 115 / 21%);
 
+  &.in-editor {
+    padding: 0 5rem;
+  }
   &.header-nav-menu-open {
     background-color: rgb(61, 73, 110);
     // color: rgb(203 231 242);
@@ -89,6 +92,14 @@ header {
   }
 
   @media screen and (min-width: '1200px') {
+    &.header-nav-menu-open {
+      background-color: unset;
+      color: $main-color;
+      .logo {
+        // color: rgb(203 231 242);
+        color: $main-color;
+      }
+    }
     & {
       padding: 0 280px;
       .navbar {

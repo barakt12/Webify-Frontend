@@ -177,11 +177,15 @@ export const publishWap = () => {
   return async (dispatch, getState) => {
     try {
       const { wap } = getState().wapModule
-      await wapService.publishWap(wap._id)
-      console.log(`localhost:3000/publish/${wap._id}`)
-      dispatch({ type: 'PUBLISH_WAP' })
+      const user = getState().userModule.user
+
+      wap.createdBy = user.email
+
+      const publishedWap = await wapService.publishWap(wap)
+      console.log(publishedWap)
+      dispatch({ type: 'SET_WAP', wap: publishedWap })
     } catch (err) {
-      console.log(err)
+      throw err
     }
   }
 }
