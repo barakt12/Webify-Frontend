@@ -9,6 +9,7 @@ export const HeroCmp5 = {
   thumbnail: require('../../../assets/img/thumbnails/hero/wap-hero-5.JPG'),
   style: {
     color: 'white',
+    textShadow: '-2px 3px #00000082',
   },
   cmps: [
     {
