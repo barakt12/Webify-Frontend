@@ -45,8 +45,7 @@ export function wapReducer(state = initialState, action) {
       return { ...state, displaySize: action.displaySize }
     case 'SET_WORKING_STATE':
       return { ...state, isCollabMode: action.isCollabMode }
-    case 'PUBLISH_WAP':
-      return { ...state, wap: { ...state.wap, isPublished: true } }
+
     default:
       return state
   }

@@ -20,7 +20,7 @@ export function Editor() {
   const params = useParams()
 
   useEffect(() => {
-    if (!wap?.cmps?.length) {
+    if (!wap) {
       getDraft()
     }
     //checking work together state
@@ -28,7 +28,9 @@ export function Editor() {
       const editorId = params.editorId
       socketService.setup()
       socketService.emit('wap connection', editorId)
-      socketService.on('get wap', () => {(wap) && socketService.emit('wap update', wap)})
+      socketService.on('get wap', () => {
+        wap && socketService.emit('wap update', wap)
+      })
       socketService.on('wap update', (newWap) => dispatch(setWap(newWap)))
     }
     return () => {
@@ -110,7 +112,7 @@ export function Editor() {
   }
 
   return (
-    <section className="editor-container">
+    <section className='editor-container'>
       <DragDropContext onDragEnd={handleDragEnd}>
         <EditorSidebar />
         <EditorBoard wap={wap} getItemStyle={getItemStyle} />

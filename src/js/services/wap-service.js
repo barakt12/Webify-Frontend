@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
+import { wapFAQ1 } from '../temaplates-example/faqs/wap-faq-1.js'
 import { storageService } from './async-storage.service.js'
 import { httpService } from './http.service.js'
 import { userService } from './user.service.js'
@@ -126,9 +127,11 @@ async function addSubscriberDetails(wapId, details) {
   if (!wapId) return
   return await httpService.put(`wap/${wapId}/newSubscriber`, details)
 }
-async function publishWap(wapId) {
-  if (!wapId) return
-  return await httpService.put(`wap/${wapId}/publish`)
+async function publishWap(wap) {
+  return await httpService.post(`wap/publish`, wap)
+  // return await httpService.put(`wap/${wap._id}/publish`)
+  // else {
+  // }
 }
 
 function increaseViewCount(wapId) {
