@@ -1,7 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export function GalleryImgInput({ img, onChangeImg, idx }) {
   const [imgUrl, setImgUrl] = useState(img)
+
+  useEffect(() => {
+    setImgUrl(img)
+  }, [img])
 
   const handleChange = (ev) => {
     setImgUrl(ev.target.value)
@@ -9,7 +13,7 @@ export function GalleryImgInput({ img, onChangeImg, idx }) {
   }
 
   return (
-    <div className="gallery-img-input-container">
+    <div className="img-input-container">
       <input type="text" value={imgUrl} onChange={handleChange} />
       <img src={imgUrl} alt="" />
     </div>
