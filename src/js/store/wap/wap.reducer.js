@@ -37,7 +37,7 @@ export function wapReducer(state = initialState, action) {
     case 'SET_THUMBNAIL':
       return { ...state, wap: { ...state.wap, thumbnail: action.imgData } }
 
-    case 'SET_ELEMENT':
+    case 'SET_CMP':
       return { ...state, selectedCmp: { ...action.cmp } }
 
     case 'SET_DISPLAY_SIZE':

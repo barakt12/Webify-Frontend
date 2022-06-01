@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 export const setSelectedCmp = (cmp) => {
   return (dispatch) => {
-    dispatch({ type: 'SET_ELEMENT', cmp })
+    dispatch({ type: 'SET_CMP', cmp })
   }
 }
 
