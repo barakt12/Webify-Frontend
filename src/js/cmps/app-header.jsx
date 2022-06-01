@@ -24,7 +24,7 @@ export const AppHeader = () => {
   return (
     <>
       {location.pathname !== '/preview' && !location.pathname.includes('/publish') && (
-        <header>
+        <header  className={(location.pathname === '/') ? 'fixed' : ''}>
           <div className={isNavMenuShown ? 'header-nav-menu-open app-header flex justify-between align-center' : 'app-header flex justify-between align-center'}>
             <Link to="/" className="clean-link logo">
               <p className="logo">webify</p>

@@ -8,21 +8,38 @@ import { v4 as uuidv4 } from 'uuid'
 import { useDispatch } from 'react-redux'
 import { setWap, setSelectedCmp, updateWap } from '../../store/wap/wap.action'
 import { wapService } from '../../services/wap-service'
+import { socketService } from '../../services/socket.service'
+import { useLocation,useParams } from 'react-router-dom'
 
 export function Editor() {
-  const wap = useSelector((storeState) => storeState.wapModule.wap)
+  const {wap, isCollabMode} = useSelector((storeState) => storeState.wapModule)
   const dispatch = useDispatch()
+  const location = useLocation()
+  const params = useParams()
 
   useEffect(() => {
     if (!wap) {
       console.log('hi', wap)
       getDraft()
     }
+    //checking work together state
+    if(params.editorId){
+      console.log('work together mode',location.pathname)
+      const editorId = params.editorId
+      socketService.setup()
+      socketService.emit('wap connection', editorId)
+      socketService.on('get wap', () => { (wap.cmps.length) && socketService.emit('wap update',wap)})
+      socketService.on('wap update',(newWap) => dispatch(setWap(newWap)))
+    }
     return () => {
       dispatch(setSelectedCmp(null))
+      socketService.off('get wap')
+      socketService.off('send wap')
+      socketService.off('wap update')
+      socketService.terminate()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [isCollabMode])
 
   // const copy = (source, destination, droppableSource, droppableDestination) => {
   //   const sourceClone = Array.from(source)

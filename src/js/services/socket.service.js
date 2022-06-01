@@ -7,6 +7,8 @@ export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added'
 export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you'
 
+export const SOCKET_EMIT_WAP_UPDATE = 'wap update'
+
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
@@ -41,9 +43,11 @@ function createSocketService() {
       socket.emit(eventName, data)
     },
     login(userId) {
+      console.log('login',userId)
       socket.emit(SOCKET_EMIT_LOGIN, userId)
     },
     logout() {
+      console.log('logout')
       socket.emit(SOCKET_EMIT_LOGOUT)
     },
     terminate() {
