@@ -6,37 +6,56 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { templateService } from '../../services/templates.service'
 import { v4 as uuidv4 } from 'uuid'
 import { useDispatch } from 'react-redux'
-import { setWap, setSelectedCmp, updateWap } from '../../store/wap/wap.action'
+import { setWap, updateWap, setSelectedCmp } from '../../store/wap/wap.action'
 import { wapService } from '../../services/wap-service'
+import { socketService } from '../../services/socket.service'
+import { useLocation, useParams } from 'react-router-dom'
 
 export function Editor() {
-  const wap = useSelector((storeState) => storeState.wapModule.wap)
+  const { wap, isCollabMode } = useSelector(
+    (storeState) => storeState.wapModule
+  )
   const dispatch = useDispatch()
+  const location = useLocation()
+  const params = useParams()
 
   useEffect(() => {
-    if (!wap) {
-      console.log('hi', wap)
+    if (!wap?.cmps?.length) {
       getDraft()
+    }
+    //checking work together state
+    if (params.editorId) {
+      const editorId = params.editorId
+      socketService.setup()
+      socketService.emit('wap connection', editorId)
+      socketService.on('get wap', () => {(wap) && socketService.emit('wap update', wap)})
+      socketService.on('wap update', (newWap) => dispatch(setWap(newWap)))
     }
     return () => {
       dispatch(setSelectedCmp(null))
+      socketService.off('get wap')
+      socketService.off('send wap')
+      socketService.off('wap update')
+      socketService.terminate()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [isCollabMode])
 
-  // const copy = (source, destination, droppableSource, droppableDestination) => {
-  //   const sourceClone = Array.from(source)
-  //   const destClone = Array.from(destination)
-  //   const cmp = sourceClone[droppableSource.index]
+  const copy = (source, destination, droppableSource, droppableDestination) => {
+    const sourceClone = Array.from(source)
+    const destClone = Array.from(destination)
+    const cmp = sourceClone[droppableSource.index]
 
-  //   destClone.splice(droppableDestination.index, 0, { ...cmp, id: uuidv4() })
-  //   return destClone
-  // }
+    destClone.splice(droppableDestination.index, 0, { ...cmp, id: uuidv4() })
+    return destClone
+  }
 
   const getDraft = async () => {
     const draft = await wapService.getDraft()
-    console.log(draft)
-    dispatch(setWap(draft[0]))
+    if (draft[0]?.cmps?.length) {
+      delete draft[0]._id
+      dispatch(setWap(draft[0]))
+    }
   }
 
   const reorder = (list, startIndex, endIndex) => {
@@ -91,7 +110,7 @@ export function Editor() {
   }
 
   return (
-    <section className='editor-container'>
+    <section className="editor-container">
       <DragDropContext onDragEnd={handleDragEnd}>
         <EditorSidebar />
         <EditorBoard wap={wap} getItemStyle={getItemStyle} />

@@ -1,11 +1,11 @@
 import { Home } from './js/pages/Home/home.jsx'
 import { Editor } from './js/pages/Editor/editor-page.jsx'
-import { Profile } from './js/pages/Profile/profile.jsx'
 import { Templates } from './js/pages/Templates/templates-page'
 import { Publish } from './js/pages/Publish/publish.jsx'
 import { Preview } from './js/pages/Preview/preview.jsx'
 import { Login } from './js/pages/Login/login.jsx'
 import { SignUp } from './js/pages/Signup/signup.jsx'
+import { Dashboard } from './js/pages/Dashboard/dashboard.jsx'
 
 export const routes = [
   {
@@ -25,15 +25,15 @@ export const routes = [
     component: Publish,
   },
   {
-    path: '/profile',
-    component: Profile,
+    path: '/dashboard',
+    component: Dashboard,
   },
   {
     path: '/templates',
     component: Templates,
   },
   {
-    path: '/editor/:wapId',
+    path: '/editor/:editorId',
     component: Editor,
   },
   {
