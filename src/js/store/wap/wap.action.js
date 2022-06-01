@@ -1,5 +1,6 @@
 import { templateService } from '../../services/templates.service'
 import { wapService } from '../../services/wap-service.js'
+import { socketService } from '../../services/socket.service'
 // import { userService } from '../../services/user.service'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -49,6 +50,7 @@ export const updateCmp = (updatedCmp) => {
       let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
       wapService.updateCmp(wap, updatedCmp)
       await dispatch({ type: 'UPDATE_WAP', wap })
+      socketService.emit('wap update', wap)
     } catch (err) {
       throw err
     }
@@ -60,6 +62,7 @@ export const updateWap = (wap) => {
     try {
       dispatch({ type: 'UPDATE_WAP', wap })
       await wapService.saveToDraft(wap)
+      socketService.emit('wap update', wap)
     } catch (err) {
       throw err
     }
@@ -94,6 +97,7 @@ export const undoWap = () => {
         let lastWapState = history.pop()
         wapService.saveToDraft(lastWapState)
         dispatch({ type: 'UNDO_WAP', wap: lastWapState, history })
+        socketService.emit('wap update', lastWapState)
       }
     } catch (err) {
       throw err
@@ -150,6 +154,15 @@ export const selectWap = (id) => {
         (wap) => wap._id === id
       )
       dispatch({ type: 'SET_WAP', wap: selectedWap })
+    } catch (err) {}
+  }
+}
+
+
+export const setCollabMode = () => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: 'SET_WORKING_STATE', isCollabMode: true })
     } catch (err) {}
   }
 }

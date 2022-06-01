@@ -38,7 +38,7 @@ export const routes = [
     component: Templates,
   },
   {
-    path: '/editor/:wapId',
+    path: '/editor/:editorId',
     component: Editor,
   },
   {

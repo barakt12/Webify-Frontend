@@ -4,6 +4,7 @@ const initialState = {
   displaySize: '100%',
   savedWaps: null,
   history: [],
+  isCollabMode: null
 }
 
 export function wapReducer(state = initialState, action) {
@@ -43,6 +44,8 @@ export function wapReducer(state = initialState, action) {
       
     case 'SET_DISPLAY_SIZE':
       return { ...state, displaySize: action.displaySize }
+    case 'SET_WORKING_STATE':
+      return { ...state, isCollabMode: action.isCollabMode }
     default:
       return state
   }
