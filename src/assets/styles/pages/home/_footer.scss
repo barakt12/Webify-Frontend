@@ -1,0 +1,82 @@
+.app-footer {
+    background-color: #cbe7f2;
+    .upper-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 370px;
+        width: 100%;
+        background-image: url('../../../img/illustrations/wave4.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: Pensum;
+        color: #fff;
+        padding-top: 3rem;
+
+        h2 {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        p {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+
+        }
+
+        button {
+            background-color: #cbe7f2;
+            color: #3d496e;
+            border: 0;
+            outline: 0;
+            width: 260px;
+            height: 45px;
+            border-radius: 5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #e6f6fc;
+            }
+        }
+
+        @media screen and (min-width:1000px) {
+            height: 550px;
+
+            h2 {
+                font-size: 2.8rem;
+            }
+        }
+    }
+
+    .lower-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        color: #fff;
+    background-color: #3d496e;
+
+
+
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            .logo {
+                font-family: Pensum;
+                font-size: 1.3rem;
+            }
+
+            hr {
+                height: 20px;
+                border-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
+}
