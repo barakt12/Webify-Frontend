@@ -8,5 +8,10 @@ export function GalleryImgInput({ img, onChangeImg, idx }) {
     onChangeImg(ev.target.value, idx)
   }
 
-  return <input type="text" value={imgUrl} onChange={handleChange} />
+  return (
+    <div className="gallery-img-input-container">
+      <input type="text" value={imgUrl} onChange={handleChange} />
+      <img src={imgUrl} alt="" />
+    </div>
+  )
 }

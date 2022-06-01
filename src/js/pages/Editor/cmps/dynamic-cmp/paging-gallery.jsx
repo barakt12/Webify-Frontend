@@ -18,19 +18,19 @@ export function PagingGallery({ cmp, onHoverElement, selectedElement, onSelectEl
         onMouseOver={(ev) => onHoverElement(ev)}
         onClick={(ev) => onSelectElement(ev, cmp)}
       >
+        <svg
+          onClick={() => {
+            adjustImgIdx(-1)
+          }}
+          className="slideshow-arrow left"
+          width="23"
+          height="39"
+          viewBox="0 0 23 39"
+          style={{ transform: 'scaleX(-1) scale(1.08696)' }}
+        >
+          <path d="M857.005,231.479L858.5,230l18.124,18-18.127,18-1.49-1.48L873.638,248Z" transform="translate(-855 -230)"></path>
+        </svg>
         <div className="img-container">
-          <svg
-            onClick={() => {
-              adjustImgIdx(-1)
-            }}
-            className="slideshow-arrow left"
-            width="23"
-            height="39"
-            viewBox="0 0 23 39"
-            style={{ transform: 'scaleX(-1) scale(1.08696)' }}
-          >
-            <path d="M857.005,231.479L858.5,230l18.124,18-18.127,18-1.49-1.48L873.638,248Z" transform="translate(-855 -230)"></path>
-          </svg>
           <img src={imgLinks[currImg === 0 ? imgLinks.length - 1 : currImg - 1]} />
         </div>
         <div className="img-container">
@@ -38,18 +38,18 @@ export function PagingGallery({ cmp, onHoverElement, selectedElement, onSelectEl
         </div>
         <div className="img-container">
           <img src={imgLinks[currImg === imgLinks.length - 1 ? 0 : currImg + 1]} />
-          <svg
-            onClick={() => {
-              adjustImgIdx(1)
-            }}
-            className="slideshow-arrow right"
-            width="23"
-            height="39"
-            viewBox="0 0 23 39"
-          >
-            <path d="M857.005,231.479L858.5,230l18.124,18-18.127,18-1.49-1.48L873.638,248Z" transform="translate(-855 -230)"></path>
-          </svg>
         </div>
+        <svg
+          onClick={() => {
+            adjustImgIdx(1)
+          }}
+          className="slideshow-arrow right"
+          width="23"
+          height="39"
+          viewBox="0 0 23 39"
+        >
+          <path d="M857.005,231.479L858.5,230l18.124,18-18.127,18-1.49-1.48L873.638,248Z" transform="translate(-855 -230)"></path>
+        </svg>
       </div>
     </div>
   )

@@ -60,18 +60,18 @@ export const templateService = {
   getTemplateById,
 }
 
-const wapTemplates = [wapTemplate1, wapTemplate2, wapTemplate3,wapTemplate4, wapTemplate5]
+const wapTemplates = [wapTemplate1, wapTemplate2, wapTemplate3, wapTemplate4, wapTemplate5]
 
 const mapCmpByCategory = {
   header: [headerWap1, headerWap2, headerWap3, headerCmp4, headerCmp5],
   hero: [wapHero1, wapHero2, heroCmp4, HeroCmp5],
   card: [wapCards1, CardCmp5, SecondCardCmp5, ThirdCardCmp5],
-  section: [wapSection1, wapSection2,sectionCmp3, SectionCmp5],
+  section: [wapSection1, wapSection2, sectionCmp3, SectionCmp5],
   gallery: [wapCarousel1, wapCarousel2, wapGallery1, galleryCmp2],
   text: [wapText1],
   video: [wapVideo1],
   form: [wapContact1, formCmp3],
-  footer: [wapFooter1, wapFooter2, wapFooter3,footerCmp4, footerCmp5]
+  footer: [wapFooter1, wapFooter2, wapFooter3, footerCmp4, footerCmp5],
 }
 
 function getCmpsByCategory(category) {
@@ -95,5 +95,6 @@ function getCmpById(id) {
 }
 
 function getTemplateById(id) {
+  if (id === 'blank') return { cmps: [] }
   return wapTemplates.find((template) => template._id === id)
 }
