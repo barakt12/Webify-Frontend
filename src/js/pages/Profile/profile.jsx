@@ -22,7 +22,7 @@ export const Profile = () => {
   }
 
   return (
-    <>
+    <section className='main-template-container'>
       {/* <div className="template-page-intro">
         <h2>Select a Template</h2>
       </div> */}
@@ -68,6 +68,6 @@ export const Profile = () => {
           ))}
         </section>
       </section>
-    </>
+    </section>
   )
 }
