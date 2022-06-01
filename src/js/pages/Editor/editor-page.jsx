@@ -23,6 +23,15 @@ export function Editor() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const copy = (source, destination, droppableSource, droppableDestination) => {
+    const sourceClone = Array.from(source);
+    const destClone = Array.from(destination);
+    const cmp = sourceClone[droppableSource.index];
+
+    destClone.splice(droppableDestination.index, 0, { ...cmp, id: uuidv4() });
+    return destClone;
+};
+
   const getDraft = async () => {
     const draft = await wapService.getDraft()
     if (draft[0]?.cmps?.length) {
@@ -53,11 +62,19 @@ export function Editor() {
     newState.cmps.splice(result.destination.index, 0, cmp)
     dispatch(updateWap(newState))
   }
+  
 
   const handleDragEnd = async (result) => {
     // dropped outside the list
     if (!result.destination) return
     else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
+      console.log('result',result)
+    //   copy(
+    //     ITEMS,
+    //     this.state[destination.droppableId],
+    //     source,
+    //     destination
+    //  )
       addCmpToPage(result)
       return
     }

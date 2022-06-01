@@ -1,4 +1,13 @@
-.main-template-container {
+.main-template-container{
+    background-image: url(http://localhost:3000/static/media/wave2.4d2dbbbfb7d464d58343.png);
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 1250px; //maybe remove? (if removing, dont forget to add margin-bottom)
+
+.templates-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -132,6 +141,7 @@
       display: none;
     }
   }
+}
 }
 
 .template-page-intro {

@@ -28,6 +28,7 @@
       background-color: rgb(221 221 221 / 36%);
     }
   }
+
   .navbar {
     font-size: 1rem;
     display: none;
@@ -36,9 +37,24 @@
   .menu-icon {
     display: block;
     cursor: pointer;
-
     font-size: 2rem;
   }
+
+  .main-menu-container{
+    background-color: rgb(61, 73, 110);
+    width: 100vw;
+    transition: all 0.25s ease-in-out 0s;
+    position: fixed;
+    top: 70px;
+    left: 0px;
+    z-index: 4;
+    border-top: 1px solid rgb(41, 24, 47);
+    opacity: 1;
+    visibility: visible;
+    min-height: 100vh;
+    color: black;
+  }
+
   @media screen and (min-width: '1100px') {
     .navbar {
       display: flex;
@@ -47,6 +63,7 @@
       display: none;
     }
   }
+
   @media screen and (min-width: '1300px') {
     padding: 0 176px;
     .navbar {

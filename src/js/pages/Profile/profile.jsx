@@ -31,7 +31,7 @@ export const Profile = () => {
         {savedWaps && !savedWaps.length && (
           <p>You havent created websites yet</p>
         )}
-        <section className='main-template-container'>
+        <section className='templates-container'>
           {savedWaps?.map((wap) => (
             <div key={wap._id} className={wap._id}>
               <div className='template-hover-info-container'>

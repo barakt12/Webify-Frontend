@@ -16,11 +16,11 @@ export const Templates = () => {
   }
 
   return (
-    <>
+    <section className='main-template-container'>
       <div className="template-page-intro">
-        <h2>Select a Template</h2>
+        <h2>Choose how to start building your site</h2>
       </div>
-      <section className="main-template-container">
+      <section className="templates-container">
         <div>
           <div className="template-hover-info-container create-new">
             <p className="blank-label">BLANK</p>
@@ -60,6 +60,6 @@ export const Templates = () => {
           </div>
         ))}
       </section>
-    </>
+    </section>
   )
 }

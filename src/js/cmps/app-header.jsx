@@ -23,6 +23,11 @@ export const AppHeader = () => {
             <p className='logo'>webify</p>
           </Link>
           <MenuIcon className='menu-icon' />
+          {/* <section className="main-menu-container">
+            <h1>test1</h1>
+            <h1>test2</h1>
+            <h1>test3</h1>
+          </section> */}
           <div className='navbar flex justify-between gap-20'>
             <Link to='/templates' className='clean-link'>
               Templates
