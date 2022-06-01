@@ -43,16 +43,19 @@ export const formCmp3 = {
             formFields: [
               {
                 type: 'input',
+                name: 'fullName',
                 label: 'Full Name',
                 placeholder: 'Enter Your Full name',
               },
               {
                 type: 'input',
+                name: 'email',
                 label: 'Email *',
                 placeholder: 'Enter Your Email',
               },
               {
                 type: 'number',
+                name: 'phone',
                 label: 'Phone',
                 placeholder: 'Enter Your Phone number',
               },
