@@ -1,5 +1,9 @@
 import React from 'react'
-import { deleteElement, duplicateElement, undoWap } from '../../../../../store/wap/wap.action'
+import {
+  deleteCmp,
+  duplicateCmp,
+  undoWap,
+} from '../../../../../store/wap/wap.action'
 import { useSelector, useDispatch } from 'react-redux'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import RestoreIcon from '@mui/icons-material/Restore'
@@ -12,16 +16,18 @@ import { GalleryImgList } from './gallery-img-list'
 export const SidebarEdit = () => {
   const dispatch = useDispatch()
 
-  const selectedElement = useSelector((storeState) => storeState.wapModule.selectedElement)
+  const selectedCmp = useSelector(
+    (storeState) => storeState.wapModule.selectedCmp
+  )
 
-  const onElementAction = (actionType) => {
-    if (!selectedElement) return
+  const onCmpAction = (actionType) => {
+    if (!selectedCmp) return
     switch (actionType) {
       case 'delete':
-        dispatch(deleteElement(selectedElement))
+        dispatch(deleteCmp(selectedCmp))
         break
       case 'duplicate':
-        dispatch(duplicateElement(selectedElement))
+        dispatch(duplicateCmp(selectedCmp))
         break
       case 'undo':
         dispatch(undoWap())
@@ -32,13 +38,15 @@ export const SidebarEdit = () => {
   }
 
   return (
-    <section className="editor-sidebar-container">
-      {selectedElement && (
+    <section className='editor-sidebar-container'>
+      {selectedCmp && (
         <>
-          {(selectedElement.type === 'txt' || selectedElement.type === 'btn' || selectedElement.type === 'img') && <TxtEditor />}
+          {(selectedCmp.type === 'txt' ||
+            selectedCmp.type === 'btn' ||
+            selectedCmp.type === 'img') && <TxtEditor />}
 
-          <div className="color-picker-container">
-            {(selectedElement.type === 'txt' || selectedElement.type === 'btn') && (
+          <div className='color-picker-container'>
+            {(selectedCmp.type === 'txt' || selectedCmp.type === 'btn') && (
               <>
                 <p>Font Color</p>
                 <EditColorPicker isBackgroundColor={false} />
@@ -47,38 +55,43 @@ export const SidebarEdit = () => {
             <p>Background Color</p>
             <EditColorPicker isBackgroundColor={true} />
           </div>
-          {selectedElement.type === 'img' && (
-            <div className="img-url-container">
+          {selectedCmp.type === 'img' && (
+            <div className='img-url-container'>
               <p>Image Link</p>
-              <ImageUrl cmp={selectedElement} />
+              <ImageUrl cmp={selectedCmp} />
             </div>
           )}
-          {selectedElement.type === 'video' && (
-            <div className="video-url-container">
+          {selectedCmp.type === 'video' && (
+            <div className='video-url-container'>
               <p>Video Link</p>
-              <VideoInput cmp={selectedElement} />
+              <VideoInput cmp={selectedCmp} />
             </div>
           )}
-          {(selectedElement.type === 'gallery-grid' || selectedElement.type === 'carousel-lg' || selectedElement.type === 'carosuel' || selectedElement.type === 'paging-gallery') && (
-            <div className="img-url-container">
+          {(selectedCmp.type === 'gallery-grid' ||
+            selectedCmp.type === 'carousel-lg' ||
+            selectedCmp.type === 'carosuel' ||
+            selectedCmp.type === 'paging-gallery') && (
+            <div className='img-url-container'>
               <p>Image List</p>
-              <GalleryImgList cmp={selectedElement} />
+              <GalleryImgList cmp={selectedCmp} />
             </div>
           )}
         </>
       )}
-      {!selectedElement && <p className="sidebar-action-text">Please choose an element</p>}
-      <div className="action-btns">
-        <button onClick={() => onElementAction('duplicate')}>
+      {!selectedCmp && (
+        <p className='sidebar-action-text'>Please choose an element</p>
+      )}
+      <div className='action-btns'>
+        <button onClick={() => onCmpAction('duplicate')}>
           <ContentCopyIcon />
           <span>Duplicate</span>
         </button>
-        <button onClick={() => onElementAction('delete')}>
+        <button onClick={() => onCmpAction('delete')}>
           {' '}
           <DeleteForeverIcon />
           <span>Delete</span>
         </button>
-        <button onClick={() => onElementAction('undo')}>
+        <button onClick={() => onCmpAction('undo')}>
           <RestoreIcon />
           <span>Undo</span>
         </button>

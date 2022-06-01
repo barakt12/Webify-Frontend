@@ -11,17 +11,17 @@ export const EditColorPicker = ({ isBackgroundColor }) => {
     background: '#FFFFFF',
   })
   const dispatch = useDispatch()
-  const { selectedElement } = useSelector((storeState) => storeState.wapModule)
+  const { selectedCmp } = useSelector((storeState) => storeState.wapModule)
 
   const onChangeColor = (colorInput) => {
     setColor((prevState) => ({ ...prevState, background: colorInput }))
-    if (!selectedElement) return
+    if (!selectedCmp) return
     const newColor = isBackgroundColor
       ? { background: colorInput }
       : { color: colorInput }
-    selectedElement.style = { ...selectedElement.style, ...newColor }
+    selectedCmp.style = { ...selectedCmp.style, ...newColor }
 
-    dispatch(updateCmp(selectedElement))
+    dispatch(updateCmp(selectedCmp))
   }
 
   const debounce = _.debounce((colorInput) => onChangeColor(colorInput), 25)

@@ -6,7 +6,7 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { templateService } from '../../services/templates.service'
 import { v4 as uuidv4 } from 'uuid'
 import { useDispatch } from 'react-redux'
-import { setWap, setSelectedElement, updateWap } from '../../store/wap/wap.action'
+import { setWap, setSelectedCmp, updateWap } from '../../store/wap/wap.action'
 import { wapService } from '../../services/wap-service'
 
 export function Editor() {
@@ -14,30 +14,29 @@ export function Editor() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (!wap?.cmps?.length) {
+    if (!wap) {
+      console.log('hi', wap)
       getDraft()
     }
     return () => {
-      dispatch(setSelectedElement(null))
+      dispatch(setSelectedCmp(null))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const copy = (source, destination, droppableSource, droppableDestination) => {
-    const sourceClone = Array.from(source);
-    const destClone = Array.from(destination);
-    const cmp = sourceClone[droppableSource.index];
+  // const copy = (source, destination, droppableSource, droppableDestination) => {
+  //   const sourceClone = Array.from(source)
+  //   const destClone = Array.from(destination)
+  //   const cmp = sourceClone[droppableSource.index]
 
-    destClone.splice(droppableDestination.index, 0, { ...cmp, id: uuidv4() });
-    return destClone;
-};
+  //   destClone.splice(droppableDestination.index, 0, { ...cmp, id: uuidv4() })
+  //   return destClone
+  // }
 
   const getDraft = async () => {
     const draft = await wapService.getDraft()
-    if (draft[0]?.cmps?.length) {
-      delete draft[0]._id
-      dispatch(setWap(draft[0]))
-    }
+    console.log(draft)
+    dispatch(setWap(draft[0]))
   }
 
   const reorder = (list, startIndex, endIndex) => {
@@ -62,31 +61,37 @@ export function Editor() {
     newState.cmps.splice(result.destination.index, 0, cmp)
     dispatch(updateWap(newState))
   }
-  
 
   const handleDragEnd = async (result) => {
     // dropped outside the list
     if (!result.destination) return
-    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
-      console.log('result',result)
-    //   copy(
-    //     ITEMS,
-    //     this.state[destination.droppableId],
-    //     source,
-    //     destination
-    //  )
+    else if (
+      result.destination.droppableId === 'editor' &&
+      result.source.droppableId !== 'editor'
+    ) {
+      console.log('result', result)
+      //   copy(
+      //     ITEMS,
+      //     this.state[destination.droppableId],
+      //     source,
+      //     destination
+      //  )
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(wap.cmps, result.source.index, result.destination.index)
+    const content = reorder(
+      wap.cmps,
+      result.source.index,
+      result.destination.index
+    )
     if (content) {
       dispatch(updateWap({ ...wap, cmps: content }))
     }
   }
 
   return (
-    <section className="editor-container">
+    <section className='editor-container'>
       <DragDropContext onDragEnd={handleDragEnd}>
         <EditorSidebar />
         <EditorBoard wap={wap} getItemStyle={getItemStyle} />

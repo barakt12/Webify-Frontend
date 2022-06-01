@@ -9,12 +9,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import SwipeableViews from 'react-swipeable-views'
 import { autoPlay } from 'react-swipeable-views-utils'
 
-export const CarouselCmp = ({
-  cmp,
-  onHoverElement,
-  selectedElement,
-  onSelectElement,
-}) => {
+export const CarouselCmp = ({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) => {
   const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
 
   //must get label: and imgPath
@@ -41,11 +36,9 @@ export const CarouselCmp = ({
       style={cmp.style}
       sx={{ maxWidth: 500, minWidth: 250 }}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
-      onMouseOver={(ev) => onHoverElement(ev)}
-      className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${
-        cmp.name
-      }`}
-      onClick={(ev) => onSelectElement(ev, cmp)}
+      onMouseOver={(ev) => onHoverCmp(ev)}
+      className={`${selectedCmp?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
+      onClick={(ev) => onSelectCmp(ev, cmp)}
     >
       <Paper
         square
@@ -68,7 +61,7 @@ export const CarouselCmp = ({
         enableMouseEvents
       >
         {images.map((step, index) => (
-          <div key={step.label}>
+          <div key={index}>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
                 component='img'

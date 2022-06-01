@@ -23,7 +23,8 @@
   }
   & .cards-white-block {
     position: absolute;
-    top: -147px;
+    top: -136px;
+
     width: calc(100vw - 560px);
   }
   & .cards-bg-wave {
@@ -84,6 +85,18 @@
 
   .card1 {
     margin-top: 200px;
+    & .wave2-png {
+      position: absolute;
+      left: -400px;
+      top: 145px;
+
+      background-image: url(https://siftnewstherapy.com/build/assets/leftWhispWhiteBg.f55cc90f.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 925px;
+      height: 764px;
+      z-index: 10;
+    }
   }
 
   & .cards-right-wisp {
@@ -104,11 +117,16 @@
   // width: 560px;
   display: flex;
   position: relative;
+  z-index: 60;
+  position: relative;
   flex: 1 1;
   height: 410px;
   z-index: 15;
   align-items: center;
   justify-content: center;
+  & img {
+    border-radius: 10px;
+  }
 }
 
 .cards-left-box-container {
@@ -122,8 +140,7 @@
 
 .card-number-circle {
   z-index: 20;
-  font-family: Ringside, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    Roboto, 'sans-serif';
+  font-family: OpenSans;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   width: 50px;

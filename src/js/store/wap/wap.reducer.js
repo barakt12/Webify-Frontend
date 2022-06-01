@@ -1,6 +1,6 @@
 const initialState = {
-  wap: { cmps: [] },
-  selectedElement: null,
+  wap: null,
+  selectedCmp: null,
   displaySize: '100%',
   savedWaps: null,
   history: [],
@@ -38,7 +38,7 @@ export function wapReducer(state = initialState, action) {
       return { ...state, wap: { ...state.wap, thumbnail: action.imgData } }
 
     case 'SET_ELEMENT':
-      return { ...state, selectedElement: { ...action.cmp } }
+      return { ...state, selectedCmp: { ...action.cmp } }
 
     case 'SET_DISPLAY_SIZE':
       return { ...state, displaySize: action.displaySize }

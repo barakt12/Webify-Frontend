@@ -5,11 +5,22 @@ header {
 }
 .app-header {
   z-index: 5;
-  padding: 0 280px;
+  padding: 0 3.6rem;
   height: 70px;
-  background-color: $accent-color;
+  // background-color: $accent-color;
   color: $main-color;
   // box-shadow: 0 1px 5px 0 rgb(41 85 115 / 21%);
+
+  &.header-nav-menu-open {
+    background-color: rgb(61, 73, 110);
+    // color: rgb(203 231 242);
+    color: rgb(255, 176, 149);
+    .logo {
+      // color: rgb(203 231 242);
+      color: rgb(255, 176, 149);
+    }
+  }
+
   .logo {
     color: $main-color;
     height: 100%;
@@ -44,24 +55,48 @@ header {
     font-size: 2rem;
   }
 
-  .main-menu-container{
+  .main-menu-container {
     background-color: rgb(61, 73, 110);
-    width: 100vw;
+    width: 100%;
     transition: all 0.25s ease-in-out 0s;
     position: fixed;
     top: 70px;
     left: 0px;
-    z-index: 4;
-    border-top: 1px solid rgb(41, 24, 47);
     opacity: 1;
     visibility: visible;
     min-height: 100vh;
-    color: black;
+    z-index: 1000;
+
+    & > a {
+      border-bottom: 1px solid rgb(41, 24, 47);
+      padding-left: 60px;
+      width: 100%;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      color: rgb(203, 231, 242);
+      height: 90px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    a:hover {
+      text-decoration: none;
+      background-color: rgb(41, 24, 47);
+      color: rgb(203, 231, 242);
+    }
   }
 
-  @media screen and (min-width: '1100px') {
-    .navbar {
-      display: flex;
+  @media screen and (min-width: '1200px') {
+    & {
+      padding: 0 280px;
+      .navbar {
+        display: flex;
+      }
+    }
+    .main-menu-container {
+      display: none;
     }
     .menu-icon {
       display: none;
