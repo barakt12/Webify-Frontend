@@ -127,18 +127,20 @@
       width: 400px;
     }
 
-    * {
+    *:not(label) {
       padding-inline-start: 1rem;
       border: 2px solid #ddd;
       outline: 0;
     }
-
+    
     input {
       height: 40px;
+      width: 100%;
     }
-
+    
     textarea {
       padding-top: 0.5rem;
+      width: 100%;
     }
   }
 

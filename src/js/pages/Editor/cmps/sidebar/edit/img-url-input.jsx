@@ -17,12 +17,5 @@ export function ImageUrl({ cmp }) {
     dispatch(updateCmp(cmp))
   }
 
-  return (
-    <input
-      type='text'
-      placeholder='Enter image url..'
-      value={url}
-      onChange={onChangeUrl}
-    />
-  )
+  return <input type="text" placeholder="Enter image url.." value={url} onChange={onChangeUrl} />
 }

@@ -50,7 +50,7 @@
     gap: 1rem;
     @media screen and (min-width: '700px') {
       // padding: 1rem 5.5rem;
-      padding: 1rem 20px;
+      padding: 1rem 0;
     }
   }
 
@@ -166,7 +166,7 @@
 }
 
 @media (max-width: 900px) {
-  html{
+  html {
     font-size: 14px;
   }
   .wap-header-1 {
@@ -180,16 +180,16 @@
       }
     }
   }
-  .wap-hero-1{
+  .wap-hero-1 {
     padding: 2.5rem 0.5rem;
   }
-  .wap-cards-1{
+  .wap-cards-1 {
     padding: 3rem 0.5rem;
   }
-  .wap-text-1{
+  .wap-text-1 {
     padding: 4rem 0.5rem 6rem;
   }
-  .wap-faq-1{
+  .wap-faq-1 {
     padding: 3rem 0.5rem;
   }
   .wap-footer-2 {

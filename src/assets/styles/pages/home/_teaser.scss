@@ -1,8 +1,9 @@
 .teaser-container {
   background-color: #3d496e;
   display: flex;
-  height: 1513px;
+  padding-bottom: 300px;
   justify-content: center;
+  width: 100%;
   .wave-png {
     position: absolute;
     background-image: url('../../../img/illustrations/wave.png');
@@ -19,8 +20,8 @@
   }
   & .img-container {
     z-index: 10;
-    width: 63%;
-    max-width: 1200px;
+    width: 100%;
+    // max-width: 1200px;
 
     & img {
       box-shadow: 0px 12px 20px 4px #21212157,
