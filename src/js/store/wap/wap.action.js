@@ -67,12 +67,12 @@ export const updateWap = (wap) => {
 }
 
 export const loadTemplate = (id) => {
-  return async (dispatch) => {
+  return (dispatch) => {
     try {
       let wap = templateService.getTemplateById(id)
       const wapCopy = JSON.parse(JSON.stringify(wap))
       delete wapCopy._id
-      await wapService.saveToDraft(wapCopy)
+      wapService.saveToDraft(wapCopy)
       dispatch({ type: 'SET_WAP', wap: wapCopy })
     } catch (err) {
       throw err

@@ -6,7 +6,11 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { templateService } from '../../services/templates.service'
 import { v4 as uuidv4 } from 'uuid'
 import { useDispatch } from 'react-redux'
-import { setWap, setSelectedElement, updateWap } from '../../store/wap/wap.action'
+import {
+  setWap,
+  setSelectedElement,
+  updateWap,
+} from '../../store/wap/wap.action'
 import { wapService } from '../../services/wap-service'
 
 export function Editor() {
@@ -15,6 +19,7 @@ export function Editor() {
 
   useEffect(() => {
     if (!wap?.cmps?.length) {
+      console.log(wap)
       getDraft()
     }
     return () => {
@@ -24,13 +29,13 @@ export function Editor() {
   }, [])
 
   const copy = (source, destination, droppableSource, droppableDestination) => {
-    const sourceClone = Array.from(source);
-    const destClone = Array.from(destination);
-    const cmp = sourceClone[droppableSource.index];
+    const sourceClone = Array.from(source)
+    const destClone = Array.from(destination)
+    const cmp = sourceClone[droppableSource.index]
 
-    destClone.splice(droppableDestination.index, 0, { ...cmp, id: uuidv4() });
-    return destClone;
-};
+    destClone.splice(droppableDestination.index, 0, { ...cmp, id: uuidv4() })
+    return destClone
+  }
 
   const getDraft = async () => {
     const draft = await wapService.getDraft()
@@ -62,31 +67,37 @@ export function Editor() {
     newState.cmps.splice(result.destination.index, 0, cmp)
     dispatch(updateWap(newState))
   }
-  
 
   const handleDragEnd = async (result) => {
     // dropped outside the list
     if (!result.destination) return
-    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
-      console.log('result',result)
-    //   copy(
-    //     ITEMS,
-    //     this.state[destination.droppableId],
-    //     source,
-    //     destination
-    //  )
+    else if (
+      result.destination.droppableId === 'editor' &&
+      result.source.droppableId !== 'editor'
+    ) {
+      console.log('result', result)
+      //   copy(
+      //     ITEMS,
+      //     this.state[destination.droppableId],
+      //     source,
+      //     destination
+      //  )
       addCmpToPage(result)
       return
     }
 
-    const content = reorder(wap.cmps, result.source.index, result.destination.index)
+    const content = reorder(
+      wap.cmps,
+      result.source.index,
+      result.destination.index
+    )
     if (content) {
       dispatch(updateWap({ ...wap, cmps: content }))
     }
   }
 
   return (
-    <section className="editor-container">
+    <section className='editor-container'>
       <DragDropContext onDragEnd={handleDragEnd}>
         <EditorSidebar />
         <EditorBoard wap={wap} getItemStyle={getItemStyle} />

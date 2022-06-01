@@ -1,6 +1,4 @@
-import React from 'react'
-
-export function Cards() {
+export const Cards = () => {
   return (
     <div className='home-page-cards'>
       <svg
@@ -35,6 +33,7 @@ export function Cards() {
             <h3>Hello text 1</h3>
           </div>
           <div className='cards-right-box-container'></div>
+          <div className='wave2-png'></div>
         </div>
         <div className='cards card2'>
           <div className='card-number-circle'>2</div>
