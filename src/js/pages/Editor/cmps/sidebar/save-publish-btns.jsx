@@ -7,7 +7,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid'
 import { setCollabMode } from '../../../../store/wap/wap.action';
 
-export function SavePublishBtns({ onSaveWap }) {
+export function SavePublishBtns({ onSaveWap,onPublishWap }) {
 
   const dispatch = useDispatch()
   const {isCollabMode} = useSelector((storeState) => storeState.wapModule) 
