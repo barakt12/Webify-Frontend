@@ -15,7 +15,6 @@ export function SavePublishBtns({ onSaveWap,onPublishWap }) {
 
   const onCollab = () => {
     if(isCollabMode) return
-    console.log('work together')
     navigation(`/editor/${uuidv4()}`)
     dispatch(setCollabMode())
   }
