@@ -22,14 +22,14 @@ export const DynamicCmp = (props) => {
 
   const onHoverElement = (ev) => {
     ev.stopPropagation()
-    if (location.pathname !== '/preview') {
+    if (location.pathname !== '/preview' && !location.pathname.includes('/publish')) {
       ev.target.classList.add('hover')
     }
   }
 
   const onSelectElement = (ev, cmp) => {
     ev.stopPropagation()
-    if (location.pathname !== '/preview') {
+    if (location.pathname !== '/preview' && !location.pathname.includes('/publish')) {
       dispatch(setSelectedElement(cmp))
     }
   }

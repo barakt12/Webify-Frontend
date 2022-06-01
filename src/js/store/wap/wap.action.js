@@ -146,10 +146,21 @@ export const loadSavedWaps = () => {
 export const selectWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const selectedWap = getState().wapModule.savedWaps.find(
-        (wap) => wap._id === id
-      )
+      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
+  }
+}
+
+export const publishWap = () => {
+  return async (dispatch, getState) => {
+    try {
+      const { wap } = getState().wapModule
+      await wapService.publishWap(wap._id)
+      console.log(`localhost:3000/publish/${wap._id}`)
+      dispatch({ type: 'PUBLISH_WAP' })
+    } catch (err) {
+      console.log(err)
+    }
   }
 }

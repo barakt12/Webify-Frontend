@@ -14,7 +14,6 @@ export function wapReducer(state = initialState, action) {
         wap: { ...action.wap },
         savedWaps: state.savedWaps,
       }
-
     case 'UPDATE_WAP':
       return {
         ...state,
@@ -40,9 +39,11 @@ export function wapReducer(state = initialState, action) {
 
     case 'SET_ELEMENT':
       return { ...state, selectedElement: { ...action.cmp } }
-      
+
     case 'SET_DISPLAY_SIZE':
       return { ...state, displaySize: action.displaySize }
+    case 'PUBLISH_WAP':
+      return { ...state, wap: { ...state.wap, isPublished: true } }
     default:
       return state
   }

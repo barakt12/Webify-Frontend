@@ -18,6 +18,7 @@ export const wapService = {
   duplicateCmp,
   getWapCopy,
   addSubscriberDetails,
+  publishWap,
 }
 
 function query(filterBy, sortBy) {
@@ -114,4 +115,8 @@ async function getWapIdx(wapId) {
 async function addSubscriberDetails(wapId, details) {
   if (!wapId) return
   return await httpService.put(`wap/${wapId}/newSubscriber`, details)
+}
+async function publishWap(wapId) {
+  if (!wapId) return
+  return await httpService.put(`wap/${wapId}/publish`)
 }
