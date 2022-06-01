@@ -88,8 +88,13 @@ input {
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 main {
   flex: 1;
+}
+
+.main-layout {
+  margin: 0 280px;
 }
