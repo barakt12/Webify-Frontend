@@ -164,7 +164,7 @@ export const selectWap = (id) => {
 }
 
 export const setCollabMode = () => {
-  return async (dispatch) => {
+  return (dispatch) => {
     try {
       dispatch({ type: 'SET_WORKING_STATE', isCollabMode: true })
     } catch (err) {
