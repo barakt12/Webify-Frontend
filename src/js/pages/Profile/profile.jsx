@@ -10,7 +10,6 @@ export const Profile = () => {
 
   useEffect(() => {
     dispatch(loadSavedWaps())
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const onSelectTemplate = (id) => {
@@ -22,44 +21,37 @@ export const Profile = () => {
   }
 
   return (
-    <section className='main-template-container'>
-      {/* <div className="template-page-intro">
-        <h2>Select a Template</h2>
-      </div> */}
-      <section className='profile-page'>
+    <section className="main-dashboard-container">
+      <div className="template-page-intro">
+        <h2>Wellcome to your dashboard!</h2>
+      </div>
+      <section className="profile-page">
         {!savedWaps && <p>Please login to see your websites!</p>}
-        {savedWaps && !savedWaps.length && (
-          <p>You havent created websites yet</p>
-        )}
-        <section className='templates-container'>
+        {savedWaps && !savedWaps.length && <p>You havent created websites yet</p>}
+        <section className="dashboard-container">
           {savedWaps?.map((wap) => (
-            <div key={wap._id} className={wap._id}>
-              <div className='template-hover-info-container'>
-                <p>
-                  A simple and bold layout that makes it easy for you to
-                  showcase your product and share it with the world in no time.
-                </p>
-                <div className='template-hover-btns-container'>
-                  <Link to={`/preview`} className='template-preview-btn'>
-                    <button onClick={() => onSelectTemplate(wap._id)}>
-                      Preview
-                    </button>
-                  </Link>
-                  <Link className='template-select-btn' to='/editor'>
-                    <button onClick={() => onSelectTemplate(wap._id)}>
-                      Select
-                    </button>
-                  </Link>
-                  <button
-                    className='template-select-btn'
-                    onClick={() => onDeleteWap(wap._id)}
-                  >
-                    Delete
-                  </button>
-                </div>
+            <div key={wap._id} className={`wap-details-container ${wap._id}`}>
+              <div className="wap-info-display">
+                <p className="wap-name">ELLIE PAGE</p>
+                <p>Created At: {wap.createdAt}</p>
               </div>
-              <img className='profile-wap-display' src={wap.thumbnail} alt='' />
-              <hr />
+              <div className="wap-selection-preview">
+                <div className="wap-hover-info-container">
+                  <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
+                  <div className="wap-hover-btns-container">
+                    <Link to={`/preview`} className="wap-preview-btn">
+                      <button onClick={() => onSelectTemplate(wap._id)}>Preview</button>
+                    </Link>
+                    <Link className="wap-select-btn" to="/editor">
+                      <button onClick={() => onSelectTemplate(wap._id)}>Select</button>
+                    </Link>
+                    <button className="wap-select-btn" onClick={() => onDeleteWap(wap._id)}>
+                      Delete
+                    </button>
+                  </div>
+                </div>
+                <img className="wap-display-img" src={wap.thumbnail} alt="" />
+              </div>
               {/* <div className="template-info-container">
               <p className="info-template-name">{wap.info.name}</p>
               <p className="info-template-category">{wap.info.category}</p>

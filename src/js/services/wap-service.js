@@ -19,6 +19,7 @@ export const wapService = {
   getWapCopy,
   addSubscriberDetails,
   publishWap,
+  increaseViewCount,
 }
 
 function query(filterBy, sortBy) {
@@ -119,4 +120,8 @@ async function addSubscriberDetails(wapId, details) {
 async function publishWap(wapId) {
   if (!wapId) return
   return await httpService.put(`wap/${wapId}/publish`)
+}
+
+function increaseViewCount(wapId) {
+  return httpService.put(`wap/${wapId}/increaseview`)
 }

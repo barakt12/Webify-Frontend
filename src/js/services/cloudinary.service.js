@@ -1,7 +1,7 @@
 import { toPng } from 'html-to-image'
 
 export const createJpegFromElement = async (element, width, height) => {
-  const dataUrl = await toPng(element)
+  const dataUrl = await toPng(element, { width, height, style: { overflow: 'unset' } })
   const ev = {
     target: {
       files: [dataUrl],

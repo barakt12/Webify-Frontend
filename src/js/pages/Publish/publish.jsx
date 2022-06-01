@@ -17,6 +17,7 @@ export const Publish = () => {
       const currWap = await wapService.getById(wapId)
       if (!currWap.isPublished) navigate('/')
       setWap(currWap)
+      wapService.increaseViewCount(wapId)
     } catch (err) {
       navigate('/')
     }

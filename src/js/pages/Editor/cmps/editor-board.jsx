@@ -16,13 +16,13 @@ export const EditorBoard = ({ wap }) => {
     if (isSaving) {
       saveWapWithThumbnail()
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSaving])
 
   const saveWapWithThumbnail = async () => {
     console.log('SAVING...')
-    const elBoard = document.querySelector('.editor-inner-container')
-    const thumbnailUrl = await createJpegFromElement(elBoard, elBoard.clientWidth, elBoard.clientHeight)
+    const elBoard = document.querySelector('.editor')
+    const thumbnailUrl = await createJpegFromElement(elBoard, elBoard.clientWidth, elBoard.scrollHeight)
     dispatch(setWapThumbnail(thumbnailUrl))
     dispatch(saveWap())
     dispatch(toggleSave())
