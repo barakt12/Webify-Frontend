@@ -13,6 +13,13 @@
   justify-content: center;
   padding: 0 5%;
   gap: 40px;
+  position: relative;
+
+  .is-published {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+  }
 
   .wap-details-container {
     display: flex;
@@ -25,6 +32,49 @@
     overflow: hidden;
     filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 1px 4px);
     width: 100%;
+    
+    .wap-info-display {
+      flex-grow: 1;
+    }
+    
+    .wap-info-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding-inline: 0.5rem;
+      margin-top: 1rem;
+
+      *:first-child {
+        color: black;
+        font-size: 1.5rem;
+      }
+
+      .details-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        font-size: 0.8rem;
+        color: gray;
+        box-shadow: 0 0 5px 2px lightgray;
+        border-radius: 10px;
+        padding: 2rem;
+        justify-content: center;
+
+        .text {
+          display: flex;
+          flex-direction: column;
+        }
+
+        *:first-child {
+          color: black;
+          font-weight: 700;
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+
 
     .wap-selection-preview {
       max-width: 270px;

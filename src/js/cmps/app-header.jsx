@@ -53,8 +53,8 @@ export const AppHeader = () => {
                 </Link>
               ) : (
                 <>
-                  <Link to="/profile" className="clean-link">
-                    Profile
+                  <Link to="/dashboard" className="clean-link">
+                    Dashboard
                   </Link>
                   <p>Welcome, {loggedUser.fullname.split(' ')[0]}!</p>
                   <Link to="/" onClick={onLogout} className="clean-link logout-icon">
