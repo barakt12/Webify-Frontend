@@ -1,3 +1,5 @@
+import { Parallax } from 'react-scroll-parallax'
+
 export const Cards = () => {
   return (
     <div className='home-page-cards'>
@@ -30,36 +32,58 @@ export const Cards = () => {
         <div className='cards card1'>
           <div className='card-number-circle'>1</div>
           <div className='cards-left-box-container'>
-            <h3>Hello text 1</h3>
+            <h1>Themes</h1>
+            <h1>Themes can change the feeling of your site</h1>
           </div>
           <div className='cards-right-box-container'>
+            {/* <Parallax scale={[0.9, 1]}> */}
             <img
-              src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654095646/themes-home-page_jdaoir.jpg'
+              src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654107371/Teaser-webify_iqc8pq.jpg'
               alt=''
             />
+            {/* </Parallax> */}
           </div>
           <div className='wave2-png'></div>
         </div>
         <div className='cards card2'>
           <div className='card-number-circle'>2</div>
-          <div className='cards-left-box-container'></div>
+          <div className='cards-left-box-container'>
+            {/* <Parallax scale={[0.9, 1]}> */}
+            <img
+              src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654112005/Screenshot_16_wj1znr.jpg'
+              alt=''
+            />
+            {/* </Parallax> */}
+          </div>
           <div className='cards-right-box-container'>
-            <h3>Hello text 2</h3>
+            <h1>Hello text 2</h1>
           </div>
         </div>
       </div>
       <div className='cards card3'>
         <div className='card-number-circle'>3</div>
         <div className='cards-left-box-container'>
-          <h3>Hello text 3</h3>
+          <h1>Hello text 3</h1>
         </div>
-        <div className='cards-right-box-container'></div>
+        <div className='cards-right-box-container'>
+          {/* <Parallax scale={[0.9, 1]}> */}
+          <img
+            src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654107371/Teaser-webify_iqc8pq.jpg'
+            alt=''
+          />
+          {/* </Parallax> */}
+        </div>
       </div>
       <div className='cards card4'>
         <div className='card-number-circle'>4</div>
-        <div className='cards-left-box-container'></div>
+        <div className='cards-left-box-container'>
+          <img
+            src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654112005/Screenshot_16_wj1znr.jpg'
+            alt=''
+          />
+        </div>
         <div className='cards-right-box-container'>
-          <h3>Hello text 4</h3>
+          <h1>Hello text 4</h1>
         </div>
       </div>
     </div>

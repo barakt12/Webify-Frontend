@@ -11,7 +11,7 @@ export const templatePreviews = [
     id: 'ahlaid5',
     info: {
       name: 'Sphere',
-      img: require('../../../assets/img/web-templates-preview/web-template-preview5-new.jpg'),
+      img: 'https://res.cloudinary.com/do0lvumuv/image/upload/v1654110858/Screenshot_7_omdner.jpg',
       category: 'Construction',
     },
   },
@@ -19,7 +19,7 @@ export const templatePreviews = [
     id: 'ahlaid',
     info: {
       name: 'Techflow',
-      img: 'https://i.postimg.cc/bvPkVHxJ/template1.png',
+      img: 'https://res.cloudinary.com/do0lvumuv/image/upload/v1654111041/Screenshot_9_znwdcj.jpg',
       category: 'Business',
     },
   },

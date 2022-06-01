@@ -1,7 +1,7 @@
 .home {
   display: flex;
   flex-direction: column;
-  min-height: 90vh;
+  background-color: #fff;
 }
 
 .home-page-hero-container {
@@ -21,7 +21,6 @@
     }
   }
   .home-page-hero {
-
     z-index: 50;
     display: flex;
     flex-direction: row;
@@ -29,7 +28,7 @@
     height: 484px;
 
     justify-content: space-evenly;
-    
+
     margin: 180px 0px 240px;
     max-width: calc(100vw - 560px);
     align-self: center;

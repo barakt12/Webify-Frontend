@@ -7,7 +7,8 @@ export const headerCmp5 = {
   themePalette: 'primary',
   id: uuidv4(),
   //change to cloudinary
-  thumbnail: require('../../../assets/img/thumbnails/header/wap-header-5.JPG'),
+  thumbnail:
+    'https://res.cloudinary.com/do0lvumuv/image/upload/v1654111393/Screenshot_12_re7jme.jpg',
   //each component will have his own css file
   style: {},
   cmps: [
@@ -33,7 +34,8 @@ export const headerCmp5 = {
           type: 'img',
           id: uuidv4(),
           info: {
-            imgUrl: 'https://icon-library.com/images/hamburger-menu-icon-png/hamburger-menu-icon-png-29.jpg',
+            imgUrl:
+              'https://icon-library.com/images/hamburger-menu-icon-png/hamburger-menu-icon-png-29.jpg',
           },
           style: {},
         },

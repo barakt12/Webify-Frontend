@@ -6,6 +6,8 @@
   flex-grow: 1;
   background-color: #fff;
   flex-direction: column;
+  margin-bottom: 200px;
+  padding-bottom: 112px;
   & .line {
     position: absolute;
     left: 50%;
@@ -37,7 +39,7 @@
 
     background-size: 600px 200px;
     width: 100%;
-    & h1 {
+    & > h1 {
       align-self: center;
       position: relative;
       z-index: 20;
@@ -45,6 +47,7 @@
         font-family: Pensum;
         font-size: 3rem;
         margin-top: 40px;
+        color: $main-color;
       }
       &:nth-of-type(2) {
         font-family: Righteous;
@@ -87,7 +90,7 @@
     margin-top: 200px;
     & .wave2-png {
       position: absolute;
-      left: -400px;
+      left: -560px;
       top: 145px;
 
       background-image: url(https://siftnewstherapy.com/build/assets/leftWhispWhiteBg.f55cc90f.png);
@@ -108,7 +111,6 @@
     position: absolute;
     right: 0;
     top: 24rem;
-    z-index: 5;
     transform: scaleX(-1);
   }
 }
@@ -125,6 +127,24 @@
 
   align-items: center;
   justify-content: center;
+  & h1 {
+    &:nth-of-type(1) {
+      font-size: 2.265rem;
+      font-family: Pensum;
+      // width: 80%;
+
+      margin-bottom: 20px;
+      color: $main-color;
+    }
+    &:nth-of-type(2) {
+      font-family: OpenSans;
+      // width: 80%;
+      font-size: 1.75rem;
+
+      color: rgb(41, 24, 47);
+      font-weight: 400;
+    }
+  }
   & img {
     border-radius: 10px;
   }
@@ -137,6 +157,29 @@
   justify-content: center;
   flex: 1 1;
   height: 410px;
+  flex-direction: column;
+  z-index: 20;
+
+  & img {
+    border-radius: 10px;
+  }
+
+  & h1 {
+    &:nth-of-type(1) {
+      font-size: 2.265rem;
+      font-family: Pensum;
+      width: 80%;
+      margin-bottom: 20px;
+      color: $main-color;
+    }
+    &:nth-of-type(2) {
+      font-family: OpenSans;
+      width: 80%;
+      font-size: 1.75rem;
+      color: rgb(41, 24, 47);
+      font-weight: 400;
+    }
+  }
 }
 
 .card-number-circle {

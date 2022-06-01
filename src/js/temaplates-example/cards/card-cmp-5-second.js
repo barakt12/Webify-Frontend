@@ -7,12 +7,18 @@ export const SecondCardCmp5 = {
   category: 'cards',
   id: uuidv4(),
   thumbnail: require('../../../assets/img/thumbnails/section/wap-section-5-second.JPG'),
-  style: {},
+  style: {
+    backgroundColor: '#edc72a',
+  },
   cmps: [
     {
       type: 'container',
       id: uuidv4(),
       name: 'cards-container',
+      style: {
+        backgroundColor: '#edc72a',
+        width: '100%',
+      },
       cmps: [
         {
           type: 'container',
