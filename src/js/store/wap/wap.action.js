@@ -4,13 +4,13 @@ import { socketService } from '../../services/socket.service'
 // import { userService } from '../../services/user.service'
 import { v4 as uuidv4 } from 'uuid'
 
-export const setSelectedElement = (cmp) => {
+export const setSelectedCmp = (cmp) => {
   return (dispatch) => {
-    dispatch({ type: 'SET_ELEMENT', cmp })
+    dispatch({ type: 'SET_CMP', cmp })
   }
 }
 
-export const deleteElement = (cmp) => {
+export const deleteCmp = (cmp) => {
   return async (dispatch, getState) => {
     // gets wap from state to pass to service function
     let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
@@ -22,11 +22,11 @@ export const deleteElement = (cmp) => {
   }
 }
 
-export const duplicateElement = (cmp) => {
+export const duplicateCmp = (cmp) => {
   return async (dispatch, getState) => {
     let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
     const duplicateCmp = JSON.parse(JSON.stringify(cmp))
-    duplicateCmp.id = uuidv4()
+    wapService.generateNewIds(duplicateCmp)
     wapService.duplicateCmp(wap, duplicateCmp, cmp.id)
     await dispatch(updateWap(wap))
     wapService.saveToDraft(wap)
@@ -70,12 +70,17 @@ export const updateWap = (wap) => {
 }
 
 export const loadTemplate = (id) => {
-  return async (dispatch) => {
+  return (dispatch) => {
     try {
+      if (id === 'blank') {
+        dispatch({ type: 'SET_WAP', wap: { cmps: [] } })
+        wapService.saveToDraft({ cmps: [] })
+        return
+      }
       let wap = templateService.getTemplateById(id)
       const wapCopy = JSON.parse(JSON.stringify(wap))
       delete wapCopy._id
-      await wapService.saveToDraft(wapCopy)
+      wapService.saveToDraft(wapCopy)
       dispatch({ type: 'SET_WAP', wap: wapCopy })
     } catch (err) {
       throw err
@@ -158,11 +163,25 @@ export const selectWap = (id) => {
   }
 }
 
-
 export const setCollabMode = () => {
   return async (dispatch) => {
     try {
       dispatch({ type: 'SET_WORKING_STATE', isCollabMode: true })
-    } catch (err) {}
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
+export const publishWap = () => {
+  return async (dispatch, getState) => {
+    try {
+      const { wap } = getState().wapModule
+      await wapService.publishWap(wap._id)
+      console.log(`localhost:3000/publish/${wap._id}`)
+      dispatch({ type: 'PUBLISH_WAP' })
+    } catch (err) {
+      console.log(err)
+    }
   }
 }

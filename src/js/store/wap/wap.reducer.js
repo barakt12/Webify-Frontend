@@ -1,6 +1,6 @@
 const initialState = {
-  wap: { cmps: [] },
-  selectedElement: null,
+  wap: null,
+  selectedCmp: null,
   displaySize: '100%',
   savedWaps: null,
   history: [],
@@ -15,7 +15,6 @@ export function wapReducer(state = initialState, action) {
         wap: { ...action.wap },
         savedWaps: state.savedWaps,
       }
-
     case 'UPDATE_WAP':
       return {
         ...state,
@@ -39,13 +38,15 @@ export function wapReducer(state = initialState, action) {
     case 'SET_THUMBNAIL':
       return { ...state, wap: { ...state.wap, thumbnail: action.imgData } }
 
-    case 'SET_ELEMENT':
-      return { ...state, selectedElement: { ...action.cmp } }
-      
+    case 'SET_CMP':
+      return { ...state, selectedCmp: { ...action.cmp } }
+
     case 'SET_DISPLAY_SIZE':
       return { ...state, displaySize: action.displaySize }
     case 'SET_WORKING_STATE':
       return { ...state, isCollabMode: action.isCollabMode }
+    case 'PUBLISH_WAP':
+      return { ...state, wap: { ...state.wap, isPublished: true } }
     default:
       return state
   }

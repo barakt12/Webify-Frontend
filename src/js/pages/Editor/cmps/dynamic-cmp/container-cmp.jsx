@@ -1,14 +1,22 @@
 import React from 'react'
 import { DynamicCmp } from './dynamic-cmp'
 
-export function ContainerCmp({ style, cmp, onHoverElement, onSelectElement, selectedElement }) {
+export function ContainerCmp({
+  style,
+  cmp,
+  onHoverCmp,
+  onSelectCmp,
+  selectedCmp,
+}) {
   return (
     <div
       style={style}
-      className={`container ${cmp.name} ${selectedElement?.id === cmp.id ? 'selected' : ''}`}
+      className={`container ${cmp.name} ${
+        selectedCmp?.id === cmp.id ? 'selected' : ''
+      }`}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
-      // onMouseOver={(ev) => onHoverElement(ev)}
-      onClick={(ev) => onSelectElement(ev, cmp)}
+      // onMouseOver={(ev) => onHoverCmp(ev)}
+      onClick={(ev) => onSelectCmp(ev, cmp)}
     >
       {cmp?.cmps?.map((cmp) => {
         return <DynamicCmp key={cmp.id} cmp={cmp} />

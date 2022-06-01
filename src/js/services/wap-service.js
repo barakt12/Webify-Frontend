@@ -18,6 +18,8 @@ export const wapService = {
   duplicateCmp,
   getWapCopy,
   addSubscriberDetails,
+  publishWap,
+  increaseViewCount,
 }
 
 function query(filterBy, sortBy) {
@@ -55,11 +57,20 @@ function deleteCmp(cmp, cmpId) {
 function duplicateCmp(cmp, newCmp, cmpId) {
   const idx = cmp?.cmps?.findIndex((cmp) => cmp.id === cmpId)
   if (idx > -1) {
+    // cmp.id = uuidv4()
     cmp.cmps.splice(idx, 0, newCmp)
     return
   } else {
-    cmp?.cmps?.forEach((cmp) => duplicateCmp(cmp, newCmp, cmpId))
+    cmp?.cmps?.forEach((cmp) => {
+      // cmp.id = uuidv4()
+      return duplicateCmp(cmp, newCmp, cmpId)
+    })
   }
+}
+
+function generateNewIds(cmp) {
+  cmp.id = uuidv4()
+  if (cmp.cmps) cmp.cmps.forEach((cmp) => (cmp.id = uuidv4()))
 }
 
 function updateCmp(cmp, newCmp) {
@@ -114,4 +125,12 @@ async function getWapIdx(wapId) {
 async function addSubscriberDetails(wapId, details) {
   if (!wapId) return
   return await httpService.put(`wap/${wapId}/newSubscriber`, details)
+}
+async function publishWap(wapId) {
+  if (!wapId) return
+  return await httpService.put(`wap/${wapId}/publish`)
+}
+
+function increaseViewCount(wapId) {
+  return httpService.put(`wap/${wapId}/increaseview`)
 }

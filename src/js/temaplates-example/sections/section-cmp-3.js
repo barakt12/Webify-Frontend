@@ -26,6 +26,8 @@ export const sectionCmp3 = {
         {
           type: 'txt',
           name: 'about-me-heading',
+          style: { fontSize: '2rem', fontWeight: '400' },
+
           id: uuidv4(),
           info: {
             txt: 'About Me',
@@ -34,17 +36,21 @@ export const sectionCmp3 = {
         {
           type: 'txt',
           id: uuidv4(),
+          style: { fontSize: '1.3rem', fontWeight: '400' },
+
           info: {
-            txt: "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.",
+            txt: " I am an artist that specializes in simplistic and beautiful designs. My tattoos are filled with meaning, and are often very intricate. My work can be dark, but also light-hearted, depending on what the mood calls for. I do not believe in the 'one size fits all' approach to tattooing, so each piece is designed to fit your likes and personality.",
           },
         },
-        {
-          type: 'txt',
-          id: uuidv4(),
-          info: {
-            txt: "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.",
-          },
-        },
+        // {
+        //   type: 'txt',
+        //   id: uuidv4(),
+        //   style: { fontSize: '1rem', fontWeight: '400' },
+
+        //   info: {
+        //     txt: "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.",
+        //   },
+        // },
       ],
     },
   ],

@@ -13,10 +13,13 @@ export const footerCmp4 = {
       type: 'container',
       name: 'social-media-links',
       id: uuidv4(),
+
       cmps: [
         {
           type: 'txt',
           id: uuidv4(),
+          style: { fontSize: '3rem', fontWeight: 400 },
+
           info: {
             txt: 'Instagram',
           },
@@ -24,6 +27,8 @@ export const footerCmp4 = {
         {
           type: 'txt',
           id: uuidv4(),
+          style: { fontSize: '3rem', fontWeight: 400 },
+
           info: {
             txt: 'Twitter',
           },
@@ -31,6 +36,8 @@ export const footerCmp4 = {
         {
           type: 'txt',
           id: uuidv4(),
+          style: { fontSize: '3rem', fontWeight: 400 },
+
           info: {
             txt: 'Facebook',
           },
@@ -40,6 +47,8 @@ export const footerCmp4 = {
     {
       type: 'txt',
       id: uuidv4(),
+      style: { fontSize: '1rem', fontWeight: 400 },
+
       info: {
         txt: '© 2022 by ELLIE PAGE. Proudly created with Webify',
       },

@@ -21,13 +21,13 @@ export function SavePublishBtns({ onSaveWap }) {
   }
 
   return (
-    <div className='action-btns save-publish'>
+    <div className="action-btns save-publish">
       <button onClick={onSaveWap}>
         <SaveIcon />
         <span>Save</span>
       </button>
       <button>
-        <CloudDoneIcon />
+        <CloudDoneIcon onClick={onPublishWap} />
         <span>Publish</span>
       </button>
       <button onClick={onCollab}>

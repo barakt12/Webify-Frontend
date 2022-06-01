@@ -7,15 +7,17 @@ header {
   z-index: 5;
   padding: 0 3.6rem;
   height: 70px;
-  background-color: $accent-color;
+  // background-color: $accent-color;
   color: $main-color;
   // box-shadow: 0 1px 5px 0 rgb(41 85 115 / 21%);
-  
-  &.header-nav-menu-open{
+
+  &.header-nav-menu-open {
     background-color: rgb(61, 73, 110);
-    color: rgb(203 231 242);
-    .logo{
-      color: rgb(203 231 242);
+    // color: rgb(203 231 242);
+    color: rgb(255, 176, 149);
+    .logo {
+      // color: rgb(203 231 242);
+      color: rgb(255, 176, 149);
     }
   }
 
