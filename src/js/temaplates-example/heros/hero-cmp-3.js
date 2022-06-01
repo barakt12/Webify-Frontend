@@ -22,6 +22,7 @@ export const heroCmp4 = {
           type: 'txt',
           id: uuidv4(),
           name: 'hero-heading',
+          style: { fontSize: '3.75rem' },
           info: {
             txt: 'Contemporary Tattoos For All Bodies and Skin',
           },
@@ -30,8 +31,10 @@ export const heroCmp4 = {
           type: 'txt',
           id: uuidv4(),
           name: 'hero-sub-heading',
+          style: { fontSize: '1rem' },
+
           info: {
-            txt: "I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.",
+            txt: ' We pride ourselves on a beautiful and simplistic design that focuses on the art of tattooing. We also believe in quality work and are always striving to be better.',
           },
         },
         {
@@ -51,7 +54,10 @@ export const heroCmp4 = {
       cmps: [
         {
           type: 'txt',
+
           id: uuidv4(),
+          style: { fontSize: '1.1rem' },
+
           info: {
             txt: 'Follow me',
           },

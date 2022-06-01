@@ -21,8 +21,8 @@ export function EditorSidebar() {
   const [dimensions, setDimensions] = useState(null)
   const dispatch = useDispatch()
 
-  const selectedElement = useSelector(
-    (storeState) => storeState.wapModule.selectedElement
+  const selectedCmp = useSelector(
+    (storeState) => storeState.wapModule.selectedCmp
   )
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export function EditorSidebar() {
   useEffect(() => {
     setActiveTab('edit')
     toggleSidebarShown(true)
-  }, [selectedElement])
+  }, [selectedCmp])
 
   useEffect(() => {
     if (!isSidebarShown) setActiveTab(null)

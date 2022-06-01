@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { wapService } from '../../../../services/wap-service'
 import { useSelector } from 'react-redux'
 
-export function FormCmp({ cmp, onHoverElement, selectedElement, onSelectElement }) {
+export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
   const [subscriber, setSubscriber] = useState()
   const location = useLocation()
   const { wap } = useSelector((storeState) => storeState.wapModule)
@@ -31,10 +31,10 @@ export function FormCmp({ cmp, onHoverElement, selectedElement, onSelectElement 
   return (
     <form
       style={cmp.style}
-      className={`${selectedElement?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
+      className={`${selectedCmp?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
-      onMouseOver={(ev) => onHoverElement(ev)}
-      onClick={(ev) => onSelectElement(ev, cmp)}
+      onMouseOver={(ev) => onHoverCmp(ev)}
+      onClick={(ev) => onSelectCmp(ev, cmp)}
       onSubmit={onSubmitForm}
     >
       {cmp.info.formFields.map((field, idx) => {
@@ -42,14 +42,24 @@ export function FormCmp({ cmp, onHoverElement, selectedElement, onSelectElement 
           return (
             <label key={idx}>
               {field.label}
-              <textarea name={field.name} onChange={onHandleChange} rows={field.rows} placeholder={field.placeholder}></textarea>
+              <textarea
+                name={field.name}
+                onChange={onHandleChange}
+                rows={field.rows}
+                placeholder={field.placeholder}
+              ></textarea>
             </label>
           )
 
         return (
           <label key={idx}>
             {field.label}
-            <input type={field.input} onChange={onHandleChange} name={field.name} placeholder={field.placeholder}></input>
+            <input
+              type={field.input}
+              onChange={onHandleChange}
+              name={field.name}
+              placeholder={field.placeholder}
+            ></input>
           </label>
         )
       })}

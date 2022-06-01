@@ -16,65 +16,63 @@ import { useEffect } from 'react'
 
 export const TxtEditor = () => {
   const dispatch = useDispatch()
-  const { selectedElement } = useSelector((storeState) => storeState.wapModule)
+  const { selectedCmp } = useSelector((storeState) => storeState.wapModule)
 
-  useEffect(() => {}, [selectedElement])
+  useEffect(() => {}, [selectedCmp])
 
   const onChangeFontWeight = () => {
     const fontWeightType =
-      selectedElement.style.fontWeight === 'bold' ||
-      selectedElement.style.fontWeight === '700'
+      selectedCmp.style.fontWeight === 'bold' ||
+      selectedCmp.style.fontWeight === '700'
         ? 'normal'
         : 'bold'
-    selectedElement.style = {
-      ...selectedElement.style,
+    selectedCmp.style = {
+      ...selectedCmp.style,
       fontWeight: fontWeightType,
     }
 
-    dispatch(updateCmp(selectedElement))
+    dispatch(updateCmp(selectedCmp))
   }
 
   const onChangeFontFormat = () => {
     const fontFormatType =
-      selectedElement.style.fontStyle === 'italic' ? 'normal' : 'italic'
-    selectedElement.style = {
-      ...selectedElement.style,
+      selectedCmp.style.fontStyle === 'italic' ? 'normal' : 'italic'
+    selectedCmp.style = {
+      ...selectedCmp.style,
       fontStyle: fontFormatType,
     }
-    dispatch(updateCmp(selectedElement))
+    dispatch(updateCmp(selectedCmp))
   }
   const onChangeTextDeco = () => {
     const fontDecoType =
-      selectedElement.style.textDecoration === 'underline'
-        ? 'none'
-        : 'underline'
-    selectedElement.style = {
-      ...selectedElement.style,
+      selectedCmp.style.textDecoration === 'underline' ? 'none' : 'underline'
+    selectedCmp.style = {
+      ...selectedCmp.style,
       textDecoration: fontDecoType,
     }
-    dispatch(updateCmp(selectedElement))
+    dispatch(updateCmp(selectedCmp))
   }
 
   const onChangeStyling = (type, value) => {
     if (type === 'fontSize') value = `${value / 16}rem`
-    if (selectedElement.style && value === selectedElement.style[type]) return
-    selectedElement.style = { ...selectedElement.style, [type]: value }
+    if (selectedCmp.style && value === selectedCmp.style[type]) return
+    selectedCmp.style = { ...selectedCmp.style, [type]: value }
 
-    dispatch(updateCmp(selectedElement))
+    dispatch(updateCmp(selectedCmp))
   }
 
   const currStyles = {
-    txtAlign: selectedElement?.style?.textAlign,
-    txtBold: selectedElement?.style?.fontWeight,
-    fontStyle: selectedElement?.style?.fontStyle,
-    txtDeco: selectedElement?.style?.textDecoration,
-    txtShadow: selectedElement?.style?.textShadow,
-    fontFamily: selectedElement?.style?.fontFamily,
+    txtAlign: selectedCmp?.style?.textAlign,
+    txtBold: selectedCmp?.style?.fontWeight,
+    fontStyle: selectedCmp?.style?.fontStyle,
+    txtDeco: selectedCmp?.style?.textDecoration,
+    txtShadow: selectedCmp?.style?.textShadow,
+    fontFamily: selectedCmp?.style?.fontFamily,
   }
 
   return (
     <section className='txt-editor-container'>
-      {selectedElement.type === 'txt' && (
+      {selectedCmp.type === 'txt' && (
         <>
           <div className='txt-align-container'>
             <p>Align</p>
@@ -139,7 +137,7 @@ export const TxtEditor = () => {
             <EditSlider
               isFontSize={true}
               onChangeStyling={onChangeStyling}
-              selectedElement={selectedElement}
+              selectedCmp={selectedCmp}
             />
           </div>
         </>
@@ -149,10 +147,10 @@ export const TxtEditor = () => {
         <EditSlider
           isFontSize={false}
           onChangeStyling={onChangeStyling}
-          selectedElement={selectedElement}
+          selectedCmp={selectedCmp}
         />
       </div>
-      {selectedElement.type === 'txt' && (
+      {selectedCmp.type === 'txt' && (
         <>
           <div className='txt-type-container'>
             <p>Font Type</p>

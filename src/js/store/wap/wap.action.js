@@ -3,13 +3,13 @@ import { wapService } from '../../services/wap-service.js'
 // import { userService } from '../../services/user.service'
 import { v4 as uuidv4 } from 'uuid'
 
-export const setSelectedElement = (cmp) => {
+export const setSelectedCmp = (cmp) => {
   return (dispatch) => {
     dispatch({ type: 'SET_ELEMENT', cmp })
   }
 }
 
-export const deleteElement = (cmp) => {
+export const deleteCmp = (cmp) => {
   return async (dispatch, getState) => {
     // gets wap from state to pass to service function
     let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
@@ -21,11 +21,11 @@ export const deleteElement = (cmp) => {
   }
 }
 
-export const duplicateElement = (cmp) => {
+export const duplicateCmp = (cmp) => {
   return async (dispatch, getState) => {
     let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
     const duplicateCmp = JSON.parse(JSON.stringify(cmp))
-    duplicateCmp.id = uuidv4()
+    wapService.generateNewIds(duplicateCmp)
     wapService.duplicateCmp(wap, duplicateCmp, cmp.id)
     await dispatch(updateWap(wap))
     wapService.saveToDraft(wap)
@@ -69,6 +69,11 @@ export const updateWap = (wap) => {
 export const loadTemplate = (id) => {
   return (dispatch) => {
     try {
+      if (id === 'blank') {
+        dispatch({ type: 'SET_WAP', wap: { cmps: [] } })
+        wapService.saveToDraft({ cmps: [] })
+        return
+      }
       let wap = templateService.getTemplateById(id)
       const wapCopy = JSON.parse(JSON.stringify(wap))
       delete wapCopy._id

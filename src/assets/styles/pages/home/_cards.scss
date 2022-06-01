@@ -23,7 +23,8 @@
   }
   & .cards-white-block {
     position: absolute;
-    top: -147px;
+    top: -136px;
+
     width: calc(100vw - 560px);
   }
   & .cards-bg-wave {
@@ -116,11 +117,16 @@
   // width: 560px;
   display: flex;
   position: relative;
+  z-index: 60;
+  position: relative;
   flex: 1 1;
   height: 410px;
   z-index: 15;
   align-items: center;
   justify-content: center;
+  & img {
+    border-radius: 10px;
+  }
 }
 
 .cards-left-box-container {

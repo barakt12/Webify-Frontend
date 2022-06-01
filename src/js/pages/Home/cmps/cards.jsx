@@ -32,7 +32,12 @@ export const Cards = () => {
           <div className='cards-left-box-container'>
             <h3>Hello text 1</h3>
           </div>
-          <div className='cards-right-box-container'></div>
+          <div className='cards-right-box-container'>
+            <img
+              src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654095646/themes-home-page_jdaoir.jpg'
+              alt=''
+            />
+          </div>
           <div className='wave2-png'></div>
         </div>
         <div className='cards card2'>

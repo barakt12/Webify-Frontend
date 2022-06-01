@@ -35,50 +35,53 @@ export const EditorBoard = ({ wap }) => {
     dispatch(toggleSave())
   }
 
-  if (isSaving) return <Loader />
+  // if (isSaving) return <Loader />
   return (
-    <div
-      ref={editorRef}
-      style={{
-        maxWidth: editorWidth,
-        margin: '0 auto',
-        transition: 'max-width 0.3s',
-      }}
-      className='editor-inner-container'
-    >
-      <Droppable droppableId='editor'>
-        {(provided, snapshot) => {
-          return (
-            <section
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-              className='editor'
-            >
-              {!wap?.cmps?.length ? (
-                <h2>Drag and Drop to add components</h2>
-              ) : (
-                wap.cmps.map((cmp, index) => (
-                  <Draggable
-                    key={cmp.id}
-                    draggableId={cmp.id + index}
-                    index={index}
-                  >
-                    {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        <DynamicCmp cmp={cmp} />
-                      </div>
-                    )}
-                  </Draggable>
-                ))
-              )}
-            </section>
-          )
+    <>
+      <div
+        ref={editorRef}
+        style={{
+          maxWidth: editorWidth,
+          margin: '0 auto',
+          transition: 'max-width 0.3s',
         }}
-      </Droppable>
-    </div>
+        className='editor-inner-container'
+      >
+        <Droppable droppableId='editor'>
+          {(provided, snapshot) => {
+            return (
+              <section
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+                className='editor'
+              >
+                {!wap?.cmps?.length ? (
+                  <h2>Drag and Drop to add components</h2>
+                ) : (
+                  wap.cmps.map((cmp, index) => (
+                    <Draggable
+                      key={cmp.id}
+                      draggableId={cmp.id + index}
+                      index={index}
+                    >
+                      {(provided, snapshot) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
+                          <DynamicCmp cmp={cmp} />
+                        </div>
+                      )}
+                    </Draggable>
+                  ))
+                )}
+                {provided.placeholder}
+              </section>
+            )
+          }}
+        </Droppable>
+      </div>
+    </>
   )
 }
