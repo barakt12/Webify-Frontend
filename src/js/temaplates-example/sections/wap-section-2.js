@@ -25,7 +25,9 @@ export const wapSection2 = {
           info: {
             txt: 'AENEAN CONSECTETUR',
           },
-          style: {},
+          style: {
+            fontSize: '0.75rem',
+          },
         },
         {
           type: 'txt',
@@ -34,7 +36,9 @@ export const wapSection2 = {
           info: {
             txt: 'Cay sociis nato que penatibus et',
           },
-          style: {},
+          style: {
+            fontSize: '2.375rem',
+          },
         },
         {
           type: 'txt',
@@ -43,7 +47,9 @@ export const wapSection2 = {
           info: {
             txt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
           },
-          style: {},
+          style: {
+            fontSize: '1rem',
+          },
         },
       ],
     },

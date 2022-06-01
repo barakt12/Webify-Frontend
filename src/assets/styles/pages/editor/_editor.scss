@@ -3,10 +3,19 @@
   padding: 0;
 }
 
+.placeholder {
+  position: absolute;
+  background-color: white;
+  border-radius: 3px;
+  border: dashed 2px black;
+}
+
+
 .editor-container {
   display: flex;
   width: 100%;
   height: calc(100vh - 70px);
+  background-color: whitesmoke;
 }
 
 .editor-inner-container {

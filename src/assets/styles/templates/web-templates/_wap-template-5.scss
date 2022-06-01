@@ -36,13 +36,14 @@
   background-attachment: fixed;
   background-size: cover;
   height: 80vh;
+  padding-top: 5rem;
   & > p {
     position: absolute;
     text-align: center;
     display: flex;
     font-size: 3rem;
     margin-top: 5rem;
-    margin: 5rem 13.5vw 0 13.5vw;
+    padding: 0 13.5vw;
     word-break: break-word;
   }
   .img-container {
@@ -139,8 +140,8 @@
 }
 
 .wap-cards-5-third {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   background-color: white;
   & > p {
     text-underline-offset: 20px;
