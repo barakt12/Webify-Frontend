@@ -17,6 +17,7 @@ export const wapService = {
   getDraft,
   duplicateCmp,
   getWapCopy,
+  addSubscriberDetails,
 }
 
 function query(filterBy, sortBy) {
@@ -49,7 +50,6 @@ function deleteCmp(cmp, cmpId) {
   } else {
     cmp?.cmps?.forEach((cmp) => deleteCmp(cmp, cmpId))
   }
-  
 }
 
 function duplicateCmp(cmp, newCmp, cmpId) {
@@ -109,4 +109,9 @@ async function save(wap) {
 async function getWapIdx(wapId) {
   const waps = await query()
   return waps.findIndex((wap) => wap._id === wapId)
+}
+
+async function addSubscriberDetails(wapId, details) {
+  if (!wapId) return
+  return await httpService.put(`wap/${wapId}/newSubscriber`, details)
 }

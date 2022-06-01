@@ -254,13 +254,14 @@
             }
         }
 
-        .btn {
+        button {
             background-color: white;
             width: 140px;
             height: 40px;
             border: 1px solid black;
             outline: 0;
             transition: all 0.5s;
+            margin: auto;
             
             &:hover {
                 background-color: black;

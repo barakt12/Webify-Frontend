@@ -59,14 +59,6 @@ export const formCmp3 = {
             ],
           },
         },
-        {
-          type: 'btn',
-          name: 'btn',
-          id: uuidv4(),
-          info: {
-            txt: 'Submit',
-          },
-        },
       ],
     },
   ],
