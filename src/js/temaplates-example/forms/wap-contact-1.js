@@ -23,33 +23,30 @@ export const wapContact1 = {
         formFields: [
           {
             type: 'input',
+            name: 'fullname',
             label: '',
             placeholder: 'Full name',
           },
           {
             type: 'input',
+            name: 'email',
             label: '',
             placeholder: 'Email',
           },
           {
             type: 'number',
+            name: 'phone',
             label: '',
             placeholder: 'Phone number',
           },
           {
             type: 'textarea',
+            name: 'desc',
             label: '',
             rows: '5',
             placeholder: 'Tell us a bit about yourself',
           },
         ],
-      },
-    },
-    {
-      type: 'btn',
-      id: uuidv4(),
-      info: {
-        txt: 'Send!',
       },
     },
   ],
