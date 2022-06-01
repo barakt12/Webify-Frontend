@@ -24,6 +24,7 @@
   & .cards-white-block {
     position: absolute;
     top: -147px;
+    width: calc(100vw - 560px);
   }
   & .cards-bg-wave {
     display: flex;

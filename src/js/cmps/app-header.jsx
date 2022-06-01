@@ -18,7 +18,9 @@ export const AppHeader = () => {
   return (
     <>
       {location.pathname !== '/preview' && (
-        <header className='app-header flex justify-between align-center'>
+        <header>
+
+        <div className='app-header flex justify-between align-center '>
           <Link to='/' className='clean-link logo'>
             <p className='logo'>webify</p>
           </Link>
@@ -50,6 +52,7 @@ export const AppHeader = () => {
               </>
             )}
           </div>
+        </div>
         </header>
       )}
     </>

@@ -5,7 +5,7 @@ export function Cards() {
     <div className='home-page-cards'>
       <svg
         className='cards-white-block'
-        width='1140'
+        width='0'
         height='366'
         viewBox='0 0 1140 366'
         fill='none'

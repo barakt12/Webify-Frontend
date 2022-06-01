@@ -1,7 +1,11 @@
+header {
+  // position: fixed;
+  width: 100%;
+  z-index: 200;
+}
 .app-header {
-  padding: 0 7.7%;
-  position: relative;
   z-index: 5;
+  padding: 0 280px;
   height: 70px;
   background-color: $accent-color;
   color: $main-color;
@@ -48,7 +52,6 @@
     }
   }
   @media screen and (min-width: '1300px') {
-    padding: 0 176px;
     .navbar {
       font-size: 1.2rem;
     }
