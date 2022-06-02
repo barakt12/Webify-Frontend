@@ -262,12 +262,12 @@
     .wap-hero-2-container {
       gap: unset;
       & .wap-hero-2-main-hero-header {
-        font-size: 3.75rem;
+        font-size: 3.75rem !important;
         padding-bottom: unset;
       }
       & .wap-hero-2-sec-hero-header {
         line-height: unset;
-        font-size: 1.175rem;
+        font-size: 1.175rem !important;
         margin-bottom: 20px;
       }
 

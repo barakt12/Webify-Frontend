@@ -27,7 +27,7 @@
 
     height: 484px;
 
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
 
     margin: 180px 0px 240px;
     max-width: calc(100vw - 560px);
@@ -72,7 +72,7 @@
     position: absolute;
     width: 1200px;
     height: 1000px;
-    right: -240px;
+    right: -415px;
     z-index: 10;
   }
 
@@ -117,12 +117,211 @@
   background-image: url('../../../img/illustrations/monk.png');
   background-size: cover;
   background-repeat: no-repeat;
-  right: 207px;
+  right: 0px;
 
   z-index: 20;
   top: 9px;
   animation: 9s ease-in-out 0s infinite normal none running floating;
 }
+
+.home-page-cards {
+  flex-grow: 1;
+}
+
+@media (max-width: 1600px) {
+  .home {
+    .home-page-hero-container {
+      .home-page-hero {
+        .hero-text {
+          justify-content: unset;
+          gap: 18px;
+          margin-top: 80px;
+          width: 400px;
+          & > h1 {
+            font-size: 3rem;
+          }
+          & > p {
+            font-size: 1.3rem;
+          }
+          & > button {
+            width: 240px;
+            font-size: 16px;
+          }
+        }
+        .monk-png {
+          width: 276px;
+          height: 360px;
+        }
+        .storm-container {
+          right: -540px;
+          .storm-png {
+            width: 1000px;
+            height: 1000px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .home {
+    .home-page-hero-container {
+      padding-bottom: 40px;
+      .home-page-hero {
+        max-width: unset;
+        padding: 0 3.6rem;
+        margin: 140px 0px 150px;
+        .monk-png {
+          width: 183px;
+          height: 226px;
+          right: 200px;
+        }
+        .storm-container {
+          height: 570px;
+          .storm-png {
+            width: 679px;
+            height: 570px;
+          }
+        }
+      }
+    }
+    .teaser-container {
+      padding-bottom: 200px;
+      .img-container {
+        min-width: unset;
+        padding: 0 3.6rem;
+        margin: unset;
+      }
+      .wave-png {
+        height: 1200px;
+      }
+    }
+
+    .home-page-cards {
+      margin-bottom: 150px;
+      .cards-white-block {
+        width: 100%;
+        padding: 0 3.6rem;
+      }
+      .cards-bg-wave {
+        padding: 0 3.6rem;
+        .line {
+          display: none;
+        }
+        .card1{
+          flex-direction: column;
+          .wave2-png{
+            width: 100%;
+          }
+        }
+        .card2{
+          flex-direction: column-reverse;
+        }
+        .card1,
+        .card2 {
+          width: 100%;
+          gap: 50px;
+          height: 100%;
+          padding-bottom: 80px;
+          .card-number-circle {
+            display: none;
+          }
+          .cards-right-box-container,
+          .cards-left-box-container {
+            height: 300px;
+            img {
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+      }
+      .card3{
+        flex-direction: column;
+      }
+      .card4{
+        flex-direction: column-reverse;
+      }
+      .card3,
+      .card4 {
+        padding: 0 3.6rem;
+        width: 100%;
+          gap: 50px;
+          height: 100%;
+          padding-bottom: 80px;
+        .card-number-circle {
+          display: none;
+        }
+        .cards-right-box-container,
+        .cards-left-box-container {
+          height: 300px;
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 840px) {
+  html{
+    font-size: 14px;
+  }
+  .home {
+    .home-page-hero-container {
+      padding-bottom: 200px;
+      .home-page-hero {
+        flex-direction: column-reverse;
+        margin: unset;
+        align-items: center;
+        height: 600px;
+        position: unset;
+        .hero-text {
+          width: 355px;
+          & > h1{
+            font-size: 2.5rem;
+          }
+          & > p{
+            font-size: 1.2rem;
+          }
+        }
+        .monk-png {
+          top: 70px;
+          width: 115px;
+          height: 152px;
+          right: 42%;
+        }
+        .storm-container {
+          position: unset;
+          width: unset;
+          padding-top: 365px;
+          .storm-png {
+            width: 350px;
+            height: 350px;
+          }
+        }
+      }
+    }
+    .home-page-cards{
+      .cards-white-block{
+        top: -170px;
+        padding: unset;
+        width: 100%;
+      }
+      .cards-bg-wave{
+        background-image: unset;
+        h1:nth-of-type(1){
+          margin-top: unset;
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
 @keyframes floating {
   0% {
     transform: translate3d(0, 0, 0);
@@ -133,8 +332,4 @@
   100% {
     transform: translate3d(0, 0, 0);
   }
-}
-
-.home-page-cards {
-  flex-grow: 1;
 }
