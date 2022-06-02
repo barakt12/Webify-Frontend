@@ -1,16 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import { userLogout } from '../store/user/user.action'
 import MenuIcon from '@mui/icons-material/Menu'
 import LogoutIcon from '@mui/icons-material/Logout'
-export const AppHeader = () => {
+export const AppHeader = ({ isCopy }) => {
   const location = useLocation()
   const dispatch = useDispatch()
   const loggedUser = useSelector((storeState) => storeState.userModule.user)
 
   const [isNavMenuShown, setisNavMenuShown] = useState(false)
+  useEffect(() => {
+    if (location.pathname === '/') {
+      const intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          if (!entries[0].isIntersecting) {
+            document.querySelector('.home-header-copy').classList.add('fixed')
+          } else {
+            document.querySelector('.home-header-copy').classList.remove('fixed')
+          }
+        },
+        { threshold: 0.1 }
+      )
+
+      intersectionObserver.observe(document.querySelector('.home-page-hero-container'))
+    }
+  }, [])
 
   const onLogout = () => {
     dispatch(userLogout())
@@ -19,21 +35,18 @@ export const AppHeader = () => {
   const onOpenNavMenu = () => {
     setisNavMenuShown(!isNavMenuShown)
   }
-
-  const fixedClass = location.pathname === '/' ? 'fixed-on-scroll' : ''
-
   const editorClass = location.pathname.includes('/editor') ? 'in-editor' : ''
-
+  const copyClass = isCopy ? 'home-header-copy' : ''
   if (
     // location.pathname === '/preview' ||
     location.pathname.includes('/publish')
   )
     return <></>
   return (
-    <header className={fixedClass}>
+    <header className={copyClass}>
       <div
         className={`
-         ${isNavMenuShown ? 'header-nav-menu-open app-header flex justify-between align-center' : 'app-header flex justify-between align-center'} ${editorClass}`}
+         ${isNavMenuShown ? 'header-nav-menu-open app-header flex justify-between align-center' : 'app-header flex justify-between align-center'}`}
       >
         <Link to="/" className="clean-link logo">
           <p className="logo">webify</p>
