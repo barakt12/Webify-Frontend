@@ -37,11 +37,7 @@ export const AppHeader = ({ isCopy }) => {
   }
   const editorClass = location.pathname.includes('/editor') ? 'in-editor' : ''
   const copyClass = isCopy ? 'home-header-copy' : ''
-  if (
-    // location.pathname === '/preview' ||
-    location.pathname.includes('/publish')
-  )
-    return <></>
+  if (location.pathname.includes('/preview') || location.pathname.includes('/publish')) return <></>
   return (
     <header className={copyClass}>
       <div
