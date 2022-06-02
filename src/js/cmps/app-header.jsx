@@ -92,12 +92,12 @@ export const AppHeader = ({ isCopy }) => {
               <Link to="/dashboard" className="clean-link">
                 Dashboard
               </Link>
-              <p className="welcome-msg">
+              <div className="welcome-msg">
                 {loggedUser?.username && <p>Hello {loggedUser.fullname.split(' ')[0]}</p>}
                 <Link to="/" onClick={onLogout} className="clean-link logout-icon">
                   <LogoutIcon className="logout-svg" titleAccess="Logout" />
                 </Link>
-              </p>
+              </div>
             </>
           )}
         </div>
