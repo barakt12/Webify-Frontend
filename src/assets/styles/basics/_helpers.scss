@@ -111,6 +111,17 @@
   outline-offset: -2px;
 }
 
-.fixed{
+.home-header-copy{
   position: fixed;
+  background-color: white;
+  top: -70px;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
+
+.home-header-copy.fixed{
+  opacity: 1;
+  top: 0;
+}
+
+

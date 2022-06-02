@@ -55,6 +55,15 @@ export const headerWap3 = {
       ],
     },
     {
+      type: 'img',
+      name: 'hamburger',
+      id: uuidv4(),
+      info: {
+        imgUrl: 'https://icon-library.com/images/white-hamburger-menu-icon/white-hamburger-menu-icon-24.jpg',
+      },
+      style: {},
+    },
+    {
       type: 'container',
       name: 'nav-bar',
       id: uuidv4(),
