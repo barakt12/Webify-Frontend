@@ -68,12 +68,10 @@ export function EditorSidebar() {
 
   const onSaveWap = () => {
     dispatch(toggleSave())
-
   }
 
   const onPublishWap = () => {
     dispatch(togglePublish())
-
   }
 
   return (
