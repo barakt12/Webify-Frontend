@@ -37,8 +37,10 @@ export function EditorSidebar() {
   }, [activeTab])
 
   useEffect(() => {
-    setActiveTab('edit')
-    toggleSidebarShown(true)
+    if (selectedCmp) {
+      setActiveTab('edit')
+      toggleSidebarShown(true)
+    }
   }, [selectedCmp])
 
   useEffect(() => {

@@ -13,6 +13,7 @@ import { VideoCmp } from './video-cmp'
 import { Gallery } from './gallery-cmp'
 import { FormCmp } from './form-cmp'
 import { PagingGallery } from './paging-gallery'
+import { useEffect, useState } from 'react'
 
 export const DynamicCmp = (props) => {
   const { cmp } = props
@@ -20,45 +21,63 @@ export const DynamicCmp = (props) => {
   const location = useLocation()
   const selectedCmp = useSelector((storeState) => storeState.wapModule.selectedCmp)
 
+  const { displaySize } = useSelector((storeState) => storeState.wapModule)
+  const [displayClass, setDisplayClass] = useState('')
+  useEffect(() => {
+    switch (displaySize) {
+      case '720px':
+        setDisplayClass('tablet-layout')
+        break
+      case '420px':
+        setDisplayClass('mobile-layout')
+        break
+      default:
+        setDisplayClass('')
+    }
+  }, [displaySize])
+
   const onHoverCmp = (ev) => {
     ev.stopPropagation()
-    if (location.pathname !== '/preview' && !location.pathname.includes('/publish')) {
+    if (!location.pathname.includes('/preview') && !location.pathname.includes('/publish')) {
       ev.target.classList.add('hover')
     }
   }
 
   const onSelectCmp = (ev, cmp) => {
     ev.stopPropagation()
-    if (location.pathname !== '/preview' && !location.pathname.includes('/publish')) {
+    if (window.innerWidth < 700) {
+      ev.target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    if (!location.pathname.includes('/preview') && !location.pathname.includes('/publish')) {
       dispatch(setSelectedCmp(cmp))
     }
   }
 
   switch (cmp.type) {
     case 'container':
-      return <ContainerCmp {...props} style={cmp.style} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} selectedCmp={selectedCmp} />
+      return <ContainerCmp displayClass={displayClass} {...props} style={cmp.style} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} selectedCmp={selectedCmp} />
     case 'txt':
-      return <TxtCmp cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
+      return <TxtCmp displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     case 'icon':
-      return <IconCmp {...cmp.info} />
+      return <IconCmp displayClass={displayClass} {...cmp.info} />
     case 'img':
-      return <ImgCmp cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
+      return <ImgCmp displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     case 'faq':
-      return <FAQCmp cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
+      return <FAQCmp displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     case 'btn':
-      return <BtnCmp cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
+      return <BtnCmp displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     case 'carosuel':
-      return <CarouselCmp cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
+      return <CarouselCmp displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     case 'carousel-lg':
-      return <CarouselLgCmp cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
+      return <CarouselLgCmp displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     case 'video':
-      return <VideoCmp cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
+      return <VideoCmp displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     case 'gallery-grid':
-      return <Gallery cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
+      return <Gallery displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     case 'paging-gallery':
-      return <PagingGallery cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
+      return <PagingGallery displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     case 'form':
-      return <FormCmp cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
+      return <FormCmp displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     default:
       return
   }

@@ -17,7 +17,7 @@ export const routes = [
     component: SignUp,
   },
   {
-    path: '/preview',
+    path: '/preview/:wapId',
     component: Preview,
   },
   {

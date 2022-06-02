@@ -2,6 +2,7 @@ header {
   // position: fixed;
   width: 100%;
   z-index: 200;
+  transition: all 0.5s;
 }
 .app-header {
   z-index: 5;
@@ -33,13 +34,21 @@ header {
     font-size: 2.7rem;
     line-height: 65px;
   }
-
-  .logout-icon {
+  .welcome-msg {
     display: flex;
-    border-radius: 10px;
-    width: 30px;
-    height: 30px;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    p {
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+    
+    .logout-icon {
+      height: 25px;
+
+
     .logout-svg {
       font-size: 1.7rem;
     }
@@ -47,6 +56,7 @@ header {
       background-color: rgb(221 221 221 / 36%);
     }
   }
+}
 
   .navbar {
     font-size: 1rem;
@@ -63,7 +73,7 @@ header {
     background-color: rgb(61, 73, 110);
     width: 100%;
     transition: all 0.25s ease-in-out 0s;
-    position: fixed;
+    // position: b;
     top: 70px;
     left: 0px;
     opacity: 1;
@@ -105,6 +115,7 @@ header {
       padding: 0 280px;
       .navbar {
         display: flex;
+        align-items: center;
       }
     }
     .main-menu-container {

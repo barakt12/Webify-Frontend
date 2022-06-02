@@ -4,6 +4,7 @@
 @import './setup/functions';
 @import './setup/mixins';
 @import './setup/typography';
+@import './setup/layout';
 
 // Basics
 
@@ -25,6 +26,7 @@
 @import './cmps/txt-editor';
 @import './cmps/img-url-container';
 @import './cmps/paging-gallery';
+@import './cmps/form-edit';
 
 // Templates
 @import './templates/web-templates/wap-template-1.scss';

@@ -5,19 +5,14 @@ import { loadTemplate } from '../../store/wap/wap.action'
 import { Link } from 'react-router-dom'
 
 export const Templates = () => {
+  const dispatch = useDispatch()
 
   useEffect(() => {
     //scroll to the top of the page.
     window.scrollTo(0, 0)
-  },[])
-
-  const dispatch = useDispatch()
+  }, [])
 
   const onSelectTemplate = (id) => {
-    dispatch(loadTemplate(id))
-  }
-
-  const onPreviewTemplate = (id) => {
     dispatch(loadTemplate(id))
   }
 
@@ -49,8 +44,8 @@ export const Templates = () => {
             <div className="template-hover-info-container">
               <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
               <div className="template-hover-btns-container">
-                <Link to={`/preview`} className="template-preview-btn">
-                  <button onClick={() => onPreviewTemplate(preview.id)}>Preview</button>
+                <Link to={`/preview/${preview.id}`} target="_blank" className="template-preview-btn">
+                  <button>Preview</button>
                 </Link>
                 <Link className="template-select-btn" to="/editor">
                   <button onClick={() => onSelectTemplate(preview.id)}>Select</button>

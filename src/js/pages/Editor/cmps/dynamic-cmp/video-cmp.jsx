@@ -1,10 +1,10 @@
-export function VideoCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
+export function VideoCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass }) {
   getVideoId(cmp.info.videoUrl)
   return (
     <iframe
       style={cmp.style}
-      title='video'
-      className={`${selectedCmp?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
+      title="video"
+      className={`${selectedCmp?.id === cmp.id ? 'selected' : ''} ${displayClass} ${cmp.name}`}
       src={`https://www.youtube.com/embed/${getVideoId(cmp.info.videoUrl)}`}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}

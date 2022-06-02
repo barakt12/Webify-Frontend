@@ -30,14 +30,24 @@
     font-size: 1.3rem;
     gap: 80px;
 
+
+
     .nav-hamburger {
       display: inline-block;
       width: 50px;
       height: 50px;
+
+      &.mobile-layout {
+        display: inline-block;
+      }
     }
 
     & > p {
       display: none;
+
+      &.mobile-layout {
+        display: none;
+      }
     }
     @media screen and (min-width: 600px) {
       & > p {
@@ -68,6 +78,14 @@
     background-attachment: fixed;
     background-position: right;
     padding-inline-start: 1rem;
+    
+    &.mobile-layout,
+    &.tablet-layout {
+      background-position: right;
+      padding-inline-start: 1rem;
+      
+    }
+    
 
     @media screen and (min-width: 800px) {
       background-position: center;
@@ -77,6 +95,12 @@
     .hero-heading {
       font-size: 3rem;
       max-width: 530px;
+      
+      &.mobile-layout,
+      &.tablet-layout {
+        font-size: 3rem !important;
+        
+      }
 
       @media screen and (min-width: 600px) {
         font-size: 3.75rem;
@@ -140,6 +164,12 @@
   color: #414141;
   background-color: #eceaeb;
   position: relative;
+  
+  &.mobile-layout,
+  &.tablet-layout {
+    flex-direction: column;
+  }
+  
 
   @media screen and (min-width: 800px) {
     flex-direction: row;
@@ -154,6 +184,12 @@
     background-size: cover;
     background-attachment: fixed;
     height: 600px;
+
+    &.mobile-layout,
+    &.tablet-layout {
+      flex-basis: unset;
+      background-position-x: 300px;
+    }
   }
 
   .about-me {
@@ -162,7 +198,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    padding-inline-start: 2rem;
+    padding-inline: 2rem;
     justify-content: center;
     gap: 3rem;
 
@@ -185,9 +221,15 @@
   color: #414141;
   font-family: forum, serif;
   background-color: white;
+  
+  &.mobile-layout,
+  &.tablet-layout {
+    flex-direction: column;
+
+  }
 
   @media screen and (min-width: 800px) {
-    height: 400px;
+    min-height: 400px;
     flex-direction: row;
 
     .side-text {
@@ -205,6 +247,7 @@
     align-items: center;
     justify-content: center;
     font-size: 3rem;
+    padding-inline: 2rem;
     p {
       margin: 10rem 0;
       max-width: 400px;
@@ -218,6 +261,7 @@
     justify-content: center;
     gap: 1rem;
     padding-top: 3rem;
+    padding-bottom: 3rem;
 
     .form-heading {
       font-size: 2rem;
@@ -270,9 +314,9 @@
   align-items: center;
   gap: 3rem;
   font-family: forum, serif;
-  margin: 2rem 1rem;
+  padding: 2rem 1rem;
   border-top: 1px solid rgb(53, 53, 53);
-  padding-top: 2rem;
+  padding-top: 4rem;
   color: #414141;
 
   .social-media-links {
@@ -283,6 +327,11 @@
     font-size: 3rem;
     justify-content: space-around;
     width: 100%;
+
+    &.mobile-layout,
+    &.tablet-layout {
+      flex-direction: column;
+    }
 
     @media screen and (min-width: 800px) {
       flex-direction: row;
