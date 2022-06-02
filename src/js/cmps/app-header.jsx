@@ -20,7 +20,7 @@ export const AppHeader = () => {
     setisNavMenuShown(!isNavMenuShown)
   }
 
-  const fixedClass = location.pathname === '/' ? 'fixed' : ''
+  const fixedClass = location.pathname === '/' ? 'fixed-on-scroll' : ''
 
   const editorClass = location.pathname.includes('/editor') ? 'in-editor' : ''
 
@@ -65,9 +65,12 @@ export const AppHeader = () => {
               <Link to="/dashboard" className="clean-link">
                 Dashboard
               </Link>
-              <Link to="/" onClick={onLogout} className="clean-link logout-icon">
-                <LogoutIcon className="logout-svg" />
-              </Link>
+              <p className="welcome-msg">
+                {loggedUser?.username && <p>Hello {loggedUser.fullname.split(' ')[0]}</p>}
+                <Link to="/" onClick={onLogout} className="clean-link logout-icon">
+                  <LogoutIcon className="logout-svg" titleAccess="Logout" />
+                </Link>
+              </p>
             </>
           )}
         </div>

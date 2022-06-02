@@ -40,14 +40,14 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
         if (field.type === 'textarea')
           return (
             <label key={idx}>
-              {field.label}
+              {field.label ? field.label : 'Edit me in the side bar'}
               <textarea name={field.name} onChange={onHandleChange} rows={field.rows} placeholder={field.placeholder}></textarea>
             </label>
           )
 
         return (
           <label key={idx}>
-            {field.label}
+            {field.label ? field.label : 'Edit me in the side bar'}
             <input type={field.input} onChange={onHandleChange} name={field.name} placeholder={field.placeholder}></input>
           </label>
         )

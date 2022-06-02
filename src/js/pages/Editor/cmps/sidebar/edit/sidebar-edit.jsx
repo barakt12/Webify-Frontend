@@ -10,6 +10,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import { VideoInput } from './video-input'
 import { GalleryImgList } from './gallery-img-list'
 import { updateCmp } from '../../../../../store/wap/wap.action'
+import { FormEdit } from './form-edit'
 
 export const SidebarEdit = () => {
   const dispatch = useDispatch()
@@ -85,6 +86,12 @@ export const SidebarEdit = () => {
             <div className="img-url-container">
               <p>Image List</p>
               <GalleryImgList cmp={selectedCmp} />
+            </div>
+          )}
+          {selectedCmp.type === 'form' && (
+            <div className="form-edit-container">
+              <p>Form fields</p>
+              <FormEdit cmp={selectedCmp} />
             </div>
           )}
         </>
