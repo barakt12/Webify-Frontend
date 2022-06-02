@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { templatePreviews } from '../../temaplates-example/preview/template-preview'
 import { useDispatch } from 'react-redux'
 import { loadTemplate } from '../../store/wap/wap.action'
@@ -8,6 +8,7 @@ export const Templates = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    //scroll to the top of the page.
     window.scrollTo(0, 0)
   }, [])
 
@@ -15,9 +16,9 @@ export const Templates = () => {
     dispatch(loadTemplate(id))
   }
 
-  const onPreviewTemplate = (id) => {
-    dispatch(loadTemplate(id))
-  }
+  // const onPreviewTemplate = (id) => {
+  //   dispatch(loadTemplate(id))
+  // }
 
   return (
     <section className="main-template-container">
@@ -48,7 +49,7 @@ export const Templates = () => {
               <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
               <div className="template-hover-btns-container">
                 <Link to={`/preview/${preview.id}`} target="_blank" className="template-preview-btn">
-                  <button onClick={() => onPreviewTemplate(preview.id)}>Preview</button>
+                  <button>Preview</button>
                 </Link>
                 <Link className="template-select-btn" to="/editor">
                   <button onClick={() => onSelectTemplate(preview.id)}>Select</button>

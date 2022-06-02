@@ -11,14 +11,14 @@
     // display: flex;
     // flex-wrap: wrap;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 271px));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
     justify-content: center;
-    padding: 0 5%;
-    gap: 40px;
+    padding: 0 6%;
+    gap: 50px;
 
     & > * {
-      height: 430px;
-      width: 270px;
+      height: 450px;
+      width: 300px;
       border-radius: 5px;
       background-color: rgb(255 255 255);
       color: black;
@@ -116,8 +116,8 @@
         display: flex;
         flex-direction: column;
         height: 18%;
-        justify-content: space-evenly;
-        padding: 4px 20px 12px;
+        justify-content: space-between;
+        padding: 14px 20px 14px;
         .info-template-name {
           font-weight: 600;
         }

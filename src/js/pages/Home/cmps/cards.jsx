@@ -59,7 +59,8 @@ export const Cards = () => {
             {/* </Parallax> */}
           </div>
           <div className='cards-right-box-container'>
-            <h1>Hello text 2</h1>
+            <h1>Elements</h1>
+            <h1>Easily add elements to your site by dragging and dropping</h1>
           </div>
         </div>
       </div>

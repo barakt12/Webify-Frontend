@@ -79,13 +79,7 @@
       position: absolute;
       right: -63px;
     }
-    &:nth-of-type(even) {
-      .card-number-circle::before {
-        left: -63px;
-      }
-    }
   }
-
   .card1 {
     margin-top: 200px;
     & .wave2-png {
@@ -99,6 +93,16 @@
       width: 925px;
       height: 764px;
       z-index: 10;
+    }
+  }
+  .card2 {
+    & .card-number-circle::before {
+      left: -63px;
+    }
+  }
+  .card4 {
+    & .card-number-circle::before {
+      left: -63px;
     }
   }
 
@@ -118,6 +122,7 @@
 .cards-right-box-container {
   // width: 560px;
   display: flex;
+  flex-direction: column;
   position: relative;
   z-index: 60;
   position: relative;
@@ -143,7 +148,8 @@
       font-size: 2.265rem;
       font-family: Pensum;
       // width: 80%;
-
+      width: 100%;
+      padding-inline-start: 4rem;
       margin-bottom: 20px;
       color: $main-color;
     }
@@ -151,7 +157,7 @@
       font-family: OpenSans;
       // width: 80%;
       font-size: 1.75rem;
-
+      padding-inline-start: 4rem;
       color: rgb(41, 24, 47);
       font-weight: 400;
     }
