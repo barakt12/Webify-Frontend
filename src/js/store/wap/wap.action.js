@@ -1,8 +1,6 @@
 import { templateService } from '../../services/templates.service'
 import { wapService } from '../../services/wap-service.js'
 import { socketService } from '../../services/socket.service'
-// import { userService } from '../../services/user.service'
-import { v4 as uuidv4 } from 'uuid'
 
 export const setSelectedCmp = (cmp) => {
   return (dispatch) => {
@@ -157,9 +155,7 @@ export const loadSavedWaps = () => {
 export const selectWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const selectedWap = getState().wapModule.savedWaps.find(
-        (wap) => wap._id === id
-      )
+      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
   }

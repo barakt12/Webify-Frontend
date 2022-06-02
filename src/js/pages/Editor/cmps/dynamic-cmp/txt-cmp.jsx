@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { updateCmp } from '../../../../store/wap/wap.action'
 
-export function TxtCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
+export function TxtCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass }) {
   const [isEditable, setIsEditable] = useState(true)
   const location = useLocation()
   const dispatch = useDispatch()
@@ -24,7 +24,7 @@ export function TxtCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
       contentEditable={isEditable}
       onBlur={handleChange}
       suppressContentEditableWarning={true}
-      className={`editable-txt ${selectedCmp?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
+      className={`editable-txt ${displayClass} ${selectedCmp?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
       onClick={(ev) => onSelectCmp(ev, cmp)}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}

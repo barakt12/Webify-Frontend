@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { wapService } from '../../../../services/wap-service'
 import { useParams } from 'react-router'
 
-export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
+export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass }) {
   const [subscriber, setSubscriber] = useState()
   const location = useLocation()
   const params = useParams()
@@ -30,7 +30,7 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
   return (
     <form
       style={cmp.style}
-      className={`${selectedCmp?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
+      className={`${selectedCmp?.id === cmp.id ? 'selected' : ''} ${displayClass} ${cmp.name}`}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}
       onClick={(ev) => onSelectCmp(ev, cmp)}
