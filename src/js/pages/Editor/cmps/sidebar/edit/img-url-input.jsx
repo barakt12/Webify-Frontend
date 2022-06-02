@@ -1,21 +1,35 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateCmp } from '../../../../../store/wap/wap.action'
+import { uploadImgToCloud } from '../../../../../services/cloudinary.service'
+import CloudUploadIcon from '@mui/icons-material/CloudUpload'
 
-export function ImageUrl({ cmp }) {
-  const [url, setUrl] = useState(cmp.info.imgUrl)
-  const dispatch = useDispatch()
+export function ImageUrl({ imgUrl, cb }) {
+  const [url, setUrl] = useState(imgUrl)
 
   useEffect(() => {
-    setUrl(cmp.info.imgUrl)
-  }, [cmp])
+    setUrl(imgUrl)
+  }, [imgUrl])
 
   const onChangeUrl = (ev) => {
     setUrl(ev.target.value)
-    cmp.info.imgUrl = ev.target.value
-
-    dispatch(updateCmp(cmp))
+    cb(ev.target.value)
   }
 
-  return <input type="text" placeholder="Enter image url.." value={url} onChange={onChangeUrl} />
+  async function loadImageFromInput(ev) {
+    const cloudUrl = await uploadImgToCloud(ev)
+    setUrl(cloudUrl)
+    cb(cloudUrl)
+  }
+
+  return (
+    <div className="img-input-container">
+      <input type="text" placeholder="Enter image url.." value={url} onChange={onChangeUrl} />
+      <img src={url} alt="" />
+      <input type="file" id="img-input" onChange={loadImageFromInput} accept="image/jpeg, image/png, image/jpg"></input>
+      <label htmlFor="img-input">
+        <CloudUploadIcon style={{ fontSize: '1.7rem', fill: '#767676' }} />
+        <span>Upload</span>
+      </label>
+    </div>
+  )
 }

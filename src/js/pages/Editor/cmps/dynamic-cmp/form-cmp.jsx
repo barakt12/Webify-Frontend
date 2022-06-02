@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { wapService } from '../../../../services/wap-service'
-import { useSelector } from 'react-redux'
+import { useParams } from 'react-router'
 
 export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
   const [subscriber, setSubscriber] = useState()
   const location = useLocation()
-  const { wap } = useSelector((storeState) => storeState.wapModule)
-
+  const params = useParams()
   useEffect(() => {
     const { formFields } = cmp.info
     const initialState = {}
@@ -23,8 +22,8 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
 
   const onSubmitForm = async (ev) => {
     ev.preventDefault()
-    // if (location.pathname === '/preview' || location.pathname === '/editor') return
-    await wapService.addSubscriberDetails(wap._id, subscriber)
+    if (location.pathname === '/preview' || location.pathname === '/editor') return
+    await wapService.addSubscriberDetails(params.wapId, subscriber)
     console.log('done')
   }
 
@@ -42,24 +41,14 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
           return (
             <label key={idx}>
               {field.label}
-              <textarea
-                name={field.name}
-                onChange={onHandleChange}
-                rows={field.rows}
-                placeholder={field.placeholder}
-              ></textarea>
+              <textarea name={field.name} onChange={onHandleChange} rows={field.rows} placeholder={field.placeholder}></textarea>
             </label>
           )
 
         return (
           <label key={idx}>
             {field.label}
-            <input
-              type={field.input}
-              onChange={onHandleChange}
-              name={field.name}
-              placeholder={field.placeholder}
-            ></input>
+            <input type={field.input} onChange={onHandleChange} name={field.name} placeholder={field.placeholder}></input>
           </label>
         )
       })}

@@ -16,7 +16,7 @@ export const Templates = () => {
   }
 
   return (
-    <section className='main-template-container'>
+    <section className="main-template-container">
       <div className="template-page-intro">
         <h2>Choose how to start building your site</h2>
       </div>

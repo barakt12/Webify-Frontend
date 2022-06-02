@@ -1,20 +1,22 @@
 export function SubscribersList({ subscribers }) {
   const dataFields = Object.keys(subscribers[0])
-  console.log(dataFields)
+  console.log(subscribers)
   return (
     <div className="subscribers-list-contsiner">
       Subscribers
       <table>
         <thead>
-          {dataFields.map((field) => (
-            <th>{field === 'fullName' ? 'full name' : field}</th>
-          ))}
+          <tr>
+            {dataFields.map((field, idx) => (
+              <th key={idx}>{field === 'fullName' ? 'full name' : field}</th>
+            ))}
+          </tr>
         </thead>
         <tbody>
           {subscribers.map((subscriber, idx) => (
             <tr key={idx}>
-              {dataFields.map((field) => (
-                <td>{subscriber[field]}</td>
+              {dataFields.map((field, tdIdx) => (
+                <td key={tdIdx}>{subscriber[field]}</td>
               ))}
             </tr>
           ))}

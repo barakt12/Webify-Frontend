@@ -41,6 +41,8 @@ export const Cards = () => {
               src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654107371/Teaser-webify_iqc8pq.jpg'
               alt=''
             />
+            {/* <div className='card-shadow'></div> */}
+
             {/* </Parallax> */}
           </div>
           <div className='wave2-png'></div>
@@ -53,6 +55,7 @@ export const Cards = () => {
               src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654112005/Screenshot_16_wj1znr.jpg'
               alt=''
             />
+            {/* <div className='card-shadow'></div> */}
             {/* </Parallax> */}
           </div>
           <div className='cards-right-box-container'>
@@ -71,6 +74,9 @@ export const Cards = () => {
             src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654107371/Teaser-webify_iqc8pq.jpg'
             alt=''
           />
+
+          {/* <div className='card-shadow'></div> */}
+
           {/* </Parallax> */}
         </div>
       </div>
@@ -81,6 +87,7 @@ export const Cards = () => {
             src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654112005/Screenshot_16_wj1znr.jpg'
             alt=''
           />
+          {/* <div className='card-shadow'></div> */}
         </div>
         <div className='cards-right-box-container'>
           <h1>Hello text 4</h1>

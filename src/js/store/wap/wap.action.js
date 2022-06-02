@@ -49,6 +49,7 @@ export const updateCmp = (updatedCmp) => {
     try {
       let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
       wapService.updateCmp(wap, updatedCmp)
+      wapService.saveToDraft(wap)
       await dispatch({ type: 'UPDATE_WAP', wap })
       await wapService.saveToDraft(wap)
       socketService.emit('wap update', wap)
@@ -156,9 +157,7 @@ export const loadSavedWaps = () => {
 export const selectWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const selectedWap = getState().wapModule.savedWaps.find(
-        (wap) => wap._id === id
-      )
+      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
   }
