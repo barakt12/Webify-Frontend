@@ -3,12 +3,12 @@ import { v4 as uuidv4 } from 'uuid'
 export const SecondCardCmp5 = {
   type: 'container',
   name: 'wap-cards-5-second',
-  themePalette: 'primary',
+  themePalette: 'third',
   category: 'cards',
   id: uuidv4(),
   thumbnail: require('../../../assets/img/thumbnails/section/wap-section-5-second.JPG'),
   style: {
-    backgroundColor: '#edc72a',
+    color: '#3d5975',
   },
   cmps: [
     {
@@ -16,7 +16,6 @@ export const SecondCardCmp5 = {
       id: uuidv4(),
       name: 'cards-container',
       style: {
-        backgroundColor: '#edc72a',
         width: '100%',
       },
       cmps: [
@@ -33,7 +32,6 @@ export const SecondCardCmp5 = {
               },
               style: {
                 fontSize: '3.75rem',
-                color: '#3d5975',
                 fontWeight: '700',
               },
             },
@@ -45,7 +43,6 @@ export const SecondCardCmp5 = {
               },
               style: {
                 fontSize: '1.375rem',
-                color: '#3d5975',
                 fontWeight: '700',
               },
             },
@@ -64,7 +61,6 @@ export const SecondCardCmp5 = {
               },
               style: {
                 fontSize: '3.75rem',
-                color: '#3d5975',
                 fontWeight: '700',
               },
             },
@@ -76,7 +72,6 @@ export const SecondCardCmp5 = {
               },
               style: {
                 fontSize: '1.375rem',
-                color: '#3d5975',
                 fontWeight: '700',
               },
             },
@@ -95,7 +90,6 @@ export const SecondCardCmp5 = {
               },
               style: {
                 fontSize: '3.75rem',
-                color: '#3d5975',
                 fontWeight: '700',
               },
             },
@@ -107,7 +101,6 @@ export const SecondCardCmp5 = {
               },
               style: {
                 fontSize: '1.375rem',
-                color: '#3d5975',
                 fontWeight: '700',
               },
             },
@@ -126,7 +119,6 @@ export const SecondCardCmp5 = {
               },
               style: {
                 fontSize: '3.75rem',
-                color: '#3d5975',
                 fontWeight: '700',
               },
             },
@@ -138,7 +130,6 @@ export const SecondCardCmp5 = {
               },
               style: {
                 fontSize: '1.375rem',
-                color: '#3d5975',
                 fontWeight: '700',
               },
             },

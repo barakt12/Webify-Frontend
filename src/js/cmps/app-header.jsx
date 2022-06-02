@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom'
 import { userLogout } from '../store/user/user.action'
 import MenuIcon from '@mui/icons-material/Menu'
 import LogoutIcon from '@mui/icons-material/Logout'
+import { toast } from 'react-toastify'
+
 export const AppHeader = ({ isCopy }) => {
   const location = useLocation()
   const dispatch = useDispatch()
@@ -30,6 +32,7 @@ export const AppHeader = ({ isCopy }) => {
 
   const onLogout = () => {
     dispatch(userLogout())
+    toast.success('Logged Out Successfully')
   }
 
   const onOpenNavMenu = () => {
@@ -42,7 +45,7 @@ export const AppHeader = ({ isCopy }) => {
     <header className={copyClass}>
       <div
         className={`
-         ${isNavMenuShown ? 'header-nav-menu-open app-header flex justify-between align-center' : 'app-header flex justify-between align-center'}`}
+         ${isNavMenuShown ? 'header-nav-menu-open app-header flex justify-between align-center' : 'app-header flex justify-between align-center'} ${editorClass}`}
       >
         <Link to="/" className="clean-link logo">
           <p className="logo">webify</p>
@@ -57,20 +60,20 @@ export const AppHeader = ({ isCopy }) => {
               Editor
             </Link>
             {!loggedUser ? (
-            <Link to="/login" className="clean-link">
-              Login
-            </Link>
-          ) : (
-            <>
-              <Link to="/dashboard" className="clean-link">
-                Dashboard
+              <Link to="/login" className="clean-link">
+                Login
               </Link>
-              <Link to="/" onClick={onLogout} className="clean-link" style={{gap: '10px'}}>
-                <LogoutIcon className="logout-svg" />
-                Logout
-              </Link>
-            </>
-          )}
+            ) : (
+              <>
+                <Link to="/dashboard" className="clean-link">
+                  Dashboard
+                </Link>
+                <Link to="/" onClick={onLogout} className="clean-link" style={{ gap: '10px' }}>
+                  <LogoutIcon className="logout-svg" />
+                  Logout
+                </Link>
+              </>
+            )}
           </section>
         )}
         <div className="navbar flex justify-between gap-20">

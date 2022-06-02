@@ -16,10 +16,6 @@ export const Templates = () => {
     dispatch(loadTemplate(id))
   }
 
-  // const onPreviewTemplate = (id) => {
-  //   dispatch(loadTemplate(id))
-  // }
-
   return (
     <section className="main-template-container">
       <div className="template-page-intro">

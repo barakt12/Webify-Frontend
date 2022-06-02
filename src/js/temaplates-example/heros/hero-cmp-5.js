@@ -4,7 +4,7 @@ export const HeroCmp5 = {
   name: 'wap-hero-5',
   id: uuidv4(),
   type: 'container',
-  themePalette: 'primary',
+  // themePalette: 'primary',
   category: 'hero',
   thumbnail: require('../../../assets/img/thumbnails/hero/wap-hero-5.JPG'),
   style: {

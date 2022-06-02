@@ -44,11 +44,12 @@ export const themes = [
     fontFamily: 'fangsong',
     colors: {
       primary: {
-        background: '#035772',
+        background: 'rgb(11 122 157 / 63%)',
         color: '#fff',
       },
+      // rgb(11 122 157 / 63%)
       secondary: {
-        background: '#EBE079',
+        background: '#ebe079bd',
         color: '#000',
       },
       third: {

@@ -218,6 +218,7 @@
     justify-content: center;
     gap: 1rem;
     padding-top: 3rem;
+    padding-bottom: 3rem;
 
     .form-heading {
       font-size: 2rem;
@@ -270,9 +271,9 @@
   align-items: center;
   gap: 3rem;
   font-family: forum, serif;
-  margin: 2rem 1rem;
+  padding: 2rem 1rem;
   border-top: 1px solid rgb(53, 53, 53);
-  padding-top: 2rem;
+  padding-top: 4rem;
   color: #414141;
 
   .social-media-links {

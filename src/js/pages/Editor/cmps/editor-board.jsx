@@ -12,6 +12,7 @@ import { createJpegFromElement } from '../../../services/cloudinary.service'
 import { isEmpty } from 'lodash'
 import { Loader } from '../../../cmps/loader'
 import { togglePublish, toggleSave } from '../../../store/system/system.action'
+import { toast } from 'react-toastify'
 
 export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
   const dispatch = useDispatch()
@@ -41,12 +42,19 @@ export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
       elBoard.scrollHeight
     )
     dispatch(setWapThumbnail(thumbnailUrl))
-    if (isPublish) {
-      dispatch(publishWap())
-      dispatch(togglePublish())
-    } else {
-      dispatch(saveWap())
-      dispatch(toggleSave())
+    try {
+      if (isPublish) {
+        await dispatch(publishWap())
+        toast.success('Published Site Successfully')
+        
+        dispatch(togglePublish())
+      } else {
+        dispatch(saveWap())
+        toast.success('Saved Site Successfully')
+        dispatch(toggleSave())
+      }
+    } catch (err) {
+      toast.error(err.message)
     }
   }
 
@@ -69,7 +77,7 @@ export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
               <section
                 {...provided.droppableProps}
                 ref={provided.innerRef}
-                className="editor"
+                className='editor'
               >
                 {!wap?.cmps?.length ? (
                   <section className='editor-preview-container'>
@@ -100,7 +108,7 @@ export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
                     {provided.placeholder}
                     {!isEmpty(placeholderProps) && snapshot.isDraggingOver && (
                       <div
-                        className="placeholder"
+                        className='placeholder'
                         style={{
                           top: placeholderProps.clientY,
                           left: placeholderProps.clientX,
