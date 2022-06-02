@@ -36,6 +36,10 @@
       display: inline-block;
       width: 50px;
       height: 50px;
+
+      &.mobile-layout {
+        display: inline-block;
+      }
     }
 
     & > p {
@@ -74,6 +78,14 @@
     background-attachment: fixed;
     background-position: right;
     padding-inline-start: 1rem;
+    
+    &.mobile-layout,
+    &.tablet-layout {
+      background-position: right;
+      padding-inline-start: 1rem;
+      
+    }
+    
 
     @media screen and (min-width: 800px) {
       background-position: center;
@@ -83,6 +95,12 @@
     .hero-heading {
       font-size: 3rem;
       max-width: 530px;
+      
+      &.mobile-layout,
+      &.tablet-layout {
+        font-size: 3rem !important;
+        
+      }
 
       @media screen and (min-width: 600px) {
         font-size: 3.75rem;
@@ -146,6 +164,12 @@
   color: #414141;
   background-color: #eceaeb;
   position: relative;
+  
+  &.mobile-layout,
+  &.tablet-layout {
+    flex-direction: column;
+  }
+  
 
   @media screen and (min-width: 800px) {
     flex-direction: row;
@@ -160,6 +184,12 @@
     background-size: cover;
     background-attachment: fixed;
     height: 600px;
+
+    &.mobile-layout,
+    &.tablet-layout {
+      flex-basis: unset;
+      background-position-x: 300px;
+    }
   }
 
   .about-me {
@@ -191,6 +221,12 @@
   color: #414141;
   font-family: forum, serif;
   background-color: white;
+  
+  &.mobile-layout,
+  &.tablet-layout {
+    flex-direction: column;
+
+  }
 
   @media screen and (min-width: 800px) {
     min-height: 400px;
@@ -291,6 +327,11 @@
     font-size: 3rem;
     justify-content: space-around;
     width: 100%;
+
+    &.mobile-layout,
+    &.tablet-layout {
+      flex-direction: column;
+    }
 
     @media screen and (min-width: 800px) {
       flex-direction: row;

@@ -31,6 +31,7 @@ export const headerWap1 = {
       cmps: [
         {
           type: 'img',
+          name: 'hamburger',
           id: uuidv4(),
           info: {
             imgUrl: 'https://icon-library.com/images/hamburger-menu-icon-png/hamburger-menu-icon-png-29.jpg',

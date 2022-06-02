@@ -12,12 +12,30 @@
   .nav-bar {
     display: flex;
     gap: 2rem;
+
+    &.mobile-layout,
+    &.tablet-layout {
+      display: none;
+    }
   }
   .hamburger-nav-bar {
     display: none;
     position: absolute;
     z-index: 0;
     right: 4vw;
+
+    &.mobile-layout,
+    &.tablet-layout {
+      display: inline-block;
+      right: 1vw;
+      div:not(.wap-hero-2-arrow-img) {
+        height: 60px;
+        width: 60px;
+        img {
+          height: 100%;
+        }
+      }
+    }
   }
 }
 
@@ -30,6 +48,12 @@
   background: linear-gradient(135deg, #dd1173, #350e47);
   color: white;
   padding: 0 4rem;
+
+  &.mobile-layout,
+  &.tablet-layout {
+    padding: 2rem;
+    flex-direction: column;
+  }
 
   .wap-hero-2-container {
     display: flex;
@@ -46,10 +70,23 @@
       line-height: 10vh;
       font-weight: 600;
       margin: 0;
+
+      &.mobile-layout,
+      &.tablet-layout {
+        font-size: 3.75rem !important;
+        padding-bottom: unset;
+      }
     }
     .wap-hero-2-sec-hero-header {
       font-size: 1.875rem;
       line-height: 44px;
+
+      &.mobile-layout,
+      &.tablet-layout {
+        line-height: unset;
+        font-size: 1.175rem;
+        margin-bottom: 20px;
+      }
     }
     .wap-hero-2-hero-btn {
       width: 170px;
@@ -66,6 +103,12 @@
       text-align: center;
       border: none;
       padding-top: 20px;
+
+      &.mobile-layout,
+      &.tablet-layout {
+        width: 150px;
+        padding: 20px;
+      }
     }
   }
   .wap-hero-2-arrow-img-container {
@@ -262,12 +305,12 @@
     .wap-hero-2-container {
       gap: unset;
       & .wap-hero-2-main-hero-header {
-        font-size: 3.75rem;
+        font-size: 3.75rem !important;
         padding-bottom: unset;
       }
       & .wap-hero-2-sec-hero-header {
         line-height: unset;
-        font-size: 1.175rem;
+        font-size: 1.175rem !important;
         margin-bottom: 20px;
       }
 

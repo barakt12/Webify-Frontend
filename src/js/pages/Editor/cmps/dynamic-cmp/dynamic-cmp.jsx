@@ -32,7 +32,7 @@ export const DynamicCmp = (props) => {
         setDisplayClass('mobile-layout')
         break
       default:
-        break
+        setDisplayClass('')
     }
   }, [displaySize])
 
