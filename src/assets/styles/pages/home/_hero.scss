@@ -74,6 +74,7 @@
     height: 1000px;
     right: -415px;
     z-index: 10;
+    pointer-events: none;
   }
 
   // .wave-png {
@@ -209,13 +210,13 @@
         .line {
           display: none;
         }
-        .card1{
+        .card1 {
           flex-direction: column;
-          .wave2-png{
+          .wave2-png {
             width: 100%;
           }
         }
-        .card2{
+        .card2 {
           flex-direction: column-reverse;
         }
         .card1,
@@ -237,19 +238,19 @@
           }
         }
       }
-      .card3{
+      .card3 {
         flex-direction: column;
       }
-      .card4{
+      .card4 {
         flex-direction: column-reverse;
       }
       .card3,
       .card4 {
         padding: 0 3.6rem;
         width: 100%;
-          gap: 50px;
-          height: 100%;
-          padding-bottom: 80px;
+        gap: 50px;
+        height: 100%;
+        padding-bottom: 80px;
         .card-number-circle {
           display: none;
         }
@@ -267,7 +268,7 @@
 }
 
 @media (max-width: 840px) {
-  html{
+  html {
     font-size: 14px;
   }
   .home {
@@ -277,22 +278,25 @@
         flex-direction: column-reverse;
         margin: unset;
         align-items: center;
-        height: 600px;
+        height: 550px;
         position: unset;
         .hero-text {
+          text-align: center;
+          align-items: center;
           width: 355px;
-          & > h1{
+          & > h1 {
             font-size: 2.5rem;
           }
-          & > p{
+          & > p {
             font-size: 1.2rem;
+            width: unset;
           }
         }
         .monk-png {
-          top: 70px;
+          top: 50px;
           width: 115px;
           height: 152px;
-          right: 42%;
+          right: 40%;
         }
         .storm-container {
           position: unset;
@@ -305,18 +309,23 @@
         }
       }
     }
-    .home-page-cards{
-      .cards-white-block{
+    .home-page-cards {
+      .cards-white-block {
         top: -170px;
         padding: unset;
         width: 100%;
       }
-      .cards-bg-wave{
+      .cards-bg-wave {
         background-image: unset;
-        h1:nth-of-type(1){
+        h1:nth-of-type(1) {
           margin-top: unset;
           font-size: 2.5rem;
         }
+      }
+    }
+    .wap-teasers-container {
+      & > h1 {
+        padding: 0 2.5rem;
       }
     }
   }

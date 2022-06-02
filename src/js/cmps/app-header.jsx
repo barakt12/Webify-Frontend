@@ -17,7 +17,7 @@ export const AppHeader = ({ isCopy }) => {
     if (location.pathname === '/') {
       const intersectionObserver = new IntersectionObserver(
         (entries) => {
-          if (!entries[0].isIntersecting) {
+          if (!entries[0]?.isIntersecting) {
             document.querySelector('.home-header-copy').classList.add('fixed')
           } else {
             document.querySelector('.home-header-copy').classList.remove('fixed')
@@ -60,15 +60,15 @@ export const AppHeader = ({ isCopy }) => {
               Editor
             </Link>
             {!loggedUser ? (
-              <Link to="/login" className="clean-link">
+              <Link to="/login" className="clean-link" onClick={onOpenNavMenu}>
                 Login
               </Link>
             ) : (
               <>
-                <Link to="/dashboard" className="clean-link">
+                <Link to="/dashboard" className="clean-link" onClick={onOpenNavMenu}>
                   Dashboard
                 </Link>
-                <Link to="/" onClick={onLogout} className="clean-link" style={{ gap: '10px' }}>
+                <Link to="/" onClick={onLogout} className="clean-link" style={{ gap: '10px' }} onClick={onOpenNavMenu}>
                   <LogoutIcon className="logout-svg" />
                   Logout
                 </Link>

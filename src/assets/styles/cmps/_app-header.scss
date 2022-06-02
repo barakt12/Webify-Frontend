@@ -5,7 +5,7 @@ header {
   transition: all 0.5s;
 }
 .app-header {
-  z-index: 5;
+  z-index: 15;
   padding: 0 3.6rem;
   height: 70px;
   // background-color: $accent-color;
@@ -70,10 +70,10 @@ header {
   }
 
   .main-menu-container {
+    position: fixed;
     background-color: rgb(61, 73, 110);
     width: 100%;
     transition: all 0.25s ease-in-out 0s;
-    // position: b;
     top: 70px;
     left: 0px;
     opacity: 1;
