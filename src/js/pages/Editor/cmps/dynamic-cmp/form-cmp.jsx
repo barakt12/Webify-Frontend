@@ -22,7 +22,7 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
 
   const onSubmitForm = async (ev) => {
     ev.preventDefault()
-    if (location.pathname === '/preview' || location.pathname === '/editor') return
+    if (location.pathname.includes('/preview') || location.pathname === '/editor') return
     await wapService.addSubscriberDetails(params.wapId, subscriber)
     console.log('done')
   }
@@ -40,14 +40,14 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp }) {
         if (field.type === 'textarea')
           return (
             <label key={idx}>
-              {field.label ? field.label : 'Edit me in the side bar'}
+              {field.label || !location.pathname.includes('/preview') || !location.pathname.includes('/publish') ? field.label : 'Edit me in the side bar'}
               <textarea name={field.name} onChange={onHandleChange} rows={field.rows} placeholder={field.placeholder}></textarea>
             </label>
           )
 
         return (
           <label key={idx}>
-            {field.label ? field.label : 'Edit me in the side bar'}
+            {field.label || location.pathname.includes('/preview') || !location.pathname.includes('/publish') ? field.label : 'Edit me in the side bar'}
             <input type={field.input} onChange={onHandleChange} name={field.name} placeholder={field.placeholder}></input>
           </label>
         )

@@ -39,7 +39,7 @@ export const wapVideo1 = {
           type: 'txt',
           id: uuidv4(),
           info: {
-            txt: 'Webify Academy has transferred all courses to LIVE. The same instructors, the same practitioners, the same personal attitude now using the ZOOM app in your home. Hundreds of students have already chosen to make the most of these days and learn to program in the leading and well-known programming course in the country. Intensive 12 weeks of programming studies followed by rapid integration into the high-tech industry.',
+            txt: 'Webify Academy has transferred all courses to LIVE. The same instructors, the same practitioners, the same personal attitude now using the ZOOM app in your home. Intensive 12 weeks of programming studies followed by rapid integration into the high-tech industry.',
           },
           style: {
             fontWeight: '400',
