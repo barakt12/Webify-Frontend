@@ -30,6 +30,8 @@
     font-size: 1.3rem;
     gap: 80px;
 
+
+
     .nav-hamburger {
       display: inline-block;
       width: 50px;
@@ -38,6 +40,10 @@
 
     & > p {
       display: none;
+
+      &.mobile-layout {
+        display: none;
+      }
     }
     @media screen and (min-width: 600px) {
       & > p {
