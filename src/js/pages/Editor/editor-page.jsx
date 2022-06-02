@@ -26,7 +26,7 @@ export function Editor() {
   // }
 
   useEffect(() => {
-    if (!wap?.cmps?.length) {
+    if (!wap) {
       getDraft()
     }
 
