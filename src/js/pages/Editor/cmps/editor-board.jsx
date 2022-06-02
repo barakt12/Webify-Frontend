@@ -50,6 +50,7 @@ export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
     }
   }
 
+
   // if (isSaving) return <Loader />
   return (
     <>
@@ -71,7 +72,10 @@ export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
                 className="editor"
               >
                 {!wap?.cmps?.length ? (
-                  <h2>Drag and Drop to add components</h2>
+                  <section className='editor-preview-container'>
+                  <h2>Let's start building your page!</h2>
+                  <img src={(require('../../../../assets/img/webify-editor.gif'))} alt="" />
+                  </section>
                 ) : (
                   wap.cmps.map((cmp, index) => (
                     <Draggable
@@ -91,7 +95,7 @@ export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
                     </Draggable>
                   ))
                 )}
-                {!isFromSidebar && (
+                {/* {!isFromSidebar && (
                   <>
                     {provided.placeholder}
                     {!isEmpty(placeholderProps) && snapshot.isDraggingOver && (
@@ -106,7 +110,7 @@ export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
                       />
                     )}
                   </>
-                )}
+                )} */}
               </section>
             )
           }}

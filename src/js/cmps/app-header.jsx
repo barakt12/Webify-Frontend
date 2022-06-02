@@ -47,6 +47,21 @@ export const AppHeader = () => {
             <Link to="/editor" className="clean-link" onClick={onOpenNavMenu}>
               Editor
             </Link>
+            {!loggedUser ? (
+            <Link to="/login" className="clean-link">
+              Login
+            </Link>
+          ) : (
+            <>
+              <Link to="/dashboard" className="clean-link">
+                Dashboard
+              </Link>
+              <Link to="/" onClick={onLogout} className="clean-link" style={{gap: '10px'}}>
+                <LogoutIcon className="logout-svg" />
+                Logout
+              </Link>
+            </>
+          )}
           </section>
         )}
         <div className="navbar flex justify-between gap-20">

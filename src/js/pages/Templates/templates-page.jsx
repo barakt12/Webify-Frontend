@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { templatePreviews } from '../../temaplates-example/preview/template-preview'
 import { useDispatch } from 'react-redux'
 import { loadTemplate } from '../../store/wap/wap.action'
 import { Link } from 'react-router-dom'
 
 export const Templates = () => {
+
+  useEffect(() => {
+    //scroll to the top of the page.
+    window.scrollTo(0, 0)
+  },[])
+
   const dispatch = useDispatch()
 
   const onSelectTemplate = (id) => {
