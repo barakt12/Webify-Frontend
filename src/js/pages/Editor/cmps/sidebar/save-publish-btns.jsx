@@ -6,16 +6,24 @@ import { useNavigate } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 import { setCollabMode } from '../../../../store/wap/wap.action'
+import { toast } from 'react-toastify'
 
 export function SavePublishBtns({ onSaveWap, onPublishWap }) {
   const dispatch = useDispatch()
   const { isCollabMode } = useSelector((storeState) => storeState.wapModule)
   const navigation = useNavigate()
 
-  const onCollab = () => {
+  const onCollab = async () => {
     if (isCollabMode) return
     navigation(`/editor/${uuidv4()}`)
-    dispatch(setCollabMode())
+
+    try {
+      await dispatch(setCollabMode())
+      await navigator.clipboard.writeText(window.location.href)
+      toast.success('Invitation copied to clipboard!')
+    } catch (err) {
+      toast.error("Couldn't start collaboration mode")
+    }
   }
 
   return (

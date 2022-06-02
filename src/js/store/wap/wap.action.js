@@ -157,7 +157,9 @@ export const loadSavedWaps = () => {
 export const selectWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
+      const selectedWap = getState().wapModule.savedWaps.find(
+        (wap) => wap._id === id
+      )
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
   }
@@ -178,11 +180,12 @@ export const publishWap = () => {
     try {
       const { wap } = getState().wapModule
       const user = getState().userModule.user
+      if (!user){
+        throw new Error('You have to login to publish')
+      } 
 
       wap.createdBy = user.email
-
       const publishedWap = await wapService.publishWap(wap)
-      console.log(publishedWap)
       dispatch({ type: 'SET_WAP', wap: publishedWap })
     } catch (err) {
       throw err

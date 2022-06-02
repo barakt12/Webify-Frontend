@@ -15,6 +15,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { GoogleLoginBtn } from '../../cmps/google/login'
 import { gapi } from 'gapi-script'
+import { toast, ToastContainer } from 'react-toastify'
 
 export const Login = () => {
   // eslint-disable-next-line no-unused-vars
@@ -22,7 +23,8 @@ export const Login = () => {
     loginWith: '',
     password: '',
   })
-  const clientId = '418919457463-dr7cgkvhfpjq4t1uutaj5n2pu8mq8347.apps.googleusercontent.com'
+  const clientId =
+    '418919457463-dr7cgkvhfpjq4t1uutaj5n2pu8mq8347.apps.googleusercontent.com'
   const dispatch = useDispatch()
   const navigation = useNavigate()
 
@@ -38,20 +40,23 @@ export const Login = () => {
 
   const onLogin = async (cred) => {
     try {
-      cred = cred.loginWith.includes('@') ? { ...cred, email: cred.loginWith } : { ...cred, username: cred.loginWith }
+      cred = cred.loginWith.includes('@')
+        ? { ...cred, email: cred.loginWith }
+        : { ...cred, username: cred.loginWith }
       const user = await userService.login(cred)
       dispatch(setUser(user))
       navigation('/')
-      console.log('login successfully')
+      toast.success('Logged in Successfully!')
     } catch (error) {
-      console.log(error)
+      toast.error("Couldn't log in")
     }
   }
 
   const onValidate = ({ loginWith, password }) => {
     const errors = {}
     if (!loginWith) errors.loginWith = 'Missing email or username input'
-    if (!password || password.length < 3) errors.password = 'Passwords must be at least three characters.'
+    if (!password || password.length < 3)
+      errors.password = 'Passwords must be at least three characters.'
 
     return errors
   }
@@ -61,7 +66,10 @@ export const Login = () => {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Container component="main" sx={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}>
+        <Container
+          component='main'
+          sx={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}
+        >
           <CssBaseline />
           <Box
             sx={{
@@ -75,32 +83,50 @@ export const Login = () => {
             {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar> */}
-            <Typography component="h1" variant="h5" sx={{ fontWeight: 700, fontSize: '38px' }}>
+            <Typography
+              component='h1'
+              variant='h5'
+              sx={{ fontWeight: 700, fontSize: '38px' }}
+            >
               Log Into My Account
             </Typography>
-            <Formik validateOnChange validate={onValidate} initialValues={credentials} onSubmit={onLogin}>
+            <Formik
+              validateOnChange
+              validate={onValidate}
+              initialValues={credentials}
+              onSubmit={onLogin}
+            >
               {({ errors }) => (
                 <Form>
                   <GoogleLoginBtn />
-                  <Field as={TextField} margin="normal" required fullWidth placeholder="Email or Username" name="loginWith" autoFocus sx={{ backgroundColor: '#eee' }} />
-                  {<span className="error">{errors.email}</span>}
                   <Field
                     as={TextField}
-                    margin="normal"
+                    margin='normal'
                     required
                     fullWidth
-                    name="password"
-                    placeholder="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
+                    placeholder='Email or Username'
+                    name='loginWith'
+                    autoFocus
                     sx={{ backgroundColor: '#eee' }}
                   />
-                  {<span className="error">{errors.password}</span>}
-                  <Button
-                    type="submit"
+                  {<span className='error'>{errors.email}</span>}
+                  <Field
+                    as={TextField}
+                    margin='normal'
+                    required
                     fullWidth
-                    variant="contained"
+                    name='password'
+                    placeholder='Password'
+                    type='password'
+                    id='password'
+                    autoComplete='current-password'
+                    sx={{ backgroundColor: '#eee' }}
+                  />
+                  {<span className='error'>{errors.password}</span>}
+                  <Button
+                    type='submit'
+                    fullWidth
+                    variant='contained'
                     sx={{
                       mt: 3,
                       mb: 2,
@@ -116,7 +142,7 @@ export const Login = () => {
                   </Button>
                   <Grid container>
                     <Grid item>
-                      <Link href="/signup" variant="body2" color="#666">
+                      <Link href='/signup' variant='body2' color='#666'>
                         {"Don't have an account?"}
                       </Link>
                     </Grid>

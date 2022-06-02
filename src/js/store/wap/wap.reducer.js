@@ -4,7 +4,7 @@ const initialState = {
   displaySize: '100%',
   savedWaps: null,
   history: [],
-  isCollabMode: null
+  isCollabMode: null,
 }
 
 export function wapReducer(state = initialState, action) {
@@ -12,6 +12,7 @@ export function wapReducer(state = initialState, action) {
     case 'SET_WAP':
       return {
         ...initialState,
+        selectedCmp: state.selectedCmp,
         wap: { ...action.wap },
         savedWaps: state.savedWaps,
       }
