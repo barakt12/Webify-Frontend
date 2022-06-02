@@ -18,7 +18,7 @@ export const footerCmp4 = {
         {
           type: 'txt',
           id: uuidv4(),
-          style: { fontSize: '3rem', fontWeight: 400 },
+          style: { fontSize: '3rem', fontWeight: 400, fontFamily: 'Forum' },
 
           info: {
             txt: 'Instagram',
@@ -27,7 +27,7 @@ export const footerCmp4 = {
         {
           type: 'txt',
           id: uuidv4(),
-          style: { fontSize: '3rem', fontWeight: 400 },
+          style: { fontSize: '3rem', fontWeight: 400, fontFamily: 'Forum' },
 
           info: {
             txt: 'Twitter',
@@ -36,7 +36,7 @@ export const footerCmp4 = {
         {
           type: 'txt',
           id: uuidv4(),
-          style: { fontSize: '3rem', fontWeight: 400 },
+          style: { fontSize: '3rem', fontWeight: 400, fontFamily: 'Forum' },
 
           info: {
             txt: 'Facebook',
@@ -47,7 +47,7 @@ export const footerCmp4 = {
     {
       type: 'txt',
       id: uuidv4(),
-      style: { fontSize: '1rem', fontWeight: 400 },
+      style: { fontSize: '1rem', fontWeight: 400, fontFamily: 'Forum' },
 
       info: {
         txt: '© 2022 by ELLIE PAGE. Proudly created with Webify',

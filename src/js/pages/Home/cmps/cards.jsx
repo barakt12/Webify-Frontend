@@ -60,7 +60,10 @@ export const Cards = () => {
           </div>
           <div className='cards-right-box-container'>
             <h1>Elements</h1>
-            <h1>Easily add elements to your site by dragging and dropping</h1>
+            <h1>
+              Beautiful elements that you can piece together to craft your
+              amazing site
+            </h1>
           </div>
         </div>
       </div>

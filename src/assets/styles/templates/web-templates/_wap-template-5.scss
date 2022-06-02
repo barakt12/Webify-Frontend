@@ -32,10 +32,13 @@
   flex-direction: column;
   width: 100%;
   color: white;
+  align-items: center;
+
   background-image: url('https://res.cloudinary.com/dnv7wszu3/image/upload/v1654000516/constuctionSite2_niz3dm.jpg');
   background-attachment: fixed;
   background-size: cover;
-  height: 80vh;
+  height: 65vh;
+
   padding-top: 5rem;
   & > p {
     position: absolute;
@@ -66,6 +69,7 @@
     text-underline-offset: 20px;
   }
   .cards-container {
+    padding: 0 0.5rem;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -75,7 +79,7 @@
       display: flex;
       flex-direction: column;
       width: 300px;
-      height: 450px;
+      // height: 450px;
       background-color: #f7f7f7;
 
       .img-container {
@@ -101,11 +105,12 @@
   gap: 80px;
   width: 100%;
   height: 100%;
-  padding: 0 0 0 23vw;
+  // padding: 0 0 0 23vw;
 
   .cards-container {
-    flex-basis: 35%;
+    flex-basis: 100%;
     width: 100%;
+    padding: 0 2.5rem 0 22.5rem;
     .wap-main-txt-5 {
       text-underline-offset: 20px;
       margin-top: 3rem;
@@ -119,7 +124,7 @@
 
   .wap-card-5-img-container {
     width: 100%;
-    height: 82vh;
+    height: 60vh;
     background-attachment: fixed;
     background-position: bottom;
     background-image: url('https://static.wixstatic.com/media/c19c76_427a7bbf62474f74968cb087499c7a3e.jpg/v1/fill/w_1273,h_865,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c19c76_427a7bbf62474f74968cb087499c7a3e.jpg');
@@ -134,7 +139,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5rem;
+    gap: 1rem;
     padding: 5rem;
     // background-color: white;
     .card {
@@ -160,11 +165,13 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
+    padding: 0 0.5rem;
     & > .container {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 30px;
+      flex-wrap: wrap;
+
       .img-container {
         height: 455px;
         width: 455px;
@@ -218,14 +225,16 @@
   }
   .wap-section-5 {
     flex-direction: column;
-    padding: 0 4rem;
+    padding: 0 0;
   }
-  .wap-cards-5-third{
+  .wap-cards-5-third {
     .main-cards-container {
+      gap: 0.5rem;
+
       & > .container {
         .img-container {
-          height: 300px;
-          width: 300px;
+          height: 190px;
+          // width: 300px;
         }
       }
     }
@@ -241,13 +250,19 @@
   .wap-cards-5 {
     .cards-container {
       .card {
-        width: 90%;
+        width: 100%;
       }
     }
   }
 
   .wap-section-5 {
-    padding: 0 1.5rem;
+    .cards-container {
+      padding: 0 2.5rem;
+      p:first-of-type {
+        text-align: center;
+      }
+    }
+    // padding: 0 1.5rem;
   }
   .wap-cards-5-second {
     .cards-container {
@@ -257,12 +272,14 @@
     }
   }
 
-  .wap-cards-5-third{
+  .wap-cards-5-third {
     .main-cards-container {
-      & > .container { 
-        width: 90%;
+      & > .container {
+        flex-wrap: unset;
+        width: 100%;
+        gap: 0.5rem;
         .img-container {
-          width: 100%;
+          // width: 100%;
         }
       }
     }

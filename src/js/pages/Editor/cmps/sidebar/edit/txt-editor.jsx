@@ -153,7 +153,7 @@ export const TxtEditor = () => {
       {selectedCmp.type === 'txt' && (
         <>
           <div className='txt-type-container'>
-            <p>Font Type</p>
+            <p>Font</p>
             <EditOptions
               onChangeStyling={onChangeStyling}
               isFontType={true}

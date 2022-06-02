@@ -7,7 +7,8 @@ export const heroCmp4 = {
   themePalette: 'primary',
   id: uuidv4(),
   thumbnail: require('../../../assets/img/thumbnails/hero/wap-hero-3.JPG'),
-  style: {},
+  style: { fontFamily: 'Forum' },
+
   cmps: [
     {
       type: 'container',
@@ -22,7 +23,7 @@ export const heroCmp4 = {
           type: 'txt',
           id: uuidv4(),
           name: 'hero-heading',
-          style: { fontSize: '3.75rem' },
+          style: { fontSize: '3.75rem', fontFamily: 'Forum' },
           info: {
             txt: 'Contemporary Tattoos For All Bodies and Skin',
           },
@@ -41,6 +42,7 @@ export const heroCmp4 = {
           type: 'btn',
           id: uuidv4(),
           name: 'btn',
+          style: { fontFamily: 'Forum' },
           info: {
             txt: 'Book',
           },
@@ -56,7 +58,7 @@ export const heroCmp4 = {
           type: 'txt',
 
           id: uuidv4(),
-          style: { fontSize: '1.1rem' },
+          style: { fontSize: '1.1rem', fontFamily: 'Forum' },
 
           info: {
             txt: 'Follow me',
