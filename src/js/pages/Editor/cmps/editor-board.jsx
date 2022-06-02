@@ -9,10 +9,11 @@ import {
 } from '../../../store/wap/wap.action'
 
 import { createJpegFromElement } from '../../../services/cloudinary.service'
+import { isEmpty } from 'lodash'
 import { Loader } from '../../../cmps/loader'
 import { togglePublish, toggleSave } from '../../../store/system/system.action'
 
-export const EditorBoard = ({ wap }) => {
+export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
   const dispatch = useDispatch()
   const editorWidth = useSelector(
     (storeState) => storeState.wapModule.displaySize
@@ -67,7 +68,7 @@ export const EditorBoard = ({ wap }) => {
               <section
                 {...provided.droppableProps}
                 ref={provided.innerRef}
-                className='editor'
+                className="editor"
               >
                 {!wap?.cmps?.length ? (
                   <h2>Drag and Drop to add components</h2>
@@ -90,7 +91,22 @@ export const EditorBoard = ({ wap }) => {
                     </Draggable>
                   ))
                 )}
-                {provided.placeholder}
+                {!isFromSidebar && (
+                  <>
+                    {provided.placeholder}
+                    {!isEmpty(placeholderProps) && snapshot.isDraggingOver && (
+                      <div
+                        className="placeholder"
+                        style={{
+                          top: placeholderProps.clientY,
+                          left: placeholderProps.clientX,
+                          height: placeholderProps.clientHeight,
+                          width: placeholderProps.clientWidth,
+                        }}
+                      />
+                    )}
+                  </>
+                )}
               </section>
             )
           }}
