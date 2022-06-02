@@ -12,9 +12,7 @@ import { socketService } from '../../services/socket.service'
 import { useLocation, useParams } from 'react-router-dom'
 
 export function Editor() {
-  const { wap, isCollabMode } = useSelector(
-    (storeState) => storeState.wapModule
-  )
+  const { wap, isCollabMode } = useSelector((storeState) => storeState.wapModule)
   const dispatch = useDispatch()
   const location = useLocation()
   const params = useParams()
@@ -78,7 +76,8 @@ export function Editor() {
     cmp = JSON.parse(JSON.stringify(cmp))
     cmp.id = uuidv4()
     wapService.changeCmpId(cmp)
-    const newState = JSON.parse(JSON.stringify(wap))
+    const newState = wap?.cmps ? JSON.parse(JSON.stringify(wap)) : { cmps: [] }
+    console.log(wap)
     newState.cmps.splice(result.destination.index, 0, cmp)
     dispatch(updateWap(newState))
   }
@@ -86,10 +85,7 @@ export function Editor() {
   const handleDragEnd = async (result) => {
     // dropped outside the list
     if (!result.destination) return
-    else if (
-      result.destination.droppableId === 'editor' &&
-      result.source.droppableId !== 'editor'
-    ) {
+    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
       console.log('result', result)
       //   copy(
       //     ITEMS,
@@ -101,18 +97,14 @@ export function Editor() {
       return
     }
 
-    const content = reorder(
-      wap.cmps,
-      result.source.index,
-      result.destination.index
-    )
+    const content = reorder(wap.cmps, result.source.index, result.destination.index)
     if (content) {
       dispatch(updateWap({ ...wap, cmps: content }))
     }
   }
 
   return (
-    <section className='editor-container'>
+    <section className="editor-container">
       <DragDropContext onDragEnd={handleDragEnd}>
         <EditorSidebar />
         <EditorBoard wap={wap} getItemStyle={getItemStyle} />

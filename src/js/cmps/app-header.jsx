@@ -33,53 +33,40 @@ export const AppHeader = () => {
     <header className={fixedClass}>
       <div
         className={`
-         ${
-           isNavMenuShown
-             ? 'header-nav-menu-open app-header flex justify-between align-center'
-             : 'app-header flex justify-between align-center'
-         } ${editorClass}`}
+         ${isNavMenuShown ? 'header-nav-menu-open app-header flex justify-between align-center' : 'app-header flex justify-between align-center'} ${editorClass}`}
       >
-        <Link to='/' className='clean-link logo'>
-          <p className='logo'>webify</p>
+        <Link to="/" className="clean-link logo">
+          <p className="logo">webify</p>
         </Link>
-        <MenuIcon className='menu-icon' onClick={onOpenNavMenu} />
+        <MenuIcon className="menu-icon" onClick={onOpenNavMenu} />
         {isNavMenuShown && (
-          <section className='main-menu-container'>
-            <Link
-              to='/templates'
-              className='clean-link'
-              onClick={onOpenNavMenu}
-            >
+          <section className="main-menu-container">
+            <Link to="/templates" className="clean-link" onClick={onOpenNavMenu}>
               Templates
             </Link>
-            <Link to='/editor' className='clean-link' onClick={onOpenNavMenu}>
+            <Link to="/editor" className="clean-link" onClick={onOpenNavMenu}>
               Editor
             </Link>
           </section>
         )}
-        <div className='navbar flex justify-between gap-20'>
-          <Link to='/templates' className='clean-link'>
+        <div className="navbar flex justify-between gap-20">
+          <Link to="/templates" className="clean-link">
             Templates
           </Link>
-          <Link to='/editor' className='clean-link'>
+          <Link to="/editor" className="clean-link">
             Editor
           </Link>
           {!loggedUser ? (
-            <Link to='/login' className='clean-link'>
+            <Link to="/login" className="clean-link">
               Login
             </Link>
           ) : (
             <>
-              <Link to='/dashboard' className='clean-link'>
+              <Link to="/dashboard" className="clean-link">
                 Dashboard
               </Link>
-              <p>Welcome, {loggedUser.fullname.split(' ')[0]}!</p>
-              <Link
-                to='/'
-                onClick={onLogout}
-                className='clean-link logout-icon'
-              >
-                <LogoutIcon className='logout-svg' />
+              <Link to="/" onClick={onLogout} className="clean-link logout-icon">
+                <LogoutIcon className="logout-svg" />
               </Link>
             </>
           )}
