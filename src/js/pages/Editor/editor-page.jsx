@@ -100,6 +100,7 @@ export function Editor() {
       isFromSidebar = true
       return
     }
+    console.log('getting size')
     const draggedDOM = getDraggedDom(event.draggableId)
 
     if (!draggedDOM) return

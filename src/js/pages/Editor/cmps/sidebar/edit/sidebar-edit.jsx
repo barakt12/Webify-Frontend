@@ -89,22 +89,22 @@ export const SidebarEdit = () => {
           )}
         </>
       )}
-      {!selectedCmp && <p className="sidebar-action-text">Please choose an element</p>}
-      <div className="action-btns">
-        <button onClick={() => onCmpAction('duplicate')}>
-          <ContentCopyIcon />
-          <span>Duplicate</span>
-        </button>
+      {!selectedCmp && <p className="sidebar-action-text">Please select item to edit</p>}
+      {selectedCmp && <div className="action-btns">
         <button onClick={() => onCmpAction('delete')}>
           {' '}
           <DeleteForeverIcon />
           <span>Delete</span>
         </button>
+        <button onClick={() => onCmpAction('duplicate')}>
+          <ContentCopyIcon />
+          <span>Duplicate</span>
+        </button>
         <button onClick={() => onCmpAction('undo')}>
           <RestoreIcon />
           <span>Undo</span>
         </button>
-      </div>
+      </div>}
     </section>
   )
 }

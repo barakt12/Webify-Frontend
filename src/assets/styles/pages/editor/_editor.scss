@@ -36,6 +36,20 @@
     top: 15%;
     transform: translateX(-50%);
   }
+
+  .editor-preview-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    gap: 50px;
+    img{
+      height: 50%;
+      width: 50%;
+    }
+}
+
   @media screen and (min-width: '700px') {
     &::-webkit-scrollbar {
       width: 8px;
