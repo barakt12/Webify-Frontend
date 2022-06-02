@@ -51,6 +51,7 @@ export const updateCmp = (updatedCmp) => {
       wapService.updateCmp(wap, updatedCmp)
       wapService.saveToDraft(wap)
       await dispatch({ type: 'UPDATE_WAP', wap })
+      await wapService.saveToDraft(wap)
       socketService.emit('wap update', wap)
     } catch (err) {
       throw err
