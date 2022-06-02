@@ -50,6 +50,7 @@ export const updateCmp = (updatedCmp) => {
       let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
       wapService.updateCmp(wap, updatedCmp)
       await dispatch({ type: 'UPDATE_WAP', wap })
+      await wapService.saveToDraft(wap)
       socketService.emit('wap update', wap)
     } catch (err) {
       throw err

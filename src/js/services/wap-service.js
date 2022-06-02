@@ -21,6 +21,7 @@ export const wapService = {
   addSubscriberDetails,
   publishWap,
   increaseViewCount,
+  generateNewIds
 }
 
 function query(filterBy, sortBy) {
@@ -71,7 +72,8 @@ function duplicateCmp(cmp, newCmp, cmpId) {
 
 function generateNewIds(cmp) {
   cmp.id = uuidv4()
-  if (cmp.cmps) cmp.cmps.forEach((cmp) => (cmp.id = uuidv4()))
+  if (!cmp?.cmps?.length) return
+  cmp.cmps.forEach(cmp => generateNewIds(cmp))
 }
 
 function updateCmp(cmp, newCmp) {

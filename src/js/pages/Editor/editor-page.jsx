@@ -35,10 +35,11 @@ export function Editor() {
       socketService.setup()
       socketService.emit('wap connection', editorId)
       // socketService.emit('mouse_position', {mx : x, my : y})
+      socketService.on('wap update', (newWap) => dispatch(setWap(newWap)))
       socketService.on('get wap', () => {
         wap && socketService.emit('wap update', wap)
+        console.log(wap)
       })
-      socketService.on('wap update', (newWap) => dispatch(setWap(newWap)))
     }
     return () => {
       dispatch(setSelectedCmp(null))
