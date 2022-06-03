@@ -2,7 +2,7 @@ export function SubscribersList({ subscribers }) {
   const dataFields = Object.keys(subscribers[0])
   console.log(subscribers)
   return (
-    <div className="subscribers-list-contsiner">
+    <div className='subscribers-list-contsiner'>
       Subscribers
       <table>
         <thead>

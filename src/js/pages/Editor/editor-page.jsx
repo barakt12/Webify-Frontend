@@ -32,13 +32,16 @@ export function Editor() {
     }
 
     if (params.editorId) {
+      console.log('got into sockets function')
       const editorId = params.editorId
       socketService.setup()
       socketService.emit('wap connection', editorId)
       socketService.on('mouse_position_update', (connectedMouses) =>
         setConnectedMouses(connectedMouses)
       )
-      socketService.on('wap update', (newWap) => dispatch(setWap(newWap)))
+      socketService.on('wap update', (newWap) => {
+        dispatch(setWap(newWap))
+      })
       socketService.on('get wap', () => {
         wap && socketService.emit('wap update', wap)
       })

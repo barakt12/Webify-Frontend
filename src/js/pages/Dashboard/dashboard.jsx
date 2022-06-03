@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteWap, selectWap } from '../../store/wap/wap.action'
 import { loadSavedWaps } from '../../store/wap/wap.action'
 import { toast } from 'react-toastify'
+import { Grid, Typography } from '@mui/material'
 
 export const Dashboard = () => {
   const dispatch = useDispatch()
@@ -25,7 +26,7 @@ export const Dashboard = () => {
   return (
     <section className='main-dashboard-container'>
       <div className='template-page-intro'>
-        <h2>Welcome to your dashboard!</h2>
+        <h2>Hi, Welcome back</h2>
       </div>
       <section className='profile-page'>
         {!savedWaps && <p>Please login to see your websites!</p>}
