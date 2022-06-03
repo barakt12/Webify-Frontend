@@ -21,10 +21,10 @@ export function Editor() {
   )
   const loggedUser = useSelector((storeState) => storeState.userModule.user)
   const dispatch = useDispatch()
-  const _ = require('lodash')
   const params = useParams()
+  // const _ = require('lodash')
 
-  const [connectedMouses, setConnectedMouses] = useState([])
+  // const [connectedMouses, setConnectedMouses] = useState([])
 
   useEffect(() => {
     if (!wap) {
@@ -35,9 +35,9 @@ export function Editor() {
       const editorId = params.editorId
       socketService.setup()
       socketService.emit('wap connection', editorId)
-      socketService.on('mouse_position_update', (connectedMouses) =>
-        setConnectedMouses(connectedMouses)
-      )
+      // socketService.on('mouse_position_update', (connectedMouses) => {
+      //   setConnectedMouses(connectedMouses)
+      // })
       socketService.on('wap update', (newWap) => dispatch(setWap(newWap)))
       socketService.on('get wap', () => {
         wap && socketService.emit('wap update', wap)
@@ -48,7 +48,7 @@ export function Editor() {
       socketService.off('get wap')
       socketService.off('send wap')
       socketService.off('wap update')
-      socketService.off('mouse_position_update')
+      // socketService.off('mouse_position_update')
       socketService.terminate()
     }
   }, [isCollabMode])
@@ -91,7 +91,6 @@ export function Editor() {
     cmp.id = uuidv4()
     wapService.changeCmpId(cmp)
     const newState = wap?.cmps ? JSON.parse(JSON.stringify(wap)) : { cmps: [] }
-    console.log(wap)
     newState.cmps.splice(result.destination.index, 0, cmp)
     dispatch(updateWap(newState))
   }
@@ -104,7 +103,6 @@ export function Editor() {
       isFromSidebar = true
       return
     }
-    console.log('getting size')
     const draggedDOM = getDraggedDom(event.draggableId)
 
     if (!draggedDOM) return
@@ -203,19 +201,19 @@ export function Editor() {
     }
   }
 
-  const handleMouseDebounce = _.debounce((ev) => handleMouseMove(ev), 0.3)
+  // const handleMouseDebounce = _.debounce((ev) => handleMouseMove(ev), 10)
 
-  const handleMouseMove = (event) => {
-    if (!params.editorId) return
-    let mouseInfo = {
-      user: loggedUser ? loggedUser.fullname : 'Guest',
-      pos: { mx: event.clientX, my: event.clientY },
-    }
-    socketService.emit('mouse_position', mouseInfo)
-  }
+  // const handleMouseMove = (event) => {
+  //   if (!params.editorId) return
+  //   let mouseInfo = {
+  //     user: loggedUser ? loggedUser.fullname : 'Guest',
+  //     pos: { mx: event.clientX, my: event.clientY },
+  //   }
+  //   socketService.emit('mouse_position', mouseInfo)
+  // }
 
   return (
-    <section className='editor-container' onMouseMove={handleMouseDebounce}>
+    <section className='editor-container' >
       <DragDropContext
         onDragStart={handleDragStart}
         onDragUpdate={handleDragUpdate}
@@ -228,9 +226,7 @@ export function Editor() {
           placeholderProps={placeholderProps}
         />
       </DragDropContext>
-      {params.editorId &&
-        connectedMouses.length &&
-        connectedMouses.map((mouse) => <MouseCursor mouse={mouse} />)}
+      {params.editorId !== undefined && <MouseCursor />}
     </section>
   )
 }
