@@ -44,19 +44,18 @@ header {
       font-weight: 700;
       text-transform: capitalize;
     }
-    
+
     .logout-icon {
       height: 25px;
 
-
-    .logout-svg {
-      font-size: 1.7rem;
-    }
-    &:hover {
-      background-color: rgb(221 221 221 / 36%);
+      .logout-svg {
+        font-size: 1.7rem;
+      }
+      &:hover {
+        background-color: rgb(221 221 221 / 36%);
+      }
     }
   }
-}
 
   .navbar {
     font-size: 1rem;
@@ -74,10 +73,6 @@ header {
     background-color: rgb(61, 73, 110);
     width: 100%;
     transition: all 0.25s ease-in-out 0s;
-<<<<<<< HEAD
-=======
-    position: fixed;
->>>>>>> 64e060c038e1272387125eb2c4530d0f24a72edb
     top: 70px;
     left: 0px;
     opacity: 1;
