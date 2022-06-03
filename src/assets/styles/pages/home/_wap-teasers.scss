@@ -3,6 +3,7 @@
   position: relative;
   background-color: rgb(203, 231, 242);
   padding-bottom: 200px;
+  min-height: 700px;
   .wave3-png {
     position: absolute;
     background-image: url(../../../img/illustrations/wave3.png);
@@ -35,9 +36,26 @@
 
 .mySwiper {
   width: 700px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  // height: 200px;
   
   @media screen and (min-width: 700px) {
-    
-    width: 1000px;
+    width: 900px;
   }
+}
+
+.swiper-wrapper {
+  margin: auto;
+}
+
+.swiper.swiper-initialized.swiper-horizontal.swiper-pointer-events.mySwiper {
+  margin: auto;
+}
+
+.swiper {
+  margin: 0;
+  overflow: hidden;
+  padding-bottom: 50px;
 }

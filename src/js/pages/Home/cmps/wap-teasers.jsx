@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { loadTemplate } from '../../../store/wap/wap.action'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper'
+import { Autoplay, Pagination } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -36,35 +36,37 @@ export const WapTeasers = () => {
           delay: 2000,
           disableOnInteraction: false,
         }}
-        modules={[Pagination]}
+        modules={[Pagination, Autoplay]}
         className="mySwiper"
       >
         {templatePreviews.map((preview, idx) => {
           return (
             <SwiperSlide>
-              <div className="main-template-container" style={{ backgroundImage: 'none', height: '100%' }}>
-                <section className="templates-container">
-                  <div key={preview.id} className={preview.id}>
-                    <div className="template-hover-info-container">
-                      <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
-                      <div className="template-hover-btns-container">
-                        <Link to={`/preview`} className="template-preview-btn">
-                          <button onClick={() => onPreviewTemplate(preview.id)}>Preview</button>
-                        </Link>
-                        <Link className="template-select-btn" to="/editor">
-                          <button onClick={() => onSelectTemplate(preview.id)}>Select</button>
-                        </Link>
+              <Link className="template-select-btn" to="/editor">
+                <div className="main-template-container" style={{ backgroundImage: 'none', height: '100%' }} onClick={() => onSelectTemplate(preview.id)}>
+                  <section className="templates-container">
+                    <div key={preview.id} className={preview.id}>
+                      <div className="template-hover-info-container">
+                        <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
+                        <div className="template-hover-btns-container">
+                          <Link to={`/preview`} className="template-preview-btn">
+                            <button onClick={() => onPreviewTemplate(preview.id)}>Preview</button>
+                          </Link>
+                          <button className="template-select-btn" onClick={() => onSelectTemplate(preview.id)}>
+                            Select
+                          </button>
+                        </div>
+                      </div>
+                      <img src={preview.info.img} alt="" />
+                      <hr />
+                      <div className="template-info-container">
+                        <p className="info-template-name">{preview.info.name}</p>
+                        <p className="info-template-category">{preview.info.category}</p>
                       </div>
                     </div>
-                    <img src={preview.info.img} alt="" />
-                    <hr />
-                    <div className="template-info-container">
-                      <p className="info-template-name">{preview.info.name}</p>
-                      <p className="info-template-category">{preview.info.category}</p>
-                    </div>
-                  </div>
-                </section>
-              </div>
+                  </section>
+                </div>
+              </Link>
             </SwiperSlide>
           )
         })}
