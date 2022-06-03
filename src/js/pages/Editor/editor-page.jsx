@@ -32,6 +32,7 @@ export function Editor() {
     }
 
     if (params.editorId) {
+      console.log('got into sockets function')
       const editorId = params.editorId
       socketService.setup()
       socketService.emit('wap connection', editorId)
