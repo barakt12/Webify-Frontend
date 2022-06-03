@@ -48,7 +48,7 @@ export function Editor() {
       socketService.off('get wap')
       socketService.off('send wap')
       socketService.off('wap update')
-      // socketService.off('mouse_position_update')
+      socketService.off('mouse_position_update')
       socketService.terminate()
     }
   }, [isCollabMode])
