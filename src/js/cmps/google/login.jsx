@@ -24,8 +24,8 @@ export function GoogleLoginBtn() {
 
     const user = await userService.login(credentials)
     dispatch(setUser(user))
-    toast.success('Logged in Successfully')
-    navigation('/')
+    toast.success('Welcome Back!')
+    // navigation('/')
   }
 
   const onFailure = (res) => {

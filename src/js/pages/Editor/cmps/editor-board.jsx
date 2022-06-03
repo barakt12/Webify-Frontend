@@ -9,12 +9,11 @@ import {
 } from '../../../store/wap/wap.action'
 
 import { createJpegFromElement } from '../../../services/cloudinary.service'
-import { isEmpty } from 'lodash'
 import { Loader } from '../../../cmps/loader'
 import { togglePublish, toggleSave } from '../../../store/system/system.action'
 import { toast } from 'react-toastify'
 
-export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
+export const EditorBoard = ({ wap}) => {
   const dispatch = useDispatch()
   const editorWidth = useSelector(
     (storeState) => storeState.wapModule.displaySize
@@ -44,8 +43,9 @@ export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
     dispatch(setWapThumbnail(thumbnailUrl))
     try {
       if (isPublish) {
+
         await dispatch(publishWap())
-        
+
         toast.success('Published Site Successfully')
       } else {
         dispatch(saveWap())
