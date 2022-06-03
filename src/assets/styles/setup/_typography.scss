@@ -18,298 +18,41 @@
 @font-face {
   font-family: Oswald;
   src: url('../../fonts/Oswald-Regular.ttf');
-
-  @font-face {
-    font-family: Raleway;
-    src: url('../../fonts/Raleway/Raleway-Bold.ttf');
-  }
 }
-// Nunito Sans
+@font-face {
+  font-family: Raleway;
+  src: url('../../fonts/Raleway/Raleway-Bold.ttf');
+}
 
-// @font-face {
-//     font-family: NunitoSans;
-//     src: url('../../assets/fonts/Sans-Serif/NunitoSans/NunitoSans-Regular.ttf');
-//     font-weight: 400;
-//     font-style: normal;
-// }
+@font-face {
+  font-family: Forum;
+  src: url('../../fonts/Forum-Regular.ttf');
+}
 
-// @font-face {
-//     font-family: NunitoSans;
-//     src: url('../../assets/fonts/Sans-Serif/NunitoSans/NunitoSans-Italic.ttf');
-//     font-weight: 400;
-//     font-style: italic;
-// }
+@font-face {
+  font-family: Roboto;
+  src: url('../../fonts/Roboto-Regular.ttf');
+}
+@font-face {
+  font-family: SourceSans;
+  src: url('../../fonts/SourceSansPro-Regular.ttf');
+}
 
-// @font-face {
-//     font-family: NunitoSans;
-//     src: url('../../assets/fonts/Sans-Serif/NunitoSans/NunitoSans-Bold.ttf');
-//     font-weight: 700;
-//     font-style: normal;
-// }
+@font-face {
+  font-family: Lobster;
+  src: url('../../fonts/Lobster-Regular.ttf');
+}
+@font-face {
+  font-family: Joan;
+  src: url('../../fonts/Joan-Regular.ttf');
+}
 
-// @font-face {
-//     font-family: NunitoSans;
-//     src: url('../../assets/fonts/Sans-Serif/NunitoSans/NunitoSans-BoldItalic.ttf');
-//     font-weight: 700;
-//     font-style: italic;
-// }
+@font-face {
+  font-family: Playfair;
+  src: url('../../fonts/PlayfairDisplay-VariableFont_wght.ttf');
+}
 
-// // Montserrat
-
-// @font-face {
-//     font-family: Montserrat;
-//     src: url('../../assets/fonts/Sans-Serif/Montserrat/Montserrat-Regular.ttf');
-//     font-weight: 400;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Montserrat;
-//     src: url('../../assets/fonts/Sans-Serif/Montserrat/Montserrat-Italic.ttf');
-//     font-weight: 400;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: Montserrat;
-//     src: url('../../assets/fonts/Sans-Serif/Montserrat/Montserrat-Medium.ttf');
-//     font-weight: 500;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Montserrat;
-//     src: url('../../assets/fonts/Sans-Serif/Montserrat/Montserrat-Bold.ttf');
-//     font-weight: 700;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Montserrat;
-//     src: url('../../assets/fonts/Sans-Serif/Montserrat/Montserrat-BoldItalic.ttf');
-//     font-weight: 700;
-//     font-style: italic;
-// }
-
-// // Poppins
-
-// @font-face {
-//     font-family: Poppins;
-//     src: url('../../assets/fonts/Sans-Serif/Poppins/Poppins-Regular.ttf');
-//     font-weight: 400;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Poppins;
-//     src: url('../../assets/fonts/Sans-Serif/Poppins/Poppins-Italic.ttf');
-//     font-weight: 400;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: Poppins;
-//     src: url('../../assets/fonts/Sans-Serif/Poppins/Poppins-Bold.ttf');
-//     font-weight: 700;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Poppins;
-//     src: url('../../assets/fonts/Sans-Serif/Poppins/Poppins-BoldItalic.ttf');
-//     font-weight: 700;
-//     font-style: italic;
-// }
-
-// // Raleway
-
-// @font-face {
-//     font-family: Raleway;
-//     src: url('../../assets/fonts/Sans-Serif/Raleway/Raleway-Regular.ttf');
-//     font-weight: 400;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Raleway;
-//     src: url('../../assets/fonts/Sans-Serif/Raleway/Raleway-Italic.ttf');
-//     font-weight: 400;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: Raleway;
-//     src: url('../../assets/fonts/Sans-Serif/Raleway/Raleway-Bold.ttf');
-//     font-weight: 700;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Raleway;
-//     src: url('../../assets/fonts/Sans-Serif/Raleway/Raleway-BoldItalic.ttf');
-//     font-weight: 700;
-//     font-style: italic;
-// }
-
-// // Quicksand
-
-// @font-face {
-//     font-family: Quicksand;
-//     src: url('../../assets/fonts/Sans-Serif/Quicksand/Quicksand-Regular.ttf');
-//     font-weight: 400;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Quicksand;
-//     src: url('../../assets/fonts/Sans-Serif/Quicksand/Quicksand-Bold.ttf');
-//     font-weight: 700;
-//     font-style: normal;
-// }
-
-// // *** *** *** *** *** *** SERIF *** *** *** *** *** *** //
-
-// // Unna
-
-// @font-face {
-//     font-family: Unna;
-//     src: url('../../assets/fonts/Serif/Unna/Unna-Regular.ttf');
-//     font-weight: 400;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Unna;
-//     src: url('../../assets/fonts/Serif/Unna/Unna-Italic.ttf');
-//     font-weight: 400;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: Unna;
-//     src: url('../../assets/fonts/Serif/Unna/Unna-Bold.ttf');
-//     font-weight: 700;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Unna;
-//     src: url('../../assets/fonts/Serif/Unna/Unna-BoldItalic.ttf');
-//     font-weight: 700;
-//     font-style: italic;
-// }
-
-// // Bitter
-
-// @font-face {
-//     font-family: Bitter;
-//     src: url('../../assets/fonts/Serif/Bitter/Bitter-Regular.ttf');
-//     font-weight: 400;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Bitter;
-//     src: url('../../assets/fonts/Serif/Bitter/Bitter-Italic.ttf');
-//     font-weight: 400;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: Bitter;
-//     src: url('../../assets/fonts/Serif/Bitter/Bitter-Bold.ttf');
-//     font-weight: 700;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Bitter;
-//     src: url('../../assets/fonts/Serif/Bitter/Bitter-BoldItalic.ttf');
-//     font-weight: 700;
-//     font-style: italic;
-// }
-
-// // PT Serif
-
-// @font-face {
-//     font-family: PTSerif;
-//     src: url('../../assets/fonts/Serif/PTSerif/PTSerif-Regular.ttf');
-//     font-weight: 400;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: PTSerif;
-//     src: url('../../assets/fonts/Serif/PTSerif/PTSerif-Italic.ttf');
-//     font-weight: 400;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: PTSerif;
-//     src: url('../../assets/fonts/Serif/PTSerif/PTSerif-Bold.ttf');
-//     font-weight: 700;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: PTSerif;
-//     src: url('../../assets/fonts/Serif/PTSerif/PTSerif-BoldItalic.ttf');
-//     font-weight: 700;
-//     font-style: italic;
-// }
-
-// // *** *** *** *** *** *** HANDWRITING *** *** *** *** *** *** //
-
-// // Kalam
-
-// @font-face {
-//     font-family: Kalam;
-//     src: url('../../assets/fonts/Handwriting/Kalam/Kalam-Regular.ttf');
-//     font-weight: 400;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Kalam;
-//     src: url('../../assets/fonts/Handwriting/Kalam/Kalam-Bold.ttf');
-//     font-weight: 700;
-//     font-style: normal;
-// }
-
-// // Mali
-
-// @font-face {
-//     font-family: Mali;
-//     src: url('../../assets/fonts/Handwriting/Mali/Mali-Regular.ttf');
-//     font-weight: 400;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Mali;
-//     src: url('../../assets/fonts/Handwriting/Mali/Mali-Italic.ttf');
-//     font-weight: 400;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: Mali;
-//     src: url('../../assets/fonts/Handwriting/Mali/Mali-Bold.ttf');
-//     font-weight: 700;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: Mali;
-//     src: url('../../assets/fonts/Handwriting/Mali/Mali-BoldItalic.ttf');
-//     font-weight: 700;
-//     font-style: italic;
-// }
-
-// //QanelasSoft
-
-// @font-face{
-//     font-family:QanelasSoft;
-//     src:url('../../assets/fonts/Sans-Serif/QanelasSoft/QanelasSoftMedium.otf')
-// }
+@font-face {
+  font-family: Bebas;
+  src: url('../../fonts/BebasNeue-Regular.ttf');
+}

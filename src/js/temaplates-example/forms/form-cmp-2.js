@@ -17,7 +17,7 @@ export const formCmp3 = {
         {
           type: 'txt',
           id: uuidv4(),
-          style: { fontSize: '3rem', fontWeight: 400 },
+          style: { fontSize: '3rem', fontWeight: 400, fontFamily: 'Forum' },
           info: {
             txt: 'Be the First to Know about Available Bookings',
           },
@@ -33,7 +33,7 @@ export const formCmp3 = {
           type: 'txt',
           id: uuidv4(),
           name: 'form-heading',
-          style: { fontSize: '2rem', fontWeight: 400 },
+          style: { fontSize: '2rem', fontWeight: 400, fontFamily: 'Forum' },
 
           info: {
             txt: 'Subscribe for Updates',

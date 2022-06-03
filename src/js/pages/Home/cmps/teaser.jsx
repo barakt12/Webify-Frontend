@@ -5,7 +5,7 @@ export const Teaser = () => {
 
       <div className='img-container'>
         <img
-          src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654021420/Teaser-webify_lwiip8.jpg'
+          src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654197766/Screenshot_18_sug909.jpg'
           alt=''
         />
       </div>

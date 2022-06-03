@@ -18,15 +18,13 @@ export function Editor() {
   const [placeholderProps, setPlaceholderProps] = useState({})
   const { wap, isCollabMode } = useSelector(
     (storeState) => storeState.wapModule
-    )
+  )
   const loggedUser = useSelector((storeState) => storeState.userModule.user)
-    const dispatch = useDispatch()
-    const _ = require('lodash');
+  const dispatch = useDispatch()
+  const _ = require('lodash')
   const params = useParams()
 
   const [connectedMouses, setConnectedMouses] = useState([])
-
-
 
   useEffect(() => {
     if (!wap) {
@@ -37,7 +35,9 @@ export function Editor() {
       const editorId = params.editorId
       socketService.setup()
       socketService.emit('wap connection', editorId)
-      socketService.on('mouse_position_update', (connectedMouses) => setConnectedMouses(connectedMouses))
+      socketService.on('mouse_position_update', (connectedMouses) =>
+        setConnectedMouses(connectedMouses)
+      )
       socketService.on('wap update', (newWap) => dispatch(setWap(newWap)))
       socketService.on('get wap', () => {
         wap && socketService.emit('wap update', wap)
@@ -52,7 +52,6 @@ export function Editor() {
       socketService.terminate()
     }
   }, [isCollabMode])
-
 
   const copy = (source, destination, droppableSource, droppableDestination) => {
     const sourceClone = Array.from(source)
@@ -204,12 +203,14 @@ export function Editor() {
     }
   }
 
-
-  const handleMouseDebounce = _.debounce((ev) => handleMouseMove(ev) ,10)
+  const handleMouseDebounce = _.debounce((ev) => handleMouseMove(ev), 0.3)
 
   const handleMouseMove = (event) => {
-    if(!params.editorId) return
-    let mouseInfo = { user: (loggedUser) ? loggedUser.fullname : 'Guest' ,  pos: {mx: event.clientX, my: event.clientY} }
+    if (!params.editorId) return
+    let mouseInfo = {
+      user: loggedUser ? loggedUser.fullname : 'Guest',
+      pos: { mx: event.clientX, my: event.clientY },
+    }
     socketService.emit('mouse_position', mouseInfo)
   }
 
@@ -227,7 +228,9 @@ export function Editor() {
           placeholderProps={placeholderProps}
         />
       </DragDropContext>
-      {(params.editorId && connectedMouses.length) && connectedMouses.map((mouse) => <MouseCursor mouse={mouse} /> )}
+      {params.editorId &&
+        connectedMouses.length &&
+        connectedMouses.map((mouse) => <MouseCursor mouse={mouse} />)}
     </section>
   )
 }

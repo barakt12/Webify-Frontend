@@ -2,17 +2,22 @@ import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { DynamicCmp } from './dynamic-cmp/dynamic-cmp'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useRef } from 'react'
-import { setWapThumbnail, saveWap, publishWap } from '../../../store/wap/wap.action'
+import {
+  setWapThumbnail,
+  saveWap,
+  publishWap,
+} from '../../../store/wap/wap.action'
 
 import { createJpegFromElement } from '../../../services/cloudinary.service'
-import { isEmpty } from 'lodash'
 import { Loader } from '../../../cmps/loader'
 import { togglePublish, toggleSave } from '../../../store/system/system.action'
 import { toast } from 'react-toastify'
 
-export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
+export const EditorBoard = ({ wap}) => {
   const dispatch = useDispatch()
-  const editorWidth = useSelector((storeState) => storeState.wapModule.displaySize)
+  const editorWidth = useSelector(
+    (storeState) => storeState.wapModule.displaySize
+  )
   const { isSaving } = useSelector((storeState) => storeState.systemModule)
   const { isPublishing } = useSelector((storeState) => storeState.systemModule)
   const editorRef = useRef(null)
@@ -30,27 +35,38 @@ export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
   const saveWapWithThumbnail = async (isPublish) => {
     console.log('SAVING...')
     const elBoard = document.querySelector('.editor')
-    const thumbnailUrl = await createJpegFromElement(elBoard, elBoard.clientWidth, elBoard.scrollHeight)
+    const thumbnailUrl = await createJpegFromElement(
+      elBoard,
+      elBoard.clientWidth,
+      elBoard.scrollHeight
+    )
     dispatch(setWapThumbnail(thumbnailUrl))
     try {
       if (isPublish) {
-        await dispatch(publishWap())
-        toast.success('Published Site Successfully')
 
-        dispatch(togglePublish())
+        await dispatch(publishWap())
+
+        toast.success('Published Site Successfully')
       } else {
         dispatch(saveWap())
         toast.success('Saved Site Successfully')
-        dispatch(toggleSave())
       }
     } catch (err) {
       toast.error(err.message)
+    } finally {
+      if (isPublish) {
+        dispatch(togglePublish())
+      } else {
+        dispatch(toggleSave())
+      }
     }
   }
 
-  // if (isSaving) return <Loader />
+  // return
   return (
     <>
+      {isSaving && <Loader displayMsg={'Saving your amazing work!'} />}
+      {isPublishing && <Loader displayMsg={'Publishing your amazing work!'} />}
       <div
         ref={editorRef}
         style={{
@@ -58,22 +74,37 @@ export const EditorBoard = ({ wap, isFromSidebar, placeholderProps }) => {
           margin: '0 auto',
           transition: 'max-width 0.3s',
         }}
-        className="editor-inner-container"
+        className='editor-inner-container'
       >
-        <Droppable droppableId="editor">
+        <Droppable droppableId='editor'>
           {(provided, snapshot) => {
             return (
-              <section {...provided.droppableProps} ref={provided.innerRef} className="editor">
+              <section
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+                className='editor'
+              >
                 {!wap?.cmps?.length ? (
-                  <section className="editor-preview-container">
+                  <section className='editor-preview-container'>
                     <h2>Let's start building your page!</h2>
-                    <img src={require('../../../../assets/img/webify-editor.gif')} alt="" />
+                    <img
+                      src={require('../../../../assets/img/webify-editor.gif')}
+                      alt=''
+                    />
                   </section>
                 ) : (
                   wap.cmps.map((cmp, index) => (
-                    <Draggable key={cmp.id} draggableId={cmp.id + index} index={index}>
+                    <Draggable
+                      key={cmp.id}
+                      draggableId={cmp.id + index}
+                      index={index}
+                    >
                       {(provided, snapshot) => (
-                        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
                           <DynamicCmp cmp={cmp} />
                         </div>
                       )}

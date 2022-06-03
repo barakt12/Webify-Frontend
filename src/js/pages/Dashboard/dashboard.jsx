@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteWap, selectWap } from '../../store/wap/wap.action'
 import { loadSavedWaps } from '../../store/wap/wap.action'
+import { toast } from 'react-toastify'
 
 export const Dashboard = () => {
   const dispatch = useDispatch()
@@ -18,6 +19,7 @@ export const Dashboard = () => {
 
   const onDeleteWap = (id) => {
     dispatch(deleteWap(id))
+    toast.success('Deleted Successfully')
   }
 
   return (

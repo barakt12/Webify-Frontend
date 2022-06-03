@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
@@ -10,8 +10,9 @@ export const EditOptions = ({
   currTxtShadow,
   currFontType,
 }) => {
-  const [, setFontType] = React.useState('')
-  const [, setTextShadow] = React.useState('')
+  console.log(currFontType)
+  const [, setFontType] = useState('')
+  const [, setTextShadow] = useState('')
 
   const handleChange = (event) => {
     if (isFontType) {
@@ -23,42 +24,18 @@ export const EditOptions = ({
     }
   }
 
-  const fontTypeMenu = [
-    <MenuItem
-      key={uuidv4()}
-      value={'system-ui'}
-      style={{ fontSize: '13px', width: '90%' }}
-    >
-      System-ui
-    </MenuItem>,
-    <MenuItem
-      key={uuidv4()}
-      value={'sans-serif'}
-      style={{ fontSize: '13px', width: '90%' }}
-    >
-      Sans-serif
-    </MenuItem>,
-    <MenuItem
-      key={uuidv4()}
-      value={'cursive'}
-      style={{ fontSize: '13px', width: '90%' }}
-    >
-      Cursive
-    </MenuItem>,
-    <MenuItem
-      key={uuidv4()}
-      value={'monospace'}
-      style={{ fontSize: '13px', width: '90%' }}
-    >
-      Monospace
-    </MenuItem>,
-    <MenuItem
-      key={uuidv4()}
-      value={'fangsong'}
-      style={{ fontSize: '13px', width: '90%' }}
-    >
-      Fangsong
-    </MenuItem>,
+  const fonts = [
+    'OpenSans',
+    'Forum',
+    'Oswald',
+    'Roboto',
+    'SourceSans',
+    'Lobster',
+    'Joan',
+    'Playfair',
+    'Bebas',
+    'Helvetica',
+    'Arial',
   ]
 
   const textShadowMenu = [
@@ -71,7 +48,7 @@ export const EditOptions = ({
     </MenuItem>,
     <MenuItem
       key={uuidv4()}
-      value={'-2px 3px 0px black'}
+      value={'rgb(0 0 0 / 51%) -2px 3px'}
       style={{ fontSize: '13px', width: '90%' }}
     >
       Light
@@ -92,7 +69,6 @@ export const EditOptions = ({
     </MenuItem>,
   ]
 
-  const currMenu = isFontType ? fontTypeMenu : textShadowMenu
   // if(currTxtShadow){
   //   if(currTxtShadow.split(' ')[0] === '-2px') currTxtShadow = 'Light'
   //   else if(currTxtShadow.split(' ')[0] === '-3px') currTxtShadow = 'Medium'
@@ -116,7 +92,7 @@ export const EditOptions = ({
             isFontType
               ? currFontType
                 ? currFontType
-                : 'sans-serif'
+                : 'OpenSans'
               : currTxtShadow
               ? currTxtShadow
               : ''
@@ -126,7 +102,19 @@ export const EditOptions = ({
           inputProps={{ 'aria-label': 'Without label' }}
           style={{ fontSize: '14px', width: '120px' }}
         >
-          {currMenu.map((menu) => menu)}
+          {/* {currMenu.map((menu) => menu)} */}
+
+          {isFontType
+            ? fonts.map((font) => (
+                <MenuItem
+                  key={uuidv4()}
+                  value={font}
+                  style={{ fontSize: '13px', width: '90%' }}
+                >
+                  {font}
+                </MenuItem>
+              ))
+            : textShadowMenu}
         </Select>
       </FormControl>
     </div>

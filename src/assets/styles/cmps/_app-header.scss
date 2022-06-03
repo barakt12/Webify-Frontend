@@ -44,19 +44,18 @@ header {
       font-weight: 700;
       text-transform: capitalize;
     }
-    
+
     .logout-icon {
       height: 25px;
 
-
-    .logout-svg {
-      font-size: 1.7rem;
-    }
-    &:hover {
-      background-color: rgb(221 221 221 / 36%);
+      .logout-svg {
+        font-size: 1.7rem;
+      }
+      &:hover {
+        background-color: rgb(221 221 221 / 36%);
+      }
     }
   }
-}
 
   .navbar {
     font-size: 1rem;

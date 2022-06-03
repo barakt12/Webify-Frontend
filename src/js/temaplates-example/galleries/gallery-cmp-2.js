@@ -14,7 +14,7 @@ export const galleryCmp2 = {
     {
       type: 'txt',
       id: uuidv4(),
-      style: { fontSize: '2rem', fontWeight: '400' },
+      style: { fontSize: '2rem', fontWeight: '400', fontFamily: 'Forum' },
 
       info: {
         txt: 'My Work',

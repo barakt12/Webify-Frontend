@@ -26,7 +26,7 @@ export const sectionCmp3 = {
         {
           type: 'txt',
           name: 'about-me-heading',
-          style: { fontSize: '2rem', fontWeight: '400' },
+          style: { fontSize: '2rem', fontWeight: '400', fontFamily: 'Forum' },
 
           id: uuidv4(),
           info: {
