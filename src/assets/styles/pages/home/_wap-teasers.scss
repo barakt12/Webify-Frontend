@@ -1,10 +1,9 @@
 .wap-teasers-container {
-  // height: 500px;
   width: 100%;
   position: relative;
   background-color: rgb(203, 231, 242);
-  // margin-top: 200px;
   padding-bottom: 200px;
+  min-height: 700px;
   .wave3-png {
     position: absolute;
     background-image: url(../../../img/illustrations/wave3.png);
@@ -34,4 +33,30 @@
       flex-wrap: wrap;
     }
   }
+}
+
+.mySwiper {
+  width: 700px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  // height: 200px;
+  
+  @media screen and (min-width: 700px) {
+    width: 900px;
+  }
+}
+
+.swiper-wrapper {
+  margin: auto;
+}
+
+.swiper.swiper-initialized.swiper-horizontal.swiper-pointer-events.mySwiper {
+  margin: auto;
+}
+
+.swiper {
+  margin: 0;
+  overflow: hidden;
+  padding-bottom: 50px;
 }

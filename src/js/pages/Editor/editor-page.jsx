@@ -203,7 +203,7 @@ export function Editor() {
     }
   }
 
-  const handleMouseDebounce = _.debounce((ev) => handleMouseMove(ev), 30)
+  const handleMouseDebounce = _.debounce((ev) => handleMouseMove(ev), 0.3)
 
   const handleMouseMove = (event) => {
     if (!params.editorId) return
