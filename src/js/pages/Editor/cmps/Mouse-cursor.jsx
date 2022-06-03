@@ -1,13 +1,16 @@
-// import MouseIcon from '@mui/icons-material/Mouse';
-// import { socketService } from '../../../services/socket.service';
-// import { utilService } from '../../../services/util.service';
-// import { useEffect, useState } from 'react';
+import NavigationIcon from '@mui/icons-material/Navigation';
+import { socketService } from '../../../services/socket.service';
+import { utilService } from '../../../services/util.service';
+import { useEffect, useState } from 'react';
 
-// export const MouseCursor = () => {
-//   const [mouseCursors, setMouseCursors] = useState([])
-//   const mouseColors = ['blue','red','green','orange','yellow','purple']
 
-//   return <div style={{ position: 'fixed', top: mouse.pos.y, left: cursor.pos.x}}>
-//   <MouseIcon />
-//   </div>
-// }
+
+export const MouseCursor = ({mouse}) => {
+  // const [mouseCursors, setMouseCursors] = useState([])
+  
+console.log(mouse)
+  return <div style={{height: '40px',width: '40px', position: 'fixed', top: mouse.pos.my, left: mouse.pos.mx}}>
+  <NavigationIcon style={{height: '90%',width: '90%',fill: mouse.color, transform: 'rotate(-30deg)'}}/>
+  <p style={{textAlign: 'center', color: mouse.color}}>{mouse.fullname}</p>
+  </div>
+}
