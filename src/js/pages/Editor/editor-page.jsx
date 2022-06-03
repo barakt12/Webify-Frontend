@@ -19,6 +19,7 @@ export function Editor() {
   const { wap, isCollabMode } = useSelector(
     (storeState) => storeState.wapModule
     )
+  const loggedUser = useSelector((storeState) => storeState.userModule.user)
     const dispatch = useDispatch()
     const _ = require('lodash');
   const params = useParams()
@@ -47,7 +48,7 @@ export function Editor() {
       socketService.off('get wap')
       socketService.off('send wap')
       socketService.off('wap update')
-      socketService.off('mouse_position_update')
+      // socketService.off('mouse_position_update')
       socketService.terminate()
     }
   }, [isCollabMode])
@@ -208,8 +209,8 @@ export function Editor() {
 
   const handleMouseMove = (event) => {
     if(!params.editorId) return
-    let mousePos = { mx: event.clientX, my: event.clientY }
-    socketService.emit('mouse_position', mousePos)
+    let mouseInfo = { user: (loggedUser) ? loggedUser.fullname : 'Guest' ,  pos: {mx: event.clientX, my: event.clientY} }
+    socketService.emit('mouse_position', mouseInfo)
   }
 
   return (
