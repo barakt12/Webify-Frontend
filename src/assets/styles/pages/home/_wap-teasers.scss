@@ -1,9 +1,7 @@
 .wap-teasers-container {
-  // height: 500px;
   width: 100%;
   position: relative;
   background-color: rgb(203, 231, 242);
-  // margin-top: 200px;
   padding-bottom: 200px;
   .wave3-png {
     position: absolute;
@@ -32,5 +30,14 @@
       display: flex;
       flex-wrap: wrap;
     }
+  }
+}
+
+.mySwiper {
+  width: 700px;
+  
+  @media screen and (min-width: 700px) {
+    
+    width: 1000px;
   }
 }
