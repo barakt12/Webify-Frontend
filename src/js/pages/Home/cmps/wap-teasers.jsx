@@ -18,9 +18,6 @@ export const WapTeasers = () => {
   const onPreviewTemplate = (id) => {
     dispatch(loadTemplate(id))
   }
-
-  const arr = [1, 2, 3, 4]
-
   return (
     <div className="wap-teasers-container">
       <div className="wave3-png"></div>
