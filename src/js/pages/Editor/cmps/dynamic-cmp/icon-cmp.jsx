@@ -32,7 +32,7 @@ export function IconCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClas
       <div
         onMouseOut={(ev) => ev.target.classList.remove('hover')}
         onMouseOver={(ev) => onHoverCmp(ev)}
-        className={`${cmp.info.link && location.pathname.includes('/publish') ? 'linkable' : ''} ${selectedCmp?.id === cmp.id ? 'selected' : ''} ${displayClass} ${cmp.name}`}
+        className={`${cmp.info.link && location.pathname.includes('/publish') ? 'linkable' : ''} ${selectedCmp?.id === cmp.id ? 'selected' : ''} ${displayClass} icon ${cmp.name}`}
         onClick={(ev) => onSelectCmp(ev, cmp)}
         style={cmp.style}
       >

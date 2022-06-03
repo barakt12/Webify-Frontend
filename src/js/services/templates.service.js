@@ -16,7 +16,7 @@ import { headerCmp4 } from '../temaplates-example/headers/header-cmp-4'
 import { wapHero1 } from '../temaplates-example/heros/wap-hero-1'
 import { wapHero2 } from '../temaplates-example/heros/wap-hero-2'
 import { HeroCmp5 } from '../temaplates-example/heros/hero-cmp-5'
-import { heroCmp4 } from '../temaplates-example/heros/hero-cmp-3'
+import { heroCmp3 } from '../temaplates-example/heros/hero-cmp-3'
 
 //Galleries
 import { wapCarousel1 } from '../temaplates-example/carousels/wap-carousel-1'
@@ -26,7 +26,7 @@ import { galleryCmp2 } from '../temaplates-example/galleries/gallery-cmp-2'
 
 // Form
 import { wapContact1 } from '../temaplates-example/forms/wap-contact-1'
-import { formCmp3 } from '../temaplates-example/forms/form-cmp-2'
+import { formCmp2 } from '../temaplates-example/forms/form-cmp-2'
 
 // Cards
 import { wapCards1 } from '../temaplates-example/cards/wap-cards-1'
@@ -64,13 +64,13 @@ const wapTemplates = [wapTemplate1, wapTemplate2, wapTemplate3, wapTemplate4, wa
 
 const mapCmpByCategory = {
   header: [headerWap1, headerWap2, headerWap3, headerCmp4, headerCmp5],
-  hero: [wapHero1, wapHero2, heroCmp4, HeroCmp5],
+  hero: [wapHero1, wapHero2, heroCmp3, HeroCmp5],
   card: [wapCards1, CardCmp5, SecondCardCmp5, ThirdCardCmp5],
   section: [wapSection1, wapSection2, sectionCmp3, SectionCmp5],
   gallery: [wapCarousel1, wapCarousel2, wapGallery1, galleryCmp2],
   text: [wapText1],
   video: [wapVideo1],
-  form: [wapContact1, formCmp3],
+  form: [wapContact1, formCmp2],
   footer: [wapFooter1, wapFooter2, wapFooter3, footerCmp4, footerCmp5],
 }
 

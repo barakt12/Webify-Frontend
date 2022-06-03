@@ -29,23 +29,23 @@ export function TxtCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass
   }
 
   return (
-    <a target="_blank" href={cmp.info.link && location.pathname.includes('/publish') ? cmp.info.link : false}>
-      <p
-        ref={txtRef}
-        contentEditable={isEditable}
-        tabIndex="0"
-        suppressContentEditableWarning={true}
-        className={`${location.pathname.includes('/editor') ? 'editable-txt' : ''} ${displayClass} ${cmp.info.link && location.pathname.includes('/publish') ? 'linkable' : ''} ${
-          selectedCmp?.id === cmp.id ? 'selected' : ''
-        } ${cmp.name}`}
-        onClick={(ev) => handleSelectTxt(ev)}
-        onMouseOut={(ev) => ev.target.classList.remove('hover')}
-        onMouseOver={(ev) => onHoverCmp(ev)}
-        spellCheck="false"
-        style={cmp.style}
-      >
+    <p
+      ref={txtRef}
+      contentEditable={isEditable}
+      tabIndex="0"
+      suppressContentEditableWarning={true}
+      className={`${location.pathname.includes('/editor') ? 'editable-txt' : ''} ${displayClass} ${cmp.info.link && location.pathname.includes('/publish') ? 'linkable' : ''} ${
+        selectedCmp?.id === cmp.id ? 'selected' : ''
+      } ${cmp.name}`}
+      onClick={(ev) => handleSelectTxt(ev)}
+      onMouseOut={(ev) => ev.target.classList.remove('hover')}
+      onMouseOver={(ev) => onHoverCmp(ev)}
+      spellCheck="false"
+      style={cmp.style}
+    >
+      <a target="_blank" href={cmp.info.link && location.pathname.includes('/publish') ? cmp.info.link : false}>
         {cmp.info.txt}
-      </p>
-    </a>
+      </a>
+    </p>
   )
 }

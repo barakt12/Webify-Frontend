@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 
 export const galleryCmp2 = {
-  name: 'gallery-cmp-3',
+  name: 'gallery-cmp-2',
   type: 'container',
   category: 'gallery',
   themePalette: 'secondary',
