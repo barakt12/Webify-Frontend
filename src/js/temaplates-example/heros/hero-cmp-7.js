@@ -1,12 +1,12 @@
 import { v4 as uuidv4 } from 'uuid'
 
-export const HeroCmp7 = {
+export const heroCmp7 = {
   name: 'wap-hero-7',
   id: uuidv4(),
   type: 'container',
-  // themePalette: 'primary',
+  themePalette: 'primary',
   category: 'hero',
-  thumbnail: require('../../../assets/img/thumbnails/hero/wap-hero-5.JPG'),
+  thumbnail: require('../../../assets/img/thumbnails/hero/wap-hero-7.JPG'),
   style: {
     backgroundColor: '#f9db79',
   },
@@ -34,7 +34,7 @@ export const HeroCmp7 = {
       },
       style: {
         color: 'white',
-        fontSize: '2.375rem',
+        fontSize: '2.175rem',
         fontWeight: '600',
       },
     },
@@ -47,7 +47,7 @@ export const HeroCmp7 = {
       },
       style: {
         color: 'white',
-        fontSize: '7.1875rem',
+        fontSize: '5rem',
         fontWeight: '800',
       },
     },

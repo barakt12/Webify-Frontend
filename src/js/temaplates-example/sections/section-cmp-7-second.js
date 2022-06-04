@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from 'uuid'
 
-export const SecondSectionCmp7 = {
+export const secondSectionCmp7 = {
   type: 'container',
   name: 'wap-section-7-second',
   themePalette: 'secondary',
   category: 'cards',
-  thumbnail: require('../../../assets/img/thumbnails/section/wap-section-5.JPG'),
+  thumbnail: require('../../../assets/img/thumbnails/section/wap-section-7-second.JPG'),
   id: uuidv4(),
   style: {
     backgroundColor: '#b5e8d5',
@@ -24,7 +24,7 @@ export const SecondSectionCmp7 = {
             txt: 'ENJOY',
           },
           style: {
-            fontSize: '2.375rem',
+            fontSize: '2.175rem',
             letterSpacing: '0.05rem',
             color: 'white',
             fontWeight: 600
@@ -38,7 +38,7 @@ export const SecondSectionCmp7 = {
             txt: `DAIRY FREE`,
           },
           style: {
-            fontSize: '7.1875rem',
+            fontSize: '5rem',
             letterSpacing: '2rem',
             color: 'white',
             fontWeight: 800

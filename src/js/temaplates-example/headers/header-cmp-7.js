@@ -6,10 +6,8 @@ export const headerCmp7 = {
   category: 'header',
   themePalette: 'primary',
   id: uuidv4(),
-  //change to cloudinary
   thumbnail:
-    'https://res.cloudinary.com/do0lvumuv/image/upload/v1654111393/Screenshot_12_re7jme.jpg',
-  //each component will have his own css file
+  require('../../../assets/img/thumbnails/header/wap-header-7.JPG'),
   style: {},
   cmps: [
     {
@@ -40,15 +38,16 @@ export const headerCmp7 = {
           id: uuidv4(),
           style: {},
           cmps: [
-            // {
-            //   type: 'img',
-            //   id: uuidv4(),
-            //   info: {
-            //     imgUrl:
-            //       'https://icon-library.com/images/hamburger-menu-icon-png/hamburger-menu-icon-png-29.jpg',
-            //   },
-            //   style: {},
-            // },
+            {
+              type: 'img',
+              name: 'hamburger-container',
+              id: uuidv4(),
+              info: {
+                imgUrl:
+                  'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/108px-Hamburger_icon.svg.png',
+              },
+              style: {},
+            },
             {
               type: 'txt',
               id: uuidv4(),

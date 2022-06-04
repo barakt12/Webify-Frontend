@@ -3,7 +3,7 @@ export const templatePreviews = [
     id: 'ahlaid7',
     info: {
       name: 'Gelato',
-      img: require('../../../assets/img/web-templates-preview/web-template-preview4.jpg'),
+      img: require('../../../assets/img/web-templates-preview/web-template-preview7.JPG'),
       category: 'Culinary',
     },
   },

@@ -7,11 +7,14 @@
     width: 100%;
     height: 54px;
     background-color: #242323;
+    padding-inline-start: 0.5rem;
+    padding-inline-end: 0.5rem;
     p {
       color: #e8e8e8;
       letter-spacing: 0.05rem;
       font-size: 1rem;
       font-family: sans-serif;
+      text-align: center;
     }
   }
 
@@ -23,11 +26,23 @@
     width: 100%;
     height: 84px;
     font-family: sans-serif;
+    position: relative;
 
     & .first-nav-bar {
       display: flex;
       gap: 15px;
       padding-inline-start: 3rem;
+      & > p {
+        display: none;
+      }
+      & .img-container {
+        display: block;
+        width: 107px;
+        img {
+          height: 40px;
+          width: 40px;
+        }
+      }
       & > p {
         font-size: 0.925rem;
         font-weight: 600;
@@ -37,7 +52,10 @@
     & > p {
       font-size: 3rem;
       font-family: 'Righteous';
-      margin-inline-end: 18rem;
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
     & .second-nav-bar {
       display: flex;
@@ -67,6 +85,7 @@
     margin-top: 200px;
     color: white;
     z-index: 5;
+    text-align: center;
     & .sub-header {
     }
     & .main-header {
@@ -126,7 +145,6 @@
   }
 }
 
-
 .wap-section-7-second {
   display: flex;
   flex-direction: column;
@@ -135,17 +153,20 @@
   height: 80vh;
   background-image: url('https://static.wixstatic.com/media/baac51_809fe275413a451fbe5e2904700e26ea.png/v1/fill/w_1903,h_865,al_b,q_90,usm_0.66_1.00_0.01,enc_auto/baac51_809fe275413a451fbe5e2904700e26ea.png');
   background-attachment: fixed;
-  & .txt-container{
+  background-size: contain;
+  background-repeat: no-repeat;
+  & .txt-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    & .main-header{
+    text-align: center;
+    & .main-header {
       letter-spacing: 0.05rem;
     }
-    & .sub-header{
+    & .sub-header {
       letter-spacing: 2rem;
     }
-    & button{
+    & button {
       height: 42px;
       width: 130px;
       color: white;
@@ -158,13 +179,12 @@
   }
 }
 
-
 .wap-section-7-third {
   display: flex;
   width: 100%;
   height: 651px;
   background-color: white;
-  
+
   & .txt-container {
     display: flex;
     flex-basis: 50%;
@@ -201,21 +221,187 @@
 }
 
 .wap-section-7-fourth {
-  height: 80vh;
+  width: 100%;
+  height: 0;
   background-image: url('https://static.wixstatic.com/media/baac51_863daade1baf47a8995907cb1f24d57c.png/v1/fill/w_1903,h_865,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/baac51_863daade1baf47a8995907cb1f24d57c.png');
-  background-size: cover;
-  & .txt-container{
-    height: 92vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 7rem;
+  padding-top: 45.44%;
+  position: relative;
+  & .txt-container {
+    height: 0;
     width: 100%;
     background-image: url('https://static.wixstatic.com/media/baac51_ec98ba3fb62b4140be49e8c2fde05a73.png/v1/fill/w_1903,h_906,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/baac51_ec98ba3fb62b4140be49e8c2fde05a73.png');
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    padding-top: 48%;
 
-    & .main-header{
-      margin-bottom: 1rem;
+    & .main-header {
+      margin-bottom: 6rem;
+    }
+  }
+}
+
+.wap-cards-7 {
+  display: flex;
+  flex-wrap: wrap;
+  & .img-container {
+    flex-basis: 25%;
+    & img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.wap-footer-7 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 347px;
+  background-color: black;
+  gap: 1rem;
+  & > .container {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 200px;
+  }
+  & .container:last-child {
+    width: 360px;
+  }
+  & .fourth-footer-txt {
+    color: white;
+    & form {
+      & button {
+        cursor: pointer;
+        margin-top: 1.5rem;
+        width: 100%;
+        border: 2px solid white;
+        background-color: black;
+        color: white;
+        height: 40px;
+      }
+      & label {
+        & input {
+          height: 40px;
+          width: 360px;
+          border: 2px solid white;
+          background-color: black;
+          padding-inline-start: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1500px) {
+  .wap-header-7 {
+    & .second-header-container {
+      & .first-nav-bar {
+        & > p {
+          display: inline-block;
+        }
+        & .img-container {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  html {
+    font-size: 14px;
+  }
+
+  .wap-footer-7 {
+    flex-direction: column;
+    height: 600px;
+    padding-top: 3rem;
+    justify-content: unset;
+    & .container {
+      height: 90px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .wap-header-7 {
+    & .second-header-container {
+      & .first-nav-bar {
+        padding-inline-start: 0.5rem;
+      }
+      & .second-nav-bar {
+        padding-inline-end: 0.5rem;
+        flex-direction: column;
+        margin-top: 6rem;
+      }
+    }
+  }
+
+  .wap-hero-7 {
+    & .main-hero-container {
+      & .main-header {
+        letter-spacing: unset;
+      }
+    }
+  }
+
+  .wap-section-7 {
+    flex-direction: column;
+    & .txt-container {
+      padding-inline-start: 0.5rem;
+      padding-inline-end: 0.5rem;
+      & .txt-sub-container {
+        max-width: unset;
+        padding-inline-start: unset;
+      }
+    }
+  }
+
+  .wap-section-7-second {
+    & .txt-container {
+      padding-inline-start: 0.5rem;
+      padding-inline-end: 0.5rem;
+      & .sub-header {
+        letter-spacing: unset;
+      }
+    }
+  }
+
+  .wap-section-7-third {
+    flex-direction: column;
+    & .txt-container {
+      padding-inline-start: 0.5rem;
+      padding-inline-end: 0.5rem;
+      & .txt-sub-container {
+        max-width: unset;
+        padding-inline-end: unset;
+      }
+    }
+  }
+
+  .wap-cards-7 {
+    & .img-container {
+      flex-basis: 50%;
+    }
+  }
+
+  .wap-section-7-fourth {
+    height: 50vh;
+    background-size: cover;
+    & .txt-container {
+      height: 50vh;
+      background-size: cover;
     }
   }
 }

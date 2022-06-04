@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from 'uuid'
 
-export const FourthSectionCmp7 = {
+export const fourthSectionCmp7 = {
   type: 'container',
   name: 'wap-section-7-fourth',
   themePalette: 'secondary',
   category: 'cards',
-  thumbnail: require('../../../assets/img/thumbnails/section/wap-section-5.JPG'),
+  thumbnail: require('../../../assets/img/thumbnails/section/wap-section-7-fourth.JPG'),
   id: uuidv4(),
   style: {
     backgroundColor: '#b5e8d5',
