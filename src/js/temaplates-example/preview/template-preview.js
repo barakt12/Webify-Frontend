@@ -1,5 +1,13 @@
 export const templatePreviews = [
   {
+    id: 'ahlaid7',
+    info: {
+      name: 'Gelato',
+      img: require('../../../assets/img/web-templates-preview/web-template-preview7.JPG'),
+      category: 'Culinary',
+    },
+  },
+  {
     id: 'ahlaid4',
     info: {
       name: 'Tattoos',
@@ -28,7 +36,7 @@ export const templatePreviews = [
     info: {
       name: 'Momentum',
       img: require('../../../assets/img/web-templates-preview/web-template-preview2.jpg'),
-      category: 'Technology',
+      category: 'Culinary',
     },
   },
   {
