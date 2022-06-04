@@ -12,7 +12,6 @@
   box-shadow: inset 0px 15px 20px -19px, inset 0px -15px 20px -19px;
 }
 
-
 .editor-container {
   display: flex;
   width: 100%;
@@ -37,18 +36,18 @@
     transform: translateX(-50%);
   }
 
-  .editor-preview-container{
+  .editor-preview-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 100px;
     gap: 50px;
-    img{
+    img {
       height: 50%;
       width: 50%;
     }
-}
+  }
 
   @media screen and (min-width: '700px') {
     &::-webkit-scrollbar {

@@ -25,10 +25,10 @@ export const Dashboard = () => {
 
   return (
     <section className='main-dashboard-container'>
-      <div className='template-page-intro'>
-        <h2>Hi, Welcome back</h2>
-      </div>
       <section className='profile-page'>
+        <div className='template-page-intro'>
+          <h2>Hi, Welcome back</h2>
+        </div>
         {!savedWaps && <p>Please login to see your websites!</p>}
         {savedWaps && !savedWaps.length && (
           <p>You havent created websites yet</p>

@@ -83,13 +83,13 @@ export const themes = [
     description: 'Pungent & zesty',
     colors: {
       primary: {
-        background: 'black',
-        color: 'white',
+        background: '#c2ffb0',
+        color: '#000',
       },
       secondary: {
-        background: '#c2ffb0',
+        background: '#1f1f1f',
         // background: '#EC994B',
-        color: '#000',
+        color: 'white',
       },
     },
   },
