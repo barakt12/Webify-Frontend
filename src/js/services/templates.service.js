@@ -4,6 +4,7 @@ import { wapTemplate2 } from '../temaplates-example/wap-template-2'
 import { wapTemplate3 } from '../temaplates-example/wap-template-3'
 import { wapTemplate5 } from '../temaplates-example/wap-template-5'
 import { wapTemplate4 } from '../temaplates-example/wap-template-4'
+import { wapTemplate6 } from '../temaplates-example/wap-template-6'
 
 // Headers
 import { headerWap1 } from '../temaplates-example/headers/header-wap-1'
@@ -11,22 +12,26 @@ import { headerWap2 } from '../temaplates-example/headers/header-wap-2'
 import { headerCmp5 } from '../temaplates-example/headers/header-cmp-5'
 import { headerWap3 } from '../temaplates-example/headers/header-wap-3'
 import { headerCmp4 } from '../temaplates-example/headers/header-cmp-4'
+import { headerCmp6 } from '../temaplates-example/headers/header-cmp-6'
 
 // Heros
 import { wapHero1 } from '../temaplates-example/heros/wap-hero-1'
 import { wapHero2 } from '../temaplates-example/heros/wap-hero-2'
 import { HeroCmp5 } from '../temaplates-example/heros/hero-cmp-5'
 import { heroCmp3 } from '../temaplates-example/heros/hero-cmp-3'
+import { heroCmp4 } from '../temaplates-example/heros/hero-cmp-4'
 
 //Galleries
 import { wapCarousel1 } from '../temaplates-example/carousels/wap-carousel-1'
 import { wapGallery1 } from '../temaplates-example/galleries/wap-gallery-1'
 import { wapCarousel2 } from '../temaplates-example/carousels/wap-carousel-2'
 import { galleryCmp2 } from '../temaplates-example/galleries/gallery-cmp-2'
+import { galleryCmp3 } from '../temaplates-example/galleries/gallery-cmp-3'
 
 // Form
 import { wapContact1 } from '../temaplates-example/forms/wap-contact-1'
 import { formCmp2 } from '../temaplates-example/forms/form-cmp-2'
+import { formCmp3 } from '../temaplates-example/forms/form-cmp-3'
 
 // Cards
 import { wapCards1 } from '../temaplates-example/cards/wap-cards-1'
@@ -41,7 +46,7 @@ import { wapVideo1 } from '../temaplates-example/videos/wap-video-1'
 import { wapSection1 } from '../temaplates-example/sections/wap-section-1'
 import { wapSection2 } from '../temaplates-example/sections/wap-section-2'
 import { SectionCmp5 } from '../temaplates-example/sections/section-cmp-5'
-
+import { SectionCmp4 } from '../temaplates-example/sections/section-cmp-4'
 import { sectionCmp3 } from '../temaplates-example/sections/section-cmp-3'
 
 // Texts
@@ -60,17 +65,17 @@ export const templateService = {
   getTemplateById,
 }
 
-const wapTemplates = [wapTemplate1, wapTemplate2, wapTemplate3, wapTemplate4, wapTemplate5]
+const wapTemplates = [wapTemplate1, wapTemplate2, wapTemplate3, wapTemplate4, wapTemplate5, wapTemplate6]
 
 const mapCmpByCategory = {
-  header: [headerWap1, headerWap2, headerWap3, headerCmp4, headerCmp5],
-  hero: [wapHero1, wapHero2, heroCmp3, HeroCmp5],
+  header: [headerWap1, headerWap2, headerWap3, headerCmp4, headerCmp5, headerCmp6],
+  hero: [wapHero1, wapHero2, heroCmp3, heroCmp4, HeroCmp5],
   card: [wapCards1, CardCmp5, SecondCardCmp5, ThirdCardCmp5],
-  section: [wapSection1, wapSection2, sectionCmp3, SectionCmp5],
-  gallery: [wapCarousel1, wapCarousel2, wapGallery1, galleryCmp2],
+  section: [wapSection1, wapSection2, sectionCmp3, SectionCmp4, SectionCmp5],
+  gallery: [wapCarousel1, wapCarousel2, wapGallery1, galleryCmp2, galleryCmp3],
   text: [wapText1],
   video: [wapVideo1],
-  form: [wapContact1, formCmp2],
+  form: [wapContact1, formCmp2, formCmp3],
   footer: [wapFooter1, wapFooter2, wapFooter3, footerCmp4, footerCmp5],
 }
 

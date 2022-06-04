@@ -6,7 +6,7 @@ export const heroCmp4 = {
   category: 'hero',
   themePalette: 'primary',
   id: uuidv4(),
-  thumbnail: require('../../../assets/img/thumbnails/hero/wap-hero-3.JPG'),
+  thumbnail: 'https://res.cloudinary.com/dnv7wszu3/image/upload/v1654340083/wap-hero-4_hvarkn.jpg',
   style: {},
 
   cmps: [

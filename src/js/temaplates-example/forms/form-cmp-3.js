@@ -6,7 +6,7 @@ export const formCmp3 = {
   category: 'form',
   themePalette: 'secondary',
   id: uuidv4(),
-  thumbnail: require('../../../assets/img/thumbnails/form/wap-form-2.JPG'),
+  thumbnail: 'https://res.cloudinary.com/dnv7wszu3/image/upload/v1654339419/wap-form-3_ql9c5m.jpg',
   style: {},
   cmps: [
     {

@@ -6,7 +6,7 @@ export const headerCmp6 = {
   category: 'header',
   themePalette: 'primary',
   id: uuidv4(),
-  thumbnail: 'https://res.cloudinary.com/do0lvumuv/image/upload/v1654111393/Screenshot_12_re7jme.jpg',
+  thumbnail: 'https://res.cloudinary.com/dnv7wszu3/image/upload/v1654340062/wap-header-6_ep2hyj.jpg',
   style: {},
   cmps: [
     {

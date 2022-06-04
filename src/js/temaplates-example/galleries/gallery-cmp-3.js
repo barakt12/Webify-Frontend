@@ -6,7 +6,7 @@ export const galleryCmp3 = {
   category: 'gallery',
   themePalette: 'secondary',
   id: uuidv4(),
-  thumbnail: null,
+  thumbnail: 'https://res.cloudinary.com/dnv7wszu3/image/upload/v1654340108/wap-gallery-3_jnqohp.jpg',
   style: {},
   cmps: [
     {
@@ -37,7 +37,7 @@ export const galleryCmp3 = {
       name: 'btn',
       id: uuidv4(),
       info: {
-        txt: 'For More Videos',
+        txt: 'For More Lifestyle',
       },
     },
   ],

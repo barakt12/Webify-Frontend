@@ -7,7 +7,7 @@ export const galleryCmp2 = {
   themePalette: 'secondary',
   id: uuidv4(),
   //change to cloudinary
-  thumbnail: null,
+  thumbnail: 'https://res.cloudinary.com/dnv7wszu3/image/upload/v1654340539/wap-gallery-4_jrcqfg.jpg',
   //each component will have his own css file
   style: {},
   cmps: [

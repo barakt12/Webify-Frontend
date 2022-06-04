@@ -5,7 +5,7 @@ export const SectionCmp4 = {
   name: 'section-cmp-4',
   themePalette: 'secondary',
   category: 'section',
-  thumbnail: require('../../../assets/img/thumbnails/section/wap-section-5.JPG'),
+  thumbnail: 'https://res.cloudinary.com/dnv7wszu3/image/upload/v1654340129/wap-section-4_mpcsk3.jpg',
   id: uuidv4(),
   style: {},
   cmps: [
