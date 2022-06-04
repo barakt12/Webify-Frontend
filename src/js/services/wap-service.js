@@ -127,7 +127,6 @@ async function getWapIdx(wapId) {
 
 async function addSubscriberDetails(wapId, details) {
   if (!wapId) return
-  details.id = uuidv4()
   return await httpService.put(`wap/${wapId}/newSubscriber`, details)
 }
 async function publishWap(wap) {
