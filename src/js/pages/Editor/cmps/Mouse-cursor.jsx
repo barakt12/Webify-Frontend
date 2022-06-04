@@ -2,6 +2,8 @@ import NavigationIcon from '@mui/icons-material/Navigation'
 import { socketService } from '../../../services/socket.service'
 import { utilService } from '../../../services/util.service'
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router'
 
 export const MouseCursor = ({ mouse }) => {
   return (

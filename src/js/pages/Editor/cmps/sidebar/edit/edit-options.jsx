@@ -10,7 +10,6 @@ export const EditOptions = ({
   currTxtShadow,
   currFontType,
 }) => {
-  console.log(currFontType)
   const [, setFontType] = useState('')
   const [, setTextShadow] = useState('')
 

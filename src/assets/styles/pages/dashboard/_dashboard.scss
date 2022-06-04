@@ -1,5 +1,5 @@
 .main-dashboard-container {
-  background-image: url(http://localhost:3000/static/media/wave2.4d2dbbbfb7d464d58343.png);
+  // background-image: url(http://localhost:3000/static/media/wave2.4d2dbbbfb7d464d58343.png);
   width: 100%;
   position: absolute;
   background-size: cover;
@@ -11,28 +11,31 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 5%;
+    padding: 0 15%;
     gap: 40px;
     position: relative;
-    width: 70%;
-    max-width: 1500px;
+    width: 100%;
+    // max-width: 1500px;
     .is-published {
-      position: absolute;
+      position: relative;
       bottom: 1rem;
       left: 1rem;
+      text-align: left;
+      // padding: 0.5rem 1rem;
     }
 
     .wap-details-container {
       display: flex;
-      justify-content: space-between;
-      height: 430px;
-      width: 270px;
-      border-radius: 5px;
+      // justify-content: space-between;
+      // height: 527px;
+
+      // width: 270px;
+      // border-radius: 5px;
       background-color: rgb(255 255 255);
       color: black;
       overflow: hidden;
-      filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 1px 4px);
-      width: 100%;
+      // filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 1px 4px);
+      // width: 100%;
 
       .wap-info-display {
         flex-grow: 1;
@@ -41,36 +44,96 @@
       .wap-info-header {
         display: flex;
         align-items: center;
-        justify-content: space-around;
-        padding-inline: 0.5rem;
+        justify-content: center;
+        // padding-inline: 0.5rem;
         margin-top: 1rem;
+        margin-inline-end: 2rem;
+        & svg {
+          font-size: 1.9rem;
+        }
 
-        *:first-child {
-          color: black;
-          font-size: 1.5rem;
+        .total-subscribers {
+          background-color: rgb(209, 233, 252);
+          color: rgb(6, 27, 100);
+          .dashboard-icon-container {
+            background-image: linear-gradient(
+              135deg,
+              rgba(16, 57, 150, 0) 0%,
+              rgba(16, 57, 150, 0.24) 100%
+            );
+            & svg {
+              fill: rgb(16, 57, 150);
+            }
+          }
+        }
+
+        .total-views {
+          background-color: rgb(208, 242, 255);
+          color: rgb(4, 41, 122);
+          .dashboard-icon-container {
+            background-image: linear-gradient(
+              135deg,
+              rgba(12, 83, 183, 0) 0%,
+              rgba(12, 83, 183, 0.24) 100%
+            );
+            & svg {
+              fill: rgb(12, 83, 183);
+            }
+          }
+        }
+        .creates-at {
+          background-color: rgb(255, 247, 205);
+          .dashboard-icon-container {
+            border-radius: 50%;
+            background-image: linear-gradient(
+              135deg,
+              rgba(183, 129, 3, 0) 0%,
+              rgba(183, 129, 3, 0.24) 100%
+            );
+            & svg {
+              fill: rgb(183, 129, 3);
+            }
+          }
+          & .text {
+            color: rgb(122, 79, 1);
+            & span {
+              color: rgb(122, 79, 1);
+            }
+          }
         }
 
         .details-container {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
           gap: 1rem;
+          flex-grow: 1;
           align-items: center;
           font-size: 0.8rem;
-          color: gray;
-          box-shadow: 0 0 5px 2px lightgray;
-          border-radius: 10px;
-          padding: 2rem;
-          justify-content: center;
+          // color: gray;
+          // box-shadow: 0 0 5px 2px lightgray;
+          border-radius: 16px;
 
+          padding: 2rem 0;
+          justify-content: center;
+          max-width: 24%;
+          margin-left: 2rem;
+          & .dashboard-icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+          }
           .text {
             display: flex;
+            text-align: center;
             flex-direction: column;
-          }
-
-          *:first-child {
-            color: black;
-            font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1rem;
+            & span:first-child {
+              font-size: 1.3rem;
+              font-weight: 700;
+            }
           }
         }
       }
@@ -170,14 +233,14 @@
       }
     }
   }
-}
-
-.template-page-intro {
-  height: 100px;
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
+  & .template-page-intro {
+    height: 100px;
+    display: flex;
+    padding: 0 15%;
+    align-items: center;
+    justify-content: flex-start;
+    // justify-content: center;
+  }
 }
 
 .profile-page {

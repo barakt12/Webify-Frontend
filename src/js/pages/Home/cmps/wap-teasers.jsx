@@ -40,9 +40,9 @@ export const WapTeasers = () => {
           return (
             <SwiperSlide key={idx}>
               <Link className="template-select-btn" to="/editor">
-                <div className="main-template-container" style={{ backgroundImage: 'none', height: '100%' }} onClick={() => onSelectTemplate(preview.id)}>
+                <div key={preview.id} className="main-template-container" style={{ backgroundImage: 'none', height: '100%' }} onClick={() => onSelectTemplate(preview.id)}>
                   <section className="templates-container">
-                    <div key={preview.id} className={preview.id}>
+                    <div className={preview.id}>
                       <div className="template-hover-info-container">
                         <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
                         <div className="template-hover-btns-container">

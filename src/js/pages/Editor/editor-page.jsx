@@ -19,8 +19,8 @@ export function Editor() {
   const { wap, isCollabMode } = useSelector((storeState) => storeState.wapModule)
   const loggedUser = useSelector((storeState) => storeState.userModule.user)
   const dispatch = useDispatch()
-  const _ = require('lodash')
   const params = useParams()
+  const _ = require('lodash')
 
   const [connectedMouses, setConnectedMouses] = useState([])
 
@@ -32,6 +32,7 @@ export function Editor() {
 
   useEffect(() => {
     if (params.editorId) {
+      console.log('got into sockets function')
       const editorId = params.editorId
       socketService.setup()
       socketService.emit('wap connection', editorId)
