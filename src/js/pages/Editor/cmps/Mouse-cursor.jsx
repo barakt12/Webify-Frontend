@@ -4,20 +4,21 @@ import { utilService } from '../../../services/util.service'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-
+import {v4 as uuidv4} from 'uuid'
 export const MouseCursor = () => {
   // const _ = require('lodash')
   // const onMouseMove = _.debounce((ev) => handleMouseMove(ev), 10)
   const params = useParams()
   const loggedUser = useSelector((storeState) => storeState.userModule.user)
   const [connectedMouses, setConnectedMouses] = useState([])
+  const id = uuidv4()
 
   useEffect(() => {
     console.log('cursor cmp is up')
     document.body.addEventListener('mousemove', onMouseMove)
     return () => {
       console.log('cursor cmp is down')
-      document.body.removeEventListener('mousemove',onMouseMove)
+      document.body.removeEventListener('mousemove', onMouseMove)
     }
   }, [])
 
@@ -25,7 +26,7 @@ export const MouseCursor = () => {
     socketService.setup()
     socketService.on('mouse_position_update', (connectedMouses) => {
       setConnectedMouses(connectedMouses)
-  })
+    })
     return () => {
       socketService.off('mouse_position_update')
       socketService.terminate()
@@ -34,6 +35,7 @@ export const MouseCursor = () => {
 
   const onMouseMove = (ev) => {
     let mouseInfo = {
+      userId: id,
       editorId: params.editorId,
       user: loggedUser ? loggedUser.fullname : 'Guest',
       pos: { mx: ev.clientX, my: ev.clientY },
@@ -43,7 +45,7 @@ export const MouseCursor = () => {
 
   return (
     <>
-      {(connectedMouses.length) ?
+      {connectedMouses.length ? (
         connectedMouses.map((mouse) => {
           return (
             <div
@@ -71,7 +73,9 @@ export const MouseCursor = () => {
             </div>
           )
         })
-      : <></>}
+      ) : (
+        <></>
+      )}
     </>
   )
 }

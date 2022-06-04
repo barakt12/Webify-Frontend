@@ -23,7 +23,7 @@ export function Editor() {
   const dispatch = useDispatch()
   const params = useParams()
   // const _ = require('lodash')
-
+    
   // const [connectedMouses, setConnectedMouses] = useState([])
 
   useEffect(() => {
@@ -32,7 +32,6 @@ export function Editor() {
     }
 
     if (params.editorId) {
-      console.log('got into sockets function')
       const editorId = params.editorId
       socketService.setup()
       socketService.emit('wap connection', editorId)
