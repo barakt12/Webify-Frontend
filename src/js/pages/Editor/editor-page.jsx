@@ -172,12 +172,7 @@ export function Editor() {
     // dropped outside the list
     if (!result.destination) return
     else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
-      //   copy(
-      //     ITEMS,
-      //     this.state[destination.droppableId],
-      //     source,
-      //     destination
-      //  )
+      // copy(ITEMS, this.state[destination.droppableId], result.source, result.destination)
       addCmpToPage(result)
       return
     }
