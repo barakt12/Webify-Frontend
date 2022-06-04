@@ -16,5 +16,12 @@ export function LinkInput({ cmp }) {
     dispatch(updateCmp(cmp))
   }
 
-  return <input type="text" value={url} placeholder="Enter url to make it linkable" on onChange={onHandleChange} />
+  return (
+    <input
+      type='text'
+      value={url}
+      placeholder='Enter URL to make it linkable'
+      onChange={onHandleChange}
+    />
+  )
 }

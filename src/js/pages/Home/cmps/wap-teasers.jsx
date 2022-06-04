@@ -42,7 +42,7 @@ export const WapTeasers = () => {
               <Link className="template-select-btn" to="/editor">
                 <div key={preview.id} className="main-template-container" style={{ backgroundImage: 'none', height: '100%' }} onClick={() => onSelectTemplate(preview.id)}>
                   <section className="templates-container">
-                    <div className={preview.id}>
+                    <div className={preview.id + ' nohover'}>
                       <div className="template-hover-info-container">
                         <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
                         <div className="template-hover-btns-container">

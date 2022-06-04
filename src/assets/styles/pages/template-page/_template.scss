@@ -131,7 +131,7 @@
       }
     }
     
-    & > *:hover {
+    & > *:not(.nohover):hover {
       .template-hover-info-container {
         display: flex;
         justify-content: space-between;
