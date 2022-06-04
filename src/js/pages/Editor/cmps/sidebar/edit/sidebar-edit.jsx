@@ -11,6 +11,7 @@ import { VideoInput } from './video-input'
 import { GalleryImgList } from './gallery-img-list'
 import { updateCmp } from '../../../../../store/wap/wap.action'
 import { FormEdit } from './form-edit'
+import { LinkInput } from './link-input'
 
 export const SidebarEdit = () => {
   const dispatch = useDispatch()
@@ -82,6 +83,12 @@ export const SidebarEdit = () => {
               <VideoInput cmp={selectedCmp} />
             </div>
           )}
+          {(selectedCmp.type === 'img' || selectedCmp.type === 'icon' || selectedCmp.type === 'txt' || selectedCmp.type === 'btn') && (
+            <div className="link-input-container">
+              <p>Link</p>
+              <LinkInput cmp={selectedCmp} />
+            </div>
+          )}
           {(selectedCmp.type === 'gallery-grid' || selectedCmp.type === 'carousel-lg' || selectedCmp.type === 'carosuel' || selectedCmp.type === 'paging-gallery') && (
             <div className="img-url-container">
               <p>Image List</p>
@@ -97,21 +104,23 @@ export const SidebarEdit = () => {
         </>
       )}
       {!selectedCmp && <p className="sidebar-action-text">Please select item to edit</p>}
-      {selectedCmp && <div className="action-btns">
-        <button onClick={() => onCmpAction('delete')}>
-          {' '}
-          <DeleteForeverIcon />
-          <span>Delete</span>
-        </button>
-        <button onClick={() => onCmpAction('duplicate')}>
-          <ContentCopyIcon />
-          <span>Duplicate</span>
-        </button>
-        <button onClick={() => onCmpAction('undo')}>
-          <RestoreIcon />
-          <span>Undo</span>
-        </button>
-      </div>}
+      {selectedCmp && (
+        <div className="action-btns">
+          <button onClick={() => onCmpAction('delete')}>
+            {' '}
+            <DeleteForeverIcon />
+            <span>Delete</span>
+          </button>
+          <button onClick={() => onCmpAction('duplicate')}>
+            <ContentCopyIcon />
+            <span>Duplicate</span>
+          </button>
+          <button onClick={() => onCmpAction('undo')}>
+            <RestoreIcon />
+            <span>Undo</span>
+          </button>
+        </div>
+      )}
     </section>
   )
 }

@@ -19,7 +19,7 @@ export const socketService = createSocketService()
 // for debugging from console
 // window.socketService = socketService
 
-socketService.setup()
+// socketService.setup()
 
 function createSocketService() {
   var socket = null
@@ -76,10 +76,7 @@ function createDummySocketService() {
     off(eventName, cb) {
       if (!listenersMap[eventName]) return
       if (!cb) delete listenersMap[eventName]
-      else
-        listenersMap[eventName] = listenersMap[eventName].filter(
-          (l) => l !== cb
-        )
+      else listenersMap[eventName] = listenersMap[eventName].filter((l) => l !== cb)
     },
     emit(eventName, data) {
       if (!listenersMap[eventName]) return

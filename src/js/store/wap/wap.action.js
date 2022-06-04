@@ -15,6 +15,7 @@ export const deleteCmp = (cmp) => {
     if (wap && cmp) {
       wapService.deleteCmp(wap, cmp.id)
       await dispatch(updateWap(wap))
+      console.log('here')
       wapService.saveToDraft(wap)
     }
   }
@@ -81,6 +82,7 @@ export const loadTemplate = (id) => {
       const wapCopy = JSON.parse(JSON.stringify(wap))
       delete wapCopy._id
       wapService.saveToDraft(wapCopy)
+      dispatch({ type: 'SET_WORKING_STATE', isCollabMode: false })
       dispatch({ type: 'SET_WAP', wap: wapCopy })
     } catch (err) {
       throw err
@@ -155,18 +157,16 @@ export const loadSavedWaps = () => {
 export const selectWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const selectedWap = getState().wapModule.savedWaps.find(
-        (wap) => wap._id === id
-      )
+      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
   }
 }
 
-export const setCollabMode = () => {
+export const setCollabMode = (isCollabMode) => {
   return (dispatch) => {
     try {
-      dispatch({ type: 'SET_WORKING_STATE', isCollabMode: true })
+      dispatch({ type: 'SET_WORKING_STATE', isCollabMode })
     } catch (err) {
       console.log(err)
     }

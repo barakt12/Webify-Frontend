@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 
-export const heroCmp4 = {
+export const heroCmp3 = {
   name: 'hero-cmp-3',
   type: 'container',
   category: 'hero',

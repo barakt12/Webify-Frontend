@@ -47,4 +47,12 @@ export const templatePreviews = [
       category: 'Education',
     },
   },
+  {
+    id: 'ahlaid6',
+    info: {
+      name: 'Ashley',
+      img: require('../../../assets/img/web-templates-preview/web-template-preview6.JPG'),
+      category: 'Vlog',
+    },
+  },
 ]
