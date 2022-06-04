@@ -43,11 +43,11 @@ export function Editor() {
       socketService.on('get wap', () => {
         wap && socketService.emit('wap update', wap)
       })
+      console.log('here is wap',wap)
     }
     return () => {
       dispatch(setSelectedCmp(null))
       socketService.off('get wap')
-      socketService.off('send wap')
       socketService.off('wap update')
       // socketService.off('mouse_position_update')
       socketService.terminate()

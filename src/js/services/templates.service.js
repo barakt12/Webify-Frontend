@@ -2,8 +2,9 @@
 import { wapTemplate1 } from '../temaplates-example/wap-template-1'
 import { wapTemplate2 } from '../temaplates-example/wap-template-2'
 import { wapTemplate3 } from '../temaplates-example/wap-template-3'
-import { wapTemplate5 } from '../temaplates-example/wap-template-5'
 import { wapTemplate4 } from '../temaplates-example/wap-template-4'
+import { wapTemplate5 } from '../temaplates-example/wap-template-5'
+import { wapTemplate7 } from '../temaplates-example/wap-template-7'
 
 // Headers
 import { headerWap1 } from '../temaplates-example/headers/header-wap-1'
@@ -60,7 +61,7 @@ export const templateService = {
   getTemplateById,
 }
 
-const wapTemplates = [wapTemplate1, wapTemplate2, wapTemplate3, wapTemplate4, wapTemplate5]
+const wapTemplates = [wapTemplate1, wapTemplate2, wapTemplate3, wapTemplate4, wapTemplate5,wapTemplate7]
 
 const mapCmpByCategory = {
   header: [headerWap1, headerWap2, headerWap3, headerCmp4, headerCmp5],
