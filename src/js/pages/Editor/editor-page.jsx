@@ -32,7 +32,6 @@ export function Editor() {
 
   useEffect(() => {
     if (params.editorId) {
-      console.log('got into sockets function')
       const editorId = params.editorId
       socketService.setup()
       socketService.emit('wap connection', editorId)
@@ -104,9 +103,6 @@ export function Editor() {
   }
 
   const handleDragStart = (event) => {
-    //WARNING! Dragging components from sidebar will cause placeholder issues because of its size.
-    //if the source is the sidebar return!
-    // if(event.source.droppableId === 'hb5') return
     if (event.source.droppableId === 'hb5') {
       isFromSidebar = true
       return

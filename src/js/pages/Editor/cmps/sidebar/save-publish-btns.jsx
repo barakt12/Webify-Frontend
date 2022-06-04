@@ -5,7 +5,7 @@ import GroupsIcon from '@mui/icons-material/Groups'
 import { useNavigate } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
-import { setCollabMode } from '../../../../store/wap/wap.action'
+import { setCollabMode, toggleCollabMode } from '../../../../store/wap/wap.action'
 import { toast } from 'react-toastify'
 
 export function SavePublishBtns({ onSaveWap, onPublishWap }) {
@@ -19,7 +19,7 @@ export function SavePublishBtns({ onSaveWap, onPublishWap }) {
     navigation(`/editor/${uuidv4()}`)
 
     try {
-      await dispatch(setCollabMode())
+      dispatch(setCollabMode(true))
       await navigator.clipboard.writeText(window.location.href)
       toast.success('Invitation copied to clipboard!')
     } catch (err) {

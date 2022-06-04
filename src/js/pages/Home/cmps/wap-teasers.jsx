@@ -46,9 +46,11 @@ export const WapTeasers = () => {
                       <div className="template-hover-info-container">
                         <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
                         <div className="template-hover-btns-container">
-                          <Link to={`/preview`} className="template-preview-btn">
-                            <button onClick={() => onPreviewTemplate(preview.id)}>Preview</button>
-                          </Link>
+                          {/* <Link to={`/preview`} > */}
+                          <button className="template-preview-btn" onClick={() => onPreviewTemplate(preview.id)}>
+                            Preview
+                          </button>
+                          {/* </Link> */}
                           <button className="template-select-btn" onClick={() => onSelectTemplate(preview.id)}>
                             Select
                           </button>

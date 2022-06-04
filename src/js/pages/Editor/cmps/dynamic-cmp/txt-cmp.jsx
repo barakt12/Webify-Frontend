@@ -43,7 +43,7 @@ export function TxtCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass
       spellCheck="false"
       style={cmp.style}
     >
-      <a target="_blank" href={cmp.info.link && location.pathname.includes('/publish') ? cmp.info.link : false}>
+      <a target="_blank" href={cmp.info.link && location.pathname.includes('/publish') ? cmp.info.link : undefined}>
         {cmp.info.txt}
       </a>
     </p>

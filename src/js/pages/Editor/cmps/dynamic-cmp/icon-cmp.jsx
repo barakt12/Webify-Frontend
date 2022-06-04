@@ -28,7 +28,7 @@ export function IconCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClas
   }
 
   return (
-    <a target="_blank" href={cmp.info.link && location.pathname.includes('/publish') ? cmp.info.link : false}>
+    <a target="_blank" href={cmp.info.link && location.pathname.includes('/publish') ? cmp.info.link : undefined}>
       <div
         onMouseOut={(ev) => ev.target.classList.remove('hover')}
         onMouseOver={(ev) => onHoverCmp(ev)}

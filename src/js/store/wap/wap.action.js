@@ -82,6 +82,7 @@ export const loadTemplate = (id) => {
       const wapCopy = JSON.parse(JSON.stringify(wap))
       delete wapCopy._id
       wapService.saveToDraft(wapCopy)
+      dispatch({ type: 'SET_WORKING_STATE', isCollabMode: false })
       dispatch({ type: 'SET_WAP', wap: wapCopy })
     } catch (err) {
       throw err
@@ -162,10 +163,10 @@ export const selectWap = (id) => {
   }
 }
 
-export const setCollabMode = () => {
+export const setCollabMode = (isCollabMode) => {
   return (dispatch) => {
     try {
-      dispatch({ type: 'SET_WORKING_STATE', isCollabMode: true })
+      dispatch({ type: 'SET_WORKING_STATE', isCollabMode })
     } catch (err) {
       console.log(err)
     }

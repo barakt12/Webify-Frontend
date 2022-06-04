@@ -4,7 +4,7 @@ export function BtnCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass
   const location = useLocation()
 
   return (
-    <a target="_blank" href={cmp.info.link && location.pathname.includes('/publish') ? cmp.info.link : false}>
+    <a target="_blank" href={cmp.info.link && location.pathname.includes('/publish') ? cmp.info.link : undefined}>
       <button
         style={cmp.style}
         className={`${cmp.info.link && location.pathname.includes('/publish') ? 'linkable' : ''} ${selectedCmp?.id === cmp.id ? 'selected' : ''} ${displayClass} ${cmp.name}`}
