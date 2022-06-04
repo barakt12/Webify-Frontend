@@ -1,13 +1,13 @@
 import { v4 as uuidv4 } from 'uuid'
 
 export const galleryCmp2 = {
-  name: 'gallery-cmp-3',
+  name: 'gallery-cmp-2',
   type: 'container',
   category: 'gallery',
   themePalette: 'secondary',
   id: uuidv4(),
   //change to cloudinary
-  thumbnail: null,
+  thumbnail: 'https://res.cloudinary.com/dnv7wszu3/image/upload/v1654340539/wap-gallery-4_jrcqfg.jpg',
   //each component will have his own css file
   style: {},
   cmps: [

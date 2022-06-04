@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 
-export const formCmp3 = {
-  name: 'form-cmp-3',
+export const formCmp2 = {
+  name: 'form-cmp-2',
   type: 'container',
   category: 'section',
   themePalette: 'secondary',
