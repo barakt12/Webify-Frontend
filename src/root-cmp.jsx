@@ -10,6 +10,7 @@ import { toast } from 'react-toastify'
 
 export function App() {
   const { user } = useSelector((storeState) => storeState.userModule)
+
   useEffect(() => {
     if (user) {
       socketService.setup()

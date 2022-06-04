@@ -1,12 +1,19 @@
 import React from 'react'
-import { SubscribersList } from './subscribers-list'
 import PreviewIcon from '@mui/icons-material/Preview'
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle'
 import EventIcon from '@mui/icons-material/Event'
 import { Link } from 'react-router-dom'
-import { DataGrid } from '@mui/x-data-grid'
-import { v4 as uuidv4 } from 'uuid'
-import { Container, Grid, Typography } from '@mui/material'
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Toolbar,
+  Typography,
+} from '@mui/material'
 import BadgeIcon from '@mui/icons-material/Badge'
 export function DashboardPreview({
   wap,
@@ -16,11 +23,7 @@ export function DashboardPreview({
   onSelectTemplate,
   onDeleteWap,
 }) {
-  // const keys = Object.keys(subscribers[0])
-  // const values = subscribers.map((subscriber) => Object.values(subscriber))
-  // console.log(keys)
-  // console.log(values)
-
+  console.log(subscribers)
   return (
     <div key={wap._id} className={`wap-details-container ${wap._id}`}>
       <div className='wap-info-display'>
@@ -62,15 +65,60 @@ export function DashboardPreview({
             </div>
           </div>
         </div>
-        {/* {subscribers?.length ? (
-          <SubscribersList
-            subscribers={wap?.subscribers}
-          />
-        ) : (
-          'You have no subscribers yet!'
-        )} */}
-        <div style={{ height: 400, width: '100%' }}>
-          <p>Subscribers list</p>
+        <Paper
+          elevation={2}
+          variant='outlined'
+          sx={{ width: '50%', borderRadius: '16px' }}
+        >
+          <Toolbar
+            sx={{
+              pl: { sm: 2 },
+              pr: { xs: 1, sm: 1 },
+            }}
+          >
+            <Typography
+              sx={{ flex: '1 1 100%' }}
+              variant='h6'
+              id='tableTitle'
+              component='div'
+            >
+              Subscribers List
+            </Typography>
+          </Toolbar>
+          <TableContainer>
+            <Table
+              sx={{ minWidth: 650, width: '50%' }}
+              aria-label='Subscribers List'
+            >
+              <TableHead>
+                <TableRow>
+                  {Object.keys(subscribers[0]).map((key) => (
+                    <TableCell>
+                      {key[0].toUpperCase() +
+                        key
+                          .slice(1)
+                          .split(/(?=[A-Z])/)
+                          .join(' ')}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {subscribers.map((subscriber) => {
+                  const values = Object.values(subscriber)
+                  return (
+                    <TableRow>
+                      {values.map((value) => (
+                        <TableCell>{value}</TableCell>
+                      ))}
+                    </TableRow>
+                  )
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
+        {/* <div style={{ height: 400, width: '100%', marginTop: '15px' }}>
           {subscribers ? (
             <DataGrid
               sx={{ height: '100%', borderRadius: '16px' }}
@@ -92,7 +140,7 @@ export function DashboardPreview({
           ) : (
             'You have no subscribers yet'
           )}
-        </div>
+        </div> */}
 
         <p
           className='is-published'

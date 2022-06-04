@@ -21,7 +21,6 @@ export function Editor() {
   const dispatch = useDispatch()
   const params = useParams()
   const _ = require('lodash')
-
   const [connectedMouses, setConnectedMouses] = useState([])
 
   useEffect(() => {
@@ -45,13 +44,17 @@ export function Editor() {
         const existingMouseIdx = connectedMouses.findIndex((mouse) => mouse.id === id)
         let mousesCopy = [...connectedMouses]
         if (existingMouseIdx >= 0) {
-          mousesCopy[existingMouseIdx] = { ...mousesCopy[existingMouseIdx], pos }
+          mousesCopy[existingMouseIdx] = {
+            ...mousesCopy[existingMouseIdx],
+            pos,
+          }
         } else {
           mousesCopy = [{ id, pos, user, color: 'red' }, ...mousesCopy]
         }
         setConnectedMouses(mousesCopy)
       })
     }
+
     return () => {
       dispatch(setSelectedCmp(null))
       socketService.off('send wap')
@@ -59,15 +62,6 @@ export function Editor() {
       socketService.terminate()
     }
   }, [isCollabMode])
-
-  const copy = (source, destination, droppableSource, droppableDestination) => {
-    const sourceClone = Array.from(source)
-    const destClone = Array.from(destination)
-    const cmp = sourceClone[droppableSource.index]
-
-    destClone.splice(droppableDestination.index, 0, { ...cmp, id: uuidv4() })
-    return destClone
-  }
 
   const getDraft = async () => {
     const draft = await wapService.getDraft()
@@ -172,7 +166,12 @@ export function Editor() {
     // dropped outside the list
     if (!result.destination) return
     else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
-      // copy(ITEMS, this.state[destination.droppableId], result.source, result.destination)
+      //   copy(
+      //     ITEMS,
+      //     this.state[destination.droppableId],
+      //     source,
+      //     destination
+      //  )
       addCmpToPage(result)
       return
     }
@@ -187,7 +186,10 @@ export function Editor() {
 
   const handleMouseMove = (event) => {
     if (!params.editorId) return
-    socketService.emit('mouse_position', { pos: { mx: event.clientX, my: event.clientY }, user: loggedUser?.fullname || 'guest' })
+    socketService.emit('mouse_position', {
+      pos: { mx: event.clientX, my: event.clientY },
+      user: loggedUser?.fullname || 'guest',
+    })
   }
 
   return (
