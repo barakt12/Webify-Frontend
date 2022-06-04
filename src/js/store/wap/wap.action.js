@@ -15,6 +15,7 @@ export const deleteCmp = (cmp) => {
     if (wap && cmp) {
       wapService.deleteCmp(wap, cmp.id)
       await dispatch(updateWap(wap))
+      console.log('here')
       wapService.saveToDraft(wap)
     }
   }
@@ -155,9 +156,7 @@ export const loadSavedWaps = () => {
 export const selectWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const selectedWap = getState().wapModule.savedWaps.find(
-        (wap) => wap._id === id
-      )
+      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
   }

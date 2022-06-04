@@ -38,7 +38,7 @@ export const WapTeasers = () => {
       >
         {templatePreviews.map((preview, idx) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={idx}>
               <Link className="template-select-btn" to="/editor">
                 <div className="main-template-container" style={{ backgroundImage: 'none', height: '100%' }} onClick={() => onSelectTemplate(preview.id)}>
                   <section className="templates-container">

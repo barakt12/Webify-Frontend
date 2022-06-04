@@ -11,7 +11,6 @@ import { wapService } from '../../services/wap-service'
 import { socketService } from '../../services/socket.service'
 import { useLocation, useParams } from 'react-router-dom'
 import { MouseCursor } from './cmps/Mouse-cursor'
-import { wapTemplate6 } from '../../temaplates-example/wap-template-6'
 
 export function Editor() {
   let isFromSidebar = null
@@ -29,23 +28,34 @@ export function Editor() {
     if (!wap) {
       getDraft()
     }
+  }, [])
 
+  useEffect(() => {
     if (params.editorId) {
       const editorId = params.editorId
       socketService.setup()
       socketService.emit('wap connection', editorId)
-      socketService.on('mouse_position_update', (connectedMouses) => setConnectedMouses(connectedMouses))
-      socketService.on('wap update', (newWap) => dispatch(setWap(newWap)))
+      socketService.on('wap update', (newWap) => {
+        dispatch(setWap(newWap))
+      })
       socketService.on('get wap', () => {
         wap && socketService.emit('wap update', wap)
+      })
+      socketService.on('mouse_position_update', ({ id, pos, user }) => {
+        const existingMouseIdx = connectedMouses.findIndex((mouse) => mouse.id === id)
+        let mousesCopy = [...connectedMouses]
+        if (existingMouseIdx >= 0) {
+          mousesCopy[existingMouseIdx] = { ...mousesCopy[existingMouseIdx], pos }
+        } else {
+          mousesCopy = [{ id, pos, user, color: 'red' }, ...mousesCopy]
+        }
+        setConnectedMouses(mousesCopy)
       })
     }
     return () => {
       dispatch(setSelectedCmp(null))
-      socketService.off('get wap')
       socketService.off('send wap')
       socketService.off('wap update')
-      // socketService.off('mouse_position_update')
       socketService.terminate()
     }
   }, [isCollabMode])
@@ -88,7 +98,6 @@ export function Editor() {
     cmp.id = uuidv4()
     wapService.changeCmpId(cmp)
     const newState = wap?.cmps ? JSON.parse(JSON.stringify(wap)) : { cmps: [] }
-    console.log(wap)
     newState.cmps.splice(result.destination.index, 0, cmp)
     dispatch(updateWap(newState))
   }
@@ -101,7 +110,6 @@ export function Editor() {
       isFromSidebar = true
       return
     }
-    console.log('getting size')
     const draggedDOM = getDraggedDom(event.draggableId)
 
     if (!draggedDOM) return
@@ -183,22 +191,18 @@ export function Editor() {
     }
   }
 
-  const handleMouseDebounce = _.debounce((ev) => handleMouseMove(ev), 0.3)
+  const handleMouseDebounce = _.debounce((ev) => handleMouseMove(ev), 0.7)
 
   const handleMouseMove = (event) => {
     if (!params.editorId) return
-    let mouseInfo = {
-      user: loggedUser ? loggedUser.fullname : 'Guest',
-      pos: { mx: event.clientX, my: event.clientY },
-    }
-    socketService.emit('mouse_position', mouseInfo)
+    socketService.emit('mouse_position', { pos: { mx: event.clientX, my: event.clientY }, user: loggedUser?.fullname || 'guest' })
   }
 
   return (
     <section className="editor-container" onMouseMove={handleMouseDebounce}>
       <DragDropContext onDragStart={handleDragStart} onDragUpdate={handleDragUpdate} onDragEnd={handleDragEnd}>
         <EditorSidebar />
-        <EditorBoard wap={wapTemplate6} isFromSidebar={isFromSidebar} placeholderProps={placeholderProps} />
+        <EditorBoard wap={wap} isFromSidebar={isFromSidebar} placeholderProps={placeholderProps} />
       </DragDropContext>
       {params.editorId && connectedMouses.length && connectedMouses.map((mouse) => <MouseCursor mouse={mouse} />)}
     </section>

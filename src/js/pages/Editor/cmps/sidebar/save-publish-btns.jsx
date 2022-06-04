@@ -15,6 +15,7 @@ export function SavePublishBtns({ onSaveWap, onPublishWap }) {
 
   const onCollab = async () => {
     if (isCollabMode) return
+    console.log('im redirecting')
     navigation(`/editor/${uuidv4()}`)
 
     try {
@@ -27,7 +28,7 @@ export function SavePublishBtns({ onSaveWap, onPublishWap }) {
   }
 
   return (
-    <div className='action-btns save-publish'>
+    <div className="action-btns save-publish">
       <button onClick={onSaveWap}>
         <SaveIcon />
         <span>Save</span>
