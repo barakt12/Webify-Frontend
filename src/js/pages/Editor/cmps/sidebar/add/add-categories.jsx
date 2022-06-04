@@ -94,6 +94,15 @@ export function AddCategories({
       </AccordionDetails>
       <AccordionDetails
         className={`sidebar-btn add-btn-details ${
+          activeAddBtn === 'map' ? 'active' : ''
+        }`}
+        onClick={(ev) => onClickCmpBtn(ev, 'map')}
+      >
+        {' '}
+        <Typography>Map</Typography>
+      </AccordionDetails>
+      <AccordionDetails
+        className={`sidebar-btn add-btn-details ${
           activeAddBtn === 'form' ? 'active' : ''
         }`}
         onClick={(ev) => onClickCmpBtn(ev, 'form')}

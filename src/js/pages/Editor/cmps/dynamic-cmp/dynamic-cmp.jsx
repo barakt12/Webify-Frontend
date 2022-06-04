@@ -15,6 +15,7 @@ import { FormCmp } from './form-cmp'
 import { PagingGallery } from './paging-gallery'
 import { useEffect, useState } from 'react'
 import { GalleryMiniThumbnails } from './gallery-mini-thumbnails'
+import { MapCmp } from './map-cmp'
 
 export const DynamicCmp = (props) => {
   const { cmp } = props
@@ -91,6 +92,8 @@ export const DynamicCmp = (props) => {
       return <GalleryMiniThumbnails displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     case 'form':
       return <FormCmp displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
+    case 'map':
+      return <MapCmp displayClass={displayClass} cmp={cmp} selectedCmp={selectedCmp} onHoverCmp={onHoverCmp} onSelectCmp={onSelectCmp} />
     default:
       return
   }

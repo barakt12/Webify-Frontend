@@ -25,7 +25,6 @@ import { HeroCmp5 } from '../temaplates-example/heros/hero-cmp-5'
 import { heroCmp7 } from '../temaplates-example/heros/hero-cmp-7'
 
 //Galleries
-import { wapCarousel1 } from '../temaplates-example/carousels/wap-carousel-1'
 import { wapGallery1 } from '../temaplates-example/galleries/wap-gallery-1'
 import { wapCarousel2 } from '../temaplates-example/carousels/wap-carousel-2'
 import { galleryCmp2 } from '../temaplates-example/galleries/gallery-cmp-2'
@@ -69,6 +68,9 @@ import { wapFooter3 } from '../temaplates-example/footers/wap-footer-3'
 import { footerCmp5 } from '../temaplates-example/footers/wap-footer-5'
 import { footerCmp4 } from '../temaplates-example/footers/footer-cmp-4'
 
+//Maps
+import { wapMap1 } from '../temaplates-example/maps/wap-map-1'
+
 export const templateService = {
   getCmpsByCategory,
   getCmpById,
@@ -82,9 +84,10 @@ const mapCmpByCategory = {
   hero: [wapHero1, wapHero2, heroCmp3, heroCmp4, HeroCmp5,heroCmp7],
   card: [wapCards1, CardCmp5, SecondCardCmp5, ThirdCardCmp5, cardCmp7],
   section: [wapSection1, wapSection2, sectionCmp3, SectionCmp4, SectionCmp5, sectionCmp7, secondSectionCmp7,thirdSectionCmp7,fourthSectionCmp7],
-  gallery: [wapCarousel1, wapCarousel2, wapGallery1, galleryCmp2, galleryCmp3],
+  gallery: [ wapCarousel2, wapGallery1, galleryCmp2, galleryCmp3],
   text: [wapText1],
   video: [wapVideo1],
+  map: [wapMap1],
   form: [wapContact1, formCmp2, formCmp3,formCmp7],
   footer: [wapFooter1, wapFooter2, wapFooter3, footerCmp4, footerCmp5],
 }
