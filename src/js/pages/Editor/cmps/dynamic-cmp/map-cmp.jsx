@@ -9,9 +9,8 @@ export const MapCmp = ({
   onSelectCmp,
   displayClass,
 }) => {
-
   const AnyReactComponent = ({ marker }) => (
-    <div className="mapMarker">{marker}</div>
+    <div className='mapMarker'>{marker}</div>
   )
 
   const [defaultPos, setDefaultPos] = useState({
@@ -24,13 +23,15 @@ export const MapCmp = ({
     <section
       style={cmp.style}
       className={`${
-        selectedCmp?.id === cmp.id ? 'main-map-container selected' : 'main-map-container'
+        selectedCmp?.id === cmp.id
+          ? 'main-map-container selected'
+          : 'main-map-container'
       } ${displayClass} ${cmp.name}`}
       onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}
       onClick={(ev) => onSelectCmp(ev, cmp)}
     >
-      <div className="map-container" style={{ height: '100%', width: '100%' }}>
+      <div className='map-container' style={{ height: '100%', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyArNzNzxQ3Vxrf3OSpZq2xhh9WoxopjQQ0' }}
           center={{
@@ -39,13 +40,13 @@ export const MapCmp = ({
           }}
           defaultZoom={10}
         >
-          {cmp.info.markers.map(marker => (
+          {cmp.info.markers.map((marker) => (
             <AnyReactComponent
               key={marker.lat}
               title={marker.title}
               lat={marker.lat}
               lng={marker.lng}
-              marker="📍"
+              marker='📍'
             />
           ))}
         </GoogleMapReact>

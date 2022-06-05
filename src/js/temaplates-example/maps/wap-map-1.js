@@ -9,7 +9,7 @@ export const wapMap1 = {
   style: {
     height: '80vh',
     width: '100%',
-    display: 'flex'
+    display: 'flex',
   },
   cmps: [
     {
@@ -47,6 +47,7 @@ export const wapMap1 = {
           style: {
             fontSize: '3rem',
             fontWeight: '700',
+            color: '#fff',
           },
         },
         {
@@ -59,6 +60,7 @@ export const wapMap1 = {
           style: {
             fontSize: '2rem',
             fontWeight: '700',
+            color: '#fff',
           },
         },
       ],

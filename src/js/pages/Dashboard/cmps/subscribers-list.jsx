@@ -1,4 +1,14 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from '@mui/material'
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Toolbar,
+  Typography,
+} from '@mui/material'
 import React from 'react'
 export function SubscribersList({ subscribers }) {
   return (
@@ -26,11 +36,11 @@ export function SubscribersList({ subscribers }) {
       >
         <Typography
           sx={{
-            flex: '1 1 100%',
+            fontWeight: 700,
           }}
-          variant="h6"
-          id="tableTitle"
-          component="div"
+          variant='h6'
+          id='tableTitle'
+          component='div'
         >
           Subscribers List
         </Typography>
@@ -43,12 +53,12 @@ export function SubscribersList({ subscribers }) {
             sx={{
               minWidth: 650,
             }}
-            aria-label="Subscribers List"
+            aria-label='Subscribers List'
           >
             <TableHead>
               <TableRow>
-                {Object.keys(subscribers[0]).map((key) => (
-                  <TableCell>
+                {Object.keys(subscribers[0]).map((key, idx) => (
+                  <TableCell key={idx} style={{ fontWeight: 700 }}>
                     {key[0].toUpperCase() +
                       key
                         .slice(1)
@@ -59,12 +69,12 @@ export function SubscribersList({ subscribers }) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {subscribers.map((subscriber) => {
+              {subscribers.map((subscriber, idx) => {
                 const values = Object.values(subscriber)
                 return (
-                  <TableRow>
-                    {values.map((value) => (
-                      <TableCell>{value}</TableCell>
+                  <TableRow key={idx}>
+                    {values.map((value, idx) => (
+                      <TableCell key={idx}>{value}</TableCell>
                     ))}
                   </TableRow>
                 )

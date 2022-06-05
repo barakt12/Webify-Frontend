@@ -157,7 +157,9 @@ export const loadSavedWaps = () => {
 export const selectWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
+      const selectedWap = getState().wapModule.savedWaps.find(
+        (wap) => wap._id === id
+      )
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
   }
