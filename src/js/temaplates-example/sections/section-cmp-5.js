@@ -37,7 +37,7 @@ export const SectionCmp5 = {
           },
           style: {
             fontSize: '1.0625rem',
-            fontFamily: 'system-ui',
+            fontFamily: 'open-sans',
             fontWeight: 100,
           },
         },

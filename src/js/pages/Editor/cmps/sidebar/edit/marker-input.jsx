@@ -1,25 +1,21 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateCmp } from '../../../../../store/wap/wap.action'
+import { getGeocodingApi } from '../../../../../services/map.service'
 
 export function MarkerInput({ markers }) {
   const [currMarkers, setCurrMarkers] = useState(markers)
-  const [latInput, setlatInput] = useState('')
-  const [lngInput, setlngInput] = useState('')
-  const [titleInput, setTitleInput] = useState('')
+  const [locationName, setlocationName] = useState('')
   const { selectedCmp } = useSelector((storeState) => storeState.wapModule)
   const dispatch = useDispatch()
 
-  const onSubmitMarker = (ev) => {
+  const onSubmitMarker = async(ev) => {
     ev.preventDefault()
-    let lat = +ev.target[0].value
-    let lng = +ev.target[1].value
-    let title = ev.target[2].value
-    const newMarkers = [...currMarkers, {lat,lng,title}]
+    let locationInput = ev.target[0].value
+    const location = await getGeocodingApi(locationInput)
+    const newMarkers = [...currMarkers, {lat: location.lat.toFixed(2),lng: location.lng.toFixed(2),title: locationInput}]
     updateMarkers(newMarkers)
-    setlatInput('')
-    setlngInput('')
-    setTitleInput('')
+    setlocationName('')
   }
 
   const onDeleteMarker = (idx) => {
@@ -37,27 +33,13 @@ export function MarkerInput({ markers }) {
     <section className="marker-container">
       <form className="marker-form-container" onSubmit={onSubmitMarker}>
         <input
-          type="number"
-          placeholder="Enter lat marker location.."
-          value={latInput}
-          onChange={(ev) => setlatInput(ev.target.value)}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Enter lng marker location.."
-          value={lngInput}
-          onChange={(ev) => setlngInput(ev.target.value)}
-          required
-        />
-        <input
           type="text"
-          placeholder="Enter marker title.."
-          value={titleInput}
-          onChange={(ev) => setTitleInput(ev.target.value)}
+          placeholder="Please enter a location.."
+          value={locationName}
+          onChange={(ev) => setlocationName(ev.target.value)}
           required
         />
-        <button>Change marker</button>
+        <button>Add marker</button>
       </form>
       {markers.length ? (
         markers.map((marker, index) => (

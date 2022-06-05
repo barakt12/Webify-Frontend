@@ -71,6 +71,7 @@ export const Cards = () => {
         <div className='card-number-circle'>3</div>
         <div className='cards-left-box-container'>
           <h1>Hello text 3</h1>
+          
         </div>
         <div className='cards-right-box-container'>
           {/* <Parallax scale={[0.9, 1]}> */}

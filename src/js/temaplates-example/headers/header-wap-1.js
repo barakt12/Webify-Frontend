@@ -4,7 +4,7 @@ export const headerWap1 = {
   name: 'wap-header-1',
   type: 'container',
   category: 'header',
-  themePalette: 'primary',
+  themePalette: 'secondary',
   id: uuidv4(),
   //change to cloudinary
   thumbnail: require('../../../assets/img/thumbnails/header/wap-header-1.jpg'),

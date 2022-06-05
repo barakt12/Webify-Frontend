@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
 import GoogleMapReact from 'google-map-react'
 import { useState } from 'react'
+
+
 
 export const MapCmp = ({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass }) => {
   const AnyReactComponent = ({ marker }) => <div className="mapMarker">{marker}</div>
@@ -10,7 +11,8 @@ export const MapCmp = ({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass
     lng: 34.855499,
   })
 
-  //cmp.info hold markers
+
+
   return (
     <section
       style={cmp.style}

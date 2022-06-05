@@ -12,6 +12,8 @@ import { socketService } from '../../services/socket.service'
 import { useLocation, useParams } from 'react-router-dom'
 import { MouseCursor } from './cmps/Mouse-cursor'
 
+
+
 export function Editor() {
   let isFromSidebar = null
   const queryAttr = 'data-rbd-drag-handle-draggable-id'
@@ -40,7 +42,7 @@ export function Editor() {
       socketService.on('get wap', () => {
         wap && socketService.emit('wap update', wap)
       })
-      socketService.on('mouse_position_update', ({ id, pos, user }) => {
+      socketService.on('mouse_position_update', ({ id, pos, user,color }) => {
         const existingMouseIdx = connectedMouses.findIndex((mouse) => mouse.id === id)
         let mousesCopy = [...connectedMouses]
         if (existingMouseIdx >= 0) {
@@ -49,7 +51,7 @@ export function Editor() {
             pos,
           }
         } else {
-          mousesCopy = [{ id, pos, user, color: 'red' }, ...mousesCopy]
+          mousesCopy = [{ id, pos, user,color }, ...mousesCopy]
         }
         setConnectedMouses(mousesCopy)
       })
@@ -198,7 +200,8 @@ export function Editor() {
         <EditorSidebar />
         <EditorBoard wap={wap} isFromSidebar={isFromSidebar} placeholderProps={placeholderProps} />
       </DragDropContext>
-      {params.editorId && connectedMouses.length && connectedMouses.map((mouse) => <MouseCursor mouse={mouse} />)}
+      {(params.editorId && connectedMouses.length) ? connectedMouses.map(mouse => <MouseCursor mouse={mouse} />)
+      : <></>}
     </section>
   )
 }
