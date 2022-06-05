@@ -9,7 +9,6 @@ import { Grid, Typography } from '@mui/material'
 export const Dashboard = () => {
   const dispatch = useDispatch()
   const savedWaps = useSelector((storeState) => storeState.wapModule.savedWaps)
-
   useEffect(() => {
     dispatch(loadSavedWaps())
   }, [])
@@ -37,6 +36,7 @@ export const Dashboard = () => {
             <DashboardPreview
               key={wap._id}
               wap={wap}
+              dailyConversionRate={wap.conversionRate}
               subscribers={wap.subscribers}
               viewCount={wap.viewCount}
               onSelectTemplate={onSelectTemplate}

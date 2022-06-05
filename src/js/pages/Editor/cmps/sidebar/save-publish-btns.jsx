@@ -5,10 +5,13 @@ import GroupsIcon from '@mui/icons-material/Groups'
 import { useNavigate } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
-import { setCollabMode, toggleCollabMode } from '../../../../store/wap/wap.action'
+import {
+  setCollabMode,
+  toggleCollabMode,
+} from '../../../../store/wap/wap.action'
 import { toast } from 'react-toastify'
 
-export function SavePublishBtns({ onSaveWap, onPublishWap }) {
+export function SavePublishBtns({ onSaveWap }) {
   const dispatch = useDispatch()
   const { isCollabMode } = useSelector((storeState) => storeState.wapModule)
   const navigation = useNavigate()
@@ -28,15 +31,12 @@ export function SavePublishBtns({ onSaveWap, onPublishWap }) {
   }
 
   return (
-    <div className="action-btns save-publish">
+    <div className='action-btns save-publish'>
       <button onClick={onSaveWap}>
         <SaveIcon />
         <span>Save</span>
       </button>
-      <button onClick={onPublishWap}>
-        <CloudDoneIcon />
-        <span>Publish</span>
-      </button>
+
       <button onClick={onCollab}>
         <GroupsIcon />
         <span>Work Together</span>
