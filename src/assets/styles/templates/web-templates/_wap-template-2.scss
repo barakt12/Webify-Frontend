@@ -47,7 +47,7 @@
   min-height: 75vh;
   background: linear-gradient(135deg, #dd1173, #350e47);
   color: white;
-  padding: 0 4rem;
+  padding: 0 6%;
 
   &.mobile-layout,
   &.tablet-layout {
@@ -269,13 +269,13 @@
   gap: 2rem;
   color: black;
   background: url('https://uploads-ssl.webflow.com/5af49de0dbb1e3637f2d8886/5b11c1af7f519f50eaefd140_wavy-bg.svg'),
-  linear-gradient(135deg, #fc0a7e, #602bb6);
+    linear-gradient(135deg, #fc0a7e, #602bb6);
   background-position: 50% 50%, 0px 0px;
   background-size: cover, auto;
   text-align: center;
   padding-inline-start: 2rem;
   padding-inline-end: 2rem;
-  .main-map-container{
+  .main-map-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -333,9 +333,9 @@
     }
   }
 
-  .wap-map-1{
+  .wap-map-1 {
     flex-direction: column;
-    & .main-map-container{
+    & .main-map-container {
       height: 76%;
       width: 100%;
     }
