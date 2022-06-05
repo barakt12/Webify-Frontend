@@ -6,7 +6,8 @@ export const headerCmp6 = {
   category: 'header',
   themePalette: 'primary',
   id: uuidv4(),
-  thumbnail: 'https://res.cloudinary.com/dnv7wszu3/image/upload/v1654340062/wap-header-6_ep2hyj.jpg',
+  thumbnail:
+    'https://res.cloudinary.com/dnv7wszu3/image/upload/v1654340062/wap-header-6_ep2hyj.jpg',
   style: {},
   cmps: [
     {
@@ -14,7 +15,7 @@ export const headerCmp6 = {
       id: uuidv4(),
       name: 'logo',
       info: {
-        txt: 'Ashly.',
+        txt: 'Ashley.',
       },
     },
     {

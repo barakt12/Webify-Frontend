@@ -35,7 +35,6 @@
 
           @media screen and (min-width: 600px) {
             font-size: 15px;
-            
           }
         }
 
@@ -130,7 +129,7 @@
         }
       }
     }
-    
+
     & > *:not(.nohover):hover {
       .template-hover-info-container {
         display: flex;
@@ -141,7 +140,9 @@
       .create-new-info-container {
         display: flex;
         flex-direction: column;
-        gap: 85px;
+        // gap: 85px;
+        height: 100%;
+        justify-content: space-between;
       }
 
       img {

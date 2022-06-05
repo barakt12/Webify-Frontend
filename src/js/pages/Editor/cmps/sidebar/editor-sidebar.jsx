@@ -72,10 +72,6 @@ export function EditorSidebar() {
     dispatch(toggleSave())
   }
 
-  const onPublishWap = () => {
-    dispatch(togglePublish())
-  }
-
   return (
     <section
       className={`editor-sidebar ${isSidebarShown ? '' : 'closed'}`}
@@ -108,7 +104,6 @@ export function EditorSidebar() {
             <DisplaySize />
             {dimensions < 700 && (
               <SavePublishBtns
-                onPublishWap={onPublishWap}
                 onSaveWap={onSaveWap}
               />
             )}
@@ -122,7 +117,6 @@ export function EditorSidebar() {
             )}
             {dimensions > 700 && (
               <SavePublishBtns
-                onPublishWap={onPublishWap}
                 onSaveWap={onSaveWap}
               />
             )}

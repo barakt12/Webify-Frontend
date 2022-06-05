@@ -45,7 +45,7 @@ export function SubscribersList({ subscribers }) {
           Subscribers List
         </Typography>
       </Toolbar>
-      {!subscribers?.length ? (
+      {!subscribers ? (
         'You have no subscribers yet'
       ) : (
         <TableContainer>
@@ -57,28 +57,29 @@ export function SubscribersList({ subscribers }) {
           >
             <TableHead>
               <TableRow>
-                {Object.keys(subscribers[0]).map((key, idx) => (
-                  <TableCell key={idx} style={{ fontWeight: 700 }}>
-                    {key[0].toUpperCase() +
-                      key
-                        .slice(1)
-                        .split(/(?=[A-Z])/)
-                        .join(' ')}
-                  </TableCell>
-                ))}
+                {Object.keys(Object.values(subscribers)[0][0]).map(
+                  (key, idx) => (
+                    <TableCell key={idx} style={{ fontWeight: 700 }}>
+                      {key[0].toUpperCase() +
+                        key
+                          .slice(1)
+                          .split(/(?=[A-Z])/)
+                          .join(' ')}
+                    </TableCell>
+                  )
+                )}
               </TableRow>
             </TableHead>
             <TableBody>
-              {subscribers.map((subscriber, idx) => {
-                const values = Object.values(subscriber)
-                return (
+              {Object.values(subscribers)
+                .flat()
+                .map((subscriber, idx) => (
                   <TableRow key={idx}>
-                    {values.map((value, idx) => (
+                    {Object.values(subscriber).map((value, idx) => (
                       <TableCell key={idx}>{value}</TableCell>
                     ))}
                   </TableRow>
-                )
-              })}
+                ))}
             </TableBody>
           </Table>
         </TableContainer>

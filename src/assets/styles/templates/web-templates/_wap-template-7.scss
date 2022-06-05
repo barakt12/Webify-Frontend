@@ -72,7 +72,9 @@
       font-size: 3rem;
       font-family: 'Righteous';
       position: absolute;
-      width: 100%;
+      // width: 100%;
+      right: 50%;
+      transform: translateX(50%);
       display: flex;
       justify-content: center;
     }
@@ -150,6 +152,7 @@
 
   & .first-container-img {
     flex-basis: 50%;
+    background-size: cover;
     background-image: url('https://static.wixstatic.com/media/a35a7632c8d24cec95168160ed32c8ad.jpg/v1/fill/w_952,h_651,al_r,q_85,usm_0.66_1.00_0.01,enc_auto/a35a7632c8d24cec95168160ed32c8ad.jpg');
   }
   & .txt-container {
@@ -180,7 +183,7 @@
 
       & .sub-txt {
         margin-top: 3rem;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
         line-height: 1.6em;
       }
       & button {
@@ -203,9 +206,10 @@
   align-items: center;
   justify-content: center;
   height: 80vh;
+  background-position: center;
   background-image: url('https://static.wixstatic.com/media/baac51_809fe275413a451fbe5e2904700e26ea.png/v1/fill/w_1903,h_865,al_b,q_90,usm_0.66_1.00_0.01,enc_auto/baac51_809fe275413a451fbe5e2904700e26ea.png');
   background-attachment: fixed;
-  background-size: contain;
+  // background-size: contain;
   background-repeat: no-repeat;
 
   &.mobile-layout,
@@ -303,6 +307,7 @@
     }
   }
   & .first-container-img {
+    background-size: cover;
     flex-basis: 50%;
     background-image: url('https://static.wixstatic.com/media/84770f_9a956bbd2dda4af5b1ec35c35d26c07b~mv2_d_3840_2160_s_2.jpg/v1/fill/w_952,h_650,al_r,q_85,usm_0.66_1.00_0.01,enc_auto/84770f_9a956bbd2dda4af5b1ec35c35d26c07b~mv2_d_3840_2160_s_2.jpg');
   }
@@ -314,7 +319,7 @@
   background-image: url('https://static.wixstatic.com/media/baac51_863daade1baf47a8995907cb1f24d57c.png/v1/fill/w_1903,h_865,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/baac51_863daade1baf47a8995907cb1f24d57c.png');
   background-size: contain;
   background-repeat: no-repeat;
-  margin-bottom: 7rem;
+  // margin-bottom: 7rem;
   padding-top: 45.44%;
   position: relative;
 
@@ -328,7 +333,7 @@
     height: 0;
     width: 100%;
     background-image: url('https://static.wixstatic.com/media/baac51_ec98ba3fb62b4140be49e8c2fde05a73.png/v1/fill/w_1903,h_906,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/baac51_ec98ba3fb62b4140be49e8c2fde05a73.png');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -522,6 +527,7 @@
     background-size: cover;
     & .txt-container {
       height: 50vh;
+      background-position: center;
       background-size: cover;
     }
   }

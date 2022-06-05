@@ -52,7 +52,6 @@ export const DailyVisitCount = ({ viewCount }) => {
       },
     ],
   }
-
   ChartJS.register(
     CategoryScale,
     LinearScale,

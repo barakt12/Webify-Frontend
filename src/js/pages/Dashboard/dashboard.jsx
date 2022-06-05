@@ -5,18 +5,19 @@ import { deleteWap, selectWap } from '../../store/wap/wap.action'
 import { loadSavedWaps } from '../../store/wap/wap.action'
 import { toast } from 'react-toastify'
 import WapsSideMenu from './cmps/waps-side-menu'
+import ErrorIcon from '@mui/icons-material/Error'
 
 export const Dashboard = () => {
   const dispatch = useDispatch()
   const savedWaps = useSelector((storeState) => storeState.wapModule.savedWaps)
-  const [currWap, setCurrWap] = useState({})
+  const [currWap, setCurrWap] = useState(null)
 
   useEffect(() => {
     dispatch(loadSavedWaps())
   }, [])
 
   useEffect(() => {
-    console.log(savedWaps)
+    if (!savedWaps) return
     setCurrWap(savedWaps[0])
   }, [savedWaps])
 
@@ -34,16 +35,30 @@ export const Dashboard = () => {
   }
   return (
     <section className="main-dashboard-container">
-      {currWap && <WapsSideMenu onSelectWapToDisplay={onSelectWapToDisplay} />}
+      <WapsSideMenu onSelectWapToDisplay={onSelectWapToDisplay} />
       <section className="profile-page">
         <div className="template-page-intro">
           <h2>Hi, Welcome back</h2>
+          {
+            <div>
+              <h3>This site isn't published yet</h3>
+              <ErrorIcon />
+            </div>
+          }
         </div>
         {!savedWaps && <p>Please login to see your websites!</p>}
         {savedWaps && !savedWaps.length && <p>You havent created websites yet</p>}
-        {savedWaps && (
+        {currWap && (
           <section className="dashboard-container">
-            <DashboardPreview key={currWap._id} wap={currWap} subscribers={currWap?.subscribers} viewCount={currWap.viewCount} onSelectTemplate={onSelectTemplate} onDeleteWap={onDeleteWap} />
+            <DashboardPreview
+              key={currWap._id}
+              wap={currWap}
+              dailyConversionRate={currWap.conversionRate}
+              subscribers={currWap.subscribers}
+              viewCount={currWap.viewCount}
+              onSelectTemplate={onSelectTemplate}
+              onDeleteWap={onDeleteWap}
+            />
           </section>
         )}
       </section>

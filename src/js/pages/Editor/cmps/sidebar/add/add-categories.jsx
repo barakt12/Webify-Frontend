@@ -74,15 +74,7 @@ export function AddCategories({
         {' '}
         <Typography>Card</Typography>
       </AccordionDetails>
-      <AccordionDetails
-        className={`sidebar-btn add-btn-details ${
-          activeAddBtn === 'text' ? 'active' : ''
-        }`}
-        onClick={(ev) => onClickCmpBtn(ev, 'text')}
-      >
-        {' '}
-        <Typography>Text</Typography>
-      </AccordionDetails>
+
       <AccordionDetails
         className={`sidebar-btn add-btn-details ${
           activeAddBtn === 'gallery' ? 'active' : ''
@@ -109,15 +101,6 @@ export function AddCategories({
       >
         {' '}
         <Typography>Form</Typography>
-      </AccordionDetails>
-      <AccordionDetails
-        className={`sidebar-btn add-btn-details ${
-          activeAddBtn === 'video' ? 'active' : ''
-        }`}
-        onClick={(ev) => onClickCmpBtn(ev, 'video')}
-      >
-        {' '}
-        <Typography>Video</Typography>
       </AccordionDetails>
       <AccordionDetails
         className={`sidebar-btn add-btn-details ${

@@ -42,14 +42,15 @@ export default function WapsSideMenu({ onSelectWapToDisplay }) {
           My Sites
         </Typography>
         <List>
-          {savedWaps.map((wap, index) => (
-            <ListItem key={index} onClick={() => onSelectWapToDisplay(wap)}>
-              <ListItemButton sx={{ gap: '0.5rem' }}>
-                <WebIcon />
-                <ListItemText primary={'ELLIE PAGE'} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          {savedWaps &&
+            savedWaps.map((wap, index) => (
+              <ListItem key={index} onClick={() => onSelectWapToDisplay(wap)}>
+                <ListItemButton sx={{ gap: '0.5rem' }}>
+                  <WebIcon />
+                  <ListItemText primary={'ELLIE PAGE'} />
+                </ListItemButton>
+              </ListItem>
+            ))}
         </List>
         <Divider />
       </Drawer>

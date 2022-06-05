@@ -21,7 +21,7 @@ export const themes = [
     id: uuidv4(),
     name: 'Warm',
     description: 'Modern & pleasant',
-    fontFamily: 'monospace',
+    fontFamily: 'Roboto',
     colors: {
       primary: {
         background: '#C6CCCA',
