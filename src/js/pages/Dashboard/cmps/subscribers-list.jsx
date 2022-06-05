@@ -11,12 +11,6 @@ import {
 } from '@mui/material'
 import React from 'react'
 export function SubscribersList({ subscribers }) {
-  console.log(
-    Object.values(subscribers)
-      .flat()
-      .map((subscriber) => subscriber)
-  )
-
   return (
     <Paper
       elevation={0} // variant='outlined'

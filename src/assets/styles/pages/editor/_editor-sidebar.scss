@@ -169,6 +169,10 @@
         min-width: unset;
         padding: 14px 0;
       }
+
+      @media screen and (min-width: '1500px') {
+        padding: 16px 0;
+      }
       &:hover {
         opacity: 1;
       }

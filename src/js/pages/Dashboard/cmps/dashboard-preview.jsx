@@ -14,13 +14,15 @@ export function DashboardPreview({
   onSelectTemplate,
   onDeleteWap,
 }) {
-  const totalViews = Object.values(viewCount).reduce((acc, cur) => {
+  const totalViews = Object.values(viewCount)?.reduce((acc, cur) => {
     return acc + cur
   }, 0)
 
   const creationDate = wap?.createdAt.slice(0, 10)
 
-  const subscribersCount = Object.values(subscribers).flat().length
+  const subscribersCount = subscribers
+    ? Object.values(subscribers)?.flat()?.length
+    : 0
   const data = {
     subscribersCount,
     totalViews,

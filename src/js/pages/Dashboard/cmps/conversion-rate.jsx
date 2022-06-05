@@ -58,12 +58,12 @@ export function ConversionRate({ conversionRate, dailyConversionRate }) {
   }
 
   const data = {
-    labels: Object.keys(dailyConversionRate),
+    labels: dailyConversionRate ? Object.keys(dailyConversionRate) : [],
     datasets: [
       {
         pointRadius: 0,
         lineTension: 0.3,
-        data: Object.values(dailyConversionRate),
+        data: dailyConversionRate ? Object.values(dailyConversionRate) : [],
         borderColor: '#92B4EC',
       },
     ],

@@ -23,12 +23,12 @@
 
     .wap-info-display {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(8, 1fr);
       grid-template-rows: 240px 1fr 2fr;
       grid-template-areas:
-        'wap-name total-subs total-views date'
-        'sub-list sub-list sub-list conversion-rate'
-        'view-chart view-chart view-chart view-chart';
+        'wap-name wap-name total-subs total-subs total-views total-views date date'
+        'sub-list sub-list sub-list sub-list sub-list conversion-rate conversion-rate conversion-rate'
+        'view-chart view-chart view-chart view-chart view-chart view-chart view-chart view-chart';
       gap: 25px;
       background-color: rgb(249, 250, 251);
     }
@@ -52,6 +52,7 @@
       background-color: #ffeace;
       justify-content: flex-end;
       gap: 4rem;
+      grid-area: conversion-rate;
       & .conversion-chart {
         // position: absolute;
         height: 60%;
@@ -257,9 +258,18 @@
   & .template-page-intro {
     padding-inline: 20px;
     height: 100px;
+    width: 100%;
     display: flex;
     align-self: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
+    & > div {
+      display: flex;
+      gap: 10px;
+      & svg {
+        font-size: 30px;
+        fill: #ef5350;
+      }
+    }
   }
 }
 
