@@ -9,6 +9,7 @@ export function SidebarAdd({ addCmpList }) {
           return (
             <>
               <img ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} key={cmp.id} className="mini-cmp" src={cmp.thumbnail} alt="" />
+              {snapshot.isDragging && <img className="mini-cmp" src={cmp.thumbnail} alt="" />}
             </>
           )
         }}

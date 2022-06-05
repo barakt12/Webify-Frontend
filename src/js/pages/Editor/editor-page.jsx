@@ -16,9 +16,7 @@ export function Editor() {
   let isFromSidebar = null
   const queryAttr = 'data-rbd-drag-handle-draggable-id'
   const [placeholderProps, setPlaceholderProps] = useState({})
-  const { wap, isCollabMode } = useSelector(
-    (storeState) => storeState.wapModule
-  )
+  const { wap, isCollabMode } = useSelector((storeState) => storeState.wapModule)
   const loggedUser = useSelector((storeState) => storeState.userModule.user)
   const dispatch = useDispatch()
   const params = useParams()
@@ -43,9 +41,7 @@ export function Editor() {
         wap && socketService.emit('wap update', wap)
       })
       socketService.on('mouse_position_update', ({ id, pos, user }) => {
-        const existingMouseIdx = connectedMouses.findIndex(
-          (mouse) => mouse.id === id
-        )
+        const existingMouseIdx = connectedMouses.findIndex((mouse) => mouse.id === id)
         let mousesCopy = [...connectedMouses]
         if (existingMouseIdx >= 0) {
           mousesCopy[existingMouseIdx] = {
@@ -113,21 +109,17 @@ export function Editor() {
     const sourceIndex = event.source.index
     var clientY =
       parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingTop) +
-      [...draggedDOM.parentNode.children]
-        .slice(0, sourceIndex)
-        .reduce((total, curr) => {
-          const style = curr.currentStyle || window.getComputedStyle(curr)
-          const marginBottom = parseFloat(style.marginBottom)
-          return total + curr.clientHeight + marginBottom
-        }, 0)
+      [...draggedDOM.parentNode.children].slice(0, sourceIndex).reduce((total, curr) => {
+        const style = curr.currentStyle || window.getComputedStyle(curr)
+        const marginBottom = parseFloat(style.marginBottom)
+        return total + curr.clientHeight + marginBottom
+      }, 0)
 
     setPlaceholderProps({
       clientHeight,
       clientWidth,
       clientY,
-      clientX: parseFloat(
-        window.getComputedStyle(draggedDOM.parentNode).paddingLeft
-      ),
+      clientX: parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingLeft),
     })
   }
 
@@ -151,11 +143,7 @@ export function Editor() {
     const movedItem = childrenArray[sourceIndex]
     childrenArray.splice(sourceIndex, 1)
 
-    const updatedArray = [
-      ...childrenArray.slice(0, destinationIndex),
-      movedItem,
-      ...childrenArray.slice(destinationIndex + 1),
-    ]
+    const updatedArray = [...childrenArray.slice(0, destinationIndex), movedItem, ...childrenArray.slice(destinationIndex + 1)]
 
     var clientY =
       parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingTop) +
@@ -169,9 +157,7 @@ export function Editor() {
       clientHeight,
       clientWidth,
       clientY,
-      clientX: parseFloat(
-        window.getComputedStyle(draggedDOM.parentNode).paddingLeft
-      ),
+      clientX: parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingLeft),
     })
   }
 
@@ -179,10 +165,7 @@ export function Editor() {
     setPlaceholderProps({})
     // dropped outside the list
     if (!result.destination) return
-    else if (
-      result.destination.droppableId === 'editor' &&
-      result.source.droppableId !== 'editor'
-    ) {
+    else if (result.destination.droppableId === 'editor' && result.source.droppableId !== 'editor') {
       //   copy(
       //     ITEMS,
       //     this.state[destination.droppableId],
@@ -193,11 +176,7 @@ export function Editor() {
       return
     }
 
-    const content = reorder(
-      wap.cmps,
-      result.source.index,
-      result.destination.index
-    )
+    const content = reorder(wap.cmps, result.source.index, result.destination.index)
     if (content) {
       dispatch(updateWap({ ...wap, cmps: content }))
     }
@@ -214,22 +193,12 @@ export function Editor() {
   }
 
   return (
-    <section className='editor-container' onMouseMove={handleMouseDebounce}>
-      <DragDropContext
-        onDragStart={handleDragStart}
-        onDragUpdate={handleDragUpdate}
-        onDragEnd={handleDragEnd}
-      >
+    <section className="editor-container" onMouseMove={handleMouseDebounce}>
+      <DragDropContext onDragStart={handleDragStart} onDragUpdate={handleDragUpdate} onDragEnd={handleDragEnd}>
         <EditorSidebar />
-        <EditorBoard
-          wap={wap}
-          isFromSidebar={isFromSidebar}
-          placeholderProps={placeholderProps}
-        />
+        <EditorBoard wap={wap} isFromSidebar={isFromSidebar} placeholderProps={placeholderProps} />
       </DragDropContext>
-      {params.editorId &&
-        connectedMouses.length &&
-        connectedMouses.map((mouse) => <MouseCursor mouse={mouse} />)}
+      {params.editorId && connectedMouses.length && connectedMouses.map((mouse) => <MouseCursor mouse={mouse} />)}
     </section>
   )
 }

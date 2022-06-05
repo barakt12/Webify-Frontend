@@ -1,14 +1,4 @@
-import {
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Toolbar,
-  Typography,
-} from '@mui/material'
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from '@mui/material'
 import React from 'react'
 export function SubscribersList({ subscribers }) {
   return (
@@ -21,7 +11,7 @@ export function SubscribersList({ subscribers }) {
         marginBottom: '2px',
         paddingInline: '10px',
       }}
-      className={'light-shadow'}
+      className={'light-shadow subscribers-list'}
     >
       <Toolbar
         sx={{
@@ -38,9 +28,9 @@ export function SubscribersList({ subscribers }) {
           sx={{
             flex: '1 1 100%',
           }}
-          variant='h6'
-          id='tableTitle'
-          component='div'
+          variant="h6"
+          id="tableTitle"
+          component="div"
         >
           Subscribers List
         </Typography>
@@ -53,7 +43,7 @@ export function SubscribersList({ subscribers }) {
             sx={{
               minWidth: 650,
             }}
-            aria-label='Subscribers List'
+            aria-label="Subscribers List"
           >
             <TableHead>
               <TableRow>
