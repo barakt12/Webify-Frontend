@@ -22,7 +22,6 @@ export const Dashboard = () => {
     dispatch(deleteWap(id))
     toast.success('Deleted Successfully')
   }
-
   return (
     <section className='main-dashboard-container'>
       <section className='profile-page'>

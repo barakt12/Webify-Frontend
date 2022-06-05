@@ -1,5 +1,14 @@
 import React from 'react'
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js'
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js'
 import { Line } from 'react-chartjs-2'
 import { Paper, Typography } from '@mui/material'
 
@@ -44,18 +53,27 @@ export const DailyVisitCount = ({ viewCount }) => {
     ],
   }
 
-  ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  )
   return (
     <Paper
       style={{
         margin: '2px',
         borderRadius: '16px',
+        height: 'fit-content',
       }}
       elevation={0}
-      className="light-shadow view-chart"
+      className='light-shadow view-chart'
     >
       <div style={{ width: '99%', padding: '20px' }}>
-        <Typography variant="h5">Daily Visits</Typography>
+        <Typography variant='h5'>Daily Visits</Typography>
         <Line options={options} data={data} />
       </div>
     </Paper>

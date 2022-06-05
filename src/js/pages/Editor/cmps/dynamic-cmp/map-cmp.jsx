@@ -15,7 +15,7 @@ export const MapCmp = ({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass
     <section
       style={cmp.style}
       className={`${selectedCmp?.id === cmp.id ? 'main-map-container selected' : 'main-map-container'} ${displayClass} ${cmp.name}`}
-      onMouseOut={(ev) => ev.currentTarget.classList.remove('hover')}
+      onMouseOut={(ev) => ev.target.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}
       onClick={(ev) => onSelectCmp(ev, cmp)}
     >
