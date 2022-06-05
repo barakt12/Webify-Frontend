@@ -5,16 +5,13 @@ import Typography from '@mui/material/Typography'
 import Divider from '@mui/material/Divider'
 import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
-import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
-import InboxIcon from '@mui/icons-material/MoveToInbox'
-import MailIcon from '@mui/icons-material/Mail'
 import { useSelector } from 'react-redux'
 import WebIcon from '@mui/icons-material/Web'
 
 const drawerWidth = 240
 
-export default function WapsSideMenu({ onSelectWapToDisplay }) {
+export default function DashboardSideMenu({ onSelectWapToDisplay }) {
   const savedWaps = useSelector((storeState) => storeState.wapModule.savedWaps)
 
   return (
@@ -27,32 +24,38 @@ export default function WapsSideMenu({ onSelectWapToDisplay }) {
             width: drawerWidth,
             boxSizing: 'border-box',
             position: 'relative',
+            paddingTop: '35px',
+            backgroundColor: 'rgb(249, 250, 251)',
           },
         }}
-        variant="permanent"
-        anchor="left"
+        variant='permanent'
+        anchor='left'
       >
-        <Divider />
+        {/* <Divider /> */}
         <Typography
+          variant='h5'
           sx={{
-            fontSize: '2rem',
-            padding: '1rem',
+            fontSize: '1.5rem',
+            fontWeight: 700,
+            padding: '0 2rem',
           }}
         >
           My Sites
         </Typography>
-        <List>
+        <List
+          sx={{ paddingTop: '25px', backgroundColor: 'rgb(249, 250, 251)' }}
+        >
           {savedWaps &&
             savedWaps.map((wap, index) => (
               <ListItem key={index} onClick={() => onSelectWapToDisplay(wap)}>
                 <ListItemButton sx={{ gap: '0.5rem' }}>
                   <WebIcon />
-                  <ListItemText primary={'ELLIE PAGE'} />
+                  <ListItemText primary={wap.name} />
                 </ListItemButton>
               </ListItem>
             ))}
         </List>
-        <Divider />
+        {/* <Divider /> */}
       </Drawer>
     </Box>
   )

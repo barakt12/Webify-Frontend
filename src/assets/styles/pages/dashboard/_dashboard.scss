@@ -6,7 +6,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-bottom: 40px;
   min-height: 100vh;
 
   .dashboard-container {
@@ -26,7 +25,7 @@
     .wap-info-display {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
-      grid-template-rows: 240px 1fr 2fr;
+      grid-template-rows: 240px 1fr 1.5fr;
       grid-template-areas:
         'wap-name wap-name total-subs total-subs total-views total-views date date'
         'sub-list sub-list sub-list sub-list sub-list conversion-rate conversion-rate conversion-rate'
@@ -283,7 +282,8 @@
   justify-content: center;
   max-width: 1500px;
   margin: auto;
-  padding: 0 2rem;
+  padding: 0 2rem 40px 2rem;
+
   p {
     text-align: center;
   }

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteWap, selectWap } from '../../store/wap/wap.action'
 import { loadSavedWaps } from '../../store/wap/wap.action'
 import { toast } from 'react-toastify'
-import WapsSideMenu from './cmps/waps-side-menu'
+import DashboardSideMenu from './cmps/dashboard-side-menu'
 import ErrorIcon from '@mui/icons-material/Error'
 
 export const Dashboard = () => {
@@ -34,10 +34,10 @@ export const Dashboard = () => {
     toast.success('Deleted Successfully')
   }
   return (
-    <section className="main-dashboard-container">
-      <WapsSideMenu onSelectWapToDisplay={onSelectWapToDisplay} />
-      <section className="profile-page">
-        <div className="template-page-intro">
+    <section className='main-dashboard-container'>
+      <DashboardSideMenu onSelectWapToDisplay={onSelectWapToDisplay} />
+      <section className='profile-page'>
+        <div className='template-page-intro'>
           <h2>Hi, Welcome back</h2>
           {
             <div>
@@ -47,9 +47,11 @@ export const Dashboard = () => {
           }
         </div>
         {!savedWaps && <p>Please login to see your websites!</p>}
-        {savedWaps && !savedWaps.length && <p>You havent created websites yet</p>}
+        {savedWaps && !savedWaps.length && (
+          <p>You havent created websites yet</p>
+        )}
         {currWap && (
-          <section className="dashboard-container">
+          <section className='dashboard-container'>
             <DashboardPreview
               key={currWap._id}
               wap={currWap}
