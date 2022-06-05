@@ -3,25 +3,22 @@ import { useDispatch } from 'react-redux'
 import { updateCmp } from '../../../../../store/wap/wap.action'
 
 export function VideoInput({ cmp }) {
-  const [url, setUrl] = useState(cmp.info.imgUrl)
+  const [url, setUrl] = useState(cmp.info.videoUrl)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setUrl(cmp.info.imgUrl)
+    setUrl(cmp.info.videoUrl)
   }, [cmp])
 
   const onChangeUrl = (ev) => {
     setUrl(ev.target.value)
-    cmp.info.imgUrl = ev.target.value
+    cmp.info.videoUrl = ev.target.value
     dispatch(updateCmp(cmp))
   }
 
   return (
-    <input
-      type='text'
-      placeholder='Enter image url..'
-      value={url}
-      onChange={onChangeUrl}
-    />
+    <div className="video-input-container">
+      <input type="text" placeholder="Enter video url.." value={url} onChange={onChangeUrl} />
+    </div>
   )
 }

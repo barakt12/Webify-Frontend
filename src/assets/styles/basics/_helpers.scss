@@ -127,3 +127,7 @@
 .linkable {
   cursor: pointer;
 }
+
+.no-mouse-events {
+  pointer-events: none;
+}
