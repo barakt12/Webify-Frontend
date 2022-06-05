@@ -1,19 +1,16 @@
 .main-dashboard-container {
   background-color: rgb(249, 250, 251);
-  // background-image: url(http://localhost:3000/static/media/wave2.4d2dbbbfb7d464d58343.png);
   width: 100%;
   position: absolute;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   padding-bottom: 40px;
-  // height: 1250px; //maybe remove? (if removing, dont forget to add margin-bottom)
 
   .dashboard-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // padding: 0 15%;
     gap: 40px;
     position: relative;
     width: 100%;
@@ -22,41 +19,23 @@
       bottom: 1rem;
       left: 1rem;
       text-align: left;
-      // padding: 0.5rem 1rem;
     }
 
-    .wap-details-container {
-      display: flex;
-      // justify-content: space-between;
-      // height: 527px;
-
-      // width: 270px;
-      // border-radius: 5px;
-      background-color: rgb(255 255 255);
-      color: black;
-      overflow: hidden;
-      // filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 1px 4px);
-      // width: 100%;
-
       .wap-info-display {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 240px 1fr 2fr;
+        grid-template-areas: 'wap-name total-subs total-views date'
+                              'sub-list sub-list sub-list .'
+                              'view-chart view-chart view-chart view-chart'
+            ;
         gap: 25px;
         background-color: rgb(249, 250, 251);
       }
 
-      .wap-info-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        // padding-inline: 0.5rem;
-        margin-top: 1rem;
-        & svg {
-          font-size: 1.9rem;
-        }
-
         .wap-name {
+          grid-area: wap-name;
+          
           background-color: rgb(209, 233, 252);
           color: rgb(6, 27, 100);
           & .dashboard-icon-container {
@@ -69,6 +48,7 @@
         }
 
         .total-subscribers {
+          grid-area: total-subs;
           background-color: rgb(208, 242, 255);
           color: rgb(4, 41, 122);
           .dashboard-icon-container {
@@ -84,6 +64,7 @@
         }
 
         .total-views {
+          grid-area: total-views;
           background-color: rgb(255, 247, 205);
           color: rgb(122, 79, 1);
           .dashboard-icon-container {
@@ -99,6 +80,7 @@
           }
         }
         .creates-at {
+          grid-area: date;
           background-color: rgb(255, 231, 217);
           .dashboard-icon-container {
             border-radius: 50%;
@@ -127,16 +109,9 @@
           flex-grow: 1;
           align-items: center;
           font-size: 0.8rem;
-          // color: gray;
-          // box-shadow: 0 0 5px 2px lightgray;
           border-radius: 16px;
-
-          padding: 3rem 0;
           justify-content: center;
-          max-width: 24%;
-          &:not(:first-child) {
-            margin-left: 2rem;
-          }
+
           & .dashboard-icon-container {
             display: flex;
             align-items: center;
@@ -144,6 +119,10 @@
             width: 64px;
             height: 64px;
             border-radius: 50%;
+            
+            & svg {
+              font-size: 1.7rem;
+            }
           }
           .text {
             display: flex;
@@ -156,6 +135,15 @@
             }
           }
         }
+      }
+
+      .subscribers-list {
+        grid-area: sub-list;
+        width: 100%;
+      }
+
+      .view-chart {
+        grid-area: view-chart;
       }
 
       .wap-selection-preview {
@@ -250,17 +238,13 @@
             display: none;
           }
         }
-      }
-    }
+
   }
   & .template-page-intro {
     height: 100px;
     display: flex;
     align-self: flex-start;
-    // padding: 0 15%;
-    // align-items: center;
     justify-content: flex-start;
-    // justify-content: center;
   }
 }
 
@@ -270,7 +254,7 @@
   // padding: 0 15%;
   display: flex;
   justify-content: center;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: auto;
   p {
     text-align: center;
