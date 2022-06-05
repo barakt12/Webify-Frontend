@@ -4,7 +4,7 @@ import { Paper } from '@mui/material'
 export function CarouselLgCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass }) {
   return (
     <div
-      onMouseOut={(ev) => ev.target.classList.remove('hover')}
+      onMouseOut={(ev) => ev.currentTarget.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}
       className={`${selectedCmp?.id === cmp.id ? 'selected' : ''} ${displayClass} ${cmp.name}`}
       onClick={(ev) => onSelectCmp(ev, cmp)}

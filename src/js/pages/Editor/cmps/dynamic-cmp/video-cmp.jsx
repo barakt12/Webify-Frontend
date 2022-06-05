@@ -6,7 +6,7 @@ export function VideoCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayCla
       title="video"
       className={`${selectedCmp?.id === cmp.id ? 'selected' : ''} ${displayClass} ${cmp.name}`}
       src={`https://www.youtube.com/embed/${getVideoId(cmp.info.videoUrl)}`}
-      onMouseOut={(ev) => ev.target.classList.remove('hover')}
+      onMouseOut={(ev) => ev.currentTarget.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}
       onClick={(ev) => onSelectCmp(ev, cmp)}
     ></iframe>

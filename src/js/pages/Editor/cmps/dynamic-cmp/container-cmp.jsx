@@ -6,8 +6,8 @@ export function ContainerCmp({ style, cmp, onHoverCmp, onSelectCmp, selectedCmp,
     <div
       style={style}
       className={`container ${displayClass} ${cmp.name} ${selectedCmp?.id === cmp.id ? 'selected' : ''}`}
-      onMouseOut={(ev) => ev.target.classList.remove('hover')}
-      // onMouseOver={(ev) => onHoverCmp(ev)}
+      onMouseOut={(ev) => ev.currentTarget.classList.remove('hover')}
+      onMouseOver={(ev) => onHoverCmp(ev)}
       onClick={(ev) => onSelectCmp(ev, cmp)}
     >
       {cmp?.cmps?.map((cmp) => {

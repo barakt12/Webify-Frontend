@@ -40,7 +40,7 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClas
     <form
       style={cmp.style}
       className={`${selectedCmp?.id === cmp.id ? 'selected' : ''} ${displayClass} ${cmp.name}`}
-      onMouseOut={(ev) => ev.target.classList.remove('hover')}
+      onMouseOut={(ev) => ev.currentTarget.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}
       onClick={(ev) => onSelectCmp(ev, cmp)}
       onSubmit={onSubmitForm}

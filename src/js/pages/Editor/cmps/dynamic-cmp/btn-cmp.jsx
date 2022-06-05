@@ -8,7 +8,7 @@ export function BtnCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass
       <button
         style={cmp.style}
         className={`${cmp.info.link && location.pathname.includes('/publish') ? 'linkable' : ''} ${selectedCmp?.id === cmp.id ? 'selected' : ''} ${displayClass} ${cmp.name}`}
-        onMouseOut={(ev) => ev.target.classList.remove('hover')}
+        onMouseOut={(ev) => ev.currentTarget.classList.remove('hover')}
         onMouseOver={(ev) => onHoverCmp(ev)}
         onClick={(ev) => onSelectCmp(ev, cmp)}
       >

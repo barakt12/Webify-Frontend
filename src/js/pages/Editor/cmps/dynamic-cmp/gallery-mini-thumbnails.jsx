@@ -6,7 +6,7 @@ export function GalleryMiniThumbnails({ cmp, onHoverCmp, selectedCmp, onSelectCm
   return (
     <div
       className={`gallery-mini-thumbnails-container ${selectedCmp?.id === cmp.id ? 'selected' : ''} ${cmp.name} ${displayClass}`}
-      onMouseOut={(ev) => ev.target.classList.remove('hover')}
+      onMouseOut={(ev) => ev.taev.currentTargetrget.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}
       onClick={(ev) => onSelectCmp(ev, cmp)}
     >
