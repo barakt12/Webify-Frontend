@@ -46,7 +46,10 @@ header {
     }
 
     .logout-icon {
-      height: 25px;
+      display: flex;
+      gap: 7px;
+      border-radius: 16px;
+      padding: 0.4rem 0.5rem;
 
       .logout-svg {
         font-size: 1.7rem;
@@ -58,7 +61,7 @@ header {
   }
 
   .navbar {
-    font-size: 1rem;
+    font-size: 1.2rem;
     display: none;
   }
 
@@ -125,6 +128,19 @@ header {
     }
   }
 
+  .publish-btn {
+    background-color: rgb(229, 97, 53);
+    color: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    padding: 5px 26px;
+    gap: 6px;
+    font-size: 1.2rem;
+    /* box-shadow: 0 0 0px 0px #00000073; */
+    border: 1px solid #00000000;
+    cursor: pointer;
+  }
   @media screen and (min-width: '1300px') {
     .navbar {
       font-size: 1.2rem;

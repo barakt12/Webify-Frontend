@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteWap, selectWap } from '../../store/wap/wap.action'
 import { loadSavedWaps } from '../../store/wap/wap.action'
 import { toast } from 'react-toastify'
-import { Grid, Typography } from '@mui/material'
+import ErrorIcon from '@mui/icons-material/Error'
 
 export const Dashboard = () => {
   const dispatch = useDispatch()
   const savedWaps = useSelector((storeState) => storeState.wapModule.savedWaps)
-
   useEffect(() => {
     dispatch(loadSavedWaps())
   }, [])
@@ -27,6 +26,12 @@ export const Dashboard = () => {
       <section className='profile-page'>
         <div className='template-page-intro'>
           <h2>Hi, Welcome back</h2>
+          {
+            <div>
+              <h3>This site isn't published yet</h3>
+              <ErrorIcon />
+            </div>
+          }
         </div>
         {!savedWaps && <p>Please login to see your websites!</p>}
         {savedWaps && !savedWaps.length && (
@@ -37,6 +42,7 @@ export const Dashboard = () => {
             <DashboardPreview
               key={wap._id}
               wap={wap}
+              dailyConversionRate={wap.conversionRate}
               subscribers={wap.subscribers}
               viewCount={wap.viewCount}
               onSelectTemplate={onSelectTemplate}

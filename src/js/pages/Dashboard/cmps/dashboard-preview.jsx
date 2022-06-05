@@ -1,3 +1,4 @@
+import { ConversionRate } from './conversion-rate'
 import { SubscribersList } from './subscribers-list'
 import React from 'react'
 import PreviewIcon from '@mui/icons-material/Preview'
@@ -5,50 +6,73 @@ import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle'
 import EventIcon from '@mui/icons-material/Event'
 import BadgeIcon from '@mui/icons-material/Badge'
 import { DailyVisitCount } from './daily-visit-count'
-export function DashboardPreview({ wap, subscribers, viewCount, onSelectTemplate, onDeleteWap }) {
+export function DashboardPreview({
+  wap,
+  subscribers,
+  viewCount,
+  dailyConversionRate,
+  onSelectTemplate,
+  onDeleteWap,
+}) {
+  const totalViews = Object.values(viewCount)?.reduce((acc, cur) => {
+    return acc + cur
+  }, 0)
+
+  const creationDate = wap?.createdAt.slice(0, 10)
+
+  const subscribersCount = subscribers
+    ? Object.values(subscribers)?.flat()?.length
+    : 0
+  const data = {
+    subscribersCount,
+    totalViews,
+    creationDate,
+    conversionRate: ((subscribersCount / totalViews) * 100).toFixed(2),
+  }
+
   return (
-    <div className="wap-info-display">
-      <div className="wap-name details-container">
-        <div className="dashboard-icon-container">
+    <div className='wap-info-display'>
+      <div className='wap-name details-container'>
+        <div className='dashboard-icon-container'>
           <BadgeIcon />
         </div>
-        <div className="text">
+        <div className='text'>
           <span>Ellie Page</span>
           <span>Website Name</span>
         </div>
       </div>
-      <div className="total-subscribers details-container">
-        <div className="dashboard-icon-container">
+      <div className='total-subscribers details-container'>
+        <div className='dashboard-icon-container'>
           <SupervisedUserCircleIcon style={{}} />
         </div>
-        <div className="text">
-          <span>{subscribers?.length ? subscribers?.length : '0'}</span>
+        <div className='text'>
+          <span>{data.subscribersCount}</span>
           <span>Total subscribers</span>
         </div>
       </div>
-      <div className="total-views details-container">
-        <div className="dashboard-icon-container">
+      <div className='total-views details-container'>
+        <div className='dashboard-icon-container'>
           <PreviewIcon />
         </div>
-        <div className="text">
-          <span>
-            {Object.values(viewCount).reduce((acc, cur) => {
-              return acc + cur
-            }, 0)}
-          </span>
+        <div className='text'>
+          <span>{data.totalViews}</span>
           <span>Total site views</span>
         </div>
       </div>
-      <div className="creates-at details-container">
-        <div className="dashboard-icon-container">
+      <div className='creates-at details-container'>
+        <div className='dashboard-icon-container'>
           <EventIcon />
         </div>
-        <div className="text">
-          <span>{wap?.createdAt.slice(0, 10)}</span>
+        <div className='text'>
+          <span>{data.creationDate}</span>
           <span>Creation date</span>
         </div>
       </div>
       <SubscribersList subscribers={subscribers} />
+      <ConversionRate
+        conversionRate={data.conversionRate}
+        dailyConversionRate={dailyConversionRate}
+      />
       <DailyVisitCount viewCount={viewCount} />
       {/* <p
           className='is-published'

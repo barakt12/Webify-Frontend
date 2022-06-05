@@ -7,6 +7,7 @@ import { useParams } from 'react-router'
 
 
 export const MouseCursor = ({ mouse }) => {
+  // console.log('mouse', mouse)
   return (
     <div
       style={{

@@ -77,18 +77,44 @@ export const templateService = {
   getTemplateById,
 }
 
-const wapTemplates = [wapTemplate1, wapTemplate2, wapTemplate3, wapTemplate4, wapTemplate5, wapTemplate6,wapTemplate7]
+const wapTemplates = [
+  wapTemplate1,
+  wapTemplate2,
+  wapTemplate3,
+  wapTemplate4,
+  wapTemplate5,
+  wapTemplate6,
+  wapTemplate7,
+]
 
 const mapCmpByCategory = {
-  header: [headerWap1, headerWap2, headerWap3, headerCmp4, headerCmp5, headerCmp6, headerCmp7],
-  hero: [wapHero1, wapHero2, heroCmp3, heroCmp4, HeroCmp5,heroCmp7],
+  header: [
+    headerWap1,
+    headerWap2,
+    headerWap3,
+    headerCmp4,
+    headerCmp5,
+    headerCmp6,
+    headerCmp7,
+  ],
+  hero: [wapHero1, wapHero2, heroCmp3, heroCmp4, HeroCmp5, heroCmp7],
   card: [wapCards1, CardCmp5, SecondCardCmp5, ThirdCardCmp5, cardCmp7],
-  section: [wapSection1, wapSection2, sectionCmp3, SectionCmp4, SectionCmp5, sectionCmp7, secondSectionCmp7,thirdSectionCmp7,fourthSectionCmp7],
-  gallery: [ wapCarousel2, wapGallery1, galleryCmp2, galleryCmp3],
-  text: [wapText1],
-  video: [wapVideo1],
+  section: [
+    wapSection1,
+    wapSection2,
+    wapText1,
+    sectionCmp3,
+    SectionCmp4,
+    SectionCmp5,
+    sectionCmp7,
+    wapVideo1,
+    secondSectionCmp7,
+    thirdSectionCmp7,
+    fourthSectionCmp7,
+  ],
+  gallery: [wapCarousel2, wapGallery1, galleryCmp2, galleryCmp3],
   map: [wapMap1],
-  form: [wapContact1, formCmp2, formCmp3,formCmp7],
+  form: [wapContact1, formCmp2, formCmp3, formCmp7],
   footer: [wapFooter1, wapFooter2, wapFooter3, footerCmp4, footerCmp5],
 }
 

@@ -35,7 +35,7 @@ export const sectionCmp7 = {
               },
               style: {
                 fontSize: '2.375rem',
-                fontFamily: 'monospace',
+                fontFamily: 'Roboto',
                 letterSpacing: '0.05rem',
               },
             },
@@ -48,7 +48,7 @@ export const sectionCmp7 = {
               },
               style: {
                 fontSize: '1.5rem',
-                fontFamily: 'cursive',
+                fontFamily: 'OpenSans',
               },
             },
             {
@@ -56,7 +56,7 @@ export const sectionCmp7 = {
               name: 'sub-txt',
               id: uuidv4(),
               info: {
-                txt: `I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. `,
+                txt: `Established in 2013, Gelato is a hand-crafted gelato shop by the sea. Our philosophy is to offer an original, amazing and delicious ice cream experience to our customers. We pride ourselves on using fresh and natural ingredients that are responsibly sourced from farmers around the world.`,
               },
               style: {
                 fontSize: '0.9rem',

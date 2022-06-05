@@ -28,7 +28,7 @@ export const thirdSectionCmp7 = {
               },
               style: {
                 fontSize: '2.375rem',
-                fontFamily: 'monospace',
+                fontFamily: 'Roboto',
                 letterSpacing: '0.05rem',
               },
             },
@@ -41,7 +41,7 @@ export const thirdSectionCmp7 = {
               },
               style: {
                 fontSize: '1.5rem',
-                fontFamily: 'cursive',
+                fontFamily: 'OpenSans',
               },
             },
             {
@@ -49,7 +49,7 @@ export const thirdSectionCmp7 = {
               name: 'sub-txt',
               id: uuidv4(),
               info: {
-                txt: `I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. `,
+                txt: `We invite you to join us on our adventure. Handmade gelato ice cream that is the perfect treat, any time of year. If you're in town and want a real taste of Italy, stop by our shop by the sea!`,
               },
               style: {
                 fontSize: '0.9rem',
