@@ -42,7 +42,7 @@ export const Templates = () => {
         {templatePreviews.map((preview) => (
           <div key={preview.id} className={preview.id}>
             <div className="template-hover-info-container">
-              <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
+              <p>{preview.info.description}</p>
               <div className="template-hover-btns-container">
                 <Link to={`/preview/${preview.id}`} target="_blank" className="template-preview-btn">
                   <button>Preview</button>

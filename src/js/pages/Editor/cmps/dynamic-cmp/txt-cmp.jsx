@@ -38,7 +38,7 @@ export function TxtCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass
         selectedCmp?.id === cmp.id ? 'selected' : ''
       } ${cmp.name}`}
       onClick={(ev) => handleSelectTxt(ev)}
-      onMouseOut={(ev) => ev.target.classList.remove('hover')}
+      onMouseOut={(ev) => ev.currentTarget.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}
       spellCheck="false"
       style={cmp.style}

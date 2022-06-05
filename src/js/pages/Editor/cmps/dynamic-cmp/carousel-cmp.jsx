@@ -35,7 +35,7 @@ export const CarouselCmp = ({ cmp, onHoverCmp, selectedCmp, onSelectCmp, display
     <Box
       style={cmp.style}
       sx={{ maxWidth: 500, minWidth: 250 }}
-      onMouseOut={(ev) => ev.target.classList.remove('hover')}
+      onMouseOut={(ev) => ev.currentTarget.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}
       className={`${selectedCmp?.id === cmp.id ? 'selected' : ''} ${cmp.name}`}
       onClick={(ev) => onSelectCmp(ev, cmp)}

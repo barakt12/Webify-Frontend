@@ -103,11 +103,9 @@
     background-color: #444;
   }
 
-  iframe {
+  .video-container {
     flex-basis: 50%;
     width: 100%;
-    aspect-ratio: 1 / 0.5;
-    border: 0;
 
     &.mobile-layout,
     &.tablet-layout {
@@ -119,6 +117,13 @@
       width: 50%;
       flex-basis: 60%;
     }
+
+  }
+
+  iframe {
+    aspect-ratio: 1 / 0.5;
+    width: 100%;
+    border: 0;
   }
 }
 

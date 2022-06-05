@@ -47,7 +47,7 @@ export function FAQCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass
       style={cmp.style}
       className={`faq-container ${selectedCmp?.id === cmp.id ? 'selected' : ''} ${cmp.name} ${displayClass}`}
       onClick={(ev) => onSelectCmp(ev, cmp)}
-      onMouseOut={(ev) => ev.target.classList.remove('hover')}
+      onMouseOut={(ev) => ev.currentTarget.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}
     >
       {cmp.info.questions.map((question, idx) => {

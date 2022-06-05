@@ -14,7 +14,7 @@ export function PagingGallery({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displ
     <div className={`paging-gallery-container`}>
       <div
         className={`imgs-container ${selectedCmp?.id === cmp.id ? 'selected' : ''} ${cmp.name} ${displayClass}`}
-        onMouseOut={(ev) => ev.target.classList.remove('hover')}
+        onMouseOut={(ev) => ev.currentTarget.classList.remove('hover')}
         onMouseOver={(ev) => onHoverCmp(ev)}
         onClick={(ev) => onSelectCmp(ev, cmp)}
       >
