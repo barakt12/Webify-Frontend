@@ -6,23 +6,16 @@ import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle'
 import EventIcon from '@mui/icons-material/Event'
 import BadgeIcon from '@mui/icons-material/Badge'
 import { DailyVisitCount } from './daily-visit-count'
-export function DashboardPreview({
-  wap,
-  subscribers,
-  viewCount,
-  dailyConversionRate,
-  onSelectTemplate,
-  onDeleteWap,
-}) {
-  const totalViews = Object.values(viewCount)?.reduce((acc, cur) => {
-    return acc + cur
-  }, 0)
+export function DashboardPreview({ wap, subscribers, viewCount, dailyConversionRate, onSelectTemplate, onDeleteWap }) {
+  const totalViews = viewCount
+    ? Object.values(viewCount)?.reduce((acc, cur) => {
+        return acc + cur
+      }, 0)
+    : '0'
 
   const creationDate = wap?.createdAt.slice(0, 10)
 
-  const subscribersCount = subscribers
-    ? Object.values(subscribers)?.flat()?.length
-    : 0
+  const subscribersCount = subscribers ? Object.values(subscribers)?.flat()?.length : 0
   const data = {
     subscribersCount,
     totalViews,
@@ -31,48 +24,45 @@ export function DashboardPreview({
   }
 
   return (
-    <div className='wap-info-display'>
-      <div className='wap-name details-container'>
-        <div className='dashboard-icon-container'>
+    <div className="wap-info-display">
+      <div className="wap-name details-container">
+        <div className="dashboard-icon-container">
           <BadgeIcon />
         </div>
-        <div className='text'>
+        <div className="text">
           <span>Ellie Page</span>
           <span>Website Name</span>
         </div>
       </div>
-      <div className='total-subscribers details-container'>
-        <div className='dashboard-icon-container'>
+      <div className="total-subscribers details-container">
+        <div className="dashboard-icon-container">
           <SupervisedUserCircleIcon style={{}} />
         </div>
-        <div className='text'>
+        <div className="text">
           <span>{data.subscribersCount}</span>
           <span>Total subscribers</span>
         </div>
       </div>
-      <div className='total-views details-container'>
-        <div className='dashboard-icon-container'>
+      <div className="total-views details-container">
+        <div className="dashboard-icon-container">
           <PreviewIcon />
         </div>
-        <div className='text'>
+        <div className="text">
           <span>{data.totalViews}</span>
           <span>Total site views</span>
         </div>
       </div>
-      <div className='creates-at details-container'>
-        <div className='dashboard-icon-container'>
+      <div className="creates-at details-container">
+        <div className="dashboard-icon-container">
           <EventIcon />
         </div>
-        <div className='text'>
+        <div className="text">
           <span>{data.creationDate}</span>
           <span>Creation date</span>
         </div>
       </div>
       <SubscribersList subscribers={subscribers} />
-      <ConversionRate
-        conversionRate={data.conversionRate}
-        dailyConversionRate={dailyConversionRate}
-      />
+      <ConversionRate conversionRate={data.conversionRate} dailyConversionRate={dailyConversionRate} />
       <DailyVisitCount viewCount={viewCount} />
       {/* <p
           className='is-published'
