@@ -22,7 +22,6 @@ export function Editor() {
   const params = useParams()
   const _ = require('lodash')
   const [connectedMouses, setConnectedMouses] = useState([])
-
   useEffect(() => {
     if (!wap) {
       getDraft()
@@ -40,18 +39,8 @@ export function Editor() {
       socketService.on('get wap', () => {
         wap && socketService.emit('wap update', wap)
       })
-      socketService.on('mouse_position_update', ({ id, pos, user }) => {
-        const existingMouseIdx = connectedMouses.findIndex((mouse) => mouse.id === id)
-        let mousesCopy = [...connectedMouses]
-        if (existingMouseIdx >= 0) {
-          mousesCopy[existingMouseIdx] = {
-            ...mousesCopy[existingMouseIdx],
-            pos,
-          }
-        } else {
-          mousesCopy = [{ id, pos, user, color: 'red' }, ...mousesCopy]
-        }
-        setConnectedMouses(mousesCopy)
+      socketService.on('mouse_position_update', (mouse) => {
+        addMouse(mouse)
       })
     }
 
@@ -62,6 +51,20 @@ export function Editor() {
       socketService.terminate()
     }
   }, [isCollabMode])
+
+  const addMouse = ({ id, pos, user, color }) => {
+    setConnectedMouses((prevState) => {
+      const existingMouseIdx = prevState.findIndex((mouse) => mouse.id === id)
+      if (existingMouseIdx < 0) {
+        return [...prevState, { id, pos, user, color }]
+      } else {
+        return prevState.map((mouse, idx) => {
+          if (mouse.id === id) return { ...mouse, pos: pos }
+          return mouse
+        })
+      }
+    })
+  }
 
   const getDraft = async () => {
     const draft = await wapService.getDraft()
