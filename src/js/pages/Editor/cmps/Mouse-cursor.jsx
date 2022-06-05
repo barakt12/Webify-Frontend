@@ -12,6 +12,7 @@ export const MouseCursor = ({ mouse }) => {
         height: '40px',
         width: '40px',
         position: 'fixed',
+        zIndex: 99999,
         top: mouse.pos.my,
         left: mouse.pos.mx,
       }}

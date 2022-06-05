@@ -12,6 +12,7 @@ import { GalleryImgList } from './gallery-img-list'
 import { updateCmp } from '../../../../../store/wap/wap.action'
 import { FormEdit } from './form-edit'
 import { LinkInput } from './link-input'
+import { MarkerInput } from './marker-input'
 
 export const SidebarEdit = () => {
   const dispatch = useDispatch()
@@ -48,6 +49,7 @@ export const SidebarEdit = () => {
     }
     dispatch(updateCmp(selectedCmp))
   }
+ 
 
   return (
     <section className="editor-sidebar-container">
@@ -75,6 +77,12 @@ export const SidebarEdit = () => {
             <div className="img-url-container">
               <p>Image Link</p>
               <ImageUrl imgUrl={selectedCmp.info.imgUrl} cb={updateImg} />
+            </div>
+          )}
+          {selectedCmp.type === 'map' && (
+            <div className="map-marker-container">
+              <p>Map Markers</p>
+              <MarkerInput markers={selectedCmp.info.markers} />
             </div>
           )}
           {selectedCmp.type === 'video' && (
