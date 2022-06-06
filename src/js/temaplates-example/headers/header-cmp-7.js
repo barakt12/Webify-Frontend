@@ -8,7 +8,9 @@ export const headerCmp7 = {
   id: uuidv4(),
   thumbnail:
   require('../../../assets/img/thumbnails/header/wap-header-7.JPG'),
-  style: {},
+  style: {
+    backgroundColor: '#f9db79',
+  },
   cmps: [
     {
       type: 'container',
