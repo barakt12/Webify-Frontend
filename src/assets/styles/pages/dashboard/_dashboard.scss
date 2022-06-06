@@ -25,13 +25,71 @@
     .wap-info-display {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
-      grid-template-rows: 240px 1fr 1.5fr;
+      grid-template-rows: 20px 240px 1fr 1.5fr;
       grid-template-areas:
+        'wap-published wap-published wap-published wap-published . wap-btns wap-btns wap-btns'
         'wap-name wap-name total-subs total-subs total-views total-views date date'
         'sub-list sub-list sub-list sub-list sub-list conversion-rate conversion-rate conversion-rate'
         'view-chart view-chart view-chart view-chart view-chart view-chart view-chart view-chart';
       gap: 25px;
       background-color: rgb(249, 250, 251);
+    }
+
+    .wap-btns-container {
+      grid-area: wap-btns;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: flex-end;
+      
+      button {
+        width: 150px;
+        height: 35px;
+        border-radius: 5rem;
+        border: 0;
+        outline: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.4s;
+
+        &.visit-publish {
+          background-color: #f07147;
+          color: #fff;
+          
+          &:hover {
+            background-color: #e56135;
+            
+          }
+        }
+
+        &.edit {
+          background-color: transparent;
+          border: 1px solid #83aff1;
+          color: #061b64;
+
+          &:hover {
+            background-color:  #83aff1;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .published-msg {
+      grid-area: wap-published;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: tomato;
+
+      svg {
+        font-size: 2rem;
+      }
+
+      &.published {
+        color: rgb(82, 165, 98);
+      }
+
     }
 
     .wap-name {
@@ -263,14 +321,7 @@
     display: flex;
     align-self: flex-start;
     justify-content: space-between;
-    & > div {
-      display: flex;
-      gap: 10px;
-      & svg {
-        font-size: 30px;
-        fill: #ef5350;
-      }
-    }
+  
   }
 }
 
