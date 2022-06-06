@@ -25,7 +25,7 @@
     .wap-info-display {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
-      grid-template-rows: 20px 240px 1fr 1.5fr;
+      grid-template-rows: 40px 240px 0.9fr 1.5fr;
       grid-template-areas:
         'wap-published wap-published wap-published wap-published . wap-btns wap-btns wap-btns'
         'wap-name wap-name total-subs total-subs total-views total-views date date'
@@ -39,8 +39,10 @@
       grid-area: wap-btns;
       display: flex;
       gap: 0.5rem;
+      height: 35px;
+
       justify-content: flex-end;
-      
+
       button {
         width: 150px;
         height: 35px;
@@ -55,10 +57,9 @@
         &.visit-publish {
           background-color: #f07147;
           color: #fff;
-          
+
           &:hover {
             background-color: #e56135;
-            
           }
         }
 
@@ -68,7 +69,7 @@
           color: #061b64;
 
           &:hover {
-            background-color:  #83aff1;
+            background-color: #83aff1;
             color: #fff;
           }
         }
@@ -87,9 +88,9 @@
       }
 
       &.published {
+        // padding: 0 0.1rem;
         color: rgb(82, 165, 98);
       }
-
     }
 
     .wap-name {
@@ -315,13 +316,13 @@
     }
   }
   & .template-page-intro {
-    padding-inline: 20px;
+    padding-inline: 5px;
+
     height: 100px;
     width: 100%;
     display: flex;
     align-self: flex-start;
     justify-content: space-between;
-  
   }
 }
 

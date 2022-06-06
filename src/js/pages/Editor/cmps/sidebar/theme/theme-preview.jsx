@@ -18,7 +18,7 @@ export const ThemePreview = ({ theme, onSelectTheme }) => {
                 // flexBasis: '60%',
                 height: '15px',
                 // idth: '100px',
-                backgroundColor: color[1].background,
+                backgroundColor: color[1].backgroundColor,
               }}
             ></div>
           )

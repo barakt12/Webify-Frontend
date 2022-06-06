@@ -22,6 +22,7 @@ export const wapService = {
   publishWap,
   increaseViewCount,
   generateNewIds,
+  findCmp,
 }
 
 function query(filterBy, sortBy) {
@@ -46,28 +47,25 @@ function getWapCopy(wap) {
   return JSON.parse(JSON.stringify(wap))
 }
 
-function deleteCmp(cmp, cmpId) {
-  const idx = cmp?.cmps?.findIndex((cmp) => cmp.id === cmpId)
+function findCmp(parentCmp, cmp, cb) {
+  const idx = parentCmp?.cmps?.findIndex((currCmp) => currCmp.id === cmp.id)
   if (idx > -1) {
-    cmp.cmps.splice(idx, 1)
+    cb(parentCmp, idx, cmp)
     return
   } else {
-    cmp?.cmps?.forEach((cmp) => deleteCmp(cmp, cmpId))
+    parentCmp?.cmps?.forEach((currCmp) => findCmp(currCmp, cmp, cb))
   }
 }
 
-function duplicateCmp(cmp, newCmp, cmpId) {
-  const idx = cmp?.cmps?.findIndex((cmp) => cmp.id === cmpId)
-  if (idx > -1) {
-    // cmp.id = uuidv4()
-    cmp.cmps.splice(idx, 0, newCmp)
-    return
-  } else {
-    cmp?.cmps?.forEach((cmp) => {
-      // cmp.id = uuidv4()
-      return duplicateCmp(cmp, newCmp, cmpId)
-    })
-  }
+function deleteCmp(cmp, idx) {
+  return cmp.cmps.splice(idx, 1)
+}
+
+function duplicateCmp(cmp, idx) {
+  console.log(cmp, idx)
+  const newCmp = getWapCopy(cmp.cmps[idx])
+  generateNewIds(newCmp)
+  return cmp.cmps.splice(idx, 0, newCmp)
 }
 
 function generateNewIds(cmp) {
@@ -76,14 +74,8 @@ function generateNewIds(cmp) {
   cmp.cmps.forEach((cmp) => generateNewIds(cmp))
 }
 
-function updateCmp(cmp, newCmp) {
-  const cmpIndex = cmp?.cmps?.findIndex((currCmp) => currCmp.id === newCmp.id)
-  if (cmpIndex > -1) {
-    cmp.cmps.splice(cmpIndex, 1, newCmp)
-    return
-  } else {
-    cmp?.cmps?.forEach((cmp) => updateCmp(cmp, newCmp))
-  }
+function updateCmp(cmp, idx, newCmp) {
+  return cmp.cmps.splice(idx, 1, newCmp)
 }
 
 function changeCmpId(cmp) {
