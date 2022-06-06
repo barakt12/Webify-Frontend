@@ -14,6 +14,10 @@
   width: 15px;
   height: 15px;
 }
+.MuiSlider-thumbColorPrimary.MuiSlider-thumbSizeMedium.MuiSlider-thumb.css-7drnjp {
+  width: 15px;
+  height: 15px;
+}
 
 .MuiOutlinedInput-root.MuiInputBase-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.Mui-focused {
   background-color: #fff;
@@ -94,6 +98,11 @@ body {
 
 main {
   flex: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .main-layout {

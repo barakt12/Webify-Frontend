@@ -18,8 +18,6 @@ export const TxtEditor = () => {
   const dispatch = useDispatch()
   const { selectedCmp } = useSelector((storeState) => storeState.wapModule)
 
-  useEffect(() => {}, [selectedCmp])
-
   const onChangeFontWeight = () => {
     const fontWeightType =
       selectedCmp.style.fontWeight === 'bold' ||

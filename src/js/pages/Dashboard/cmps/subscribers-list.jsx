@@ -43,7 +43,7 @@ export function SubscribersList({ subscribers }) {
           id='tableTitle'
           component='div'
         >
-          Subscribers List
+          Subscription List
         </Typography>
       </Toolbar>
       {!subscribers ? (

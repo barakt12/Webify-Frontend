@@ -1,20 +1,34 @@
 import { DashboardPreview } from './cmps/dashboard-preview'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteWap, selectWap } from '../../store/wap/wap.action'
 import { loadSavedWaps } from '../../store/wap/wap.action'
 import { toast } from 'react-toastify'
-import ErrorIcon from '@mui/icons-material/Error'
+import DashboardSideMenu from './cmps/dashboard-side-menu'
+import { useNavigate } from 'react-router'
 
 export const Dashboard = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const savedWaps = useSelector((storeState) => storeState.wapModule.savedWaps)
+  const [currWap, setCurrWap] = useState(null)
+
   useEffect(() => {
     dispatch(loadSavedWaps())
   }, [])
 
+  useEffect(() => {
+    if (!savedWaps) return
+    setCurrWap(savedWaps[0])
+  }, [savedWaps])
+
+  const onSelectWapToDisplay = (wap) => {
+    setCurrWap(wap)
+  }
+
   const onSelectTemplate = (id) => {
     dispatch(selectWap(id))
+    navigate('/editor')
   }
 
   const onDeleteWap = (id) => {
@@ -22,34 +36,27 @@ export const Dashboard = () => {
     toast.success('Deleted Successfully')
   }
   return (
-    <section className='main-dashboard-container'>
-      <section className='profile-page'>
-        <div className='template-page-intro'>
+    <section className="main-dashboard-container">
+      <DashboardSideMenu onSelectWapToDisplay={onSelectWapToDisplay} />
+      <section className="profile-page">
+        <div className="template-page-intro">
           <h2>Hi, Welcome back</h2>
-          {
-            <div>
-              <h3>This site isn't published yet</h3>
-              <ErrorIcon />
-            </div>
-          }
         </div>
         {!savedWaps && <p>Please login to see your websites!</p>}
-        {savedWaps && !savedWaps.length && (
-          <p>You havent created websites yet</p>
-        )}
-        <section className='dashboard-container'>
-          {savedWaps?.map((wap) => (
+        {savedWaps && !savedWaps.length && <p>You havent created websites yet</p>}
+        {currWap && (
+          <section className="dashboard-container">
             <DashboardPreview
-              key={wap._id}
-              wap={wap}
-              dailyConversionRate={wap.conversionRate}
-              subscribers={wap.subscribers}
-              viewCount={wap.viewCount}
+              key={currWap._id}
+              wap={currWap}
+              dailyConversionRate={currWap.conversionRate}
+              subscribers={currWap.subscribers}
+              viewCount={currWap.viewCount}
               onSelectTemplate={onSelectTemplate}
               onDeleteWap={onDeleteWap}
             />
-          ))}
-        </section>
+          </section>
+        )}
       </section>
     </section>
   )

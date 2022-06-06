@@ -1,28 +1,26 @@
 import { ConversionRate } from './conversion-rate'
 import { SubscribersList } from './subscribers-list'
-import React from 'react'
 import PreviewIcon from '@mui/icons-material/Preview'
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle'
 import EventIcon from '@mui/icons-material/Event'
 import BadgeIcon from '@mui/icons-material/Badge'
 import { DailyVisitCount } from './daily-visit-count'
-export function DashboardPreview({
-  wap,
-  subscribers,
-  viewCount,
-  dailyConversionRate,
-  onSelectTemplate,
-  onDeleteWap,
-}) {
-  const totalViews = Object.values(viewCount)?.reduce((acc, cur) => {
-    return acc + cur
-  }, 0)
+import ErrorIcon from '@mui/icons-material/Error'
+import { useDispatch } from 'react-redux'
+import { publishWap } from '../../../store/wap/wap.action'
+import { Link } from 'react-router-dom'
+
+export function DashboardPreview({ wap, subscribers, viewCount, dailyConversionRate, onSelectTemplate, onDeleteWap }) {
+  const dispatch = useDispatch()
+  const totalViews = viewCount
+    ? Object.values(viewCount)?.reduce((acc, cur) => {
+        return acc + cur
+      }, 0)
+    : '0'
 
   const creationDate = wap?.createdAt.slice(0, 10)
 
-  const subscribersCount = subscribers
-    ? Object.values(subscribers)?.flat()?.length
-    : 0
+  const subscribersCount = subscribers ? Object.values(subscribers)?.flat()?.length : 0
   const data = {
     subscribersCount,
     totalViews,
@@ -30,49 +28,70 @@ export function DashboardPreview({
     conversionRate: ((subscribersCount / totalViews) * 100).toFixed(2),
   }
 
+  const onPublishWap = (id) => {
+    dispatch(publishWap(id))
+  }
+
   return (
-    <div className='wap-info-display'>
-      <div className='wap-name details-container'>
-        <div className='dashboard-icon-container'>
+    <div className="wap-info-display">
+      <div className={`published-msg ${wap.isPublished ? 'published' : ''}`}>
+        <ErrorIcon />
+        <h3>{wap.isPublished ? 'This is site published' : "This site isn't published yet"}</h3>
+      </div>
+      <div className="wap-btns-container">
+        <button className="edit" onClick={() => onSelectTemplate(wap._id)}>
+          Edit
+        </button>
+        {wap.isPublished ? (
+          <button className="visit-publish">
+            <Link to={`/publish/${wap._id}`} target="_blank">
+              Visit
+            </Link>
+          </button>
+        ) : (
+          <button className="visit-publish" onClick={() => onPublishWap(wap._id)}>
+            Publish
+          </button>
+        )}
+      </div>
+      <div className="wap-name details-container">
+        <div className="dashboard-icon-container">
           <BadgeIcon />
         </div>
-        <div className='text'>
-          <span>Ellie Page</span>
+        <div className="text">
+          <span>{wap.name}</span>
           <span>Website Name</span>
         </div>
       </div>
-      <div className='total-subscribers details-container'>
-        <div className='dashboard-icon-container'>
+      <div className="total-subscribers details-container">
+        <div className="dashboard-icon-container">
           <SupervisedUserCircleIcon style={{}} />
         </div>
-        <div className='text'>
+        <div className="text">
           <span>{data.subscribersCount}</span>
           <span>Total subscribers</span>
         </div>
       </div>
-      <div className='total-views details-container'>
-        <div className='dashboard-icon-container'>
+      <div className="total-views details-container">
+        <div className="dashboard-icon-container">
           <PreviewIcon />
         </div>
-        <div className='text'>
+        <div className="text">
           <span>{data.totalViews}</span>
           <span>Total site views</span>
         </div>
       </div>
-      <div className='creates-at details-container'>
-        <div className='dashboard-icon-container'>
+      <div className="creates-at details-container">
+        <div className="dashboard-icon-container">
           <EventIcon />
         </div>
-        <div className='text'>
+        <div className="text">
           <span>{data.creationDate}</span>
           <span>Creation date</span>
         </div>
       </div>
       <SubscribersList subscribers={subscribers} />
-      <ConversionRate
-        conversionRate={data.conversionRate}
-        dailyConversionRate={dailyConversionRate}
-      />
+      <ConversionRate conversionRate={data.conversionRate} dailyConversionRate={dailyConversionRate} />
       <DailyVisitCount viewCount={viewCount} />
       {/* <p
           className='is-published'

@@ -41,8 +41,24 @@ export function Editor() {
       socketService.on('get wap', () => {
         wap && socketService.emit('wap update', wap)
       })
-      socketService.on('mouse_position_update', (mouse) => {
-        addMouse(mouse)
+      socketService.on('mouse_position_update', ({ id, pos, user, color }) => {
+        console.log(id, user)
+        setConnectedMouses((prevState) => {
+          const existingMouseIdx = prevState.findIndex((mouse) => mouse.id === id)
+          if (existingMouseIdx < 0) {
+            return [...prevState, { id, pos, user, color }]
+          } else {
+            return prevState.map((mouse, idx) => {
+              if (mouse.id === id) return { ...mouse, pos: pos }
+              return mouse
+            })
+          }
+        })
+      })
+      socketService.on('user_left', ({ userId }) => {
+        setConnectedMouses((prevState) => {
+          return prevState.filter((mouse) => mouse.id !== userId)
+        })
       })
     }
 
@@ -50,23 +66,10 @@ export function Editor() {
       dispatch(setSelectedCmp(null))
       socketService.off('send wap')
       socketService.off('wap update')
+      socketService.off('mouse_position_update')
       socketService.terminate()
     }
   }, [isCollabMode])
-
-  const addMouse = ({ id, pos, user, color }) => {
-    setConnectedMouses((prevState) => {
-      const existingMouseIdx = prevState.findIndex((mouse) => mouse.id === id)
-      if (existingMouseIdx < 0) {
-        return [...prevState, { id, pos, user, color }]
-      } else {
-        return prevState.map((mouse, idx) => {
-          if (mouse.id === id) return { ...mouse, pos: pos }
-          return mouse
-        })
-      }
-    })
-  }
 
   const getDraft = async () => {
     const draft = await wapService.getDraft()
@@ -129,7 +132,6 @@ export function Editor() {
   }
 
   const handleDragUpdate = (event) => {
-    // if(event.source.droppableId === 'hb5') return
     if (event.source.droppableId === 'hb5') {
       isFromSidebar = true
       return

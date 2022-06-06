@@ -53,6 +53,9 @@ export const AppHeader = ({ isCopy }) => {
   }
 
   const editorClass = location.pathname.includes('/editor') ? 'in-editor' : ''
+  const dashboardClass = location.pathname.includes('/dashboard')
+    ? 'in-dashboard'
+    : ''
   const copyClass = isCopy ? 'home-header-copy' : ''
   if (
     location.pathname.includes('/preview') ||
@@ -67,7 +70,7 @@ export const AppHeader = ({ isCopy }) => {
            isNavMenuShown
              ? 'header-nav-menu-open app-header flex justify-between align-center'
              : 'app-header flex justify-between align-center'
-         } ${editorClass}`}
+         } ${editorClass} ${dashboardClass}`}
       >
         <Link to='/' className='clean-link logo'>
           <p className='logo'>webify</p>
