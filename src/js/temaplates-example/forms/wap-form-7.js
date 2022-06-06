@@ -4,9 +4,12 @@ export const formCmp7 = {
   name: 'wap-footer-7',
   type: 'container',
   category: 'footer',
+  themePalette: 'primary',
   id: uuidv4(),
   thumbnail: require('../../../assets/img/thumbnails/form/wap-form-7.JPG'),
-  style: {},
+  style: {
+    color: '#fff',
+  },
   cmps: [
     {
       name: 'first-footer-txt',
@@ -23,7 +26,6 @@ export const formCmp7 = {
           },
           style: {
             fontSize: '1.5rem',
-            color: 'white',
           },
           cmps: [],
         },
@@ -35,7 +37,6 @@ export const formCmp7 = {
           },
           style: {
             fontSize: '0.875rem',
-            color: 'white',
           },
           cmps: [],
         },
@@ -56,7 +57,6 @@ export const formCmp7 = {
           },
           style: {
             fontSize: '1.5rem',
-            color: 'white',
           },
           cmps: [],
         },
@@ -68,7 +68,6 @@ export const formCmp7 = {
           },
           style: {
             fontSize: '0.875rem',
-            color: 'white',
           },
           cmps: [],
         },
@@ -89,7 +88,6 @@ export const formCmp7 = {
           },
           style: {
             fontSize: '1.5rem',
-            color: 'white',
           },
           cmps: [],
         },
@@ -101,7 +99,6 @@ export const formCmp7 = {
           },
           style: {
             fontSize: '0.875rem',
-            color: 'white',
           },
           cmps: [],
         },
@@ -122,7 +119,6 @@ export const formCmp7 = {
           },
           style: {
             fontSize: '1.5rem',
-            color: 'white',
           },
           cmps: [],
         },

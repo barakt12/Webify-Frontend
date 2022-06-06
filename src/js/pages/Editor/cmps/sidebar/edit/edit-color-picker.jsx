@@ -7,7 +7,6 @@ import _ from 'lodash'
 export const EditColorPicker = ({ isBackgroundColor }) => {
   //use memo
   const [color, setColor] = useState({
-    color: '#FFFFFF',
     background: '#FFFFFF',
   })
   const dispatch = useDispatch()
@@ -17,11 +16,12 @@ export const EditColorPicker = ({ isBackgroundColor }) => {
     setColor((prevState) => ({ ...prevState, background: colorInput }))
     if (!selectedCmp) return
     const newColor = isBackgroundColor
-      ? { background: colorInput }
+      ? { backgroundColor: colorInput }
       : { color: colorInput }
-    selectedCmp.style = { ...selectedCmp.style, ...newColor }
+    const cmpToUpdate = JSON.parse(JSON.stringify(selectedCmp))
+    cmpToUpdate.style = { ...cmpToUpdate.style, ...newColor }
 
-    dispatch(updateCmp(selectedCmp))
+    dispatch(updateCmp(cmpToUpdate))
   }
 
   const debounce = _.debounce((colorInput) => onChangeColor(colorInput), 25)

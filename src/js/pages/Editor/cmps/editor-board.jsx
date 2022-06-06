@@ -42,13 +42,6 @@ export const EditorBoard = ({ wap }) => {
   }, [isSaving, isPublishing, isModalOpen])
 
   const saveWapWithThumbnail = async (isPublish) => {
-    const elBoard = document.querySelector('.editor')
-    const thumbnailUrl = await createJpegFromElement(
-      elBoard,
-      elBoard.clientWidth,
-      elBoard.scrollHeight
-    )
-    dispatch(setWapThumbnail(thumbnailUrl))
     try {
       if (isPublish) {
         await dispatch(publishWap())

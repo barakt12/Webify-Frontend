@@ -72,7 +72,7 @@ export const Cards = () => {
         <div className='cards-left-box-container'>
           <h1>Work Together</h1>
           <h1>
-              Work with your friends and family and create together your unique design
+              Work with your   and create together your unique design
             </h1>
           
         </div>

@@ -19,9 +19,9 @@ export const WapTeasers = () => {
     dispatch(loadTemplate(id))
   }
   return (
-    <div className="wap-teasers-container">
-      <div className="wave3-png"></div>
-      <h1>Here's a few of our Templates</h1>
+    <div className='wap-teasers-container'>
+      <div className='wave3-png'></div>
+      <h1>Trending Templates</h1>
       <Swiper
         slidesPerView={3}
         spaceBetween={0}
@@ -34,33 +34,52 @@ export const WapTeasers = () => {
           disableOnInteraction: false,
         }}
         modules={[Pagination, Autoplay]}
-        className="mySwiper"
+        className='mySwiper'
       >
         {templatePreviews.map((preview, idx) => {
           return (
             <SwiperSlide key={idx}>
-              <Link className="template-select-btn" to="/editor">
-                <div key={preview.id} className="main-template-container" style={{ backgroundImage: 'none', height: '100%' }} onClick={() => onSelectTemplate(preview.id)}>
-                  <section className="templates-container">
+              <Link className='template-select-btn' to='/editor'>
+                <div
+                  key={preview.id}
+                  className='main-template-container'
+                  style={{ backgroundImage: 'none', height: '100%' }}
+                  onClick={() => onSelectTemplate(preview.id)}
+                >
+                  <section className='templates-container'>
                     <div className={preview.id + ' nohover'}>
-                      <div className="template-hover-info-container">
-                        <p>A simple and bold layout that makes it easy for you to showcase your product and share it with the world in no time.</p>
-                        <div className="template-hover-btns-container">
+                      <div className='template-hover-info-container'>
+                        <p>
+                          A simple and bold layout that makes it easy for you to
+                          showcase your product and share it with the world in
+                          no time.
+                        </p>
+                        <div className='template-hover-btns-container'>
                           {/* <Link to={`/preview`} > */}
-                          <button className="template-preview-btn" onClick={() => onPreviewTemplate(preview.id)}>
+                          <button
+                            className='template-preview-btn'
+                            onClick={() => onPreviewTemplate(preview.id)}
+                          >
                             Preview
                           </button>
                           {/* </Link> */}
-                          <button className="template-select-btn" onClick={() => onSelectTemplate(preview.id)}>
+                          <button
+                            className='template-select-btn'
+                            onClick={() => onSelectTemplate(preview.id)}
+                          >
                             Select
                           </button>
                         </div>
                       </div>
-                      <img src={preview.info.img} alt="" />
+                      <img src={preview.info.img} alt='' />
                       <hr />
-                      <div className="template-info-container">
-                        <p className="info-template-name">{preview.info.name}</p>
-                        <p className="info-template-category">{preview.info.category}</p>
+                      <div className='template-info-container'>
+                        <p className='info-template-name'>
+                          {preview.info.name}
+                        </p>
+                        <p className='info-template-category'>
+                          {preview.info.category}
+                        </p>
                       </div>
                     </div>
                   </section>

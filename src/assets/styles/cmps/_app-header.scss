@@ -6,7 +6,7 @@ header {
 }
 .app-header {
   z-index: 15;
-  padding: 0 0.5rem;
+  padding: 0 3.6rem;
   height: 70px;
   // background-color: $accent-color;
   color: $main-color;
@@ -107,10 +107,10 @@ header {
     }
   }
 
-  @media screen and (min-width: '450px') {
-     &.app-header{
-        padding: 0 3.6rem;
-      }
+  @media screen and (max-width: '450px') {
+    & {
+      padding: 0 0.5rem;
+    }
   }
 
   @media screen and (min-width: '1200px') {

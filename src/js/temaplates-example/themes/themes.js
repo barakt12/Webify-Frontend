@@ -8,11 +8,11 @@ export const themes = [
     fontFamily: 'Arial',
     colors: {
       primary: {
-        background: '#92B4EC',
+        backgroundColor: '#92B4EC',
         color: '#484848',
       },
       secondary: {
-        background: '#FFFFFF',
+        backgroundColor: '#FFFFFF',
         color: '#000',
       },
     },
@@ -24,15 +24,15 @@ export const themes = [
     fontFamily: 'Roboto',
     colors: {
       primary: {
-        background: '#C6CCCA',
+        backgroundColor: '#C6CCCA',
         color: '#000',
       },
       secondary: {
-        background: '#F8F4F1',
+        backgroundColor: '#F8F4F1',
         color: '#000',
       },
       third: {
-        background: '#A34A21',
+        backgroundColor: '#A34A21',
         color: '#fff',
       },
     },
@@ -44,16 +44,16 @@ export const themes = [
     fontFamily: 'Oswald',
     colors: {
       primary: {
-        background: 'rgb(11 122 157 / 63%)',
+        backgroundColor: 'rgb(11 122 157 / 63%)',
         color: '#fff',
       },
       // rgb(11 122 157 / 63%)
       secondary: {
-        background: '#ebe079bd',
+        backgroundColor: '#ebe079bd',
         color: '#000',
       },
       third: {
-        background: '#fff',
+        backgroundColor: '#fff',
         color: '#000',
       },
     },
@@ -63,16 +63,16 @@ export const themes = [
     name: 'Business',
     description: 'Nifty & sophisticated',
     colors: {
-      secondary: {
-        background: '#5b2f2c',
+      primary: {
+        backgroundColor: '#11999E',
         color: '#fff',
       },
-      primary: {
-        background: '#cdaf8c',
+      secondary: {
+        backgroundColor: '#40514E',
         color: '#fff',
       },
       third: {
-        background: '#f1e4de',
+        backgroundColor: '#E4F9F5',
         color: '#000',
       },
     },
@@ -83,12 +83,12 @@ export const themes = [
     description: 'Pungent & zesty',
     colors: {
       primary: {
-        background: '#c2ffb0',
+        backgroundColor: '#c2ffb0',
         color: '#000',
       },
       secondary: {
-        background: '#1f1f1f',
-        // background: '#EC994B',
+        backgroundColor: '#1f1f1f',
+        // backgroundColor: '#EC994B',
         color: 'white',
       },
     },

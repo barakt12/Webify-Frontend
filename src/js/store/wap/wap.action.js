@@ -13,10 +13,9 @@ export const deleteCmp = (cmp) => {
     // gets wap from state to pass to service function
     let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
     if (wap && cmp) {
-      wapService.deleteCmp(wap, cmp.id)
+      console.log(wapService.deleteCmp)
+      wapService.findCmp(wap, cmp , wapService.deleteCmp)
       await dispatch(updateWap(wap))
-      console.log('here')
-      wapService.saveToDraft(wap)
     }
   }
 }
@@ -24,9 +23,7 @@ export const deleteCmp = (cmp) => {
 export const duplicateCmp = (cmp) => {
   return async (dispatch, getState) => {
     let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
-    const duplicateCmp = JSON.parse(JSON.stringify(cmp))
-    wapService.generateNewIds(duplicateCmp)
-    wapService.duplicateCmp(wap, duplicateCmp, cmp.id)
+    wapService.findCmp(wap, cmp , wapService.duplicateCmp)
     await dispatch(updateWap(wap))
     wapService.saveToDraft(wap)
   }
@@ -47,7 +44,7 @@ export const updateCmp = (updatedCmp) => {
   return async (dispatch, getState) => {
     try {
       let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
-      wapService.updateCmp(wap, updatedCmp)
+      wapService.findCmp(wap, updatedCmp, wapService.updateCmp)
       wapService.saveToDraft(wap)
       await dispatch({ type: 'UPDATE_WAP', wap })
       await wapService.saveToDraft(wap)
@@ -103,6 +100,7 @@ export const undoWap = () => {
       if (history.length) {
         let lastWapState = history.pop()
         wapService.saveToDraft(lastWapState)
+        console.log(lastWapState)
         dispatch({ type: 'UNDO_WAP', wap: lastWapState, history })
         socketService.emit('wap update', lastWapState)
       }
@@ -157,7 +155,9 @@ export const loadSavedWaps = () => {
 export const selectWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
+      const selectedWap = getState().wapModule.savedWaps.find(
+        (wap) => wap._id === id
+      )
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
   }
@@ -176,7 +176,9 @@ export const setCollabMode = (isCollabMode) => {
 export const publishWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const wap = id ? getState().wapModule.savedWaps.find((wap) => wap._id === id) : getState().wapModule.wap
+      const wap = id
+        ? getState().wapModule.savedWaps.find((wap) => wap._id === id)
+        : getState().wapModule.wap
       const user = getState().userModule.user
       if (!user) {
         throw new Error('You have to login to publish')

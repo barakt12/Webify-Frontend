@@ -13,6 +13,7 @@ export const formCmp2 = {
       type: 'container',
       name: 'side-text',
       id: uuidv4(),
+
       cmps: [
         {
           type: 'txt',
@@ -27,6 +28,7 @@ export const formCmp2 = {
     {
       type: 'container',
       name: 'form-container',
+
       id: uuidv4(),
       cmps: [
         {
