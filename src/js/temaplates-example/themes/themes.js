@@ -41,7 +41,7 @@ export const themes = [
     id: uuidv4(),
     name: 'Retro Vibrant',
     description: 'Hip, mod & stylish',
-    fontFamily: 'fangsong',
+    fontFamily: 'Oswald',
     colors: {
       primary: {
         background: 'rgb(11 122 157 / 63%)',

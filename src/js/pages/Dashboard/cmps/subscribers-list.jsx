@@ -11,6 +11,7 @@ import {
 } from '@mui/material'
 import React from 'react'
 export function SubscribersList({ subscribers }) {
+  if(!subscribers) return <></>
   return (
     <Paper
       elevation={0} // variant='outlined'
@@ -57,7 +58,7 @@ export function SubscribersList({ subscribers }) {
           >
             <TableHead>
               <TableRow>
-                {Object.keys(Object.values(subscribers)[0][0]).map(
+                {subscribers ? Object.keys(Object.values(subscribers)[0][0]).map(
                   (key, idx) => (
                     <TableCell key={idx} style={{ fontWeight: 700 }}>
                       {key[0].toUpperCase() +
@@ -67,11 +68,11 @@ export function SubscribersList({ subscribers }) {
                           .join(' ')}
                     </TableCell>
                   )
-                )}
+                ) : <></>} 
               </TableRow>
             </TableHead>
             <TableBody>
-              {Object.values(subscribers)
+              {subscribers ? Object.values(subscribers)
                 .flat()
                 .map((subscriber, idx) => (
                   <TableRow key={idx}>
@@ -79,7 +80,7 @@ export function SubscribersList({ subscribers }) {
                       <TableCell key={idx}>{value}</TableCell>
                     ))}
                   </TableRow>
-                ))}
+                )) : <></>}
             </TableBody>
           </Table>
         </TableContainer>

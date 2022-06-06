@@ -4,7 +4,7 @@ export const headerCmp7 = {
   name: 'wap-header-7',
   type: 'container',
   category: 'header',
-  themePalette: 'primary',
+  themePalette: 'secondary',
   id: uuidv4(),
   thumbnail:
   require('../../../assets/img/thumbnails/header/wap-header-7.JPG'),
@@ -22,7 +22,9 @@ export const headerCmp7 = {
           info: {
             txt: '500 Terry Francois Street San Francisco, CA 94158  |  Daily 10AM-10PM',
           },
-          style: {},
+          style: {
+            fontSize: '1rem',
+          },
         },
       ],
     },
@@ -88,7 +90,9 @@ export const headerCmp7 = {
           info: {
             txt: 'Gelato',
           },
-          style: {},
+          style: {
+            fontSize: '3rem',
+          },
         },
         {
           type: 'container',

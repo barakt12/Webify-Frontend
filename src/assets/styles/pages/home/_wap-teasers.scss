@@ -41,7 +41,7 @@
   left: 50%;
   transform: translateX(-50%);
   // height: 200px;
-  
+
   @media screen and (min-width: 700px) {
     width: 900px;
   }
@@ -59,4 +59,23 @@
   margin: 0;
   overflow: hidden;
   padding-bottom: 50px;
+}
+
+@media screen and (max-width: '450px') {
+  .home {
+    & .wap-teasers-container {
+      & > h1 {
+        padding: 0 0.5rem;
+      }
+    }
+  }
+  .main-template-container{
+    & .templates-container{
+      & .nohover{
+        & .template-info-container{
+          padding: 7px 20px 14px;
+        }
+      }
+    }
+  }
 }

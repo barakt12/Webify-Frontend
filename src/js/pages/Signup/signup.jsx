@@ -14,9 +14,9 @@ import { setUser } from '../../store/user/user.action'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
 
 export const SignUp = () => {
-
   const navigate = useNavigate()
 
   // eslint-disable-next-line no-unused-vars
@@ -33,15 +33,15 @@ export const SignUp = () => {
       const user = await userService.signup(cred)
       console.log(user)
       dispatch(setUser(user))
+      toast.success('Signed up Successfully!')
       navigate('/')
-      console.log('Signed up successfuly!')
     } catch (error) {
-      // TODO: barak you need to add user msg!@!!!!
+      toast.error(error.response.data.err)
       console.log(error.response.data.err)
     }
   }
 
-  const onValidate = ({ username, password, email,fullname }) => {
+  const onValidate = ({ username, password, email, fullname }) => {
     const errors = {}
 
     if (!username) errors.username = 'Required'
@@ -52,124 +52,123 @@ export const SignUp = () => {
     return errors
   }
 
-const theme = createTheme()
+  const theme = createTheme()
 
   return (
     <div>
-    <ThemeProvider theme={theme}>
-      <Container
-        component="main"
-        sx={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}
-      >
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            width: '475px',
-          }}
+      <ThemeProvider theme={theme}>
+        <Container
+          component="main"
+          sx={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}
         >
-          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              width: '475px',
+            }}
+          >
+            {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar> */}
-          <Typography
-            component="h1"
-            variant="h5"
-            sx={{ fontWeight: 700, fontSize: '38px' }}
-          >
-            Start designing for free
-          </Typography>
-          <Formik
-            validateOnChange
-            validate={onValidate}
-            initialValues={credentials}
-            onSubmit={onSignup}
-          >
-            {({ errors }) => (
+            <Typography
+              component="h1"
+              variant="h5"
+              sx={{ fontWeight: 700, fontSize: '38px' }}
+            >
+              Start designing for free
+            </Typography>
+            <Formik
+              validateOnChange
+              validate={onValidate}
+              initialValues={credentials}
+              onSubmit={onSignup}
+            >
+              {({ errors }) => (
+                <Form>
+                  <Field
+                    as={TextField}
+                    margin="normal"
+                    required
+                    fullWidth
+                    placeholder="Full Name"
+                    name="fullname"
+                    autoFocus
+                    sx={{ backgroundColor: '#eee' }}
+                  />
+                  {<span className="error">{errors.fullname}</span>}
+                  <Field
+                    as={TextField}
+                    margin="normal"
+                    required
+                    fullWidth
+                    placeholder="Username"
+                    name="username"
+                    autoFocus
+                    sx={{ backgroundColor: '#eee' }}
+                  />
+                  {<span className="error">{errors.username}</span>}
+                  <Field
+                    as={TextField}
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="email"
+                    placeholder="Email"
+                    type="email"
+                    id="email"
+                    sx={{ backgroundColor: '#eee' }}
+                  />
+                  {<span className="error">{errors.email}</span>}
 
-              <Form>
-                <Field
-                  as={TextField}
-                  margin="normal"
-                  required
-                  fullWidth
-                  placeholder="Full Name"
-                  name="fullname"
-                  autoFocus
-                  sx={{ backgroundColor: '#eee' }}
-                />
-                {<span className="error">{errors.fullname}</span>}
-                <Field
-                  as={TextField}
-                  margin="normal"
-                  required
-                  fullWidth
-                  placeholder="Username"
-                  name="username"
-                  autoFocus
-                  sx={{ backgroundColor: '#eee' }}
-                />
-                {<span className="error">{errors.username}</span>}
-                <Field
-                  as={TextField}
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="email"
-                  placeholder="Email"
-                  type="email"
-                  id="email"
-                  sx={{ backgroundColor: '#eee' }}
-                />
-                {<span className="error">{errors.email}</span>}
-
-                <Field
-                  as={TextField}
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                  sx={{ backgroundColor: '#eee' }}
-                />
-                {<span className="error">{errors.password}</span>}
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    backgroundColor: '#4253ff',
-                    fontSize: '1rem',
-                    fontFamily: 'sans-serif',
-                    height: '50px',
-                    textTransform: 'capitalize',
-                    fontWeight: '600',
-                  }}
-                >
-                  Create account
-                </Button>
-                <Grid container>
-                  <Grid item>
-                    <Link href="/login" variant="body2" color="#666">
-                      {"Have an account?"}
-                    </Link>
+                  <Field
+                    as={TextField}
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    placeholder="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                    sx={{ backgroundColor: '#eee' }}
+                  />
+                  {<span className="error">{errors.password}</span>}
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{
+                      mt: 3,
+                      mb: 2,
+                      backgroundColor: '#4253ff',
+                      fontSize: '1rem',
+                      fontFamily: 'sans-serif',
+                      height: '50px',
+                      textTransform: 'capitalize',
+                      fontWeight: '600',
+                    }}
+                  >
+                    Create account
+                  </Button>
+                  <Grid container>
+                    <Grid item>
+                      <Link href="/login" variant="body2" color="#666">
+                        {'Have an account?'}
+                      </Link>
+                    </Grid>
                   </Grid>
-                </Grid>
-               {/* </Box> */}
-              </Form>
-            )}
-          </Formik>
-        </Box>
-        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
-      </Container>
-    </ThemeProvider>
+                  {/* </Box> */}
+                </Form>
+              )}
+            </Formik>
+          </Box>
+          {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
+        </Container>
+      </ThemeProvider>
     </div>
   )
 }

@@ -70,13 +70,16 @@ export const Cards = () => {
       <div className='cards card3'>
         <div className='card-number-circle'>3</div>
         <div className='cards-left-box-container'>
-          <h1>Hello text 3</h1>
+          <h1>Work Together</h1>
+          <h1>
+              Work with your friends and family and create together your unique design
+            </h1>
           
         </div>
         <div className='cards-right-box-container'>
           {/* <Parallax scale={[0.9, 1]}> */}
           <img
-            src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654107371/Teaser-webify_iqc8pq.jpg'
+            src='https://res.cloudinary.com/dgxe7pqxa/image/upload/c_scale,w_427/v1654467936/cursorswebify_oxmqie.jpg'
             alt=''
           />
 
@@ -89,13 +92,14 @@ export const Cards = () => {
         <div className='card-number-circle'>4</div>
         <div className='cards-left-box-container'>
           <img
-            src='https://res.cloudinary.com/do0lvumuv/image/upload/v1654112005/Screenshot_16_wj1znr.jpg'
+            src='https://res.cloudinary.com/dgxe7pqxa/image/upload/v1654469152/Hnet.com-image_iaerfs.jpg'
             alt=''
           />
           {/* <div className='card-shadow'></div> */}
         </div>
         <div className='cards-right-box-container'>
-          <h1>Hello text 4</h1>
+          <h1>Dashboard</h1>
+          <h1>Get advanced statictics on each of your published websites</h1>
         </div>
       </div>
     </div>

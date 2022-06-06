@@ -6,7 +6,7 @@ header {
 }
 .app-header {
   z-index: 15;
-  padding: 0 3.6rem;
+  padding: 0 0.5rem;
   height: 70px;
   // background-color: $accent-color;
   color: $main-color;
@@ -102,6 +102,12 @@ header {
       background-color: rgb(41, 24, 47);
       color: rgb(203, 231, 242);
     }
+  }
+
+  @media screen and (min-width: '450px') {
+     &.app-header{
+        padding: 0 3.6rem;
+      }
   }
 
   @media screen and (min-width: '1200px') {

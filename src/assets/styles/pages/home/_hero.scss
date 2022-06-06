@@ -44,6 +44,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+      padding-inline-start: 0.5rem;
+      padding-inline-end: 0.5rem;
     }
     h1 {
       font-family: Pensum;
@@ -280,6 +282,7 @@
         align-items: center;
         height: 550px;
         position: unset;
+        padding: unset;
         .hero-text {
           text-align: center;
           align-items: center;
@@ -326,6 +329,16 @@
     .wap-teasers-container {
       & > h1 {
         padding: 0 2.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .home {
+    & .teaser-container {
+      & .img-container {
+        padding: 0 0.5rem;
       }
     }
   }

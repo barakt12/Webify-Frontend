@@ -104,6 +104,9 @@
   & .img-container {
     z-index: 1;
     margin-top: 80px;
+    img{
+      width: 100%;
+    }
   }
   & .main-hero-container {
     display: flex;
@@ -172,7 +175,9 @@
       flex-direction: column;
       align-items: center;
       padding-inline-start: 5rem;
-      max-width: 420px;
+      // no layout - advise of shahaf
+      // max-width: 420px;
+      padding-inline-end: 5rem;
       align-self: flex-start;
 
       &.mobile-layout,
@@ -280,7 +285,9 @@
       flex-direction: column;
       align-items: center;
       padding-inline-end: 5rem;
-      max-width: 420px;
+      // no layout - advise of shahaf
+      // max-width: 420px;
+      padding-inline-start: 5rem;
       align-self: flex-end;
 
       &.mobile-layout,
@@ -341,7 +348,7 @@
     justify-content: flex-end;
     position: absolute;
     top: 0;
-    padding-top: 48%;
+    padding-top: 45.44%;
 
     &.mobile-layout,
     &.tablet-layout {
@@ -490,6 +497,8 @@
       & .txt-sub-container {
         max-width: unset;
         padding-inline-start: unset;
+        padding-inline-end: unset;
+        text-align: center;
       }
     }
   }
@@ -512,6 +521,8 @@
       & .txt-sub-container {
         max-width: unset;
         padding-inline-end: unset;
+        padding-inline-start: unset;
+        text-align: center;
       }
     }
   }
