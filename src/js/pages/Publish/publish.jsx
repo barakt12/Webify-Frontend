@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router'
+import { socketService } from '../../services/socket.service'
 import { wapService } from '../../services/wap-service'
 import { DynamicCmp } from '../Editor/cmps/dynamic-cmp/dynamic-cmp'
 
@@ -17,7 +18,9 @@ export const Publish = () => {
       const currWap = await wapService.getById(wapId)
       if (!currWap.isPublished) navigate('/')
       setWap(currWap)
-      wapService.increaseViewCount(wapId)
+      const updatedWap = await wapService.increaseViewCount(wapId)
+      socketService.setup()
+      socketService.emit('dashboard update',updatedWap)
     } catch (err) {
       navigate('/')
     }

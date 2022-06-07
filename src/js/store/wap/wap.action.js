@@ -148,7 +148,18 @@ export const loadSavedWaps = () => {
   return async (dispatch) => {
     try {
       const savedWaps = await wapService.query()
+      console.log('saved waps',savedWaps)
       dispatch({ type: 'SET_SAVED_WAPS', savedWaps })
+    } catch (err) {
+      throw err
+    }
+  }
+}
+
+export const updateSavedWap = (waps) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: 'UPDATE_SAVED_WAPS', waps })
     } catch (err) {
       throw err
     }

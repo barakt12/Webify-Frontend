@@ -19,19 +19,19 @@ function deleteCmp(cmp, idx) {
   return cmp.cmps.splice(idx, 1)
 }
 
-// Duplicate Callback -- Example 2
-
-function duplicateCmp(cmp, idx) {
-  console.log(cmp, idx)
-  const newCmp = getWapCopy(cmp.cmps[idx])
-  generateNewIds(newCmp)
-  return cmp.cmps.splice(idx, 0, newCmp)
-}
 
 // Update Callback
 
 function updateCmp(cmp, idx, newCmp) {
   return cmp.cmps.splice(idx, 1, newCmp)
+}
+
+// Duplicate Callback -- Example 2
+
+function duplicateCmp(cmp, idx) {
+  const newCmp = getWapCopy(cmp.cmps[idx])
+  generateNewIds(newCmp)
+  return cmp.cmps.splice(idx, 0, newCmp)
 }
 
 // Deep clone

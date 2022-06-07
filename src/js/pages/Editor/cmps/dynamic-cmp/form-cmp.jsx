@@ -14,6 +14,9 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClas
     const initialState = {}
     formFields.map((field) => (initialState[field.name] = ''))
     setSubscriber(initialState)
+    return () => {
+      socketService.terminate()
+    }
   }, [])
 
   const onHandleChange = (ev) => {
@@ -28,8 +31,9 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClas
     socketService.setup()
     if (location.pathname.includes('/preview') || location.pathname === '/editor') return
     try {
-      await wapService.addSubscriberDetails(params.wapId, subscriber)
+      const updatedWap = await wapService.addSubscriberDetails(params.wapId, subscriber)
       socketService.emit('subscribed', params.wapId)
+      socketService.emit('dashboard update',updatedWap)
       toast.success('You are subscribed!')
     } catch (err) {
       toast.error("Could'nt send subscription!")
