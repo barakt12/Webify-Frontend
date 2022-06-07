@@ -67,10 +67,19 @@ export function SubscribersList({ subscribers }) {
           You have no subscriptions yet
         </p>
       ) : (
-        <TableContainer>
+        <TableContainer
+          sx={{
+            display: 'flex',
+            flexGrow: 1,
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+          }}
+        >
           <Table
             sx={{
-              minWidth: 650,
+              width: 'auto',
+              tableLayout: 'auto',
+              minWidth: 450,
             }}
             aria-label='Subscribers List'
           >
