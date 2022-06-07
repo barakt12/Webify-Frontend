@@ -9,6 +9,7 @@ export const heroCmp7 = {
   thumbnail: require('../../../assets/img/thumbnails/hero/wap-hero-7.JPG'),
   style: {
     // backgroundColor: '#f9db79',
+    color: '#fff',
   },
   cmps: [
     {
@@ -34,7 +35,6 @@ export const heroCmp7 = {
             txt: 'HAND CRAFTED',
           },
           style: {
-            color: 'white',
             fontSize: '2.175rem',
             fontWeight: '600',
           },
@@ -47,7 +47,6 @@ export const heroCmp7 = {
             txt: 'ICE CREAM',
           },
           style: {
-            color: 'white',
             fontSize: '5rem',
             fontWeight: '800',
           },
@@ -56,7 +55,6 @@ export const heroCmp7 = {
           type: 'btn',
           id: uuidv4(),
           info: {
-            color: 'white',
             txt: 'MENU',
           },
           style: {},

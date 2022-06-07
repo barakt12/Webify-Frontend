@@ -120,7 +120,7 @@
     align-items: center;
     position: absolute;
     margin-top: 200px;
-    color: white;
+    // color: white;
     z-index: 5;
     text-align: center;
     & .sub-header {
@@ -138,7 +138,9 @@
       width: 130px;
       margin-top: 20px;
       background-color: transparent;
-      color: white;
+      // color: white;
+
+      color: inherit;
       font-size: 1.3rem;
       border: 2px solid;
       font-weight: 600;
