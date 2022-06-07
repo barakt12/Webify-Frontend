@@ -6,6 +6,7 @@ import { loadSavedWaps } from '../../store/wap/wap.action'
 import { toast } from 'react-toastify'
 import DashboardSideMenu from './cmps/dashboard-side-menu'
 import { useNavigate } from 'react-router'
+import { AppFooter } from '../../cmps/app-footer'
 
 export const Dashboard = () => {
   const dispatch = useDispatch()
@@ -36,16 +37,18 @@ export const Dashboard = () => {
     toast.success('Deleted Successfully')
   }
   return (
-    <section className="main-dashboard-container">
+    <section className='main-dashboard-container'>
       <DashboardSideMenu onSelectWapToDisplay={onSelectWapToDisplay} />
-      <section className="profile-page">
-        <div className="template-page-intro">
+      <section className='profile-page'>
+        <div className='template-page-intro'>
           <h2>Hi, Welcome back</h2>
         </div>
         {!savedWaps && <p>Please login to see your websites!</p>}
-        {savedWaps && !savedWaps.length && <p>You havent created websites yet</p>}
+        {savedWaps && !savedWaps.length && (
+          <p>You havent created websites yet</p>
+        )}
         {currWap && (
-          <section className="dashboard-container">
+          <section className='dashboard-container'>
             <DashboardPreview
               key={currWap._id}
               wap={currWap}

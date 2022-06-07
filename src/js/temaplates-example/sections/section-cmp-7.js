@@ -59,7 +59,7 @@ export const sectionCmp7 = {
                 txt: `Established in 2013, Gelato is a hand-crafted gelato shop by the sea. Our philosophy is to offer an original, amazing and delicious ice cream experience to our customers. We pride ourselves on using fresh and natural ingredients that are responsibly sourced from farmers around the world.`,
               },
               style: {
-                fontSize: '0.9rem',
+                fontSize: '1.3rem',
                 fontFamily: 'Pensum',
                 fontWeight: 400,
               },

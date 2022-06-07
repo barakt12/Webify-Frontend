@@ -52,7 +52,7 @@ export const thirdSectionCmp7 = {
                 txt: `We invite you to join us on our adventure. Handmade gelato ice cream that is the perfect treat, any time of year. If you're in town and want a real taste of Italy, stop by our shop by the sea!`,
               },
               style: {
-                fontSize: '0.9rem',
+                fontSize: '1.3rem',
                 fontFamily: 'Pensum',
                 fontWeight: 400,
               },

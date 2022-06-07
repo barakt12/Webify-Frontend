@@ -13,12 +13,17 @@ function findCmp(parentCmp, cmp, cb) {
   }
 }
 
-// Delete Callback -- Example 1
+// Execution
 
-function deleteCmp(cmp, idx) {
-  return cmp.cmps.splice(idx, 1)
+wapService.findCmp(wap, cmp, duplicateCmp)
+
+// Duplicate Callback
+
+function duplicateCmp(cmp, idx) {
+  const duplicateCmp = getCmpCopy(cmp.cmps[idx])
+  generateNewIds(duplicateCmp)
+  return cmp.cmps.splice(idx, 0, duplicateCmp)
 }
-
 
 // Update Callback
 
@@ -26,16 +31,40 @@ function updateCmp(cmp, idx, newCmp) {
   return cmp.cmps.splice(idx, 1, newCmp)
 }
 
-// Duplicate Callback -- Example 2
+// Delete Callback 
 
-function duplicateCmp(cmp, idx) {
-  const newCmp = getWapCopy(cmp.cmps[idx])
-  generateNewIds(newCmp)
-  return cmp.cmps.splice(idx, 0, newCmp)
+function deleteCmp(cmp, idx) {
+  return cmp.cmps.splice(idx, 1)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Deep clone
 
-function getWapCopy(wap) {
-  return JSON.parse(JSON.stringify(wap))
+function getCmpCopy(cmp) {
+  return JSON.parse(JSON.stringify(cmp))
 }
+
