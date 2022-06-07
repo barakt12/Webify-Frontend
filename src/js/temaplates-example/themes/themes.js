@@ -5,6 +5,7 @@ export const themes = [
     id: uuidv4(),
     name: 'Business',
     description: 'Nifty & sophisticated',
+    fontFamily: 'Forum',
     colors: {
       primary: {
         backgroundColor: '#11999E',
@@ -27,6 +28,7 @@ export const themes = [
     id: uuidv4(),
     name: 'Vivid',
     description: 'Bright & Expressive',
+    fontFamily: 'Playfair',
     colors: {
       primary: {
         backgroundColor: '#F47C7C',
@@ -49,6 +51,7 @@ export const themes = [
     id: uuidv4(),
     name: 'Creamy',
     description: 'Neutral & Serene',
+    fontFamily: 'Oswald',
     colors: {
       primary: {
         backgroundColor: '#628C67',
@@ -62,6 +65,30 @@ export const themes = [
       },
       third: {
         backgroundColor: '#ED6C5C',
+        color: '#fff',
+        fill: '#fff',
+      },
+    },
+  },
+  {
+    id: uuidv4(),
+    name: 'Earthy',
+    description: 'Subtle & Natural',
+
+    colors: {
+      primary: {
+        backgroundColor: '#F8ECD1',
+        // backgroundColor: '#EC994B',
+        color: '#000',
+        fill: '#000',
+      },
+      secondary: {
+        backgroundColor: '#DEB6AB',
+        color: '#000',
+        fill: '#000',
+      },
+      third: {
+        backgroundColor: '#AC7D88',
         color: '#fff',
         fill: '#fff',
       },
@@ -87,29 +114,6 @@ export const themes = [
         backgroundColor: '#97ADED',
         color: '#000',
         fill: '#000',
-      },
-    },
-  },
-  {
-    id: uuidv4(),
-    name: 'Earthy',
-    description: 'Subtle & Natural',
-    colors: {
-      primary: {
-        backgroundColor: '#F8ECD1',
-        // backgroundColor: '#EC994B',
-        color: '#000',
-        fill: '#000',
-      },
-      secondary: {
-        backgroundColor: '#DEB6AB',
-        color: '#000',
-        fill: '#000',
-      },
-      third: {
-        backgroundColor: '#AC7D88',
-        color: '#fff',
-        fill: '#fff',
       },
     },
   },
@@ -141,7 +145,6 @@ export const themes = [
         backgroundColor: '#C6CCCA',
         color: '#000',
         fill: '#000',
-        
       },
       secondary: {
         backgroundColor: '#F8F4F1',
