@@ -355,13 +355,15 @@
   flex-grow: 1;
   flex-direction: column;
   display: flex;
-  justify-content: center;
   max-width: 1500px;
   padding: 0 2rem 40px 2rem;
   margin: 0 auto;
 
-  p {
+  & > p {
     text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 20%;
   }
 }
 
