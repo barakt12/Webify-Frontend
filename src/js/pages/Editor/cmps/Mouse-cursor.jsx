@@ -1,13 +1,7 @@
 import NavigationIcon from '@mui/icons-material/Navigation'
-import { socketService } from '../../../services/socket.service'
-import { utilService } from '../../../services/util.service'
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router'
 
 
 export const MouseCursor = ({ mouse }) => {
-  // console.log('mouse', mouse)
   return (
     <div
       style={{
@@ -24,10 +18,12 @@ export const MouseCursor = ({ mouse }) => {
           height: '90%',
           width: '90%',
           fill: mouse.color,
+          stroke: 'black',
+          strokeWidth: '0.8px',
           transform: 'rotate(-30deg)',
         }}
       />
-      <p style={{ textAlign: 'center', color: mouse.color }}>{mouse.user}</p>
+      <p style={{ textAlign: 'center', color: mouse.color,WebkitTextStroke: '0.5px black' }}>{mouse.user}</p>
     </div>
   )
 }
