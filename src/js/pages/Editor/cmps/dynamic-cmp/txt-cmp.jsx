@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { useLocation } from 'react-router-dom'
-import { updateCmp } from '../../../../store/wap/wap.action'
+import { saveToHistory, updateCmp } from '../../../../store/wap/wap.action'
 
 export function TxtCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass }) {
   const [isEditable, setIsEditable] = useState(true)
@@ -14,6 +14,7 @@ export function TxtCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass
   }, [])
 
   function handleClickOutside(ev) {
+    dispatch(saveToHistory())
     if (txtRef.current && !txtRef.current.contains(ev.target)) {
       txtRef.current.blur()
       document.removeEventListener('mousedown', handleClickOutside)
