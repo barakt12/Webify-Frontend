@@ -1,0 +1,9 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 1463 1241" xml:space="preserve" class="production"><style>#items &gt; * {transition: fill 0.2s, fill-opacity 0.2s, stroke 0.2s, stroke-opacity 0.2s;cursor: pointer;}body {margin:0;padding:0;}
+/**/
+#items &gt; #polygon-1{fill:#949494;fill-opacity:0.28;stroke:none;stroke-opacity:0.50}
+#items &gt; #polygon-1:hover{fill:#8c8c8c;fill-opacity:0.46;stroke:none;stroke-opacity:0.5}
+#items &gt; #polygon-1.active{fill:#06d79d;fill-opacity:0.6;stroke:none;stroke-opacity:0.75}
+
+#items &gt; #polygon-2{fill:#949494;fill-opacity:0.28;stroke:none;stroke-opacity:0.50}
+#items &gt; #polygon-2:hover{fill:#8c8c8c;fill-opacity:0.46;stroke:none;stroke-opacity:0.5}
+#items &gt; #polygon-2.active{fill:#06d79d;fill-opacity:0.6;stroke:none;stroke-opacity:0.75}</style><image overflow="visible" width="1463" height="1241" xlink:href="https://res.cloudinary.com/do0lvumuv/image/upload/v1654197766/Screenshot_18_sug909.jpg"></image><g id="items" class=""><polygon id="polygon-1" points=" 496.91,426.12 1078.42,427.54 1080.79,645.22 494.72,643.85" transform="translate(0,0) scale(1,1)"></polygon><polygon id="polygon-2" points=" 158.38,54.99 325.31,56.15 324.14,98.18 158.38,98.18" transform="translate(4.67,-53.70) scale(1,1)"></polygon></g><script id="data-script" type="text/javascript">var pictogon_image_data = '{"id":null,"#polygon-1":{"click":"","hover":"tooltip","link":"http://","title":"","content":"%3Cdiv%3EClick%20on%20elements%20to%20select%20and%20edit%20them%3Cdiv%3E%3C/div%3E%3C/div%3E","target":"_blank"},"#polygon-2":{"click":"","hover":"tooltip","link":"http://","title":"","content":"Change%20editor%20size%20to%20design%20for%20all%20screen%20sizes%3Cdiv%3E%3C/div%3E","target":"_blank"}}';</script><g id="board"></g></svg>
