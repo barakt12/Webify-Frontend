@@ -36,7 +36,7 @@ export const formCmp7 = {
             txt: '500 Terry Francois St. San Francisco, CA 94158',
           },
           style: {
-            fontSize: '0.875rem',
+            fontSize: '1rem',
           },
           cmps: [],
         },
@@ -67,7 +67,7 @@ export const formCmp7 = {
             txt: 'info@mysite.com Tel: 123-456-7890',
           },
           style: {
-            fontSize: '0.875rem',
+            fontSize: '1rem',
           },
           cmps: [],
         },
@@ -98,7 +98,7 @@ export const formCmp7 = {
             txt: 'OPEN DAILY 10AM-10PM',
           },
           style: {
-            fontSize: '0.875rem',
+            fontSize: '1rem',
           },
           cmps: [],
         },

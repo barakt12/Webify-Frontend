@@ -17,46 +17,57 @@ export const Templates = () => {
   }
 
   return (
-    <section className="main-template-container">
-      <div className="template-page-intro">
+    <section className='main-template-container'>
+      <div className='template-page-intro'>
         <h2>Choose how to start building your site</h2>
       </div>
-      <section className="templates-container">
+      <section className='templates-container'>
         <div>
-          <div className="template-hover-info-container create-new">
-            <p className="blank-label">BLANK</p>
-            <div className="create-new-info-container">
-              <p>Start from a blank canvas — and build exactly what you have in mind.</p>
-              <div className="template-hover-btns-container">
-                <Link className="template-select-btn" to="/editor">
-                  <button onClick={() => onSelectTemplate('blank')}>Select</button>
+          <div className='template-hover-info-container create-new'>
+            <p className='blank-label'>BLANK</p>
+            <div className='create-new-info-container'>
+              <p>
+                Start from a blank canvas — and build exactly what you have in
+                mind.
+              </p>
+              <div className='template-hover-btns-container'>
+                <Link className='template-select-btn' to='/editor'>
+                  <button onClick={() => onSelectTemplate('blank')}>
+                    Select
+                  </button>
                 </Link>
               </div>
             </div>
           </div>
           <hr />
-          <div className="template-info-container">
-            <p className="info-template-name">Create a blank site</p>
+          <div className='template-info-container'>
+            <p className='info-template-name'>Create a site from scratch</p>
           </div>
         </div>
         {templatePreviews.map((preview) => (
           <div key={preview.id} className={preview.id}>
-            <div className="template-hover-info-container">
+            <div className='template-hover-info-container'>
               <p>{preview.info.description}</p>
-              <div className="template-hover-btns-container">
-                <Link to={`/preview/${preview.id}`} target="_blank" className="template-preview-btn">
+              <div className='template-hover-btns-container'>
+                <Link
+                  to={`/preview/${preview.id}`}
+                  target='_blank'
+                  className='template-preview-btn'
+                >
                   <button>Preview</button>
                 </Link>
-                <Link className="template-select-btn" to="/editor">
-                  <button onClick={() => onSelectTemplate(preview.id)}>Select</button>
+                <Link className='template-select-btn' to='/editor'>
+                  <button onClick={() => onSelectTemplate(preview.id)}>
+                    Select
+                  </button>
                 </Link>
               </div>
             </div>
-            <img src={preview.info.img} alt="" />
+            <img src={preview.info.img} alt='' />
             <hr />
-            <div className="template-info-container">
-              <p className="info-template-name">{preview.info.name}</p>
-              <p className="info-template-category">{preview.info.category}</p>
+            <div className='template-info-container'>
+              <p className='info-template-name'>{preview.info.name}</p>
+              <p className='info-template-category'>{preview.info.category}</p>
             </div>
           </div>
         ))}

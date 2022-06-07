@@ -62,7 +62,6 @@ function deleteCmp(cmp, idx) {
 }
 
 function duplicateCmp(cmp, idx) {
-  console.log(cmp, idx)
   const newCmp = getWapCopy(cmp.cmps[idx])
   generateNewIds(newCmp)
   return cmp.cmps.splice(idx, 0, newCmp)

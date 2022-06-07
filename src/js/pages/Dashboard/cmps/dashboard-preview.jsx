@@ -56,11 +56,13 @@ export function DashboardPreview({
           Edit
         </button>
         {wap.isPublished ? (
-          <button className='visit-publish'>
-            <Link to={`/publish/${wap._id}`} target='_blank'>
-              Visit
-            </Link>
-          </button>
+          <Link
+            to={`/publish/${wap._id}`}
+            target='_blank'
+            className='visit-publish'
+          >
+            <button>Visit</button>
+          </Link>
         ) : (
           <button
             className='visit-publish'

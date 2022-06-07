@@ -319,6 +319,10 @@
       font-size: 1.8rem;
     }
   }
+
+  @media screen and (max-width: '500px') {
+    padding-bottom: 10px;
+  }
 }
 
 .save-publish {

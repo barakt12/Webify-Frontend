@@ -9,6 +9,7 @@ export const secondSectionCmp7 = {
   id: uuidv4(),
   style: {
     backgroundColor: '#b5e8d5',
+    color: '#fff',
   },
   cmps: [
     {
@@ -26,8 +27,7 @@ export const secondSectionCmp7 = {
           style: {
             fontSize: '2.175rem',
             letterSpacing: '0.05rem',
-            color: 'white',
-            fontWeight: 600
+            fontWeight: 600,
           },
         },
         {
@@ -40,8 +40,7 @@ export const secondSectionCmp7 = {
           style: {
             fontSize: '5rem',
             letterSpacing: '2rem',
-            color: 'white',
-            fontWeight: 800
+            fontWeight: 800,
           },
         },
         {
@@ -50,9 +49,7 @@ export const secondSectionCmp7 = {
           info: {
             txt: 'MENU',
           },
-          style: {
-            color: 'white',
-          },
+          style: {},
         },
       ],
     },

@@ -15,13 +15,18 @@ export function wapReducer(state = initialState, action) {
       return {
         ...state,
         wap: { ...action.wap },
-        history: [...state.history, state.wap],
       }
     case 'UNDO_WAP':
       return {
         ...state,
         wap: { ...action.wap },
-        history: [...action.history],
+        history: action.history,
+      }
+    case 'SAVE_HISTORY':
+      const wapCopy = JSON.parse(JSON.stringify(state.wap))
+      return {
+        ...state,
+        history: [...state.history, wapCopy],
       }
     case 'SET_SAVED_WAPS':
       return { ...state, savedWaps: action.savedWaps }
