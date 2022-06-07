@@ -26,6 +26,8 @@ export function wapReducer(state = initialState, action) {
     case 'SET_SAVED_WAPS':
       return { ...state, savedWaps: action.savedWaps }
 
+    case 'UPDATE_SAVED_WAPS':
+      return { ...state, savedWaps: action.waps }
     case 'REMOVE_WAP':
       return {
         ...state,

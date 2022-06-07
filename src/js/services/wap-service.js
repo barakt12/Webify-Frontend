@@ -121,6 +121,7 @@ async function addSubscriberDetails(wapId, details) {
   if (!wapId) return
   return await httpService.put(`wap/${wapId}/newSubscriber`, details)
 }
+
 async function publishWap(wap) {
   return await httpService.post(`wap/publish`, wap)
   // return await httpService.put(`wap/${wap._id}/publish`)
