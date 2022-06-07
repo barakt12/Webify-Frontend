@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { updateWap } from '../../../../../store/wap/wap.action'
+import { saveToHistory, updateWap } from '../../../../../store/wap/wap.action'
 import { ThemePreview } from './theme-preview'
 
 export const SidebarTheme = ({ themeList }) => {

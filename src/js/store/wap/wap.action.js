@@ -101,9 +101,10 @@ export const undoWap = () => {
   return async (dispatch, getState) => {
     try {
       const history = JSON.parse(JSON.stringify(getState().wapModule.history))
-      if (history.length < 2) return
-      history.pop()
+      if (!history.length) return
       const lastWapState = history[history.length - 1]
+      if (!lastWapState.cmps.length) return
+      history.pop()
       wapService.saveToDraft(lastWapState)
       dispatch({ type: 'UNDO_WAP', wap: lastWapState, history })
       socketService.emit('wap update', lastWapState)
@@ -148,7 +149,7 @@ export const loadSavedWaps = () => {
   return async (dispatch) => {
     try {
       const savedWaps = await wapService.query()
-      console.log('saved waps',savedWaps)
+      console.log('saved waps', savedWaps)
       dispatch({ type: 'SET_SAVED_WAPS', savedWaps })
     } catch (err) {
       throw err
