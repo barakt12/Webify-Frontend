@@ -3,7 +3,6 @@ import { templatePreviews } from '../../temaplates-example/preview/template-prev
 import { useDispatch } from 'react-redux'
 import { loadTemplate } from '../../store/wap/wap.action'
 import { Link } from 'react-router-dom'
-import { AppFooter } from '../../cmps/app-footer'
 
 export const Templates = () => {
   const dispatch = useDispatch()
@@ -42,7 +41,7 @@ export const Templates = () => {
           </div>
           <hr />
           <div className='template-info-container'>
-            <p className='info-template-name'>Create a blank site</p>
+            <p className='info-template-name'>Create a site from scratch</p>
           </div>
         </div>
         {templatePreviews.map((preview) => (

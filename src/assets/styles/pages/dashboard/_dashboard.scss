@@ -66,14 +66,10 @@
         font-weight: 700;
         cursor: pointer;
         transition: 0.4s;
-
-        &.visit-publish {
-          background-color: #f07147;
-          color: #fff;
-
-          &:hover {
-            background-color: #e56135;
-          }
+        background-color: #f07147;
+        color: #fff;
+        &:hover {
+          background-color: #e56135;
         }
 
         &.edit {
