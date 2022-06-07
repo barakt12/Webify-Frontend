@@ -41,7 +41,6 @@ export const setWap = (wap) => {
 export const updateCmp = (updatedCmp) => {
   return async (dispatch, getState) => {
     try {
-      console.log(getState().wapModule.wap)
       let wap = JSON.parse(JSON.stringify(getState().wapModule.wap))
       wapService.findCmp(wap, updatedCmp, wapService.updateCmp)
       wapService.saveToDraft(wap)

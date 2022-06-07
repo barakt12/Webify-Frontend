@@ -11,6 +11,7 @@ export const SidebarTheme = ({ themeList }) => {
   }
 
   const setTheme = (wap, { colors, fontFamily }) => {
+    dispatch(saveToHistory())
     wap = JSON.parse(JSON.stringify(wap))
     wap.cmps.forEach((cmp) => {
       cmp.style = { ...cmp.style, ...colors[cmp.themePalette], fontFamily }
@@ -24,13 +25,7 @@ export const SidebarTheme = ({ themeList }) => {
       {/* <h3 className='sidebar-action-text'>Choose a theme</h3> */}
 
       {themeList.map((theme) => {
-        return (
-          <ThemePreview
-            key={theme.id}
-            theme={theme}
-            onSelectTheme={onSelectTheme}
-          />
-        )
+        return <ThemePreview key={theme.id} theme={theme} onSelectTheme={onSelectTheme} />
       })}
     </>
   )
