@@ -6,7 +6,8 @@ export const headerCmp7 = {
   category: 'header',
   themePalette: 'primary',
   id: uuidv4(),
-  thumbnail: require('../../../assets/img/thumbnails/header/wap-header-7.JPG'),
+  thumbnail:
+  require('../../../assets/img/thumbnails/header/wap-header-7.JPG'),
   style: {
     backgroundColor: '#f9db79',
   },

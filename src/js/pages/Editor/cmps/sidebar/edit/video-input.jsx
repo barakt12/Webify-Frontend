@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateCmp } from '../../../../../store/wap/wap.action'
+import { saveToHistory, updateCmp } from '../../../../../store/wap/wap.action'
 
 export function VideoInput({ cmp }) {
   const [url, setUrl] = useState(cmp.info.videoUrl)
@@ -11,6 +11,7 @@ export function VideoInput({ cmp }) {
   }, [cmp])
 
   const onChangeUrl = (ev) => {
+    dispatch(saveToHistory())
     setUrl(ev.target.value)
     cmp.info.videoUrl = ev.target.value
     dispatch(updateCmp(cmp))

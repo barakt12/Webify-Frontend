@@ -25,7 +25,7 @@ export function ImageUrl({ imgUrl, cb }) {
     <div className="img-input-container">
       <input type="text" placeholder="Enter image url.." value={url} onChange={onChangeUrl} />
       <img src={url} alt="" />
-      <input type="file" id="img-input" onChange={loadImageFromInput} accept="image/jpeg, image/png, image/jpg"></input>
+      <input type="file" id="img-input" className="img-input" onChange={loadImageFromInput} accept="image/jpeg, image/png, image/jpg"></input>
       <label htmlFor="img-input">
         <CloudUploadIcon style={{ fontSize: '1.7rem', fill: '#767676' }} />
         <span>Upload</span>
