@@ -24,15 +24,28 @@
 
     .wap-info-display {
       display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      grid-template-rows: 40px 240px 0.9fr 1.5fr;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 40px 242px 242px 340px 1fr 1fr;
       grid-template-areas:
-        'wap-published wap-published wap-published wap-published . wap-btns wap-btns wap-btns'
-        'wap-name wap-name total-subs total-subs total-views total-views date date'
-        'sub-list sub-list sub-list sub-list sub-list conversion-rate conversion-rate conversion-rate'
-        'view-chart view-chart view-chart view-chart view-chart view-chart view-chart view-chart';
-      gap: 25px;
-      background-color: rgb(249, 250, 251);
+        'wap-published wap-published wap-btns wap-btns'
+        'wap-name wap-name total-views total-views'
+        'total-subs total-subs date date'
+        'conversion-rate conversion-rate conversion-rate conversion-rate'
+        'sub-list sub-list sub-list sub-list'
+        'view-chart view-chart view-chart view-chart';
+      gap: 15px;
+      @media screen and (min-width: '1200px') {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: 40px 240px 0.9fr 1.5fr;
+        grid-template-areas:
+          'wap-published wap-published wap-published wap-published . wap-btns wap-btns wap-btns'
+          'wap-name wap-name total-subs total-subs total-views total-views date date'
+          'sub-list sub-list sub-list sub-list sub-list conversion-rate conversion-rate conversion-rate'
+          'view-chart view-chart view-chart view-chart view-chart view-chart view-chart view-chart';
+        gap: 25px;
+        background-color: rgb(249, 250, 251);
+      }
     }
 
     .wap-btns-container {
@@ -215,6 +228,9 @@
 
   .subscribers-list {
     grid-area: sub-list;
+    min-height: 438px;
+    display: flex;
+    flex-direction: column;
     width: 100%;
   }
 
@@ -323,6 +339,14 @@
     display: flex;
     align-self: flex-start;
     justify-content: space-between;
+    h2 {
+      padding-left: 30px;
+    }
+    @media screen and (min-width: '1200px') {
+      & h2 {
+        padding-left: unset;
+      }
+    }
   }
 }
 
@@ -333,8 +357,8 @@
   display: flex;
   justify-content: center;
   max-width: 1500px;
-  margin: auto;
   padding: 0 2rem 40px 2rem;
+  margin: 0 auto;
 
   p {
     text-align: center;
@@ -349,4 +373,12 @@
   box-shadow: rgb(145 158 171 / 20%) 0px 3px 1px -2px,
     rgb(145 158 171 / 14%) 0px 2px 2px 0px,
     rgb(145 158 171 / 12%) 0px 1px 5px 0px !important;
+}
+
+.MuiBackdrop-root.css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
+  background: linear-gradient(
+    75deg,
+    rgba(22, 28, 36, 0.48) 0%,
+    rgb(22, 28, 36) 100%
+  );
 }

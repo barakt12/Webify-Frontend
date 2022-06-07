@@ -47,7 +47,7 @@ export function DashboardPreview({
         <ErrorIcon />
         <h3>
           {wap.isPublished
-            ? 'This is site published'
+            ? 'This site is published'
             : "This site isn't published yet"}
         </h3>
       </div>
