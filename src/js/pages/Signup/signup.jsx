@@ -31,13 +31,12 @@ export const SignUp = () => {
   const onSignup = async (cred) => {
     try {
       const user = await userService.signup(cred)
-      console.log(user)
+      
       dispatch(setUser(user))
       toast.success('Signed up Successfully!')
       navigate('/')
     } catch (error) {
       toast.error(error.response.data.err)
-      console.log(error.response.data.err)
     }
   }
 

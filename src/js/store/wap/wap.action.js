@@ -149,7 +149,6 @@ export const loadSavedWaps = () => {
   return async (dispatch) => {
     try {
       const savedWaps = await wapService.query()
-      console.log('saved waps', savedWaps)
       dispatch({ type: 'SET_SAVED_WAPS', savedWaps })
     } catch (err) {
       throw err
@@ -170,7 +169,9 @@ export const updateSavedWap = (waps) => {
 export const selectWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const selectedWap = getState().wapModule.savedWaps.find((wap) => wap._id === id)
+      const selectedWap = getState().wapModule.savedWaps.find(
+        (wap) => wap._id === id
+      )
       dispatch({ type: 'SET_WAP', wap: selectedWap })
     } catch (err) {}
   }
@@ -181,7 +182,7 @@ export const setCollabMode = (isCollabMode) => {
     try {
       dispatch({ type: 'SET_WORKING_STATE', isCollabMode })
     } catch (err) {
-      console.log(err)
+      throw err
     }
   }
 }
@@ -189,7 +190,9 @@ export const setCollabMode = (isCollabMode) => {
 export const publishWap = (id) => {
   return async (dispatch, getState) => {
     try {
-      const wap = id ? getState().wapModule.savedWaps.find((wap) => wap._id === id) : getState().wapModule.wap
+      const wap = id
+        ? getState().wapModule.savedWaps.find((wap) => wap._id === id)
+        : getState().wapModule.wap
       const user = getState().userModule.user
       if (!user) {
         throw new Error('You have to login to publish')

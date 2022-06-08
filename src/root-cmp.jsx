@@ -22,14 +22,25 @@ export function App() {
   }, [user])
 
   return (
-    <div className="app">
+    <div className='app'>
       <AppHeader />
       <Routes>
         {routes.map((route, idx) => (
           <Route key={idx} path={route.path} element={<route.component />} />
         ))}
       </Routes>
-      <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss={false} draggable pauseOnHover={false} theme={'dark'} />
+      <ToastContainer
+        position='bottom-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme={'dark'}
+      />
     </div>
   )
 }

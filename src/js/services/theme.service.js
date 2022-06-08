@@ -7,13 +7,13 @@ const getThemes = () => {
   return themes
 }
 
-const getThemeByCategory = (category) => {
-  console.log(themes)
-  console.log(themes[category])
-  // return themes[category]
-}
+// const getThemeByCategory = (category) => {
+//   console.log(themes)
+//   console.log(themes[category])
+//   // return themes[category]
+// }
 
 export const themeService = {
   getThemes,
-  getThemeByCategory,
+  // getThemeByCategory,
 }

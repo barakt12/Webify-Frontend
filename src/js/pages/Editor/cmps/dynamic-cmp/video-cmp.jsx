@@ -18,6 +18,5 @@ export function VideoCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayCla
 
 function getVideoId(videoUrl) {
   const idx = videoUrl.split('').findIndex((char) => char === '=')
-  // console.log(idx);
   return videoUrl.substring(idx + 1)
 }

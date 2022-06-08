@@ -39,7 +39,7 @@ async function remove(wapId) {
   try {
     await httpService.delete(`wap/${wapId}`)
   } catch (err) {
-    console.log(err)
+    throw err
   }
 }
 

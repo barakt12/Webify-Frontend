@@ -5,17 +5,27 @@ import { useParams } from 'react-router'
 import { socketService } from '../../../../services/socket.service'
 import { toast } from 'react-toastify'
 
-export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClass }) {
+export function FormCmp({
+  cmp,
+  onHoverCmp,
+  selectedCmp,
+  onSelectCmp,
+  displayClass,
+}) {
   const [subscriber, setSubscriber] = useState()
   const location = useLocation()
   const params = useParams()
   useEffect(() => {
+    // if (location.pathname.includes('/publish')) {
+    //   socketService.setup()
+    // }
     const { formFields } = cmp.info
     const initialState = {}
     formFields.map((field) => (initialState[field.name] = ''))
     setSubscriber(initialState)
     return () => {
-      socketService.terminate()
+      // if (!location.pathname.includes('/publish')) return
+      // socketService.terminate()
     }
   }, [])
 
@@ -28,12 +38,18 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClas
 
   const onSubmitForm = async (ev) => {
     ev.preventDefault()
-    socketService.setup()
-    if (location.pathname.includes('/preview') || location.pathname === '/editor') return
+    if (
+      location.pathname.includes('/preview') ||
+      location.pathname === '/editor'
+    )
+      return
     try {
-      const updatedWap = await wapService.addSubscriberDetails(params.wapId, subscriber)
+      const updatedWap = await wapService.addSubscriberDetails(
+        params.wapId,
+        subscriber
+      )
       socketService.emit('subscribed', params.wapId)
-      socketService.emit('dashboard update',updatedWap)
+      socketService.emit('dashboard update', updatedWap)
       toast.success('You are subscribed!')
     } catch (err) {
       toast.error("Could'nt send subscription!")
@@ -43,7 +59,9 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClas
   return (
     <form
       style={cmp.style}
-      className={`${selectedCmp?.id === cmp.id ? 'selected' : ''} ${displayClass} ${cmp.name}`}
+      className={`${
+        selectedCmp?.id === cmp.id ? 'selected' : ''
+      } ${displayClass} ${cmp.name}`}
       onMouseOut={(ev) => ev.currentTarget.classList.remove('hover')}
       onMouseOver={(ev) => onHoverCmp(ev)}
       onClick={(ev) => onSelectCmp(ev, cmp)}
@@ -53,15 +71,33 @@ export function FormCmp({ cmp, onHoverCmp, selectedCmp, onSelectCmp, displayClas
         if (field.type === 'textarea')
           return (
             <label key={idx}>
-              {field.label || !location.pathname.includes('/preview') || !location.pathname.includes('/publish') ? field.label : 'Edit me in the side bar'}
-              <textarea name={field.name} onChange={onHandleChange} rows={field.rows} placeholder={field.placeholder}></textarea>
+              {field.label ||
+              !location.pathname.includes('/preview') ||
+              !location.pathname.includes('/publish')
+                ? field.label
+                : 'Edit me in the side bar'}
+              <textarea
+                name={field.name}
+                onChange={onHandleChange}
+                rows={field.rows}
+                placeholder={field.placeholder}
+              ></textarea>
             </label>
           )
 
         return (
           <label key={idx}>
-            {field.label || location.pathname.includes('/preview') || !location.pathname.includes('/publish') ? field.label : 'Edit me in the side bar'}
-            <input type={field.input} onChange={onHandleChange} name={field.name} placeholder={field.placeholder}></input>
+            {field.label ||
+            location.pathname.includes('/preview') ||
+            !location.pathname.includes('/publish')
+              ? field.label
+              : 'Edit me in the side bar'}
+            <input
+              type={field.input}
+              onChange={onHandleChange}
+              name={field.name}
+              placeholder={field.placeholder}
+            ></input>
           </label>
         )
       })}
