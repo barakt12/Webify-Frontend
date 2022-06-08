@@ -46,7 +46,6 @@ function createSocketService() {
       socket.emit(SOCKET_EMIT_LOGIN, userId)
     },
     logout() {
-      console.log('logout')
       socket.emit(SOCKET_EMIT_LOGOUT)
     },
     terminate() {
@@ -75,7 +74,10 @@ function createDummySocketService() {
     off(eventName, cb) {
       if (!listenersMap[eventName]) return
       if (!cb) delete listenersMap[eventName]
-      else listenersMap[eventName] = listenersMap[eventName].filter((l) => l !== cb)
+      else
+        listenersMap[eventName] = listenersMap[eventName].filter(
+          (l) => l !== cb
+        )
     },
     emit(eventName, data) {
       if (!listenersMap[eventName]) return

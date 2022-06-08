@@ -18,7 +18,6 @@ export function SavePublishBtns({ onSaveWap }) {
 
   const onCollab = async () => {
     if (isCollabMode) return
-    console.log('im redirecting')
     navigation(`/editor/${uuidv4()}`)
 
     try {

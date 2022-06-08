@@ -3,7 +3,7 @@ if ('serviceWorker' in navigator) {
     try {
       const reg = await navigator.serviceWorker.register('./serviceworker.js')
     } catch (err) {
-      console.log(err)
+      throw err
     }
   })
 }

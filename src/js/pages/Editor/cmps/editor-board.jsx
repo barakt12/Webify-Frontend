@@ -26,9 +26,7 @@ export const EditorBoard = ({ wap }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
-    console.log('in 1')
     if ((!wap?.name && isSaving) || (!wap?.name && isPublishing)) {
-      console.log('in 2')
       setIsModalOpen(true)
       return
     }

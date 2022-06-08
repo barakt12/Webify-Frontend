@@ -58,7 +58,8 @@ export default function DashboardSideMenu(props) {
             <ListItem
               key={index}
               onClick={() => {
-                props.onSelectWapToDisplay(wap)
+                props.onSelectWapIdxToDisplay(index)
+
                 setMobileOpen(false)
               }}
             >

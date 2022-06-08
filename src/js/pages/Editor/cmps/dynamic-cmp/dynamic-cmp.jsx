@@ -43,7 +43,6 @@ export const DynamicCmp = (props) => {
 
   const onHoverCmp = (ev) => {
     ev.stopPropagation()
-    // console.log(ev.currentTarget)
     if (
       !location.pathname.includes('/preview') &&
       !location.pathname.includes('/publish')
