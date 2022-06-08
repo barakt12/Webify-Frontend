@@ -42,7 +42,6 @@ export function Editor() {
         wap && socketService.emit('wap update', wap)
       })
       socketService.on('mouse_position_update', ({ id, pos, user, color }) => {
-        console.log(id, user)
         setConnectedMouses((prevState) => {
           const existingMouseIdx = prevState.findIndex((mouse) => mouse.id === id)
           if (existingMouseIdx < 0) {
@@ -64,7 +63,7 @@ export function Editor() {
 
     return () => {
       dispatch(setSelectedCmp(null))
-      socketService.off('send wap')
+      socketService.off('get wap')
       socketService.off('wap update')
       socketService.off('mouse_position_update')
       socketService.terminate()

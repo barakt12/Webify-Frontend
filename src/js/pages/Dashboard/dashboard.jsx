@@ -21,7 +21,6 @@ export const Dashboard = () => {
 
   useEffect(() => {
     if (!savedWaps) return
-    console.log('saved waps on dashboard',savedWaps)
     setCurrWap(savedWaps[0])
     socketService.setup()
     socketService.emit('dashboard connection', savedWaps[0]._id)
