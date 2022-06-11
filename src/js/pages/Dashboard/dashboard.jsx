@@ -23,7 +23,6 @@ export const Dashboard = () => {
   useEffect(() => {
     if (!savedWaps) return
     setCurrWap(savedWaps[currWapIdx])
-    console.log(currWapIdx)
   }, [savedWaps, currWapIdx])
 
   useEffect(() => {

@@ -13,7 +13,7 @@ export const wapTemplate7 = {
     headerCmp7,
     heroCmp7,
     sectionCmp7,
-    // secondSectionCmp7,
+    secondSectionCmp7,
     thirdSectionCmp7,
     // fourthSectionCmp7,
     cardCmp7,
