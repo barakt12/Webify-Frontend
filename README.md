@@ -1,7 +1,7 @@
 # Coding Academy Bootcamp Final Project - Made in 14 days.
-![Webify-Image](https://user-images.githubusercontent.com/67274759/173800162-b230eccc-652a-498f-a213-5bf18452ff37.jpg)
-
 [Link to Deployed App](https://ca-webify.herokuapp.com)
+
+![Webify-Image](https://user-images.githubusercontent.com/67274759/173800162-b230eccc-652a-498f-a213-5bf18452ff37.jpg)
  
 ## Built With
   * [React.js](https://reactjs.org/)
