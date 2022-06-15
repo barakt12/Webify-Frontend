@@ -1,5 +1,5 @@
 # Coding Academy Bootcamp Final Project - Made in 14 days.
-[![Webify Editor Image][webify-image]](https://github.com/barakt12/Webify-frontend)(https://res.cloudinary.com/do0lvumuv/image/upload/v1654197766/Screenshot_18_sug909.jpg))
+[![webify-image]](https://github.com/barakt12/Webify-frontend)(https://res.cloudinary.com/do0lvumuv/image/upload/v1654197766/Screenshot_18_sug909.jpg))
 
 [Link to Deployed App](https://ca-webify.herokuapp.com)
  
