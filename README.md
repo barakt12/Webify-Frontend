@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# Coding Academy Bootcamp Final Project - Made in 14 days.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Link to Deployed App](https://ca-webify.herokuapp.com)
+ 
+## Used Tech:
+  React, Redux, Express.js, Socket.io, Sass.
 
 ## Available Scripts
 
