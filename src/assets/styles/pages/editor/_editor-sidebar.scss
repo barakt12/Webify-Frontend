@@ -327,14 +327,9 @@
 
 .save-publish {
   @media screen and (min-width: 700px) {
-    flex-direction: column;
     align-items: center;
-    padding-top: 0;
-    padding-bottom: 10px;
-    position: absolute;
-    bottom: 0%;
-    left: 15px;
-    transform: translateX(-25%);
+    padding-top: 10px;
+    padding-bottom: 0px;
   }
 }
 

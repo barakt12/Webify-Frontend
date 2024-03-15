@@ -102,7 +102,7 @@ export function EditorSidebar() {
             }}
           >
             <DisplaySize />
-            {dimensions < 700 && <SavePublishBtns onSaveWap={onSaveWap} />}
+            {<SavePublishBtns onSaveWap={onSaveWap} />}
             {activeTab === 'edit' && <SidebarEdit />}
             {activeTab === 'themes' && themeList && (
               <SidebarTheme themeList={themeList} />
@@ -111,7 +111,6 @@ export function EditorSidebar() {
             {activeTab === 'add' && addCmpList && (
               <SidebarAdd addCmpList={addCmpList} />
             )}
-            {dimensions > 700 && <SavePublishBtns onSaveWap={onSaveWap} />}
           </div>
         )}
       </Droppable>
